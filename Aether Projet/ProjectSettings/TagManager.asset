@@ -11,6 +11,8 @@ TagManager:
   - Forbidden
   - Ground
   - CheckPoint
+  - Ghost
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - Water
   - UI
   - NavMesh
-  - 
-  - 
-  - 
+  - GhostLayer
+  - Environment
+  - Sword
   - 
   - 
   - 
