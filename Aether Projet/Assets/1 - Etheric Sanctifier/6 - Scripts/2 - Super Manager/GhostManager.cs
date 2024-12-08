@@ -21,6 +21,12 @@ public class GhostManager : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private Transform _target;
 
+    [Header("List of All ghost in scene")]
+    public List<Transform> allGhosts;
+
+    [Header("Max ghost in the scene")]
+    [SerializeField] private int _maxGhostInTotal = 10;
+
     private void Start()
     {
         _spawnPoints = GetAllChildren();
@@ -41,7 +47,7 @@ public class GhostManager : MonoBehaviour
 
     IEnumerator SpawnPrefabs()
     {
-        while (true)
+        while (allGhosts.Count < _maxGhostInTotal)
         {
             Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
             Vector3 spawnPosition = randomSpawnPoint.position;
@@ -51,6 +57,9 @@ public class GhostManager : MonoBehaviour
             ghostBehavior.SetTarget(_target);
             _moveSpeed = Random.Range(_moveSpeedMin, _moveSpeedMax);
             ghostBehavior.SetSpeed(_moveSpeed);
+
+            allGhosts.Add(ghostBehavior.transform);
+            ghostBehavior.SetIndexGhost(allGhosts.Count-1);
 
             yield return new WaitForSeconds(_spawnInterval);
         }
@@ -67,6 +76,20 @@ public class GhostManager : MonoBehaviour
         else
         {
             StopCoroutine(SpawnPrefabs());
+        }
+    }
+
+    public void RemoveGhostFromList(int index)
+    {
+        if(index <0)
+        {
+            index = 0;
+        }
+        allGhosts.RemoveAt(index);
+        
+        foreach(Transform t in allGhosts)
+        {
+            t.gameObject.GetComponent<Ghost>().SetIndexMinusOne();
         }
     }
 }

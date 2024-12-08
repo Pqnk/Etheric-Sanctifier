@@ -15,17 +15,29 @@ public class TutoManagerScrolls : MonoBehaviour
     [SerializeField] private GameObject[] _scrollsTuto;
     private bool _isAlreadyNext = false;
 
+    public bool istest = false;
+
     private void Start()
     {
-        _scrollsTuto = GetAllScrolls();
-        currentScroll = _scrollsTuto[_currentIndexScroll].GetComponent<Scroll>();
-        StartCoroutine(LaunchTutorial());
+        if (!istest)
+        {
+            _scrollsTuto = GetAllScrolls();
+            currentScroll = _scrollsTuto[_currentIndexScroll].GetComponent<Scroll>();
+            StartCoroutine(LaunchTutorial());
+        }
+        else
+        {
+            FinishTutorial();
+        }
     }
     private void Update()
     {
-        if (currentScroll.isLearned && !_isAlreadyNext)
+        if (!istest)
         {
-            StartCoroutine(NextScrollTutorial());
+            if (currentScroll.isLearned && !_isAlreadyNext)
+            {
+                StartCoroutine(NextScrollTutorial());
+            }
         }
     }
 
@@ -52,12 +64,15 @@ public class TutoManagerScrolls : MonoBehaviour
     public void FinishTutorial()
     {
         SuperManager.instance.ghostManager.SetCanSpawn(true);
+        SuperManager.instance.soundManager.PlaySound(SoundType.SearchingObjective, 0.5f);
+        SuperManager.instance.radarManager.ToggleRadar(true);
     }
 
     IEnumerator NextScrollTutorial()
     {
         _isAlreadyNext = true;
         _scrollsTuto[_currentIndexScroll].SetActive(false);
+        SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
 
         yield return new WaitForSeconds(2);
 

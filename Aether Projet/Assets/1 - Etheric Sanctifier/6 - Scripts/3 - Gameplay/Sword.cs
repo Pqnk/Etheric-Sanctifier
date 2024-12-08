@@ -18,6 +18,8 @@ public class Sword : MonoBehaviour
             float damage = force * damageMultiplier;
             Ghost behaviorGhost = collision.gameObject.GetComponent<Ghost>();
             behaviorGhost.LowerHealth(damage);
+
+            SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
         }
     }
 }

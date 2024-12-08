@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,11 @@ public class Ghost : MonoBehaviour
     [SerializeField] private bool _isDetected = false;
     [SerializeField] private MeshRenderer _ghostRenderer;
 
+    [Header("Index In List")]
+    [SerializeField] private int _indexInManagerList;
+
+    private bool _isAlreadyDead = false;
+
     private void Start()
     {
         _ghostRenderer = this.transform.GetChild(0).GetComponent<MeshRenderer>();
@@ -39,13 +45,22 @@ public class Ghost : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, _target.position, _moveSpeed * Time.deltaTime);
             if (Vector3.Distance(transform.position, _target.position) < 0.1f)
             {
-                Destroy(gameObject);
+                if (!_isAlreadyDead)
+                {
+                   DestroyGhost();
+                }
             }
         }
 
-        if(_timeToDisapear<=Time.time)
+        if (_timeToDisapear <= Time.time)
         {
             SetIsDetected(false);
+        }
+
+        if(_indexInManagerList < 0)
+        {
+            _indexInManagerList = 0;
+            DestroyGhost();
         }
     }
 
@@ -63,7 +78,10 @@ public class Ghost : MonoBehaviour
 
         if (_health <= 0)
         {
-            Destroy(this.gameObject);
+            if (!_isAlreadyDead)
+            {
+                DestroyGhost();
+            }
         }
     }
 
@@ -83,5 +101,23 @@ public class Ghost : MonoBehaviour
         {
             _ghostRenderer.material = _baseMat;
         }
+    }
+
+
+    private void DestroyGhost()
+    {
+        _isAlreadyDead = true;
+        SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
+        Destroy(gameObject);
+    }
+
+    public void SetIndexGhost(int newIndex)
+    {
+        _indexInManagerList = newIndex;
+    }
+
+    public void SetIndexMinusOne()
+    {
+        _indexInManagerList--;
     }
 }

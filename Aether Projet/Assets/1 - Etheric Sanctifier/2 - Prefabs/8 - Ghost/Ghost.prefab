@@ -83,6 +83,7 @@ MonoBehaviour:
   _emissiveMat: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
   _isDetected: 0
   _ghostRenderer: {fileID: 0}
+  _indexInManagerList: 0
 --- !u!65 &5641889228245277663
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,7 +94,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 499

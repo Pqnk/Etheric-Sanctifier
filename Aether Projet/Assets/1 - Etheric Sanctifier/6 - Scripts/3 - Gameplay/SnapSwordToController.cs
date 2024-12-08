@@ -11,10 +11,11 @@ public class SnapSwordToController : MonoBehaviour
         if (sword != null)
         {
             sword.transform.SetParent(this.transform);
+
         }
         else
         {
-            Debug.LogWarning("No sword found ! Make sure you've put a sword in the public field.");
+            Debug.LogWarning("No boot found ! Make sure you've put a boot in the public field.");
         }
     }
 

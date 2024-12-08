@@ -18,9 +18,7 @@ public class Scroll : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("J'ai une collision ! : " + other.gameObject.tag);
-
-        if(other.gameObject.tag == "Sword")
+        if(other.gameObject.tag == "Sword" || other.gameObject.tag == "Boot")
         {
             isLearned = true;
         }

@@ -30,7 +30,5 @@ public class ObjectToFind : MonoBehaviour
 
         SuperManager.instance.soundManager.PlaySound(SoundType.FindingObjective, 1f, this.gameObject.transform.position);
 
-
-        GameObject.Find("--RADAR--").GetComponent<Radar>().UpdateIndexObjective();
     }
 }
