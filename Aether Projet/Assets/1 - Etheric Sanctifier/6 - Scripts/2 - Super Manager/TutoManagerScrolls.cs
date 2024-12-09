@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class TutoManagerScrolls : MonoBehaviour
 {
-    [Header("Scrolls")]
+    [Header("Scrolls container")]
     [SerializeField] private GameObject _scrollsTutoParent;
-    [SerializeField] private int _currentIndexScroll = 0;
-    [SerializeField] private bool _isShootingLearned = false;
-    [SerializeField] private bool _isSwordLearned = false;
-    [SerializeField] private float _timeToLaunchTuto = 3.0f;
-    [SerializeField] private float _timeIntroScroll = 5.0f;
-    private Scroll currentScroll;
-    [SerializeField] private GameObject[] _scrollsTuto;
-    private bool _isAlreadyNext = false;
 
+    [Header("Tutorial caracteristics")]
+    [SerializeField] private float _timeToLaunchTuto = 3.0f;
+
+    [Header("Array of all scrolls")]
+    [SerializeField] private GameObject[] _scrollsTuto;
+
+    private Scroll currentScroll;
+    private bool _isAlreadyNext = false;
+    private int _currentIndexScroll = 0;
+
+    [Header("To test !")]
     public bool istest = false;
 
     private void Start()
@@ -60,14 +63,12 @@ public class TutoManagerScrolls : MonoBehaviour
         yield return new WaitForSeconds(_timeToLaunchTuto);
         _scrollsTuto[_currentIndexScroll].SetActive(true);
     }
-
     public void FinishTutorial()
     {
         SuperManager.instance.ghostManager.SetCanSpawn(true);
         SuperManager.instance.soundManager.PlaySound(SoundType.SearchingObjective, 0.5f);
         SuperManager.instance.radarManager.ToggleRadar(true);
     }
-
     IEnumerator NextScrollTutorial()
     {
         _isAlreadyNext = true;
