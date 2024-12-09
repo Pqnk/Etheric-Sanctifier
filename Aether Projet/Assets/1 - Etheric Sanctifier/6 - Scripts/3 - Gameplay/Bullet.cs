@@ -8,16 +8,21 @@ public class Bullet : MonoBehaviour
     public float forcePush;
     public float bulletSpeed;
 
-    private void Update()
+    private void Start()
     {
-        transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime));
+        StartCoroutine(DestroyBullet());
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if (collision.gameObject.tag == "Ghost")
+        transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Ghost")
         {
-            GameObject ghost = collision.gameObject;
+            GameObject ghost = other.gameObject;
             Ghost scriptGhost = ghost.GetComponent<Ghost>();
 
             Vector3 collisionDirection = (ghost.transform.position - transform.position).normalized;
@@ -27,6 +32,20 @@ public class Bullet : MonoBehaviour
             scriptGhost.LowerHealth(damage);
 
             SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
+
+            Destroy(gameObject);
         }
+        else if (other.gameObject.tag == "Object")
+        {
+            Destroy(gameObject);
+        }
+    }
+    
+
+    IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(3f);
+
+        Destroy(gameObject);
     }
 }

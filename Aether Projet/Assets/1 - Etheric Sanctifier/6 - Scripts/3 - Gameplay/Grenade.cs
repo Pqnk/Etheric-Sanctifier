@@ -1,50 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
 public class Grenade : MonoBehaviour
 {
-    [SerializeField] float rangeExplode;
+    [Header("Settings")]
+    public bool estLancer;
+    [SerializeField] private float detectionRadius = 5f;
+    [SerializeField] private LayerMask detectionLayer;
+   
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //GetComponent<Throwable>().attachmentOffset = GameObject.Find("Grab_Point").transform;
-        GetComponent<SphereCollider>().enabled = false;
-        GetComponent<MeshCollider>().enabled = false;
-        GetComponent<SphereCollider>().radius = rangeExplode;
-    }
-
-    public void Action_ThrowGrenade()
-    {
-        GetComponent<MeshCollider>().enabled = true;
-    }
+    private bool hasExploded = false;
 
     private void OnCollisionEnter(Collision collision)
-    {        
-        GetComponent<SphereCollider>().enabled = true;
+    {
+        if (!estLancer || hasExploded) return;
+
+        hasExploded = true;
+
+        Explode();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Explode()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius, detectionLayer);
 
-        if (other.gameObject.tag == "Ghost")
+        foreach (Collider collider in hitColliders)
         {
-            Destroy(other.gameObject);
+            if (collider.CompareTag("Ghost"))
+            {
+                HandleGhostInteraction(collider.gameObject);
+            }
         }
 
-        StartCoroutine(DestroyGrenade());
+        Destroy(gameObject);
     }
 
-    IEnumerator DestroyGrenade()
+    private void HandleGhostInteraction(GameObject ghost)
     {
-        GetComponent<SphereCollider>().enabled = false;
-        GetComponent<MeshRenderer>().enabled = false;
+        Debug.Log("Ghost trouvé : " + ghost.name);
 
-        yield return new WaitForSeconds(4);
+        Destroy(ghost);
+    }
 
-        Destroy(gameObject);
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
