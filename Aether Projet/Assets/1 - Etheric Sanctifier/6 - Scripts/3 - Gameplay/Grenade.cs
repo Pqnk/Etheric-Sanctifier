@@ -5,13 +5,12 @@ using Valve.VR.InteractionSystem;
 
 public class Grenade : MonoBehaviour
 {
-    [SerializeField] float timeToDetonate;
     [SerializeField] float rangeExplode;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Throwable>().attachmentOffset = GameObject.Find("Grab_Point").transform;
+        //GetComponent<Throwable>().attachmentOffset = GameObject.Find("Grab_Point").transform;
         GetComponent<SphereCollider>().enabled = false;
         GetComponent<MeshCollider>().enabled = false;
         GetComponent<SphereCollider>().radius = rangeExplode;
@@ -19,16 +18,7 @@ public class Grenade : MonoBehaviour
 
     public void Action_ThrowGrenade()
     {
-        //StartCoroutine(DetanateGrenade());
-
         GetComponent<MeshCollider>().enabled = true;
-    }
-
-    IEnumerator DetanateGrenade()
-    {
-        yield return new WaitForSeconds(0);
-
-        GetComponent<SphereCollider>().enabled = true;
     }
 
     private void OnCollisionEnter(Collision collision)
