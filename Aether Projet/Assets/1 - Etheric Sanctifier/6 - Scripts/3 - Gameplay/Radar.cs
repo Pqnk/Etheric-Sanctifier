@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class Radar : MonoBehaviour
@@ -23,10 +24,13 @@ public class Radar : MonoBehaviour
 
     [SerializeField] private float detectionRadius = 50f;
     [SerializeField] private float detectionAngle = 120f;
+    private float detectionAngleUpdate = 0;
 
     void Start()
     {
         _radarSource = GetComponent<AudioSource>();
+        ToggleRadar(true);
+        detectionAngleUpdate = 180 - detectionAngle / 2;
     }
     
     void Update()
@@ -43,19 +47,29 @@ public class Radar : MonoBehaviour
     {
         float closestDistance = Mathf.Infinity;
         Transform nearestGhost = null;
+        Vector3 orientationX = new Vector3(Mathf.Cos(transform.eulerAngles.y), 0, Mathf.Sin(transform.eulerAngles.y));
+        Vector3 orientationZ = new Vector3(Mathf.Sin(transform.eulerAngles.y), 0, Mathf.Cos(transform.eulerAngles.y));
 
         foreach (Transform ghost in SuperManager.instance.ghostManager.allGhosts)
         {
-            Vector3 directionToGhost = (ghost.position - this.gameObject.transform.position).normalized;
-
             float distanceToGhost = Vector3.Distance(this.gameObject.transform.position, ghost.position);
-            if (distanceToGhost > detectionRadius) continue;
+            if (distanceToGhost > detectionRadius)  continue;
 
-            float angleToGhost = Vector3.Angle(-this.gameObject.transform.forward, directionToGhost);
-            float dotProduct = Vector3.Dot(-this.gameObject.transform.forward, directionToGhost);
+            Vector3 directionToGhost = ghost.position - this.gameObject.transform.position;
 
-            if (angleToGhost <= detectionAngle / 2)
+
+            float angleToGhostX = Mathf.Acos((directionToGhost.x * orientationX.x + directionToGhost.z * orientationX.z) / (Mathf.Sqrt(Mathf.Pow(directionToGhost.x,2)+Mathf.Pow(directionToGhost.z,2))))*180/Mathf.PI;
+            float angleToGhostZ = Mathf.Acos((directionToGhost.x * orientationZ.x + directionToGhost.z * orientationZ.z) / (Mathf.Sqrt(Mathf.Pow(directionToGhost.x, 2) + Mathf.Pow(directionToGhost.z, 2)))) * 180 / Mathf.PI;
+            Debug.Log(directionToGhost);
+            Debug.Log(angleToGhostX);
+            Debug.Log(angleToGhostZ);
+
+            //float dotProduct = Vector3.Dot(-this.gameObject.transform.forward, directionToGhost);
+
+            if (angleToGhostZ >= detectionAngleUpdate)
             {
+                Debug.Log("Vibration");
+
                 if (distanceToGhost < closestDistance)
                 {
                     closestDistance = distanceToGhost;
@@ -94,4 +108,8 @@ public class Radar : MonoBehaviour
         _canPlay = true;
     }
 
+    public void ToggleRadar(bool state)
+    {
+        _isRadarActive = state;
+    }
 }
