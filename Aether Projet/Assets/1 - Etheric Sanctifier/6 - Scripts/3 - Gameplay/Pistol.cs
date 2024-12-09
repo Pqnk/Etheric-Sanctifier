@@ -13,16 +13,28 @@ public class Pistol : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] int damage;
     [SerializeField] float forcePush;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] GameObject bulletPrefabs;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public SteamVR_Action_Boolean triggerAction;
+    public SteamVR_Input_Sources handType;
+
     void Update()
     {
-        
+        // Vérifier si le trigger est pressé
+        if (triggerAction.GetStateDown(handType))
+        {
+            Debug.Log("Trigger pressed on: " + handType);
+            PerformAction();
+        }
+    }
+
+    void PerformAction()
+    {
+        GameObject go = Instantiate(bulletPrefabs, shootPoint.position, shootPoint.rotation);
+        go.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
+        go.GetComponent<Bullet>().forcePush = forcePush;
+        go.GetComponent<Bullet>().damage = damage;
     }
 }

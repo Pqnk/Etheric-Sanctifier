@@ -2332,11 +2332,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: handType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: forcePush
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: grabPoint
+      value: 
+      objectReference: {fileID: 268012636756984848}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: shootPoint
+      value: 
+      objectReference: {fileID: 4578962387164472494}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: bulletSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: bulletPrefabs
+      value: 
+      objectReference: {fileID: 8665065177378599218, guid: 680890e1b50976f44a6ee3a1ef45f558, type: 3}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: triggerAction.actionPath
+      value: /actions/default/in/InteractUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+--- !u!4 &268012636756984848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7980522196826472802, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+  m_PrefabInstance: {fileID: 7888246841878316402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4578962387164472494 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5977139489826480604, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+  m_PrefabInstance: {fileID: 7888246841878316402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8940086992872753822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1254603745652920300, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
