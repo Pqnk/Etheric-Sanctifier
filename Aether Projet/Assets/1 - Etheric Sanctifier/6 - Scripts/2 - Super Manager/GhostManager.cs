@@ -7,7 +7,13 @@ public class GhostManager : MonoBehaviour
     [Header("Ghost Prefab")]
     [SerializeField] private GameObject _ghostPrefab;
 
+    [Header("Spawn Settings : Main Target")]
+    [SerializeField] private string _mainTargetName = "Camera";
+    [SerializeField] private Transform _mainTarget;
+    [SerializeField] private Transform _secondaryTarget;
+
     [Header("Spawn Points Parent")]
+    [SerializeField] private string _ghostSpawnPointsName = "--GHOST SPAWN POINTS--";
     [SerializeField] private GameObject _spawnPointsParent;
     private Transform[] _spawnPoints;
 
@@ -18,8 +24,6 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private float _moveSpeedMax = 100f;
     [SerializeField] private bool _canSpawn = false;
 
-    [Header("Spawn Settings")]
-    [SerializeField] private Transform _target;
 
     [Header("List of All ghost in scene")]
     public List<Transform> allGhosts;
@@ -27,9 +31,33 @@ public class GhostManager : MonoBehaviour
     [Header("Max ghost in the scene")]
     [SerializeField] private int _maxGhostInTotal = 10;
 
+    [Header("Max ghost in the scene")]
+    [SerializeField] private bool _isReady = false;
+
     private void Start()
     {
-        _spawnPoints = GetAllChildren();
+        //if(InitializeghostManager());
+        //{
+        //}
+    }
+
+    public bool InitializeghostManager()
+    {
+        _spawnPointsParent = GameObject.Find(_ghostSpawnPointsName);
+        _mainTarget = GameObject.Find(_mainTargetName).transform;
+        _mainTarget.gameObject.AddComponent<Player>();
+
+        if (_spawnPointsParent != null && _mainTarget != null)
+        {
+            _isReady = true;
+            _spawnPoints = GetAllChildren();
+            return true;
+        }
+        else
+        {
+            _isReady = false;
+            return false;
+        }
     }
 
     public Transform[] GetAllChildren()
@@ -54,12 +82,12 @@ public class GhostManager : MonoBehaviour
             GameObject ghostInstance = Instantiate(_ghostPrefab, spawnPosition, Quaternion.identity);
 
             Ghost ghostBehavior = ghostInstance.GetComponent<Ghost>();
-            ghostBehavior.SetTarget(_target);
+            ghostBehavior.SetTarget(_mainTarget);
             _moveSpeed = Random.Range(_moveSpeedMin, _moveSpeedMax);
             ghostBehavior.SetSpeed(_moveSpeed);
 
             allGhosts.Add(ghostBehavior.transform);
-            ghostBehavior.SetIndexGhost(allGhosts.Count-1);
+            ghostBehavior.SetIndexGhost(allGhosts.Count - 1);
 
             yield return new WaitForSeconds(_spawnInterval);
         }
@@ -81,13 +109,13 @@ public class GhostManager : MonoBehaviour
 
     public void RemoveGhostFromList(int index)
     {
-        if(index <0)
+        if (index < 0)
         {
             index = 0;
         }
         allGhosts.RemoveAt(index);
-        
-        foreach(Transform t in allGhosts)
+
+        foreach (Transform t in allGhosts)
         {
             t.gameObject.GetComponent<Ghost>().SetIndexMinusOne();
         }

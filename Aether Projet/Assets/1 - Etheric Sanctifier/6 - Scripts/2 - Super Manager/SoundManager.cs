@@ -8,6 +8,7 @@ using UnityEngine;
 public enum SoundType
 {
     Music,
+    HUB,
     Collision,
     TeleportReady,
     Teleporting,
@@ -26,6 +27,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Musics")]
     [SerializeField] private AudioClip _music;
+    [SerializeField] private AudioClip _hub;
     private bool _isMusicPlaying = false;
 
     [Header("Sound Effects")]
@@ -45,7 +47,7 @@ public class SoundManager : MonoBehaviour
     //  #################################################
     private void Start()
     {
-        PlaySound(SoundType.Music, 0.01f);
+        PlaySound(SoundType.HUB, 0.01f);
     }
 
     private GameObject InstantiateSound()
@@ -69,6 +71,20 @@ public class SoundManager : MonoBehaviour
                 {
                     sound.GetComponent<Destroy>().enabled = false;
                     soundSource.clip = _music;
+                    soundSource.loop = true;
+                    _isMusicPlaying = true;
+                }
+                else
+                {
+                    sound.GetComponent<Destroy>().countdown = 0.1f;
+                }
+                break;
+
+            case SoundType.HUB:
+                if (!_isMusicPlaying)
+                {
+                    sound.GetComponent<Destroy>().enabled = false;
+                    soundSource.clip = _hub;
                     soundSource.loop = true;
                     _isMusicPlaying = true;
                 }
@@ -125,6 +141,20 @@ public class SoundManager : MonoBehaviour
                 {
                     sound.GetComponent<Destroy>().enabled = false;
                     soundSource.clip = _music;
+                    soundSource.loop = true;
+                    _isMusicPlaying = true;
+                }
+                else
+                {
+                    sound.GetComponent<Destroy>().countdown = 0.1f;
+                }
+                break;
+
+            case SoundType.HUB:
+                if (!_isMusicPlaying)
+                {
+                    sound.GetComponent<Destroy>().enabled = false;
+                    soundSource.clip = _hub;
                     soundSource.loop = true;
                     _isMusicPlaying = true;
                 }
