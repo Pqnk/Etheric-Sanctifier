@@ -69,7 +69,6 @@ public class Radar : MonoBehaviour
             if (angleToGhostZ >= detectionAngleUpdate)
             {
                 Debug.Log("Vibration");
-
                 if (distanceToGhost < closestDistance)
                 {
                     closestDistance = distanceToGhost;
@@ -83,21 +82,27 @@ public class Radar : MonoBehaviour
 
     private void CalculateVolumeInRelationToOrientation()
     {
-        Vector3 directionToTarget = (currentNearestGhost.position - this.gameObject.transform.position).normalized;
-        float dotProduct = Vector3.Dot(-this.gameObject.transform.forward, directionToTarget);
-        float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;
-        float volume = Mathf.Lerp(maxVolume, minVolume, Mathf.Clamp01(angle / angleThreshold));
-        _radarSource.volume = volume;
+        if (currentNearestGhost != null)
+        {
+            float distanceToTarget = Vector3.Distance(currentNearestGhost.position, this.gameObject.transform.position);
+            /*float dotProduct = Vector3.Dot(-this.gameObject.transform.forward, distanceToTarget);
+            float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;*/
+            float volume = 1 - distanceToTarget / detectionRadius;  //Mathf.Lerp(maxVolume, minVolume, Mathf.Clamp01(angle / angleThreshold));
+
+            _radarSource.volume = volume;
+        } 
     }
     private void CalculateRadarFrequencyInRelationToDistance()
     {
-        float distance = Vector3.Distance(this.gameObject.transform.position, currentNearestGhost.position);
-        if (distance < distanceMaxToDetect && _canPlay)
+        if (currentNearestGhost != null)
         {
-            _canPlay = false;
-            float frequency = Mathf.Lerp(minFrequency, maxFrequency, Mathf.Clamp01(distance / distanceMaxToDetect));
-            StartCoroutine(PlayRadar(frequency));
-
+            float distance = Vector3.Distance(this.gameObject.transform.position, currentNearestGhost.position);
+            if (distance < distanceMaxToDetect && _canPlay)
+            {
+                _canPlay = false;
+                float frequency = Mathf.Lerp(minFrequency, maxFrequency, Mathf.Clamp01(distance / distanceMaxToDetect));
+                StartCoroutine(PlayRadar(frequency));
+            }
         }
     }
     IEnumerator PlayRadar(float frequency)
