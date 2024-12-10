@@ -35,7 +35,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,10 +88,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _voicePrefab3D: {fileID: 1240526180307793453, guid: e400c904dc049714ba2af6897793f58c, type: 3}
-  _voiceIntro: {fileID: 0}
+  _voiceIntro: {fileID: 8300000, guid: ae676ed8d32443d43b1bc0b14e26d760, type: 3}
+  _voiceHUB01: {fileID: 8300000, guid: 29d6b0f0fc192c24284ed76fff713962, type: 3}
+  _voiceHUB02: {fileID: 8300000, guid: 8cf71b22ae035eb4da473d030726d6bd, type: 3}
+  _voiceHUB03: {fileID: 8300000, guid: 629e84ef61020c545acdb7593bbac4ad, type: 3}
+  _voiceHUB04: {fileID: 8300000, guid: d18984ca91848e34fbecfee076b631da, type: 3}
+  _voiceHUB05: {fileID: 0}
   _voiceTuto01: {fileID: 0}
   _voiceTuto02: {fileID: 0}
   _voiceTuto03: {fileID: 0}
+  _voiceTuto04: {fileID: 0}
 --- !u!114 &6001254030239941167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d033144fef3a74797abd51f34c41e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ui: {fileID: 4969037715569047245, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
 --- !u!114 &3952739212470397633
 MonoBehaviour:
   m_ObjectHideFlags: 0
