@@ -163,7 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d033144fef3a74797abd51f34c41e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ui: {fileID: 4969037715569047245, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+  _uiPrefab: {fileID: 4969037715569047245, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+  _blackScreen: {fileID: 0}
+  _fadeDuration: 3
 --- !u!114 &3952739212470397633
 MonoBehaviour:
   m_ObjectHideFlags: 0
