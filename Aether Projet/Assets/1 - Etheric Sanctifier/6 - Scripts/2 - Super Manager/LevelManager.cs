@@ -26,7 +26,6 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.activeSceneChanged += OnSceneChange;
 
-        //  Don't freak out, Robin. It will be useful for the tests !
         if (_currentLevel != LevelType.HUB)
         {
             LoadLevel(_currentLevel);
@@ -53,8 +52,30 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        Application.LoadLevel(levelName);
+        //SceneManager.LoadScene(levelName);
+        SceneManager.LoadSceneAsync(levelName);
+        
         _currentLevel = levelType;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            LoadLevel(LevelType.HUB);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+
+            LoadLevel(LevelType.Tutorial);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            LoadLevel(LevelType.Level01);
+
+        }
     }
 
     private void OnSceneChange(Scene arg0, Scene arg1)
