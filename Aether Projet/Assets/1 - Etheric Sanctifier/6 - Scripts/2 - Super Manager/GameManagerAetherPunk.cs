@@ -52,6 +52,41 @@ public class GameManagerAetherPunk : MonoBehaviour
     //  ####################################################
     //  Level 01
     //  ####################################################
+    private int currentKill;
+    public List<int> palierKills = new List<int>() { 10, 20, 30 };
+    private int indexPalier = 0;
+
+    public void Set_KillGhost(bool isReset)
+    {
+        if (isReset)
+        {
+            currentKill = 0;
+        }
+        else
+        {
+            currentKill++;
+        }
+    }
+    public int Get_KillGhost()
+    {
+        return currentKill;
+    }
+    public void Set_NextPalier(bool isValidate)
+    {
+        if (isValidate)
+        {
+            indexPalier++;
+        }
+        else
+        {
+            indexPalier--;
+        }
+    }
+    public int Get_Palier()
+    {
+        return indexPalier;
+    }
+
     private void GameplayLevel01()
     {
         if (SuperManager.instance.ghostManager.InitializeghostManager(false))
@@ -70,7 +105,7 @@ public class GameManagerAetherPunk : MonoBehaviour
     }
     public void ToggleGhostWave(bool toggle, bool isTuto)
     {
-        if(toggle)
+        if (toggle)
         {
             SuperManager.instance.ghostManager.SetCanSpawn(true, isTuto);
         }
