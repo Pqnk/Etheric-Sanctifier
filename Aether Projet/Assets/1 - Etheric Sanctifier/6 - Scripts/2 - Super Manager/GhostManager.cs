@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostManager : MonoBehaviour
 {
@@ -45,10 +46,24 @@ public class GhostManager : MonoBehaviour
         //}
     }
 
-    public bool InitializeghostManager()
+    public bool InitializeghostManager(bool isTuto)
     {
-        _spawnPointsParent = GameObject.Find(_ghostSpawnPointsName);
-        _mainTarget = GameObject.Find(_mainTargetName).transform;
+        //_spawnPointsParent = GameObject.Find(_ghostSpawnPointsName);
+        //_mainTarget = GameObject.Find(_mainTargetName).transform;
+        LevelType levelType = LevelType.HUB;
+
+        if (isTuto)
+        {
+            levelType = LevelType.Tutorial;
+        }
+        else
+        {
+            levelType = LevelType.Level01;
+
+        }
+        _spawnPointsParent = SuperManager.instance.levelManager.FindInScene(levelType, _ghostSpawnPointsName);
+        _mainTarget = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName).transform;
+
         _mainTarget.gameObject.AddComponent<Player>();
 
         if (_spawnPointsParent != null && _mainTarget != null)
@@ -132,4 +147,5 @@ public class GhostManager : MonoBehaviour
             t.gameObject.GetComponent<Ghost>().SetIndexMinusOne();
         }
     }
+
 }

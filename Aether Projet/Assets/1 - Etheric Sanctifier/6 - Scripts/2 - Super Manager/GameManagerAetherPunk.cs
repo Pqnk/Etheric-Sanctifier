@@ -41,7 +41,7 @@ public class GameManagerAetherPunk : MonoBehaviour
     //  ####################################################
     private void GameplayTutorial()
     {
-        if (SuperManager.instance.ghostManager.InitializeghostManager())
+        if (SuperManager.instance.ghostManager.InitializeghostManager(true))
         {
             StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, true));
         }
@@ -56,7 +56,7 @@ public class GameManagerAetherPunk : MonoBehaviour
     //  ####################################################
     private void GameplayLevel01()
     {
-        if (SuperManager.instance.ghostManager.InitializeghostManager())
+        if (SuperManager.instance.ghostManager.InitializeghostManager(false))
         {
             StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, false));
         }

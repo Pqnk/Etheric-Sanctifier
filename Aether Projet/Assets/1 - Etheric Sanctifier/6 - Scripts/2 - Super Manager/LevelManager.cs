@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum LevelType
 {
@@ -22,6 +24,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.activeSceneChanged += OnSceneChange;
+
         //  Don't freak out, Robin. It will be useful for the tests !
         if (_currentLevel != LevelType.HUB)
         {
@@ -51,9 +55,11 @@ public class LevelManager : MonoBehaviour
 
         Application.LoadLevel(levelName);
         _currentLevel = levelType;
+    }
 
+    private void OnSceneChange(Scene arg0, Scene arg1)
+    {
         SuperManager.instance.gameManagerAetherPunk.LaunchGameplay(_currentLevel);
-
     }
 
     public void QuitGame()
@@ -62,4 +68,46 @@ public class LevelManager : MonoBehaviour
     }
 
 
+
+    public GameObject FindInScene(LevelType levelType, string gameObjectName)
+    {
+        string sceneName = "";
+
+        switch (levelType)
+        {
+            case LevelType.Tutorial:
+                sceneName = _nameLevel_Tutorial;
+                break;
+            case LevelType.Level01:
+                sceneName = _nameLevel_Level01;
+                break;
+            case LevelType.HUB:
+                sceneName = _nameLevel_HUB;
+                break;
+        }
+
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+
+            Debug.Log(scene.name);
+
+            if (scene.name == sceneName)
+            {
+                GameObject[] rootObjects = scene.GetRootGameObjects();
+                foreach (GameObject obj in rootObjects)
+                {
+                    if (obj.name == gameObjectName)
+                    {
+                        return obj;
+                    }
+
+                    Debug.Log(obj.name);
+                }
+            }
+        }
+
+        Debug.LogWarning($"GameObject '{gameObjectName}' not found in scene '{sceneName}'.");
+        return null;
+    }
 }
