@@ -43,7 +43,7 @@ public class GameManagerAetherPunk : MonoBehaviour
     {
         if (SuperManager.instance.ghostManager.InitializeghostManager(true))
         {
-            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, true));
+            StartCoroutine(ToggleGhostWaveWithDelay(true, SuperManager.instance.ghostManager.timeBetweenWave, true));
         }
         else
         {

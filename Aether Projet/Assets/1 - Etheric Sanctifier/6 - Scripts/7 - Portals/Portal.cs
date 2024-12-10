@@ -16,5 +16,4 @@ public class Portal : MonoBehaviour
             _isPortalActive = false;
         }
     }
-
 }
