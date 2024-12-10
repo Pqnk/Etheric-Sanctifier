@@ -7,15 +7,16 @@ public class Bullet : MonoBehaviour
     public int damage;
     public float forcePush;
     public float bulletSpeed;
+    public bool isHeavyShoot;
 
     private void Start()
     {
-        //StartCoroutine(DestroyBullet());
+        StartCoroutine(DestroyBullet());
     }
 
     private void Update()
     {
-        //transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+        transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,28 +25,37 @@ public class Bullet : MonoBehaviour
         {
             GameObject ghost = other.transform.parent.gameObject;
             Ghost scriptGhost = ghost.GetComponent<Ghost>();
-            Rigidbody rbGhost = ghost.transform.parent.GetComponent<Rigidbody>();
+            Rigidbody rbGhost = ghost.GetComponent<Rigidbody>();
 
-            Vector3 collisionDirection = (ghost.transform.position - transform.position).normalized;
-            rbGhost.AddForce(collisionDirection * forcePush, ForceMode.Impulse);
+            if (!isHeavyShoot)
+            {
+                Vector3 collisionDirection = (ghost.transform.position - transform.position).normalized;
+                rbGhost.AddForce(collisionDirection * forcePush, ForceMode.Impulse);
 
-            scriptGhost.LowerHealth(damage);
+                scriptGhost.LowerHealth(damage);
 
-            SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
+                SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
+            }
+            else
+            {
+                scriptGhost.LowerHealth(damage);
 
-            Destroy(gameObject);
+                SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
+            }
+
+            Destroy(transform.root.gameObject);
         }
         else if (other.gameObject.tag == "Object")
         {
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject);
         }
     }
-    
+
 
     IEnumerator DestroyBullet()
     {
         yield return new WaitForSeconds(3f);
 
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
 }

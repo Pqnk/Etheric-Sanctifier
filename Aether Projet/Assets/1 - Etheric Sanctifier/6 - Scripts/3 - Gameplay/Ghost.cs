@@ -90,6 +90,7 @@ public class Ghost : MonoBehaviour
         _isDetected = newIsDetected;
         ChangeMaterial();
     }
+
     public void ChangeMaterial()
     {
         if (_isDetected)
@@ -108,6 +109,7 @@ public class Ghost : MonoBehaviour
     {
         _isAlreadyDead = true;
         SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
+        GameObject.Find("Camera_Player").GetComponent<Player>().AddMana();
         Destroy(gameObject);
     }
 

@@ -14,108 +14,70 @@ public class Pistol : MonoBehaviour
     [SerializeField] private float grabRange = 2f;
     [SerializeField] private LayerMask grabbableLayer;
 
-    [Header("Weapon")]
-    [SerializeField] int damage;
+    [Header("Weapon LightShoot")]
+    [SerializeField] int lightDamage;
     [SerializeField] float forcePush;
-    [SerializeField] float bulletSpeed;
-    [SerializeField] GameObject bulletPrefabs;
+    [SerializeField] float lightBulletSpeed;
+    [SerializeField] GameObject lightBulletPrefabs;
 
-    private Rigidbody grabbedObject;
-    private Vector3 handVelocity;
-    private Vector3 handAngularVelocity;
+    [Header("Weapon HeavyShoot")]
+    [SerializeField] float heavyBulletSpeed;
+    [SerializeField] GameObject heavyBulletPrefabs;
+    [SerializeField] float timeForShooting;
+    private float currentTimerShoot = 0;
 
+    [Header("Input")]
     public SteamVR_Action_Boolean triggerAction;
     public SteamVR_Action_Boolean triggerGrab;
     public SteamVR_Input_Sources handType;
-    public SteamVR_Behaviour_Pose pose;
+
+    private Player player;
+
+    private void Start()
+    {
+        player = transform.root.GetComponent<Player>();
+    }
 
     void Update()
     {
-        if (pose != null)
-        {
-            handVelocity = pose.GetVelocity();
-            handAngularVelocity = pose.GetAngularVelocity();
-        }
-
         if (triggerAction.GetStateDown(handType))
         {
-            Debug.Log("Trigger pressed on: " + handType);
+            //Debug.Log("Trigger pressed on: " + handType);
             Perform_Shoot();
         }
 
-        if (triggerGrab.GetState(handType))
+        if (triggerAction.GetState(handType))
         {
-            if (grabbedObject == null)
+            if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
             {
-                TryGrab();
-            }
-        }
-        else
-        {
-            ReleaseObject();
-        }
+                currentTimerShoot += Time.deltaTime;
 
-        if (grabbedObject != null)
-        {
-            grabbedObject.MovePosition(grabPoint.position);
-        }
-    }
-
-    private void TryGrab()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(grabPoint.position, grabRange, grabbableLayer);
-
-        if (hitColliders.Length > 0)
-        {
-            Collider closestObject = hitColliders[0];
-            float closestDistance = Vector3.Distance(grabPoint.position, closestObject.transform.position);
-
-            foreach (Collider hit in hitColliders)
-            {
-                float distance = Vector3.Distance(grabPoint.position, hit.transform.position);
-                if (distance < closestDistance)
+                if (currentTimerShoot >= timeForShooting)
                 {
-                    closestObject = hit;
-                    closestDistance = distance;
+                    Debug.Log("Trigger Long pressed on: " + handType);
+                    player.AsShootRail();
+                    currentTimerShoot = 0;
+                    Perform_ShootRail();
                 }
             }
-
-            grabbedObject = closestObject.GetComponent<Rigidbody>();
-            if (grabbedObject != null)
-            {
-                grabbedObject.isKinematic = true;
-            }
         }
     }
 
-    private void ReleaseObject()
-    {
-        if (grabbedObject != null)
-        {
-            grabbedObject.isKinematic = false;
-
-            // Ajoute une velocité a celle initial
-            Vector3 releaseForce = handVelocity * 10.5f + transform.forward * 5.0f;
-            grabbedObject.velocity = handVelocity;
-            grabbedObject.angularVelocity = handAngularVelocity;
-
-            Grenade grenade = grabbedObject.GetComponent<Grenade>();
-            if (grenade != null)
-            {
-                float velocityThreshold = 1.0f;
-                grenade.estLancer = handVelocity.magnitude > velocityThreshold;
-            }
-
-            grabbedObject = null;
-        }
-    }
 
     void Perform_Shoot()
     {
-        GameObject go = Instantiate(bulletPrefabs, shootPoint.position, shootPoint.rotation);
-        go.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
-        go.GetComponent<Bullet>().forcePush = forcePush;
-        go.GetComponent<Bullet>().damage = damage;
+        GameObject lightBullet = Instantiate(lightBulletPrefabs, shootPoint.position, shootPoint.rotation);
+        lightBullet.GetComponent<Bullet>().bulletSpeed = lightBulletSpeed;
+        lightBullet.GetComponent<Bullet>().forcePush = forcePush;
+        lightBullet.GetComponent<Bullet>().damage = lightDamage;
+    }
+
+    void Perform_ShootRail()
+    {
+        GameObject heavyBullet = Instantiate(heavyBulletPrefabs, shootPoint.position, shootPoint.rotation);
+        heavyBullet.GetComponent<Bullet>().bulletSpeed = heavyBulletSpeed;
+        heavyBullet.GetComponent<Bullet>().isHeavyShoot = true;
+        heavyBullet.GetComponent<Bullet>().damage = 10000;
     }
 
     private void OnDrawGizmosSelected()
