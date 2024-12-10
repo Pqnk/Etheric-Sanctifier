@@ -2,14 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Presets;
 using UnityEngine;
 
 public class Buster : MonoBehaviour
 {
     [SerializeField] int indexPalier;
-    [SerializeField] int[] outerAngleLight;
-    [SerializeField] int[] InnerAngleLight;
-    [SerializeField] int[] intensityLight;
+    [SerializeField] float[] outerAngleLight;
+    [SerializeField] float[] innerAngleLight;
+    [SerializeField] float[] intensityLight;
 
     private void Start()
     {
@@ -29,11 +30,21 @@ public class Buster : MonoBehaviour
     {
         int kills = SuperManager.instance.gameManagerAetherPunk.Get_KillGhost();
 
-        if (kills >= SuperManager.instance.gameManagerAetherPunk.palierKills[indexPalier])
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
             SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
+        }
 
-            if (indexPalier < SuperManager.instance.gameManagerAetherPunk.palierKills.Count - 1)
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(true);
+        }
+
+        if (kills >= SuperManager.instance.gameManagerAetherPunk.palierKills[indexPalier])
+        {
+            SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
+
+            if (indexPalier < SuperManager.instance.gameManagerAetherPunk.palierKills.Count)
             {
                 SuperManager.instance.gameManagerAetherPunk.Set_NextPalier(true);
                 indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
@@ -42,7 +53,7 @@ public class Buster : MonoBehaviour
         }
         else if (kills < 0)
         {
-            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
+            SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
 
             if (indexPalier > 0)
             {
@@ -55,6 +66,11 @@ public class Buster : MonoBehaviour
 
     private void ApplyChangeBuster(int indexPalier)
     {
-        throw new NotImplementedException();
+        Light light = transform.GetChild(1).gameObject.GetComponent<Light>();
+        MeshRenderer mesh = transform.GetChild(0).gameObject.GetComponent<MeshRenderer>();
+
+        light.innerSpotAngle = intensityLight[indexPalier];
+        light.intensity = intensityLight[indexPalier];
+        light.spotAngle = outerAngleLight[indexPalier];
     }
 }
