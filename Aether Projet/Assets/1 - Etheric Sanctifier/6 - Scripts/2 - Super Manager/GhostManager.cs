@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GhostManager : MonoBehaviour
 {
+    [Header("Goat Prefab")]
+    [SerializeField] private GameObject _goatPrefab;
+
     [Header("Ghost Prefab")]
     [SerializeField] private GameObject _ghostPrefab;
 
@@ -69,17 +73,25 @@ public class GhostManager : MonoBehaviour
         {
             children[i] = _spawnPointsParent.transform.GetChild(i).gameObject.transform;
         }
-
         return children;
     }
 
-    IEnumerator SpawnPrefabs()
+    IEnumerator SpawnPrefabs(bool isTuto)
     {
         while (allGhosts.Count < _maxGhostInTotal)
         {
             Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
             Vector3 spawnPosition = randomSpawnPoint.position;
-            GameObject ghostInstance = Instantiate(_ghostPrefab, spawnPosition, Quaternion.identity);
+            GameObject p;
+            if(isTuto)
+            {
+                p = _goatPrefab;
+            }
+            else
+            {
+                p = _ghostPrefab;
+            }
+            GameObject ghostInstance = Instantiate(p, spawnPosition, Quaternion.identity);
 
             Ghost ghostBehavior = ghostInstance.GetComponent<Ghost>();
             ghostBehavior.SetTarget(_mainTarget);
@@ -93,17 +105,17 @@ public class GhostManager : MonoBehaviour
         }
     }
 
-    public void SetCanSpawn(bool newCanSpawn)
+    public void SetCanSpawn(bool newCanSpawn, bool isTuto)
     {
         _canSpawn = newCanSpawn;
 
         if (_canSpawn)
         {
-            StartCoroutine(SpawnPrefabs());
+            StartCoroutine(SpawnPrefabs(isTuto));
         }
         else
         {
-            StopCoroutine(SpawnPrefabs());
+            StopCoroutine(SpawnPrefabs(isTuto));
         }
     }
 

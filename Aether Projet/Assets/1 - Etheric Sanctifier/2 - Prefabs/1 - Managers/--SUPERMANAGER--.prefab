@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a429230ba14f17e4294b4c321e4f457e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _goatPrefab: {fileID: 2753366762146159031, guid: 7de379014acd5ac4686b66fc75e59e41, type: 3}
   _ghostPrefab: {fileID: 7400775839584797558, guid: 5fcee4158d642694e908a4be03379b0a, type: 3}
   _mainTargetName: Camera
   _mainTarget: {fileID: 0}

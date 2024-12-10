@@ -36,46 +36,60 @@ public class GameManagerAetherPunk : MonoBehaviour
 
     }
 
+    //  ####################################################
+    //  Tutorial
+    //  ####################################################
     private void GameplayTutorial()
     {
-
+        if (SuperManager.instance.ghostManager.InitializeghostManager())
+        {
+            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, true));
+        }
+        else
+        {
+            Debug.Log("ERROR : Ghost Manager cannot initialize into tutorial!");
+        }
     }
 
+    //  ####################################################
+    //  Level 01
+    //  ####################################################
     private void GameplayLevel01()
     {
         if (SuperManager.instance.ghostManager.InitializeghostManager())
         {
-            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f));
+            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, false));
         }
         else
         {
-            Debug.Log("ERROR : Ghost Manager cannot initialize ! Go check JaaJ, he must know what is happening !");
+            Debug.Log("ERROR : Ghost Manager cannot initialize into level 01!");
         }
     }
-
-    IEnumerator ToggleGhostWaveWithDelay(bool toggle, float delay)
+    IEnumerator ToggleGhostWaveWithDelay(bool toggle, float delay, bool istuto)
     {
         yield return new WaitForSeconds(delay);
-        ToggleGhostWave(toggle);
+        ToggleGhostWave(toggle, istuto);
     }
-
-    private void ToggleGhostWave(bool toggle)
+    public void ToggleGhostWave(bool toggle, bool isTuto)
     {
         if(toggle)
         {
-            SuperManager.instance.ghostManager.SetCanSpawn(true);
+            SuperManager.instance.ghostManager.SetCanSpawn(true, isTuto);
         }
         else
         {
-            SuperManager.instance.ghostManager.SetCanSpawn(false);
+            SuperManager.instance.ghostManager.SetCanSpawn(false, isTuto);
         }
     }
 
+
+    //  ####################################################
+    //  Player Managment
+    //  ####################################################
     public void PlayerDeadCinematic()
     {
         StartCoroutine(DeathCinematic());
     }
-
     IEnumerator DeathCinematic()
     {
         yield return new WaitForSeconds(3.0f);
