@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Ghost")
         {
-            GameObject ghost = other.transform.parent.gameObject;
+            GameObject ghost = other.gameObject;
             Ghost scriptGhost = ghost.GetComponent<Ghost>();
             Rigidbody rbGhost = ghost.GetComponent<Rigidbody>();
 

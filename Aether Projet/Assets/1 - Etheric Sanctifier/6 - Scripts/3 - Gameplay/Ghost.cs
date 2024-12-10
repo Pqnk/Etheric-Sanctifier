@@ -47,7 +47,7 @@ public class Ghost : MonoBehaviour
             {
                 if (!_isAlreadyDead)
                 {
-                   DestroyGhost();
+                    DestroyGhostDist();
                 }
             }
         }
@@ -111,6 +111,13 @@ public class Ghost : MonoBehaviour
         SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
         SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
         GameObject.Find("Camera_Player").GetComponent<Player>().AddMana();
+        Destroy(gameObject);
+    }
+
+    private void DestroyGhostDist()
+    {
+        _isAlreadyDead = true;
+        SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
         Destroy(gameObject);
     }
 

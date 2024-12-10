@@ -32,6 +32,7 @@ public class Pistol : MonoBehaviour
     public SteamVR_Input_Sources handType;
 
     private Player player;
+    private bool readyHeavyShoot = false;
 
     private void Start()
     {
@@ -55,10 +56,19 @@ public class Pistol : MonoBehaviour
                 if (currentTimerShoot >= timeForShooting)
                 {
                     Debug.Log("Trigger Long pressed on: " + handType);
-                    player.AsShootRail();
-                    currentTimerShoot = 0;
-                    Perform_ShootRail();
+                    readyHeavyShoot = true;
                 }
+            }
+        }
+        else
+        {
+            currentTimerShoot = 0;
+
+            if (readyHeavyShoot)
+            {
+                readyHeavyShoot = false;
+                player.AsShootRail();
+                Perform_ShootRail();
             }
         }
     }
