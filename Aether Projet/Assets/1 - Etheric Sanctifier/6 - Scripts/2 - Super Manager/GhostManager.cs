@@ -39,6 +39,9 @@ public class GhostManager : MonoBehaviour
     [Header("Max ghost in the scene")]
     [SerializeField] private bool _isReady = false;
 
+    [Header("Time Between Wave")]
+    public float timeBetweenWave = 10.0f;
+
     private void Start()
     {
         //if(InitializeghostManager());
@@ -48,8 +51,6 @@ public class GhostManager : MonoBehaviour
 
     public bool InitializeghostManager(bool isTuto)
     {
-        //_spawnPointsParent = GameObject.Find(_ghostSpawnPointsName);
-        //_mainTarget = GameObject.Find(_mainTargetName).transform;
         LevelType levelType = LevelType.HUB;
 
         if (isTuto)
@@ -62,7 +63,16 @@ public class GhostManager : MonoBehaviour
 
         }
         _spawnPointsParent = SuperManager.instance.levelManager.FindInScene(levelType, _ghostSpawnPointsName);
-        _mainTarget = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName).transform;
+        GameObject p = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName);
+        if (p == null)
+        {
+            Debug.LogError("PAS DE CAMERA MAIN TARGET");
+        }
+        else
+        {
+            _mainTarget = p.transform.GetChild(2).transform;
+
+        }
 
         _mainTarget.gameObject.AddComponent<Player>();
 
@@ -98,7 +108,7 @@ public class GhostManager : MonoBehaviour
             Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
             Vector3 spawnPosition = randomSpawnPoint.position;
             GameObject p;
-            if(isTuto)
+            if (isTuto)
             {
                 p = _goatPrefab;
             }
