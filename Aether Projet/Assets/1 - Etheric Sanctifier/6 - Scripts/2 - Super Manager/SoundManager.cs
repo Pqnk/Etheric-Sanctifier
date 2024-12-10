@@ -9,13 +9,18 @@ public enum SoundType
 {
     Music,
     HUB,
+    MusicTuto,
     Collision,
     TeleportReady,
     Teleporting,
     TeleportValidated,
     TeleportCanceled,
     SearchingObjective,
-    FindingObjective
+    FindingObjective,
+    ExplosionGoat,
+    SlurpGoat,
+    BeehGoat,
+    TeleportAppearing
 }
 
 
@@ -28,6 +33,7 @@ public class SoundManager : MonoBehaviour
     [Header("Musics")]
     [SerializeField] private AudioClip _music;
     [SerializeField] private AudioClip _hub;
+    [SerializeField] private AudioClip _tuto;
     private bool _isMusicPlaying = false;
 
     [Header("Sound Effects")]
@@ -38,16 +44,17 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _soundVFXTeleportCanceled;
     [SerializeField] private AudioClip _soundVFXSearchingObjective;
     [SerializeField] private AudioClip _soundVFXFindingObjective;
+    [SerializeField] private AudioClip _soundVFXExplosionGOAT;
+    [SerializeField] private AudioClip _soundVFXSlurpGOAT;
+    [SerializeField] private AudioClip _soundVFXBeehGOAT;
+    [SerializeField] private AudioClip _soundVFXTeleportAppearing;
 
-    [Header("Destruction Time")]
-    [SerializeField] private float destroyTime = 4.0f;
 
     //  #################################################
     //  ######      MODULARY SOUND GENERATION      ######
     //  #################################################
     private void Start()
     {
-        PlaySound(SoundType.HUB, 0.01f);
     }
 
     private GameObject InstantiateSound()
@@ -67,31 +74,22 @@ public class SoundManager : MonoBehaviour
         switch (soundtype)
         {
             case SoundType.Music:
-                if (!_isMusicPlaying)
-                {
-                    sound.GetComponent<Destroy>().enabled = false;
-                    soundSource.clip = _music;
-                    soundSource.loop = true;
-                    _isMusicPlaying = true;
-                }
-                else
-                {
-                    sound.GetComponent<Destroy>().countdown = 0.1f;
-                }
+                soundSource.clip = _music;
+                soundSource.loop = true;
+                _isMusicPlaying = true;
                 break;
 
+            case SoundType.MusicTuto:
+                soundSource.clip = _tuto;
+                soundSource.loop = true;
+                _isMusicPlaying = true;
+                break;
+
+
             case SoundType.HUB:
-                if (!_isMusicPlaying)
-                {
-                    sound.GetComponent<Destroy>().enabled = false;
-                    soundSource.clip = _hub;
-                    soundSource.loop = true;
-                    _isMusicPlaying = true;
-                }
-                else
-                {
-                    sound.GetComponent<Destroy>().countdown = 0.1f;
-                }
+                soundSource.clip = _hub;
+                soundSource.loop = true;
+                _isMusicPlaying = true;
                 break;
 
             case SoundType.Collision:
@@ -139,7 +137,7 @@ public class SoundManager : MonoBehaviour
             case SoundType.Music:
                 if (!_isMusicPlaying)
                 {
-                    sound.GetComponent<Destroy>().enabled = false;
+                    //sound.GetComponent<Destroy>().enabled = false;
                     soundSource.clip = _music;
                     soundSource.loop = true;
                     _isMusicPlaying = true;
@@ -153,7 +151,7 @@ public class SoundManager : MonoBehaviour
             case SoundType.HUB:
                 if (!_isMusicPlaying)
                 {
-                    sound.GetComponent<Destroy>().enabled = false;
+                    //sound.GetComponent<Destroy>().enabled = false;
                     soundSource.clip = _hub;
                     soundSource.loop = true;
                     _isMusicPlaying = true;
@@ -166,7 +164,7 @@ public class SoundManager : MonoBehaviour
 
             case SoundType.Collision:
                 soundSource.clip = _soundVFXCollision;
-                
+
                 break;
 
             case SoundType.TeleportReady:

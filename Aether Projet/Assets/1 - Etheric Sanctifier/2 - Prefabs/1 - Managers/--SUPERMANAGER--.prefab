@@ -36,7 +36,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 188423754782218503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8130659393193683437
@@ -67,6 +68,7 @@ MonoBehaviour:
   _soundPrefab2D: {fileID: 1240526180307793453, guid: d0d50e6671604a545ba6707c3b09ecc2, type: 3}
   _music: {fileID: 8300000, guid: cd4e98362d9c92048ad76cca1f4981d7, type: 3}
   _hub: {fileID: 8300000, guid: e575cdd1541ac2f46b7cea4e81933b80, type: 3}
+  _tuto: {fileID: 8300000, guid: 60fd775df35162c419f2099269fede45, type: 3}
   _soundVFXCollision: {fileID: 8300000, guid: f0b9650ee253e5d49b8f38f573f97104, type: 3}
   _soundVFXTeleportReady: {fileID: 8300000, guid: a1b81bcaf2b726443991254889aec4b3, type: 3}
   _soundVFXTeleporting: {fileID: 8300000, guid: 03061254fcbbfe04e9bbe300749ae8ab, type: 3}
@@ -74,7 +76,10 @@ MonoBehaviour:
   _soundVFXTeleportCanceled: {fileID: 8300000, guid: 816d8beff16a9914fae5783f81cd4e2a, type: 3}
   _soundVFXSearchingObjective: {fileID: 8300000, guid: ba488f4ce21e9f6489d719a54eb1b057, type: 3}
   _soundVFXFindingObjective: {fileID: 8300000, guid: d9c6523d54cc5944cbead6b8f883247d, type: 3}
-  destroyTime: 4
+  _soundVFXExplosionGOAT: {fileID: 0}
+  _soundVFXSlurpGOAT: {fileID: 0}
+  _soundVFXBeehGOAT: {fileID: 0}
+  _soundVFXTeleportAppearing: {fileID: 0}
 --- !u!114 &1157268568273184427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,16 +93,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _voicePrefab3D: {fileID: 1240526180307793453, guid: e400c904dc049714ba2af6897793f58c, type: 3}
-  _voiceIntro: {fileID: 8300000, guid: ae676ed8d32443d43b1bc0b14e26d760, type: 3}
-  _voiceHUB01: {fileID: 8300000, guid: 29d6b0f0fc192c24284ed76fff713962, type: 3}
-  _voiceHUB02: {fileID: 8300000, guid: 8cf71b22ae035eb4da473d030726d6bd, type: 3}
-  _voiceHUB03: {fileID: 8300000, guid: 629e84ef61020c545acdb7593bbac4ad, type: 3}
-  _voiceHUB04: {fileID: 8300000, guid: d18984ca91848e34fbecfee076b631da, type: 3}
-  _voiceHUB05: {fileID: 0}
-  _voiceTuto01: {fileID: 0}
+  _voiceIntro: {fileID: 8300000, guid: dc4b5b09d9aa9c04d8f07e7b7116c242, type: 3}
+  _voiceChoiceTuto: {fileID: 8300000, guid: 90e49b9288146604398ea4302ec5377e, type: 3}
+  _voiceChoiceMission: {fileID: 8300000, guid: 5a07c17801c42f644912d089ff59f5da, type: 3}
+  _voiceTuto01: {fileID: 8300000, guid: 372bcdf2b3dce144bac5f91c2c65ae3e, type: 3}
   _voiceTuto02: {fileID: 0}
   _voiceTuto03: {fileID: 0}
   _voiceTuto04: {fileID: 0}
+  _voiceBriefingMission: {fileID: 8300000, guid: 625d723a78dc61944a8093dbb3735b04, type: 3}
 --- !u!114 &6001254030239941167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +132,7 @@ MonoBehaviour:
   _mainTargetName: Camera_Player
   _mainTarget: {fileID: 0}
   _secondaryTarget: {fileID: 0}
+  _radarRef: {fileID: 0}
   _ghostSpawnPointsName: --GHOST SPAWN POINTS--
   _spawnPointsParent: {fileID: 0}
   _spawnInterval: 5
@@ -138,7 +142,7 @@ MonoBehaviour:
   allGhosts: []
   _maxGhostInTotal: 10
   _isReady: 0
-  timeBetweenWave: 10
+  timeBetweenWave: 2
 --- !u!114 &565082960265743651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentKill: 0
   indexPalier: 0
-  palierKills: 0a000000140000001e000000
+  palierKills: 02000000050000000a000000
 --- !u!114 &4925675943462278177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,9 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d033144fef3a74797abd51f34c41e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiPrefab: {fileID: 4969037715569047245, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
-  _blackScreen: {fileID: 0}
-  _fadeDuration: 3
+  _ui: {fileID: 6426557316134513860}
+  _blackScreen: {fileID: 8580528961213373098}
+  _fadeDuration: 10
 --- !u!114 &3952739212470397633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,3 +189,83 @@ MonoBehaviour:
   _nameLevel_HUB: Scene - Etheric Sanctifier - HUB
   _nameLevel_Tutorial: Scene - Etheric Sanctifier - Tutorial
   _nameLevel_Level01: Scene - Etheric Sanctifier - Level 1
+  _currentNameLevel: 
+  _oldNameLevel: 
+--- !u!1001 &2151074299931286025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5974166552497631642}
+    m_Modifications:
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969037715569047245, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+      propertyPath: m_Name
+      value: ---UI---
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+--- !u!4 &188423754782218503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2253854551136944910, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+  m_PrefabInstance: {fileID: 2151074299931286025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6426557316134513860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4969037715569047245, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+  m_PrefabInstance: {fileID: 2151074299931286025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8580528961213373098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7696105362318114979, guid: 48de514ad89d970429d2c962fb161bd6, type: 3}
+  m_PrefabInstance: {fileID: 2151074299931286025}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

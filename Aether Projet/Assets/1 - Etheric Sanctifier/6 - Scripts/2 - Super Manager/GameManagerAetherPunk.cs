@@ -29,7 +29,8 @@ public class GameManagerAetherPunk : MonoBehaviour
     //  ####################################################
     private void GameplayHUB()
     {
-
+        SuperManager.instance.ghostManager.DefinitiveStopWaveAndClearGhosts();
+        SuperManager.instance.soundManager.PlaySound(SoundType.HUB, 0.1f);
     }
 
 
@@ -38,9 +39,11 @@ public class GameManagerAetherPunk : MonoBehaviour
     //  ####################################################
     private void GameplayTutorial()
     {
+        SuperManager.instance.soundManager.PlaySound(SoundType.MusicTuto, 0.1f);
+
         if (SuperManager.instance.ghostManager.InitializeghostManager(true))
         {
-            StartCoroutine(ToggleGhostWaveWithDelay(true, SuperManager.instance.ghostManager.timeBetweenWave, true));
+            StartCoroutine(ToggleGhostWaveWithDelay(true, 10.0f, true));
         }
         else
         {
@@ -55,6 +58,21 @@ public class GameManagerAetherPunk : MonoBehaviour
     public int currentKill;
     public int indexPalier = 0;
     public List<int> palierKills = new List<int>() { 10, 20, 30 };
+
+    private void GameplayLevel01()
+    {
+        SuperManager.instance.soundManager.PlaySound(SoundType.Music, 0.1f);
+
+        if (SuperManager.instance.ghostManager.InitializeghostManager(false))
+        {
+            SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.BriefingMission, 0.5f, SuperManager.instance.ghostManager.GetMainTarget());
+            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, false));
+        }
+        else
+        {
+            Debug.Log("ERROR : Ghost Manager cannot initialize into level 01!");
+        }
+    }
 
     public void Set_KillGhost(bool minus)
     {
@@ -93,17 +111,6 @@ public class GameManagerAetherPunk : MonoBehaviour
         return indexPalier;
     }
 
-    private void GameplayLevel01()
-    {
-        if (SuperManager.instance.ghostManager.InitializeghostManager(false))
-        {
-            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, false));
-        }
-        else
-        {
-            Debug.Log("ERROR : Ghost Manager cannot initialize into level 01!");
-        }
-    }
     IEnumerator ToggleGhostWaveWithDelay(bool toggle, float delay, bool istuto)
     {
         yield return new WaitForSeconds(delay);

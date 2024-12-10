@@ -16,6 +16,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private string _mainTargetName = "Camera";
     [SerializeField] private Transform _mainTarget;
     [SerializeField] private Transform _secondaryTarget;
+    [SerializeField] private GameObject _radarRef;
 
     [Header("Spawn Points Parent")]
     [SerializeField] private string _ghostSpawnPointsName = "--GHOST SPAWN POINTS--";
@@ -47,6 +48,11 @@ public class GhostManager : MonoBehaviour
 
     }
 
+    public Transform GetMainTarget()
+    {
+        return _mainTarget;
+    }
+
     public bool InitializeghostManager(bool isTuto)
     {
         LevelType levelType = LevelType.HUB;
@@ -69,7 +75,7 @@ public class GhostManager : MonoBehaviour
         else
         {
             _mainTarget = p.transform.GetChild(2).transform;
-
+            _radarRef = p.transform.GetChild(2).transform.GetChild(0).gameObject;
         }
 
         _mainTarget.gameObject.AddComponent<Player>();
@@ -131,6 +137,7 @@ public class GhostManager : MonoBehaviour
     public void SetCanSpawn(bool newCanSpawn, bool isTuto)
     {
         _canSpawn = newCanSpawn;
+        _radarRef.GetComponent<Radar>().ToggleRadar(_canSpawn);
 
         if (_canSpawn)
         {
@@ -174,5 +181,18 @@ public class GhostManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWave);
         SetCanSpawn(true, false);
+    }
+
+
+    public void DefinitiveStopWaveAndClearGhosts()
+    {
+        SetCanSpawn(false, false);
+
+        foreach (Transform t in allGhosts)
+        {
+            Destroy(t.gameObject);
+        }
+
+        allGhosts.Clear();
     }
 }

@@ -8,7 +8,7 @@ using Valve.VR.InteractionSystem;
 public class Radar : MonoBehaviour
 {
     private AudioSource _radarSource;
-    private bool _isRadarActive = false;
+    private  bool _isRadarActive = false;
     private bool _canPlay = true;
 
     //  For testing

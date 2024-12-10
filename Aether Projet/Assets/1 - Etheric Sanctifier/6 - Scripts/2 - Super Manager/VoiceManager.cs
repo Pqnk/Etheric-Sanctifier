@@ -6,15 +6,13 @@ using UnityEngine;
 public enum VoiceType
 {
     Intro,
+    ChoiceTuto,
+    ChoiceMission,
+    BriefingMission,
     Tuto01,
     Tuto02,
     Tuto03,
-    Tuto04,
-    HUB01,
-    HUB02,
-    HUB03,
-    HUB04,
-    HUB05
+    Tuto04
 }
 
 public class VoiceManager : MonoBehaviour
@@ -24,11 +22,8 @@ public class VoiceManager : MonoBehaviour
 
     [Header("Voices HUB")]
     [SerializeField] private AudioClip _voiceIntro;
-    [SerializeField] private AudioClip _voiceHUB01;
-    [SerializeField] private AudioClip _voiceHUB02;
-    [SerializeField] private AudioClip _voiceHUB03;
-    [SerializeField] private AudioClip _voiceHUB04;
-    [SerializeField] private AudioClip _voiceHUB05;
+    [SerializeField] private AudioClip _voiceChoiceTuto;
+    [SerializeField] private AudioClip _voiceChoiceMission;
 
     [Header("Voices Tutorial")]
     [SerializeField] private AudioClip _voiceTuto01;
@@ -36,12 +31,15 @@ public class VoiceManager : MonoBehaviour
     [SerializeField] private AudioClip _voiceTuto03;
     [SerializeField] private AudioClip _voiceTuto04;
 
+    [Header("Voices Mission")]
+    [SerializeField] private AudioClip _voiceBriefingMission;
+
     private GameObject InstantiateVoice(Transform position)
     {
         return Instantiate(_voicePrefab3D, position.position, Quaternion.identity);
     }
 
-    public void PlayVoice(VoiceType voicetype, float volume, Transform position)
+    public void PlayVoiceAtLocation(VoiceType voicetype, float volume, Transform position)
     {
         GameObject voice = InstantiateVoice(position);
         AudioSource voiceSource = voice.GetComponent<AudioSource>();
@@ -51,6 +49,11 @@ public class VoiceManager : MonoBehaviour
             case VoiceType.Intro:
                 voiceSource.clip = _voiceIntro;
                 break;
+
+            case VoiceType.BriefingMission:
+                voiceSource.clip = _voiceBriefingMission;
+                break;
+
 
             case VoiceType.Tuto01:
                 voiceSource.clip = _voiceTuto01;
@@ -68,29 +71,29 @@ public class VoiceManager : MonoBehaviour
             case VoiceType.Tuto04:
                 voiceSource.clip = _voiceTuto04;
                 break;
-
-            case VoiceType.HUB01:
-                voiceSource.clip = _voiceHUB01;
-                break;
-
-            case VoiceType.HUB02:
-                voiceSource.clip = _voiceHUB02;
-                break;
-
-            case VoiceType.HUB03:
-                voiceSource.clip = _voiceHUB03;
-                break;
-
-            case VoiceType.HUB04:
-                voiceSource.clip = _voiceHUB04;
-                break;
-
-            case VoiceType.HUB05:
-                voiceSource.clip = _voiceHUB05;
-                break;
         }
 
         voiceSource.volume = volume;
         voiceSource.Play();
+    }
+
+    public AudioClip GetVoice(VoiceType voiceType)
+    {
+        switch(voiceType)
+        {
+            case VoiceType.Intro:
+                return _voiceIntro;
+
+            case VoiceType.ChoiceMission:
+                return _voiceChoiceMission;
+
+            case VoiceType.ChoiceTuto:
+                return _voiceChoiceTuto;
+
+            case VoiceType.Tuto01:
+                return _voiceTuto01;
+        }
+
+        return null;
     }
 }

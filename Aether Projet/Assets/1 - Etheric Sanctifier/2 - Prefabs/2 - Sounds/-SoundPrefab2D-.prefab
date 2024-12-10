@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4677507377633388268}
   - component: {fileID: 3147029508636901425}
-  - component: {fileID: 7480795791780155177}
   m_Layer: 0
   m_Name: -SoundPrefab2D-
   m_TagString: Untagged
@@ -47,7 +46,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -129,16 +128,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7480795791780155177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240526180307793453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c388b12b5473d743a68afe1527a2f39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdown: 4

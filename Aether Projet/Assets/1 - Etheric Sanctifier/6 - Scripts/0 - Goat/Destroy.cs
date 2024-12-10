@@ -8,9 +8,20 @@ public class Destroy : MonoBehaviour
     [Range(0f,10f)] 
     public float countdown = 2.0f;
 
+    private AudioSource audioSource;
+
     void Start()
     {
-        StartCoroutine(DestroyThisGameobject());
+        audioSource = GetComponent<AudioSource>();
+        //StartCoroutine(DestroyThisGameobject());
+    }
+
+    private void Update()
+    {
+        if (!audioSource.isPlaying && audioSource.time > 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator DestroyThisGameobject()

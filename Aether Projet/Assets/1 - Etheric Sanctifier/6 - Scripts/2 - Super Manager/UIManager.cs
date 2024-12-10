@@ -5,28 +5,29 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("UI Prefab")]
-    [SerializeField] private GameObject _uiPrefab;
-    private GameObject _ui;
+    [Header("UI")]
+    //[SerializeField] private GameObject _uiPrefab;
+    [SerializeField] private GameObject _ui;
 
     [Header("Black Screen")]
     [SerializeField] private Image _blackScreen;
     [SerializeField] private float _fadeDuration = 3.0f;
     private bool _isFading = false;
 
-    private void Start()
-    {
-        InstantiateUI();
+    private void Awake()
+    {      
+        //InstantiateUI();
+
     }
 
     public void InstantiateUI()
     {
-        _ui = Instantiate(_uiPrefab);
+        //_ui = Instantiate(_uiPrefab);
         _blackScreen = _ui.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>();
 
         DontDestroyOnLoad(_ui);
 
-        StartCoroutine(FadeToTransparent());
+        //StartCoroutine(FadeToTransparent());
 
     }
     public IEnumerator FadeToTransparent()
