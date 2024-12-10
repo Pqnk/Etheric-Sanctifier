@@ -7,7 +7,10 @@ public class GameManagerAetherPunk : MonoBehaviour
 {
     private void Awake()
     {
+    }
 
+    private void Start()
+    {
     }
 
     public void LaunchGameplay(LevelType levelType)
