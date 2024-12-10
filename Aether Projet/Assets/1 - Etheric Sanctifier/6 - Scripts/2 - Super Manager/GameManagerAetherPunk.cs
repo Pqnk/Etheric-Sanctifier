@@ -5,14 +5,6 @@ using Valve.VR;
 
 public class GameManagerAetherPunk : MonoBehaviour
 {
-    private void Awake()
-    {
-    }
-
-    private void Start()
-    {
-    }
-
     public void LaunchGameplay(LevelType levelType)
     {
         switch (levelType)
@@ -31,10 +23,15 @@ public class GameManagerAetherPunk : MonoBehaviour
         }
     }
 
+
+    //  ####################################################
+    //  HUB
+    //  ####################################################
     private void GameplayHUB()
     {
 
     }
+
 
     //  ####################################################
     //  Tutorial
@@ -50,6 +47,7 @@ public class GameManagerAetherPunk : MonoBehaviour
             Debug.Log("ERROR : Ghost Manager cannot initialize into tutorial!");
         }
     }
+
 
     //  ####################################################
     //  Level 01

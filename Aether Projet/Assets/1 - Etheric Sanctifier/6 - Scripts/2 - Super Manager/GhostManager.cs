@@ -156,4 +156,23 @@ public class GhostManager : MonoBehaviour
         }
     }
 
+    public void StopWaveAndClearAllGhost()
+    {
+        SetCanSpawn(false, false);
+
+        foreach (Transform t in allGhosts)
+        {
+            Destroy(t.gameObject);
+        }
+
+        allGhosts.Clear();
+
+        StartCoroutine(NextWave());
+    }
+
+    IEnumerator NextWave()
+    {
+        yield return new WaitForSeconds(timeBetweenWave);
+        SetCanSpawn(true, false);
+    }
 }
