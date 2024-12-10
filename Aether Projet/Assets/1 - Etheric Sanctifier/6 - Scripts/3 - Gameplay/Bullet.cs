@@ -10,23 +10,23 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(DestroyBullet());
+        //StartCoroutine(DestroyBullet());
     }
 
     private void Update()
     {
-        transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+        //transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ghost")
         {
-            GameObject ghost = other.gameObject;
+            GameObject ghost = other.transform.parent.gameObject;
             Ghost scriptGhost = ghost.GetComponent<Ghost>();
+            Rigidbody rbGhost = ghost.transform.parent.GetComponent<Rigidbody>();
 
             Vector3 collisionDirection = (ghost.transform.position - transform.position).normalized;
-            Rigidbody rbGhost = ghost.gameObject.GetComponent<Rigidbody>();
             rbGhost.AddForce(collisionDirection * forcePush, ForceMode.Impulse);
 
             scriptGhost.LowerHealth(damage);

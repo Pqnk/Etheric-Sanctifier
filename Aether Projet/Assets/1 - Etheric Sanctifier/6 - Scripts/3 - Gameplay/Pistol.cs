@@ -94,6 +94,7 @@ public class Pistol : MonoBehaviour
         {
             grabbedObject.isKinematic = false;
 
+            // Ajoute une velocité a celle initial
             Vector3 releaseForce = handVelocity * 10.5f + transform.forward * 5.0f;
             grabbedObject.velocity = handVelocity;
             grabbedObject.angularVelocity = handAngularVelocity;
