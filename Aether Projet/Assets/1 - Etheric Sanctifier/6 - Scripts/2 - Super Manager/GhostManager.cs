@@ -44,9 +44,7 @@ public class GhostManager : MonoBehaviour
 
     private void Start()
     {
-        //if(InitializeghostManager());
-        //{
-        //}
+
     }
 
     public bool InitializeghostManager(bool isTuto)
