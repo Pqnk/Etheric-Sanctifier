@@ -20,7 +20,7 @@ MonoBehaviour:
     x: -716
     y: -455
     width: 3413
-    height: 3659
+    height: 3639
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5753,7 +5753,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 4
+      m_SerializableObject: 0
     m_Space: 2147483647
   m_Property:
     name: Delay
@@ -7431,7 +7431,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615489}
   m_ExposedName: Gradient strip
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 0
   m_Category: 
   m_Min:
     m_Type:
@@ -12900,7 +12900,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615718}
   m_ExposedName: Gradient particule
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:

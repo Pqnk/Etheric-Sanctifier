@@ -39,7 +39,17 @@ public class Buster : MonoBehaviour
     private void Update()
     {
         CheckPalier();
-        TimerBuster();        
+        TimerBuster();
+
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(true);
+        }
     }
 
     private void TimerBuster()
@@ -62,16 +72,6 @@ public class Buster : MonoBehaviour
     private void CheckPalier()
     {
         int kills = SuperManager.instance.gameManagerAetherPunk.Get_KillGhost();
-
-        if (Input.GetKeyDown(KeyCode.KeypadPlus))
-        {
-            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.KeypadMinus))
-        {
-            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(true);
-        }
 
         if (kills >= SuperManager.instance.gameManagerAetherPunk.palierKills[indexPalier])
         {

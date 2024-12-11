@@ -126,8 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _VFXPrefab: {fileID: 0}
-  _vfxHeavyImpact: {fileID: 0}
-  _vfxLightImpact: {fileID: 0}
+  _vfxHeavyImpact: {fileID: 1948280498453613136, guid: 28f24c390225ac44388e4e39f5a9b9af, type: 3}
+  _vfxFootImpact: {fileID: 2544064726984189275, guid: 697b6fcabdb9f874bb8f94efe79239e9, type: 3}
+  _vfxLightImpact: {fileID: 2498280545193927438, guid: 4240f34b15a71954ea24c22d56a52b9d, type: 3}
 --- !u!114 &8369437736979271891
 MonoBehaviour:
   m_ObjectHideFlags: 0

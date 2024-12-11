@@ -19,7 +19,7 @@ public class Sword : MonoBehaviour
             Ghost behaviorGhost = collision.gameObject.GetComponent<Ghost>();
             behaviorGhost.LowerHealth(damage);
 
-            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Collision, 0.5f, this.transform.position);
+            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Sword, 0.5f, this.transform.position);
         }
     }
 }

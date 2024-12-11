@@ -20,7 +20,7 @@ MonoBehaviour:
     x: -716
     y: -455
     width: 3413
-    height: 3659
+    height: 3639
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6849,7 +6849,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 4
+      m_SerializableObject: 0
     m_Space: 2147483647
   m_Property:
     name: Delay

@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
         {
             _playerCurrentMana = _playerMaxMana;
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _playerCurrentMana = _playerMaxMana;
+        }
     }
 
     public void AddMana()

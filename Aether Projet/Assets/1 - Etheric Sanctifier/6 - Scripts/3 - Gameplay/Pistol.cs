@@ -77,6 +77,7 @@ public class Pistol : MonoBehaviour
 
     void Perform_Shoot()
     {
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Shoot, 0.5f, shootPoint.position);
         GameObject lightBullet = Instantiate(lightBulletPrefabs, shootPoint.position, shootPoint.rotation);
         lightBullet.GetComponent<Bullet>().bulletSpeed = lightBulletSpeed;
         lightBullet.GetComponent<Bullet>().forcePush = forcePush;
@@ -85,6 +86,7 @@ public class Pistol : MonoBehaviour
 
     void Perform_ShootRail()
     {
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBig, 0.5f, shootPoint.position);
         GameObject heavyBullet = Instantiate(heavyBulletPrefabs, shootPoint.position, shootPoint.rotation);
         heavyBullet.GetComponent<Bullet>().bulletSpeed = heavyBulletSpeed;
         heavyBullet.GetComponent<Bullet>().isHeavyShoot = true;
