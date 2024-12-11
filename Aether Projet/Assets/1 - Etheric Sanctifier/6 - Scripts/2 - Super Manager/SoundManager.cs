@@ -19,8 +19,15 @@ public enum SoundType
     FindingObjective,
     ExplosionGoat,
     SlurpGoat,
+    SlurpGoatReverb,
     BeehGoat,
-    TeleportAppearing
+    BeehGoatReverb,
+    TeleportAppearing,
+    Shoot,
+    ShootBig,
+    ShootImpact,
+    ShootBigImpact,
+    Sword
 }
 
 
@@ -50,6 +57,11 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _soundVFXBeehGOAT;
     [SerializeField] private AudioClip _soundVFXBeehGOATReverb;
     [SerializeField] private AudioClip _soundVFXTeleportAppearing;
+    [SerializeField] private AudioClip _soundVFXShoot;
+    [SerializeField] private AudioClip _soundVFXShootImpact;
+    [SerializeField] private AudioClip _soundVFXShootBig;
+    [SerializeField] private AudioClip _soundVFXShootBigImpact;
+    [SerializeField] private AudioClip _soundVFXSwordImpact;
 
 
     //  #################################################
@@ -59,7 +71,7 @@ public class SoundManager : MonoBehaviour
     {
     }
 
-    private GameObject InstantiateSound()
+    private GameObject InstantiateSound2D()
     {
         return Instantiate(_soundPrefab2D);
     }
@@ -70,7 +82,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(SoundType soundtype, float volume)
     {
-        GameObject sound = InstantiateSound();
+        GameObject sound = InstantiateSound2D();
         AudioSource soundSource = sound.GetComponent<AudioSource>();
 
         switch (soundtype)
@@ -139,7 +151,6 @@ public class SoundManager : MonoBehaviour
             case SoundType.Music:
                 if (!_isMusicPlaying)
                 {
-                    //sound.GetComponent<Destroy>().enabled = false;
                     soundSource.clip = _music;
                     soundSource.loop = true;
                     _isMusicPlaying = true;
@@ -153,7 +164,6 @@ public class SoundManager : MonoBehaviour
             case SoundType.HUB:
                 if (!_isMusicPlaying)
                 {
-                    //sound.GetComponent<Destroy>().enabled = false;
                     soundSource.clip = _hub;
                     soundSource.loop = true;
                     _isMusicPlaying = true;
@@ -178,8 +188,8 @@ public class SoundManager : MonoBehaviour
                 volume = 0.2f;
                 break;
 
-            case SoundType.TeleportValidated:
-                soundSource.clip = _soundVFXTeleportValidated;
+            case SoundType.TeleportAppearing:
+                soundSource.clip = _soundVFXTeleportAppearing;
                 break;
 
             case SoundType.TeleportCanceled:
@@ -194,6 +204,42 @@ public class SoundManager : MonoBehaviour
             case SoundType.FindingObjective:
                 soundSource.clip = _soundVFXFindingObjective;
                 volume = 0.2f;
+                break;
+
+            case SoundType.Shoot:
+                soundSource.clip = _soundVFXShoot;
+                break;
+
+            case SoundType.ShootImpact:
+                soundSource.clip = _soundVFXShootImpact;
+                break;
+
+            case SoundType.ShootBig:
+                soundSource.clip = _soundVFXShootBig;
+                break;
+
+            case SoundType.ShootBigImpact:
+                soundSource.clip = _soundVFXShootBigImpact;
+                break;
+
+            case SoundType.BeehGoat:
+                soundSource.clip = _soundVFXBeehGOAT;
+                break;
+
+            case SoundType.BeehGoatReverb:
+                soundSource.clip = _soundVFXBeehGOATReverb;
+                break;
+
+            case SoundType.SlurpGoat:
+                soundSource.clip = _soundVFXSlurpGOAT;
+                break;
+
+            case SoundType.SlurpGoatReverb:
+                soundSource.clip = _soundVFXSlurpGOATReverb;
+                break;
+
+            case SoundType.Sword:
+                soundSource.clip = _soundVFXSwordImpact;
                 break;
         }
 
