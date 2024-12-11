@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.aetherpunk.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Ely\\Documents\\11 - Etheric Sanctifier\\Aether Projet\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Robin\\Documents\\Robin\\Unity\\Etheric Sanctifier\\Aether Projet\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "Aether Punk [Testing]"

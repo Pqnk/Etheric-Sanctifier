@@ -24,6 +24,7 @@ public class Pistol : MonoBehaviour
     [SerializeField] float heavyBulletSpeed;
     [SerializeField] GameObject heavyBulletPrefabs;
     [SerializeField] float timeForShooting;
+    [SerializeField] float rangeHeavyImpact;
     private float currentTimerShoot = 0;
 
     [Header("Input")]
@@ -87,6 +88,7 @@ public class Pistol : MonoBehaviour
         GameObject heavyBullet = Instantiate(heavyBulletPrefabs, shootPoint.position, shootPoint.rotation);
         heavyBullet.GetComponent<Bullet>().bulletSpeed = heavyBulletSpeed;
         heavyBullet.GetComponent<Bullet>().isHeavyShoot = true;
+        heavyBullet.GetComponent<Bullet>().rangeHeavyImpact = rangeHeavyImpact;
         heavyBullet.GetComponent<Bullet>().damage = 10000;
     }
 

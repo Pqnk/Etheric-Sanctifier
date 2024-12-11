@@ -196,6 +196,7 @@ MonoBehaviour:
   heavyBulletSpeed: 50
   heavyBulletPrefabs: {fileID: 8665065177378599218, guid: 111661733079c354a8cd5bff9d7ebc4e, type: 3}
   timeForShooting: 2
+  rangeHeavyImpact: 2
   triggerAction:
     actionPath: /actions/default/in/InteractUI
     needsReinit: 0

@@ -191,7 +191,11 @@ MonoBehaviour:
   damage: 1
   forcePush: 1000
   bulletSpeed: 10
+  rangeHeavyImpact: 0
   isHeavyShoot: 0
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!135 &5555191169071793407
 SphereCollider:
   m_ObjectHideFlags: 0

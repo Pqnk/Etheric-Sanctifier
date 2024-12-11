@@ -7,7 +7,9 @@ public class Bullet : MonoBehaviour
     public int damage;
     public float forcePush;
     public float bulletSpeed;
+    public float rangeHeavyImpact;
     public bool isHeavyShoot;
+    public LayerMask LayerMask;
 
     private void Start()
     {
@@ -34,13 +36,23 @@ public class Bullet : MonoBehaviour
 
                 scriptGhost.LowerHealth(damage);
 
-                SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Collision, 0.5f, this.transform.position);
             }
             else
             {
-                scriptGhost.LowerHealth(damage);
+                Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, rangeHeavyImpact, LayerMask);
 
-                SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
+                foreach (var collider in hitColliders)
+                {
+                    GameObject ghostCollider = collider.gameObject;
+
+                    if (((1 << collider.gameObject.layer) & LayerMask) != 0)
+                    {
+                        ghostCollider.GetComponent<Ghost>().LowerHealth(damage);
+                    }
+                }
+
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Collision, 0.5f,this.transform.position);
             }
 
             Destroy(transform.root.gameObject);

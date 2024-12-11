@@ -157,6 +157,10 @@
     {
       "controller_type": "vive_tracker_waist",
       "binding_url": "application_generated_unity_afsfov_exe_binding_vive_tracker_waist.json"
+    },
+    {
+      "controller_type": "vive_tracker_right_foot",
+      "binding_url": "application_generated_unity_aetherpunk_exe_binding_vive_tracker_right_foot.json"
     }
   ],
   "localization": [

@@ -17,7 +17,8 @@ public class VFXManager : MonoBehaviour
     [SerializeField] private GameObject _VFXPrefab;
 
     [Header("VFX")]
-    [SerializeField] private GameObject _vfxExplosion;
+    [SerializeField] private GameObject _vfxHeavyImpact;
+    [SerializeField] private GameObject _vfxLightImpact;
 
     private GameObject InstantiateVFX()
     {
