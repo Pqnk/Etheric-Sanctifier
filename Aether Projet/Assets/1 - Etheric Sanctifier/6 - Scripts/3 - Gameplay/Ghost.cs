@@ -139,6 +139,8 @@ public class Ghost : MonoBehaviour
         gM.RemoveGhostFromList(_indexInManagerList);
         sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
 
+        GameObject vfxDeadGhost = SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(this.transform);
+
         _isAlreadyDead = true;
         SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
         gM.GetCameraPlayer().GetComponent<Player>().AddMana();
@@ -158,6 +160,8 @@ public class Ghost : MonoBehaviour
         }
 
         sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
+
+        GameObject vfxDeadGhost = SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(this.transform);
 
         _isAlreadyDead = true;
         gM.RemoveGhostFromList(_indexInManagerList);

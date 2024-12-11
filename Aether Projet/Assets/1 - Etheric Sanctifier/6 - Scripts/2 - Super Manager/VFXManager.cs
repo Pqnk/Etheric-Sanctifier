@@ -19,6 +19,7 @@ public class VFXManager : MonoBehaviour
     [SerializeField] private GameObject _vfxLightImpact;
     [SerializeField] private GameObject _VFXChargingHeavyShoot;
     [SerializeField] private GameObject _VFXPalierValidated;
+    [SerializeField] private GameObject _vfxDeadGhostImpact;
 
     public GameObject InstantiateVFX_VFXChargingHeavyShoot(Transform pos)
     {
@@ -53,6 +54,15 @@ public class VFXManager : MonoBehaviour
     public GameObject InstantiateVFX_vfxLightImpact(Transform pos)
     {
         GameObject instance = Instantiate(_vfxLightImpact, pos.position, Quaternion.identity);
+
+        instance.transform.SetParent(null);
+
+        return instance;
+    }
+
+    public GameObject InstantiateVFX_vfxDeadGhostImpact(Transform pos)
+    {
+        GameObject instance = Instantiate(_vfxDeadGhostImpact, pos.position, Quaternion.identity);
 
         instance.transform.SetParent(null);
 

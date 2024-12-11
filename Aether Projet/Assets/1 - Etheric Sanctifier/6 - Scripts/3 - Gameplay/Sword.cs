@@ -15,6 +15,8 @@ public class Sword : MonoBehaviour
             Rigidbody rbGhost = collision.gameObject.GetComponent<Rigidbody>();
             rbGhost.AddForce(collisionDirection * force, ForceMode.Impulse);
 
+            GameObject vfxImpactSword = SuperManager.instance.vfxManager.InstantiateVFX_vfxFootImpact(this.transform);
+
             float damage = force * damageMultiplier;
             Ghost behaviorGhost = collision.gameObject.GetComponent<Ghost>();
             behaviorGhost.LowerHealth(damage);
