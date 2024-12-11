@@ -189,7 +189,7 @@ MonoBehaviour:
   grabbableLayer:
     serializedVersion: 2
     m_Bits: 2048
-  lightDamage: 5
+  lightDamage: 25
   forcePush: 10
   lightBulletSpeed: 30
   lightBulletPrefabs: {fileID: 8665065177378599218, guid: 680890e1b50976f44a6ee3a1ef45f558, type: 3}

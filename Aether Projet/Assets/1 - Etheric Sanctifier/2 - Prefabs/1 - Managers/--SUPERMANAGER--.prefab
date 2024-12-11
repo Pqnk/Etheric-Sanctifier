@@ -159,7 +159,7 @@ MonoBehaviour:
   allGhosts: []
   _maxGhostInTotal: 10
   _isReady: 0
-  timeBetweenWave: 2
+  timeBetweenWave: 15
   isTutorial: 0
 --- !u!114 &565082960265743651
 MonoBehaviour:

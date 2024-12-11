@@ -119,6 +119,7 @@ public class Buster : MonoBehaviour
                 break;
 
             case 3:
+                SuperManager.instance.ghostManager.DefinitiveStopWaveAndClearGhosts();
                 SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
                 GameObject vfxLight3 = SuperManager.instance.vfxManager.InstantiateVFX_VFXPalierValidated(this.transform);
                 SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.Victory, 0.5f, this.transform);
@@ -131,5 +132,12 @@ public class Buster : MonoBehaviour
 
         MaterialList groupMat = materialGroups[indexPalier];
         mesh.SetMaterials(groupMat.materials);
+    }
+
+    IEnumerator ReturntoHUB()
+    {
+       yield return new WaitForSeconds(15f);
+
+        SuperManager.instance.levelManager.LoadLevel(LevelType.HUB);
     }
 }

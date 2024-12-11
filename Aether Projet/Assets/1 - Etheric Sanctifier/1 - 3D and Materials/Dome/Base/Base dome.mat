@@ -275,9 +275,9 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     - _emission_intensite: 0
-    - _intensite: 3
+    - _intensite: 0.2
     - _intensite3: 0.1
-    - _intensite_map_2: 3
+    - _intensite_map_2: 1
     - _ofset_1: 1
     - _ofset_2: 1
     - _time: 0.05
