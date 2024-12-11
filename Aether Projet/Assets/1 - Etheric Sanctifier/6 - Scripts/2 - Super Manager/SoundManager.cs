@@ -27,7 +27,8 @@ public enum SoundType
     ShootBig,
     ShootImpact,
     ShootBigImpact,
-    Sword
+    Sword,
+    BigShootReady
 }
 
 
@@ -62,6 +63,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _soundVFXShootBig;
     [SerializeField] private AudioClip _soundVFXShootBigImpact;
     [SerializeField] private AudioClip _soundVFXSwordImpact;
+    [SerializeField] private AudioClip _soundVFXBigShootReady;
 
 
     //  #################################################
@@ -134,6 +136,12 @@ public class SoundManager : MonoBehaviour
 
             case SoundType.FindingObjective:
                 soundSource.clip = _soundVFXFindingObjective;
+                volume = 0.2f;
+                break;
+
+
+            case SoundType.BigShootReady:
+                soundSource.clip = _soundVFXBigShootReady;
                 volume = 0.2f;
                 break;
         }
@@ -240,6 +248,10 @@ public class SoundManager : MonoBehaviour
 
             case SoundType.Sword:
                 soundSource.clip = _soundVFXSwordImpact;
+                break;
+
+            case SoundType.BigShootReady:
+                soundSource.clip = _soundVFXBigShootReady;
                 break;
         }
 
