@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentKill: 0
   indexPalier: 0
-  palierKills: 02000000050000000a000000
+  palierKills: 0a0000000f00000014000000
 --- !u!114 &4925675943462278177
 MonoBehaviour:
   m_ObjectHideFlags: 0

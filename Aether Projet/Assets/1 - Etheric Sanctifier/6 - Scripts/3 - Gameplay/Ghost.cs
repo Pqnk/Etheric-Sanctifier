@@ -67,7 +67,7 @@ public class Ghost : MonoBehaviour
         if (_indexInManagerList < 0)
         {
             _indexInManagerList = 0;
-            DestroyGhost();
+            DestroyGhostDist();
         }
 
         if (_timeToDamageMat < Time.time)
