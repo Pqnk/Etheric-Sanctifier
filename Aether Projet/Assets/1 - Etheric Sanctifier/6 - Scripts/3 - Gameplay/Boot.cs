@@ -11,6 +11,8 @@ public class Boot: MonoBehaviour
     {
         if(collision.gameObject.tag == "Ghost")
         {
+            GameObject vfxHeavy = SuperManager.instance.vfxManager.InstantiateVFX_vfxFootImpact(this.transform);
+
             Vector3 collisionDirection = (collision.transform.position - transform.position).normalized;
             Rigidbody rbGhost = collision.gameObject.GetComponent<Rigidbody>();
             rbGhost.AddForce(collisionDirection * force, ForceMode.Impulse);

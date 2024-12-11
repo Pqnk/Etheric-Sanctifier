@@ -124,6 +124,7 @@ public class Ghost : MonoBehaviour
         _isAlreadyDead = true;
         SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
         SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BeehGoatReverb, 0.5f, this.transform.position);
         GameObject.Find("Camera_Player").GetComponent<Player>().AddMana();
         Destroy(gameObject);
     }
@@ -131,6 +132,7 @@ public class Ghost : MonoBehaviour
     private void DestroyGhostDist()
     {
         _isAlreadyDead = true;
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.SlurpGoatReverb, 0.5f, this.transform.position);
         SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
         Destroy(gameObject);
     }
