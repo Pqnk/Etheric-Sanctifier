@@ -35,6 +35,10 @@ public class Radar : MonoBehaviour
     
     void Update()
     {
+        Debug.DrawRay(transform.position, new Vector3(Mathf.Sin((transform.eulerAngles.y + detectionAngleUpdate) * Mathf.PI / 180), 0, Mathf.Cos((transform.eulerAngles.y + detectionAngleUpdate) * Mathf.PI / 180)));
+        Debug.DrawRay(transform.position, new Vector3(Mathf.Sin((transform.eulerAngles.y - detectionAngleUpdate) * Mathf.PI / 180), 0, Mathf.Cos((transform.eulerAngles.y - detectionAngleUpdate) * Mathf.PI / 180)));
+
+
         if (_isRadarActive && _canPlay)
         {
             DetectNearestGhostBehind();
@@ -47,8 +51,8 @@ public class Radar : MonoBehaviour
     {
         float closestDistance = Mathf.Infinity;
         Transform nearestGhost = null;
-        Vector3 orientationX = new Vector3(Mathf.Cos(transform.eulerAngles.y), 0, Mathf.Sin(transform.eulerAngles.y));
-        Vector3 orientationZ = new Vector3(Mathf.Sin(transform.eulerAngles.y), 0, Mathf.Cos(transform.eulerAngles.y));
+        Vector3 orientationX = new Vector3(Mathf.Cos(transform.eulerAngles.y * Mathf.PI / 180), 0, Mathf.Sin(transform.eulerAngles.y * Mathf.PI / 180));
+        Vector3 orientationZ = new Vector3(Mathf.Sin(transform.eulerAngles.y * Mathf.PI / 180), 0, Mathf.Cos(transform.eulerAngles.y * Mathf.PI / 180));
 
         foreach (Transform ghost in SuperManager.instance.ghostManager.allGhosts)
         {
