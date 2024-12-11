@@ -54,8 +54,8 @@ MonoBehaviour:
   _timeToDamageMat: -1
   _health: 100
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
-  _emissiveMatDetection: {fileID: 0}
-  _emissiveMatDamage: {fileID: 0}
+  _emissiveMatDetection: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
+  _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
   _isDetected: 0
   _ghostRenderer: {fileID: 0}
   _indexInManagerList: 0
