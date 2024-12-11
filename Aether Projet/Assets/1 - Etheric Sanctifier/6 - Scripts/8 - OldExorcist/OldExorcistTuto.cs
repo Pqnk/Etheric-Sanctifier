@@ -20,6 +20,14 @@ public class OldExorcistTuto : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartIntroTutoVoice());
+
+        StartCoroutine(PlayVoiceTuto(VoiceType.TutoYeux, 20));
+          
+        StartCoroutine(PlayVoiceTuto(VoiceType.TutoDos, 35));
+
+        StartCoroutine(PlayVoiceTuto(VoiceType.TutoTir, 50));
+
+        StartCoroutine(PlayVoiceTuto(VoiceType.TutoPieds, 65));
     }
 
     private void Update()
@@ -38,7 +46,14 @@ public class OldExorcistTuto : MonoBehaviour
     IEnumerator StartIntroTutoVoice()
     {
         yield return new WaitForSeconds(_timeBeforeVoice);
-        _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.Tuto01);
+        _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.TutoDemarrage);
+        _npcSource.Play();
+    }
+
+    IEnumerator PlayVoiceTuto(VoiceType voiceType, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(voiceType);
         _npcSource.Play();
     }
 }

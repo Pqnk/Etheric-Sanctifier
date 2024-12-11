@@ -76,10 +76,17 @@ MonoBehaviour:
   _soundVFXTeleportCanceled: {fileID: 8300000, guid: 816d8beff16a9914fae5783f81cd4e2a, type: 3}
   _soundVFXSearchingObjective: {fileID: 8300000, guid: ba488f4ce21e9f6489d719a54eb1b057, type: 3}
   _soundVFXFindingObjective: {fileID: 8300000, guid: d9c6523d54cc5944cbead6b8f883247d, type: 3}
-  _soundVFXExplosionGOAT: {fileID: 0}
-  _soundVFXSlurpGOAT: {fileID: 0}
-  _soundVFXBeehGOAT: {fileID: 0}
-  _soundVFXTeleportAppearing: {fileID: 0}
+  _soundVFXExplosionGOAT: {fileID: 8300000, guid: 7d66798b6cf74fb4f8bf6d9f1833c4fa, type: 3}
+  _soundVFXSlurpGOAT: {fileID: 8300000, guid: e36cbae3552aee0449c531dfb2233abf, type: 3}
+  _soundVFXSlurpGOATReverb: {fileID: 8300000, guid: 47e6f6c92fc91454298035d76ca95524, type: 3}
+  _soundVFXBeehGOAT: {fileID: 8300000, guid: 07f0197ef24044c449a4001a174ae0cc, type: 3}
+  _soundVFXBeehGOATReverb: {fileID: 8300000, guid: 26643148e6421f34aa2da4b70bd203ff, type: 3}
+  _soundVFXTeleportAppearing: {fileID: 8300000, guid: ec45d5e2aff8815499ec289a8b69eecd, type: 3}
+  _soundVFXShoot: {fileID: 8300000, guid: 550f48cd66508f84aa29107bc5579548, type: 3}
+  _soundVFXShootImpact: {fileID: 8300000, guid: 89bf28d9d8057ba4ca7c409636d01238, type: 3}
+  _soundVFXShootBig: {fileID: 8300000, guid: fdba85bf8157ca0419cb7230a8e8e3db, type: 3}
+  _soundVFXShootBigImpact: {fileID: 8300000, guid: f5a06df96781c5d478dc2301802de0ae, type: 3}
+  _soundVFXSwordImpact: {fileID: 8300000, guid: 7045b0e90d771204b8937196f120a28c, type: 3}
 --- !u!114 &1157268568273184427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,11 +103,16 @@ MonoBehaviour:
   _voiceIntro: {fileID: 8300000, guid: dc4b5b09d9aa9c04d8f07e7b7116c242, type: 3}
   _voiceChoiceTuto: {fileID: 8300000, guid: 90e49b9288146604398ea4302ec5377e, type: 3}
   _voiceChoiceMission: {fileID: 8300000, guid: 5a07c17801c42f644912d089ff59f5da, type: 3}
-  _voiceTuto01: {fileID: 8300000, guid: 372bcdf2b3dce144bac5f91c2c65ae3e, type: 3}
-  _voiceTuto02: {fileID: 0}
-  _voiceTuto03: {fileID: 0}
-  _voiceTuto04: {fileID: 0}
+  _voiceTutoDemarrage: {fileID: 8300000, guid: 372bcdf2b3dce144bac5f91c2c65ae3e, type: 3}
+  _voiceTutoYeux: {fileID: 8300000, guid: 5b69cdc7581ba9642adeccbf3f60e4da, type: 3}
+  _voiceTutoPieds: {fileID: 8300000, guid: 12a6d2ba3035a164b82b62f6543ddf0e, type: 3}
+  _voiceTutoDos: {fileID: 8300000, guid: 830a005322abe9546adfeff82fb4cf30, type: 3}
+  _voiceTutoTir: {fileID: 8300000, guid: 95542abf701d08e4c972a5a191e37923, type: 3}
   _voiceBriefingMission: {fileID: 8300000, guid: 625d723a78dc61944a8093dbb3735b04, type: 3}
+  _voiceFirstPalier: {fileID: 8300000, guid: aeaa6ac1d0eae3e44b318211ae769f89, type: 3}
+  _voiceSecondPalier: {fileID: 8300000, guid: e991e5c0f62379444a7faa1d29b3bce2, type: 3}
+  _voiceVictory: {fileID: 8300000, guid: 707cf53cde9377e4dbe64685702412d8, type: 3}
+  _voiceDefeat: {fileID: 8300000, guid: 2d766f75de0cbae4abfed883746c7c56, type: 3}
 --- !u!114 &6001254030239941167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _VFXPrefab: {fileID: 0}
-  _vfxExplosion: {fileID: 0}
+  _vfxHeavyImpact: {fileID: 0}
+  _vfxLightImpact: {fileID: 0}
 --- !u!114 &8369437736979271891
 MonoBehaviour:
   m_ObjectHideFlags: 0

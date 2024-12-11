@@ -9,10 +9,13 @@ public enum VoiceType
     ChoiceTuto,
     ChoiceMission,
     BriefingMission,
-    Tuto01,
-    Tuto02,
-    Tuto03,
-    Tuto04
+    TutoDemarrage,
+    TutoYeux,
+    TutoDos,
+    TutoPieds,
+    TutoTir,
+    Victory,
+    Defeat
 }
 
 public class VoiceManager : MonoBehaviour
@@ -26,13 +29,18 @@ public class VoiceManager : MonoBehaviour
     [SerializeField] private AudioClip _voiceChoiceMission;
 
     [Header("Voices Tutorial")]
-    [SerializeField] private AudioClip _voiceTuto01;
-    [SerializeField] private AudioClip _voiceTuto02;
-    [SerializeField] private AudioClip _voiceTuto03;
-    [SerializeField] private AudioClip _voiceTuto04;
+    [SerializeField] private AudioClip _voiceTutoDemarrage;
+    [SerializeField] private AudioClip _voiceTutoYeux;
+    [SerializeField] private AudioClip _voiceTutoPieds;
+    [SerializeField] private AudioClip _voiceTutoDos;
+    [SerializeField] private AudioClip _voiceTutoTir;
 
     [Header("Voices Mission")]
     [SerializeField] private AudioClip _voiceBriefingMission;
+    [SerializeField] private AudioClip _voiceFirstPalier;
+    [SerializeField] private AudioClip _voiceSecondPalier;
+    [SerializeField] private AudioClip _voiceVictory;
+    [SerializeField] private AudioClip _voiceDefeat;
 
     private GameObject InstantiateVoice(Transform position)
     {
@@ -55,21 +63,33 @@ public class VoiceManager : MonoBehaviour
                 break;
 
 
-            case VoiceType.Tuto01:
-                voiceSource.clip = _voiceTuto01;
+            case VoiceType.TutoDemarrage:
+                voiceSource.clip = _voiceTutoDemarrage;
                 break;
 
-            case VoiceType.Tuto02:
-                voiceSource.clip = _voiceTuto02;
+            case VoiceType.TutoYeux:
+                voiceSource.clip = _voiceTutoYeux;
                 volume = 0.2f;
                 break;
 
-            case VoiceType.Tuto03:
-                voiceSource.clip = _voiceTuto03;
+            case VoiceType.TutoDos:
+                voiceSource.clip = _voiceTutoDos;
                 break;
 
-            case VoiceType.Tuto04:
-                voiceSource.clip = _voiceTuto04;
+            case VoiceType.TutoTir:
+                voiceSource.clip = _voiceTutoTir;
+                break;
+
+            case VoiceType.TutoPieds:
+                voiceSource.clip = _voiceTutoPieds;
+                break;
+
+            case VoiceType.Victory:
+                voiceSource.clip = _voiceVictory;
+                break;
+
+            case VoiceType.Defeat:
+                voiceSource.clip = _voiceDefeat;
                 break;
         }
 
@@ -90,8 +110,27 @@ public class VoiceManager : MonoBehaviour
             case VoiceType.ChoiceTuto:
                 return _voiceChoiceTuto;
 
-            case VoiceType.Tuto01:
-                return _voiceTuto01;
+            case VoiceType.TutoDemarrage:
+                return _voiceTutoDemarrage;
+
+            case VoiceType.TutoTir:
+                return _voiceTutoTir;
+
+            case VoiceType.TutoPieds:
+                return _voiceTutoPieds;
+
+            case VoiceType.TutoYeux:
+                return _voiceTutoYeux;
+
+            case VoiceType.TutoDos:
+                return _voiceTutoDos;
+ 
+            case VoiceType.Defeat:
+                return _voiceDefeat;
+
+            case VoiceType.Victory:
+                return _voiceVictory;
+
         }
 
         return null;
