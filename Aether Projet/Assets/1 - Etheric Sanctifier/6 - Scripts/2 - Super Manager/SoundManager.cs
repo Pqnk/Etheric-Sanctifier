@@ -63,7 +63,7 @@ public class SoundManager : MonoBehaviour
     {
         return Instantiate(_soundPrefab2D);
     }
-    private GameObject InstantiateSound(Vector3 target)
+    private GameObject InstantiateSound3D(Vector3 target)
     {
         return Instantiate(_soundPrefab3D, target, Quaternion.identity);
     }
@@ -129,9 +129,9 @@ public class SoundManager : MonoBehaviour
         soundSource.volume = volume;
         soundSource.Play();
     }
-    public void PlaySound(SoundType soundtype, float volume, Vector3 targetPosition)
+    public void PlaySoundAtLocation(SoundType soundtype, float volume, Vector3 targetPosition)
     {
-        GameObject sound = InstantiateSound(targetPosition);
+        GameObject sound = InstantiateSound3D(targetPosition);
         AudioSource soundSource = sound.GetComponent<AudioSource>();
 
         switch (soundtype)

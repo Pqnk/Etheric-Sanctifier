@@ -28,7 +28,7 @@ public class ObjectToFind : MonoBehaviour
     {
         Vector3 pos = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
 
-        SuperManager.instance.soundManager.PlaySound(SoundType.FindingObjective, 1f, this.gameObject.transform.position);
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.FindingObjective, 1f, this.gameObject.transform.position);
 
     }
 }

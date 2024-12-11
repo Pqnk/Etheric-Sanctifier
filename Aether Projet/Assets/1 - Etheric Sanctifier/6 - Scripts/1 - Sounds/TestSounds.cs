@@ -10,16 +10,5 @@ public class TestSounds : MonoBehaviour
 
     void Update()
     {
-        // Collision sound test
-        if(Input.GetKeyDown(triggerKeyCollision)) 
-        {
-            SuperManager.instance.soundManager.PlaySound(SoundType.Collision, 0.5f);
-        }
-
-        // Ambiance Music Test
-        if (Input.GetKeyDown(triggerKeyAmbiance))
-        {
-            SuperManager.instance.soundManager.PlaySound(SoundType.Music, 0.2f);
-        }
     }
 }
