@@ -51,9 +51,11 @@ MonoBehaviour:
   _moveSpeed: 1
   _timeOffsetToDisapear: 5
   _timeToDisapear: -1
+  _timeToDamageMat: -1
   _health: 100
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
-  _emissiveMat: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
+  _emissiveMatDetection: {fileID: 0}
+  _emissiveMatDamage: {fileID: 0}
   _isDetected: 0
   _ghostRenderer: {fileID: 0}
   _indexInManagerList: 0
@@ -103,8 +105,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.34860605, y: 0.76008195, z: 1.0196272}
-  m_Center: {x: -0.04181546, y: 0.38144925, z: 0.009813666}
+  m_Size: {x: 0.34860605, y: 1.1609184, z: 1.3233324}
+  m_Center: {x: -0.04181546, y: 0.5818674, z: 0.16166669}
 --- !u!1001 &1007533222553572708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,15 +117,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 40dba88a5f76865448c79d8abddc6a24, type: 3}
       propertyPath: m_LocalScale.x
-      value: 56.83
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40dba88a5f76865448c79d8abddc6a24, type: 3}
       propertyPath: m_LocalScale.y
-      value: 56.83
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40dba88a5f76865448c79d8abddc6a24, type: 3}
       propertyPath: m_LocalScale.z
-      value: 56.83
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 40dba88a5f76865448c79d8abddc6a24, type: 3}
       propertyPath: m_LocalPosition.x
