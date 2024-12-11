@@ -15,7 +15,9 @@ public enum VoiceType
     TutoPieds,
     TutoTir,
     Victory,
-    Defeat
+    Defeat,
+    FirstPalier,
+    SecondPalier
 }
 
 public class VoiceManager : MonoBehaviour
@@ -90,6 +92,14 @@ public class VoiceManager : MonoBehaviour
 
             case VoiceType.Defeat:
                 voiceSource.clip = _voiceDefeat;
+                break;
+
+            case VoiceType.FirstPalier:
+                voiceSource.clip = _voiceFirstPalier;
+                break;
+
+            case VoiceType.SecondPalier:
+                voiceSource.clip = _voiceSecondPalier;
                 break;
         }
 
