@@ -1,32 +1,65 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Presets;
 using UnityEngine;
+using UnityEngine.UI;
+
+[System.Serializable]
+public class MaterialList
+{
+    public List<Material> materials = new List<Material>();
+}
 
 public class Buster : MonoBehaviour
 {
     [SerializeField] int indexPalier;
+
+    [Header("Gestion de la light")]
     [SerializeField] float[] outerAngleLight;
     [SerializeField] float[] innerAngleLight;
     [SerializeField] float[] intensityLight;
 
+    [Header("Image du timer")]
+    [SerializeField] Image sliderImage;
+
+    [Header("Liste de groupes de matériaux")]
+    [SerializeField] List<MaterialList> materialGroups = new List<MaterialList>();
+
+    private float currentTimer;
+    private float maxTime;
+    private bool nextWave = false;
+
     private void Start()
     {
         indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
+        maxTime = SuperManager.instance.ghostManager.timeBetweenWave;
         ApplyChangeBuster(indexPalier);
     }
 
-    /*  EXPLICATION DES FONCTION UTILIE
-    SuperManager.instance.gameManagerAetherPunk.Get_KillGhost() -> récupere le nombre de ghost tué
-    SuperManager.instance.gameManagerAetherPunk.palierKills[i] -> récupere le nombre de ghost a tué par palier
-    SuperManager.instance.gameManagerAetherPunk.Get_Palier() -> récupere le palier actuel
-    SuperManager.instance.gameManagerAetherPunk.Set_NextPalier() -> passe au palier suplementaire
-    SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false) -> remet le nombre de ghost tué a 0 
-    */
-
     private void Update()
+    {
+        CheckPalier();
+        TimerBuster();        
+    }
+
+    private void TimerBuster()
+    {
+        if (nextWave)
+        {            
+            currentTimer += Time.deltaTime;
+
+            sliderImage.fillAmount = currentTimer / maxTime;
+
+            if (currentTimer > maxTime)
+            {
+                nextWave = false;
+                currentTimer = 0;
+                sliderImage.fillAmount = 0;
+            }
+        }
+    }
+
+    private void CheckPalier()
     {
         int kills = SuperManager.instance.gameManagerAetherPunk.Get_KillGhost();
 
@@ -66,11 +99,16 @@ public class Buster : MonoBehaviour
 
     private void ApplyChangeBuster(int indexPalier)
     {
+        nextWave = true;
+
         Light light = transform.GetChild(1).gameObject.GetComponent<Light>();
         MeshRenderer mesh = transform.GetChild(0).gameObject.GetComponent<MeshRenderer>();
 
         light.innerSpotAngle = intensityLight[indexPalier];
         light.intensity = intensityLight[indexPalier];
         light.spotAngle = outerAngleLight[indexPalier];
-    }
+
+        MaterialList groupMat = materialGroups[indexPalier];
+        mesh.SetMaterials(groupMat.materials);
+    }    
 }
