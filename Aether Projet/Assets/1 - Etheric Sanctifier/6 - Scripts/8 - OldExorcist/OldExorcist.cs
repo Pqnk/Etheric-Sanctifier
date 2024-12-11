@@ -31,6 +31,7 @@ public class OldExorcist : MonoBehaviour
     {
         if (!_portalTutoRef.isPortalActive && !_alreadySpeaking)
         {
+            _portalMissionRef.DeactivatePortal();
             _alreadySpeaking = true;
             _npcSource.Stop();
             _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.ChoiceTuto);
@@ -39,6 +40,7 @@ public class OldExorcist : MonoBehaviour
 
         if (!_portalMissionRef.isPortalActive && !_alreadySpeaking)
         {
+            _portalTutoRef?.DeactivatePortal();
             _alreadySpeaking = true;
             _npcSource.Stop();
             _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.ChoiceMission);

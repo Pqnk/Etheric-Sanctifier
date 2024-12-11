@@ -50,15 +50,14 @@ MonoBehaviour:
   _target: {fileID: 0}
   _moveSpeed: 1
   _timeOffsetToDisapear: 5
-  _timeToDisapear: -1
-  _timeToDamageMat: -1
+  _maxDistanceFromPlayer: 2.5
+  _repulsiveForceNearPlayer: 10
   _health: 100
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
   _emissiveMatDetection: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
   _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
-  _isDetected: 0
-  _ghostRenderer: {fileID: 0}
   _indexInManagerList: 0
+  _attackTime: 2
 --- !u!54 &660619105344224404
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -67,7 +66,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4497303493123727353}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

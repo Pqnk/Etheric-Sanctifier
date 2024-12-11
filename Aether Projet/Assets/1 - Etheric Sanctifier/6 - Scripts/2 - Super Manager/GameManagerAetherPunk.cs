@@ -65,7 +65,6 @@ public class GameManagerAetherPunk : MonoBehaviour
 
         if (SuperManager.instance.ghostManager.InitializeghostManager(false))
         {
-            SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.BriefingMission, 0.5f, SuperManager.instance.ghostManager.GetMainTarget());
             StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f));
         }
         else
@@ -127,6 +126,7 @@ public class GameManagerAetherPunk : MonoBehaviour
             SuperManager.instance.ghostManager.SetCanSpawn(false);
         }
     }
+
 
 
     //  ####################################################

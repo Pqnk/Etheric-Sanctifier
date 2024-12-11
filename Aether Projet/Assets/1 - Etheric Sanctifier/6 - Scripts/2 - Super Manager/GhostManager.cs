@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GhostManager : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private GameObject _cameraPlayer;
     [SerializeField] private Transform _mainTarget;
     [SerializeField] private Transform _secondaryTarget;
+    [SerializeField] private Transform _lowTarget;
     [SerializeField] private GameObject _radarRef;
+    private List<Transform> _targets;
 
     [Header("Spawn Points Parent")]
     [SerializeField] private string _ghostSpawnPointsName = "--GHOST SPAWN POINTS--";
@@ -38,7 +41,6 @@ public class GhostManager : MonoBehaviour
     [Header("Max ghost in the scene")]
     [SerializeField] private int _maxGhostInTotal = 10;
 
-    [Header("Max ghost in the scene")]
     [SerializeField] private bool _isReady = false;
 
     [Header("Time Between Wave")]
@@ -47,19 +49,18 @@ public class GhostManager : MonoBehaviour
     [Header("Is it a Tutorial ?")]
     public bool isTutorial = false;
 
-    private void Start()
-    {
-
-    }
-
     public Transform GetMainTarget()
     {
         return _mainTarget;
     }
-
     public GameObject GetCameraPlayer()
     {
         return _cameraPlayer;
+    }
+
+    public Transform GetTargetLow()
+    {
+        return _lowTarget;
     }
 
     public bool InitializeghostManager(bool isTuto)
@@ -87,6 +88,9 @@ public class GhostManager : MonoBehaviour
         {
             _mainTarget = _cameraPlayer.transform.GetChild(2).transform;
             _radarRef = _cameraPlayer.transform.GetChild(2).transform.GetChild(0).gameObject;
+            _lowTarget = _cameraPlayer.transform.GetChild(2).transform.GetChild(2).transform;
+            //_targets.Add(_mainTarget);
+            //_targets.Add(_lowTarget);
         }
 
         if (_spawnPointsParent != null && _mainTarget != null)
@@ -116,7 +120,7 @@ public class GhostManager : MonoBehaviour
 
     IEnumerator SpawnPrefabs()
     {
-        while (allGhosts.Count < _maxGhostInTotal)
+        if (allGhosts.Count < _maxGhostInTotal)
         {
             Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
             Vector3 spawnPosition = randomSpawnPoint.position;
@@ -132,17 +136,20 @@ public class GhostManager : MonoBehaviour
             GameObject ghostInstance = Instantiate(p, spawnPosition, Quaternion.identity);
 
             Ghost ghostBehavior = ghostInstance.GetComponent<Ghost>();
-            ghostBehavior.SetTarget(_mainTarget);
+
+            //ghostBehavior.SetTarget(_mainTarget);
+            ghostBehavior.SetTarget(GetRandomTargetBetweenMainAndLow());
             _moveSpeed = Random.Range(_moveSpeedMin, _moveSpeedMax);
             ghostBehavior.SetSpeed(_moveSpeed);
 
             allGhosts.Add(ghostBehavior.transform);
             ghostBehavior.SetIndexGhost(allGhosts.Count - 1);
 
-            yield return new WaitForSeconds(_spawnInterval);
         }
-    }
 
+        yield return new WaitForSeconds(_spawnInterval);
+        StartCoroutine(SpawnPrefabs());
+    }
     public void SetCanSpawn(bool newCanSpawn)
     {
         _canSpawn = newCanSpawn;
@@ -178,7 +185,7 @@ public class GhostManager : MonoBehaviour
 
         foreach (Transform t in allGhosts)
         {
-            Destroy(t.gameObject);
+            t.gameObject.GetComponent<Ghost>().KillAndDestroyGhost();
         }
 
         allGhosts.Clear();
@@ -191,17 +198,31 @@ public class GhostManager : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWave);
         SetCanSpawn(true);
     }
-
-
     public void DefinitiveStopWaveAndClearGhosts()
     {
         SetCanSpawn(false);
 
         foreach (Transform t in allGhosts)
         {
-            Destroy(t.gameObject);
+            t.gameObject.GetComponent<Ghost>().KillAndDestroyGhost();
         }
 
         allGhosts.Clear();
     }
+
+    private Transform GetRandomTargetBetweenMainAndLow()
+    {
+        int randomIndex = Random.Range(0, 1);
+
+        if (randomIndex == 0)
+        {
+            return _mainTarget;
+        }
+        else
+        {
+            return _lowTarget;
+        }
+    }
+
+
 }

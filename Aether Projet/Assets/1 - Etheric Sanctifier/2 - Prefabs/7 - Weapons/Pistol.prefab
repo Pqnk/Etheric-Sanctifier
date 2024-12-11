@@ -193,7 +193,7 @@ MonoBehaviour:
   forcePush: 10
   lightBulletSpeed: 30
   lightBulletPrefabs: {fileID: 8665065177378599218, guid: 680890e1b50976f44a6ee3a1ef45f558, type: 3}
-  heavyBulletSpeed: 50
+  heavyBulletSpeed: 20
   heavyBulletPrefabs: {fileID: 8665065177378599218, guid: 111661733079c354a8cd5bff9d7ebc4e, type: 3}
   timeForShooting: 2
   rangeHeavyImpact: 2

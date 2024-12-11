@@ -49,7 +49,6 @@ public class OldExorcistTuto : MonoBehaviour
         _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.TutoDemarrage);
         _npcSource.Play();
     }
-
     IEnumerator PlayVoiceTuto(VoiceType voiceType, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);

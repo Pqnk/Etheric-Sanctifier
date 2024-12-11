@@ -34,6 +34,8 @@ public class Buster : MonoBehaviour
         indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
         maxTime = SuperManager.instance.ghostManager.timeBetweenWave;
         ApplyChangeBuster(indexPalier);
+
+        StartCoroutine(PlayBriefingVoice());
     }
 
     private void Update()
@@ -123,6 +125,7 @@ public class Buster : MonoBehaviour
                 SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
                 GameObject vfxLight3 = SuperManager.instance.vfxManager.InstantiateVFX_VFXPalierValidated(this.transform);
                 SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.Victory, 0.5f, this.transform);
+                SuperManager.instance.levelManager.BackToHub();
                 break;
         }
 
@@ -134,10 +137,9 @@ public class Buster : MonoBehaviour
         mesh.SetMaterials(groupMat.materials);
     }
 
-    IEnumerator ReturntoHUB()
+    IEnumerator PlayBriefingVoice()
     {
-       yield return new WaitForSeconds(15f);
-
-        SuperManager.instance.levelManager.LoadLevel(LevelType.HUB);
+        yield return new WaitForSeconds(3.5f);
+        SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.BriefingMission, 0.5f, SuperManager.instance.ghostManager.GetMainTarget());
     }
 }

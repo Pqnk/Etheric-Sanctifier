@@ -1,107 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("UI")]
-    //[SerializeField] private GameObject _uiPrefab;
-    [SerializeField] private GameObject _ui;
+    [Header("PostProcess")]
+    [SerializeField] private GameObject _postProcessVolume;
+    [SerializeField] float minExposure = -10.0f;
+    [SerializeField] float maxExposure = -0.5f;
+    [SerializeField] float transitionSpeed = 0.5f;
 
-    [Header("Black Screen")]
-    [SerializeField] private Image _blackScreen;
-    [SerializeField] private float _fadeDuration = 3.0f;
-    private bool _isFading = false;
+    private Volume _volume;
+    private ColorAdjustments _colorAdjustments;
+    private bool isIncreasing = true;
+    float targetExposure;
+    float currentExposure;
 
-    private void Awake()
-    {      
-        //InstantiateUI();
+    private GameManagerAetherPunk _gM;
+    private LevelManager _lM;
 
+    private void Start()
+    {
+        _gM = SuperManager.instance.gameManagerAetherPunk;
+        _lM = SuperManager.instance.levelManager;
+        GetPostProcessVolumeInScene(LevelType.HUB);
     }
 
-    public void InstantiateUI()
+    private void Update()
     {
-        //_ui = Instantiate(_uiPrefab);
-        _blackScreen = _ui.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Image>();
-
-        DontDestroyOnLoad(_ui);
-
-        //StartCoroutine(FadeToTransparent());
-
     }
-    public IEnumerator FadeToTransparent()
+
+    public void GetPostProcessVolumeInScene(LevelType levelType)
     {
-        _isFading = true;
-
-        float elapsedTime = 0f;
-        Color initialColor;
-
-        if (_blackScreen != null)
+        _postProcessVolume = _lM.FindInScene(levelType, "--LIGHTING--");
+        _volume = _postProcessVolume.transform.GetChild(2).transform.GetChild(1).GetComponent<Volume>();
+        BlackToVisible();
+    }
+    public void VisibleToBlack()
+    {
+        if (_volume.profile.TryGet<ColorAdjustments>(out _colorAdjustments))
         {
-            initialColor = _blackScreen.color;
+            currentExposure = maxExposure;
+            targetExposure = minExposure;
+            StartCoroutine(InterpolateExposure());
         }
         else
         {
-            Debug.LogWarning("No Image or SpriteRenderer assigned!");
-            yield break;
+            Debug.LogError("Color Adjustments effect not found in the Volume profile!");
         }
-
-        while (elapsedTime < _fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / _fadeDuration);
-
-            if (_blackScreen != null)
-            {
-                _blackScreen.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
-            }
-
-            yield return null;
-        }
-
-        if (_blackScreen != null)
-        {
-            _blackScreen.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
-        }
-
-        _isFading = false;
     }
-    public IEnumerator FadeToOpaque()
+    public void BlackToVisible()
     {
-        _isFading = true;
-
-        float elapsedTime = 0f;
-        Color initialColor;
-
-        if (_blackScreen != null)
+        if (_volume.profile.TryGet<ColorAdjustments>(out _colorAdjustments))
         {
-            initialColor = _blackScreen.color;
+            targetExposure = maxExposure;
+            currentExposure = minExposure;
+            StartCoroutine(InterpolateExposure());
         }
         else
         {
-            Debug.LogWarning("No Image or SpriteRenderer assigned!");
-            yield break;
+            Debug.LogError("Color Adjustments effect not found in the Volume profile!");
         }
+    }
+    public IEnumerator InterpolateExposure()
+    {
+        _colorAdjustments.postExposure.value = currentExposure;
 
-        while (elapsedTime < _fadeDuration)
+        while (!Mathf.Approximately(currentExposure, targetExposure))
         {
-            elapsedTime += Time.deltaTime;
-            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / _fadeDuration);
-
-            if (_blackScreen != null)
-            {
-                _blackScreen.color = new Color(initialColor.r, initialColor.g, initialColor.b, alpha);
-            }
-
+            currentExposure = Mathf.MoveTowards(
+                currentExposure,
+                targetExposure,
+                transitionSpeed * Time.deltaTime
+            );
+            _colorAdjustments.postExposure.value = currentExposure;
             yield return null;
         }
 
-        if (_blackScreen != null)
-        {
-            _blackScreen.color = new Color(initialColor.r, initialColor.g, initialColor.b, 1f);
-        }
-
-        _isFading = false;
     }
 }

@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ba619d1f674b449904ccc77bb57f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   forcePush: 1000
   bulletSpeed: 10
   rangeHeavyImpact: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 128
+  lifeTimeBullet: 5
 --- !u!135 &5049463037998408085
 SphereCollider:
   m_ObjectHideFlags: 0

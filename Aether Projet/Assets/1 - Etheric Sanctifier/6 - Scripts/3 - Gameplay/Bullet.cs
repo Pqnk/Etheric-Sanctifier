@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage;
+    public int damage = 50;
     public float forcePush;
     public float bulletSpeed;
     public float rangeHeavyImpact;
     public bool isHeavyShoot;
     public LayerMask LayerMask;
+    public float lifeTimeBullet = 5.0f;
 
     private void Start()
     {
@@ -18,36 +19,36 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        Movebullet();
+    }
+
+    //  ###########################################
+    //  ############  BULLET MOVEMENT  ############
+    //  ###########################################
+    private void Movebullet()
+    {
         transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
     }
 
+    //  ###########################################
+    //  ##########  BULLET TRIGGER ENTER  #########
+    //  ###########################################
     private void OnTriggerEnter(Collider other)
     {
         if (!isHeavyShoot)
         {
             if (other.gameObject.tag == "Ghost")
             {
-                GameObject ghost = other.gameObject;
-                Ghost scriptGhost = ghost.GetComponent<Ghost>();
-                Rigidbody rbGhost = ghost.GetComponent<Rigidbody>();
-
-
-                GameObject vfxLight = SuperManager.instance.vfxManager.InstantiateVFX_vfxLightImpact(this.transform);
-
-                Vector3 collisionDirection = (ghost.transform.position - transform.position).normalized;
-                rbGhost.AddForce(collisionDirection * forcePush, ForceMode.Impulse);
-
+                Ghost scriptGhost = other.gameObject.GetComponent<Ghost>();
+                scriptGhost.AddForceToGhostOppositeToTarget(forcePush, ForceMode.Impulse);
                 scriptGhost.LowerHealth(damage);
 
-                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootImpact, 0.5f, this.transform.position);
-
-
+                PlaySoundAndFXShootImpact();
                 Destroy(transform.root.gameObject);
             }
             else if (other.gameObject.tag == "Object")
             {
-                GameObject vfxLight = SuperManager.instance.vfxManager.InstantiateVFX_vfxLightImpact(this.transform);
-                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootImpact, 0.5f, this.transform.position);
+                PlaySoundAndFXShootImpact();
                 Destroy(transform.root.gameObject);
             }
         }
@@ -58,10 +59,6 @@ public class Bullet : MonoBehaviour
                 GameObject ghost = other.gameObject;
                 Ghost scriptGhost = ghost.GetComponent<Ghost>();
                 Rigidbody rbGhost = ghost.GetComponent<Rigidbody>();
-
-
-                GameObject vfxHeavy = SuperManager.instance.vfxManager.InstantiateVFX_vfxHeavyImpact(this.transform);
-
                 Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, rangeHeavyImpact, LayerMask);
 
                 foreach (var collider in hitColliders)
@@ -74,65 +71,38 @@ public class Bullet : MonoBehaviour
                     }
                 }
 
-                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
+                PlaySoundAndFXShootBigImpact();
                 Destroy(transform.root.gameObject);
             }
             else if (other.gameObject.tag == "Object")
             {
-                GameObject vfxHeavy = SuperManager.instance.vfxManager.InstantiateVFX_vfxHeavyImpact(this.transform);
-                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
+                PlaySoundAndFXShootBigImpact();
                 Destroy(transform.root.gameObject);
             }
         }
-
-        //if (other.gameObject.tag == "Ghost")
-        //{
-        //    GameObject ghost = other.gameObject;
-        //    Ghost scriptGhost = ghost.GetComponent<Ghost>();
-        //    Rigidbody rbGhost = ghost.GetComponent<Rigidbody>();
-
-        //    if (!isHeavyShoot)
-        //    {
-        //        GameObject vfxLight = SuperManager.instance.vfxManager.InstantiateVFX_vfxLightImpact(this.transform);
-
-        //        Vector3 collisionDirection = (ghost.transform.position - transform.position).normalized;
-        //        rbGhost.AddForce(collisionDirection * forcePush, ForceMode.Impulse);
-
-        //        scriptGhost.LowerHealth(damage);
-
-        //        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Collision, 0.5f, this.transform.position);
-        //    }
-        //    else
-        //    {
-        //        GameObject vfxHeavy = SuperManager.instance.vfxManager.InstantiateVFX_vfxHeavyImpact(this.transform);
-
-        //        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, rangeHeavyImpact, LayerMask);
-
-        //        foreach (var collider in hitColliders)
-        //        {
-        //            GameObject ghostCollider = collider.gameObject;
-
-        //            if (((1 << collider.gameObject.layer) & LayerMask) != 0)
-        //            {
-        //                ghostCollider.GetComponent<Ghost>().LowerHealth(damage);
-        //            }
-        //        }
-
-        //        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Collision, 0.5f, this.transform.position);
-        //    }
-
-        //    Destroy(transform.root.gameObject);
-        //}
-        //else if (other.gameObject.tag == "Object")
-        //{
-        //    Destroy(transform.root.gameObject);
-        //}
     }
 
 
+    //  ###########################################
+    //  ##########  BULLET SOUND AND FX  ##########
+    //  ###########################################
+    private void PlaySoundAndFXShootBigImpact()
+    {
+        SuperManager.instance.vfxManager.InstantiateVFX_vfxHeavyImpact(this.transform);
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
+    }
+    private void PlaySoundAndFXShootImpact()
+    {
+        SuperManager.instance.vfxManager.InstantiateVFX_vfxLightImpact(this.transform);
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootImpact, 0.5f, this.transform.position);
+    }
+
+    //  ###########################################
+    //  ############  BULLET DESTROY  #############
+    //  ###########################################
     IEnumerator DestroyBullet()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(lifeTimeBullet);
 
         Destroy(transform.root.gameObject);
     }

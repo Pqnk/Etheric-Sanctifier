@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _playerHealth = 500.0f;
     [SerializeField] private bool _playerIsDead = false;
     [SerializeField] private float _playerMaxMana = 20.0f;
-    [SerializeField] private float _playerCurrentMana = 20.0f;
+    [SerializeField] private float _playerCurrentMana = 0.0f;
     
 
     public void DamagerPlayer(float damage)
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     public void AddMana()
     {
-        _playerCurrentMana++;
+        _playerCurrentMana+=5;
     }
 
     public void AsShootRail()

@@ -28,8 +28,6 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.activeSceneChanged += OnSceneChange;
 
-        StartCoroutine(SuperManager.instance.uiManager.FadeToTransparent());
-
         _currentNameLevel = _nameLevel_HUB;
 
         if (_currentLevel != LevelType.HUB)
@@ -60,87 +58,18 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        //SceneManager.LoadScene(levelName);
-
-        //SceneManager.LoadSceneAsync(levelName);
-        //LoadSceneAsync(levelName);
-
         _currentNameLevel = levelName; 
         _currentLevel = levelType;
-
-
-        StartCoroutine(SuperManager.instance.uiManager.FadeToOpaque());
         StartCoroutine(LoadingNextSceneFading());
     }
-
-
     IEnumerator LoadingNextSceneFading()
     {
         yield return new WaitForSeconds(10.0f);
         SceneManager.LoadSceneAsync(_currentNameLevel);
-        StartCoroutine(SuperManager.instance.uiManager.FadeToTransparent());
+        yield return new WaitForSeconds(0.5f);
+        SuperManager.instance.uiManager.GetPostProcessVolumeInScene(_currentLevel);
     }
 
-
-    //  ###########################################
-    //  Async Loading of Scenes
-    //  ###########################################
-    private AsyncOperation _asyncOperation;
-    private bool _isSceneLoaded = false;
-    public void LoadSceneInBackground(string sceneName)
-    {
-        StartCoroutine(LoadSceneAsync(sceneName));
-        StartCoroutine(SuperManager.instance.uiManager.FadeToOpaque());
-
-        float alarm = Time.time + 10.0f;
-        while (alarm > Time.time && !IsSceneReady())
-        {
-            Debug.Log("Coucou ! ");
-        }
-
-        SwitchToLoadedScene();
-    }
-    private IEnumerator LoadSceneAsync(string sceneName)
-    {
-        _asyncOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-        _asyncOperation.allowSceneActivation = false;
-
-        while (!_asyncOperation.isDone)
-        {
-            Debug.Log($"Loading scene : {_asyncOperation.progress * 100}%");
-
-            if (_asyncOperation.progress >= 0.9f)
-            {
-                Debug.Log("Scene ready to be activated !");
-                _isSceneLoaded = true;
-                break;
-            }
-
-            yield return null;
-        }
-    }
-    public bool IsSceneReady()
-    {
-        return _isSceneLoaded;
-    }
-    public void SwitchToLoadedScene()
-    {
-        if (_isSceneLoaded && _asyncOperation != null)
-        {
-            _asyncOperation.allowSceneActivation = true;
-            StartCoroutine(SuperManager.instance.uiManager.FadeToTransparent());
-            _isSceneLoaded = false;
-            UnloadOldScene();
-        }
-        else
-        {
-            Debug.LogWarning("La scène n'est pas encore prête !");
-        }
-    }
-    public void UnloadOldScene()
-    {
-        SceneManager.UnloadSceneAsync(_oldNameLevel);
-    }
     //  ###########################################
 
     private void Update()
@@ -161,6 +90,12 @@ public class LevelManager : MonoBehaviour
             LoadLevel(LevelType.Level01);
 
         }
+    }
+
+    public void BackToHub()
+    {
+        SuperManager.instance.uiManager.VisibleToBlack();
+        LoadLevel(LevelType.HUB);
     }
 
     private void OnSceneChange(Scene arg0, Scene arg1)
@@ -189,8 +124,6 @@ public class LevelManager : MonoBehaviour
         {
             Scene scene = SceneManager.GetSceneAt(i);
 
-            Debug.Log(scene.name);
-
             if (scene.name == sceneName)
             {
                 GameObject[] rootObjects = scene.GetRootGameObjects();
@@ -200,8 +133,6 @@ public class LevelManager : MonoBehaviour
                     {
                         return obj;
                     }
-
-                    Debug.Log(obj.name);
                 }
             }
         }
@@ -209,8 +140,6 @@ public class LevelManager : MonoBehaviour
         Debug.LogWarning($"GameObject '{gameObjectName}' not found in scene '{sceneName}'.");
         return null;
     }
-
-
 
     public void QuitGame()
     {

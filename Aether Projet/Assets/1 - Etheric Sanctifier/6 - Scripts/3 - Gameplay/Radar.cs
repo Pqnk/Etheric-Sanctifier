@@ -65,15 +65,15 @@ public class Radar : MonoBehaviour
 
             float angleToGhostX = Mathf.Acos((directionToGhost.x * orientationX.x + directionToGhost.z * orientationX.z) / (Mathf.Sqrt(Mathf.Pow(directionToGhost.x,2)+Mathf.Pow(directionToGhost.z,2))))*180/Mathf.PI;
             float angleToGhostZ = Mathf.Acos((directionToGhost.x * orientationZ.x + directionToGhost.z * orientationZ.z) / (Mathf.Sqrt(Mathf.Pow(directionToGhost.x, 2) + Mathf.Pow(directionToGhost.z, 2)))) * 180 / Mathf.PI;
-            Debug.Log(directionToGhost);
-            Debug.Log(angleToGhostX);
-            Debug.Log(angleToGhostZ);
+            //Debug.Log(directionToGhost);
+            //Debug.Log(angleToGhostX);
+            //Debug.Log(angleToGhostZ);
 
             //float dotProduct = Vector3.Dot(-this.gameObject.transform.forward, directionToGhost);
 
             if (angleToGhostZ >= detectionAngleUpdate)
             {
-                Debug.Log("Vibration");
+                //Debug.Log("Vibration");
                 if (distanceToGhost < closestDistance)
                 {
                     closestDistance = distanceToGhost;
