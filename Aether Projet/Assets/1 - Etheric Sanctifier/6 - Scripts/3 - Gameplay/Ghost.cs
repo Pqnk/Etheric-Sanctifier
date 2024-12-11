@@ -10,13 +10,15 @@ public class Ghost : MonoBehaviour
     [SerializeField] private float _moveSpeed = 1.0f;
     [SerializeField] private float _timeOffsetToDisapear = 5.0f;
     [SerializeField] private float _timeToDisapear = -1;
+    [SerializeField] private float _timeToDamageMat = -1;
 
     [Header("Health")]
     [SerializeField] private float _health = 100.0f;
 
     [Header("Materials")]
     [SerializeField] private Material _baseMat;
-    [SerializeField] private Material _emissiveMat;
+    [SerializeField] private Material _emissiveMatDetection;
+    [SerializeField] private Material _emissiveMatDamage;
     [SerializeField] private bool _isDetected = false;
     [SerializeField] private MeshRenderer _ghostRenderer;
 
@@ -41,7 +43,6 @@ public class Ghost : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * _moveSpeed);
             }
 
-
             transform.position = Vector3.MoveTowards(transform.position, _target.position, _moveSpeed * Time.deltaTime);
             if (Vector3.Distance(transform.position, _target.position) < 0.1f)
             {
@@ -57,11 +58,17 @@ public class Ghost : MonoBehaviour
             SetIsDetected(false);
         }
 
-        if(_indexInManagerList < 0)
+        if (_indexInManagerList < 0)
         {
             _indexInManagerList = 0;
             DestroyGhost();
         }
+
+        if(_timeToDamageMat < Time.time)
+        {
+            ChangeMaterial(0);
+        }
+
     }
 
     public void SetTarget(Transform newTarget)
@@ -75,6 +82,7 @@ public class Ghost : MonoBehaviour
     public void LowerHealth(float damage)
     {
         _health = _health - damage;
+        ChangeMaterialDamage(0.5f);
 
         if (_health <= 0)
         {
@@ -88,20 +96,26 @@ public class Ghost : MonoBehaviour
     public void SetIsDetected(bool newIsDetected)
     {
         _isDetected = newIsDetected;
-        ChangeMaterial();
+        ChangeMaterial(_timeOffsetToDisapear);
     }
 
-    public void ChangeMaterial()
+    public void ChangeMaterial(float time)
     {
         if (_isDetected)
         {
-            _ghostRenderer.material = _emissiveMat;
-            _timeToDisapear = Time.time + _timeOffsetToDisapear;
+            _ghostRenderer.material = _emissiveMatDetection;
+            _timeToDisapear = Time.time + time;
         }
         else
         {
             _ghostRenderer.material = _baseMat;
         }
+    }
+
+    public void ChangeMaterialDamage(float time)
+    {
+        _ghostRenderer.material = _emissiveMatDamage;
+        _timeToDamageMat = Time.time + time;
     }
 
 
