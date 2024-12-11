@@ -13,7 +13,8 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private GameObject _ghostPrefab;
 
     [Header("Spawn Settings : Main Target")]
-    [SerializeField] private string _mainTargetName = "Camera";
+    [SerializeField] private string _mainTargetName = "Camera_Player";
+    [SerializeField] private GameObject _cameraPlayer;
     [SerializeField] private Transform _mainTarget;
     [SerializeField] private Transform _secondaryTarget;
     [SerializeField] private GameObject _radarRef;
@@ -41,7 +42,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private bool _isReady = false;
 
     [Header("Time Between Wave")]
-    public float timeBetweenWave = 10.0f;
+    public float timeBetweenWave = 15.0f;
 
     [Header("Is it a Tutorial ?")]
     public bool isTutorial = false;
@@ -54,6 +55,11 @@ public class GhostManager : MonoBehaviour
     public Transform GetMainTarget()
     {
         return _mainTarget;
+    }
+
+    public GameObject GetCameraPlayer()
+    {
+        return _cameraPlayer;
     }
 
     public bool InitializeghostManager(bool isTuto)
@@ -72,18 +78,16 @@ public class GhostManager : MonoBehaviour
 
         }
         _spawnPointsParent = SuperManager.instance.levelManager.FindInScene(levelType, _ghostSpawnPointsName);
-        GameObject p = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName);
-        if (p == null)
+        _cameraPlayer = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName);
+        if (_cameraPlayer == null)
         {
             Debug.LogError("PAS DE CAMERA MAIN TARGET");
         }
         else
         {
-            _mainTarget = p.transform.GetChild(2).transform;
-            _radarRef = p.transform.GetChild(2).transform.GetChild(0).gameObject;
+            _mainTarget = _cameraPlayer.transform.GetChild(2).transform;
+            _radarRef = _cameraPlayer.transform.GetChild(2).transform.GetChild(0).gameObject;
         }
-
-        _mainTarget.gameObject.AddComponent<Player>();
 
         if (_spawnPointsParent != null && _mainTarget != null)
         {

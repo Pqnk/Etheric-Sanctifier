@@ -27,10 +27,15 @@ public class Ghost : MonoBehaviour
 
     private bool _isAlreadyDead = false;
 
+    SoundManager sM;
+    GhostManager gM;
+
     private void Start()
     {
         _ghostRenderer = this.transform.GetChild(0).GetComponent<MeshRenderer>();
 
+        gM = SuperManager.instance.ghostManager;
+        sM = SuperManager.instance.soundManager;
     }
 
     private void Update()
@@ -65,7 +70,7 @@ public class Ghost : MonoBehaviour
             DestroyGhost();
         }
 
-        if(_timeToDamageMat < Time.time)
+        if (_timeToDamageMat < Time.time)
         {
             ChangeMaterial(0);
         }
@@ -119,23 +124,43 @@ public class Ghost : MonoBehaviour
         _timeToDamageMat = Time.time + time;
     }
 
-
     private void DestroyGhost()
     {
+        SoundType s;
+        if (gM.isTutorial)
+        {
+            s = SoundType.BeehGoat;
+        }
+        else
+        {
+            s = SoundType.BeehGoatReverb;
+        }
+
+        gM.RemoveGhostFromList(_indexInManagerList);
+        sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
 
         _isAlreadyDead = true;
-        SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
         SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
-        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BeehGoatReverb, 0.5f, this.transform.position);
-        GameObject.Find("Camera_Player").GetComponent<Player>().AddMana();
+        gM.GetCameraPlayer().GetComponent<Player>().AddMana();
         Destroy(gameObject);
     }
 
     private void DestroyGhostDist()
     {
+        SoundType s;
+        if (gM.isTutorial)
+        {
+            s = SoundType.SlurpGoat;
+        }
+        else
+        {
+            s = SoundType.SlurpGoatReverb;
+        }
+
+        sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
+
         _isAlreadyDead = true;
-        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.SlurpGoatReverb, 0.5f, this.transform.position);
-        SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
+        gM.RemoveGhostFromList(_indexInManagerList);
         Destroy(gameObject);
     }
 
