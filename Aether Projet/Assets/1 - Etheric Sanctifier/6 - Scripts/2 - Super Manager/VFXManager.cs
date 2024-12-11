@@ -13,22 +13,32 @@ public enum VFXType
 
 public class VFXManager : MonoBehaviour
 {
-    [Header("Prefab VFX")]
-    [SerializeField] private GameObject _VFXPrefab;
-
     [Header("VFX")]
     [SerializeField] private GameObject _vfxHeavyImpact;
     [SerializeField] private GameObject _vfxFootImpact;
     [SerializeField] private GameObject _vfxLightImpact;
+    [SerializeField] private GameObject _VFXChargingHeavyShoot;
+    [SerializeField] private GameObject _VFXPalierValidated;
 
-    private GameObject InstantiateVFX()
+    public GameObject InstantiateVFX_VFXChargingHeavyShoot(Transform pos)
     {
-        return Instantiate(_VFXPrefab);
+        GameObject instance = Instantiate(_VFXChargingHeavyShoot, pos.position, Quaternion.identity);
+
+        return instance;
     }
 
     public GameObject InstantiateVFX_vfxHeavyImpact(Transform pos)
     {
         GameObject instance = Instantiate(_vfxHeavyImpact, pos.position, Quaternion.identity);
+
+        instance.transform.SetParent(null);
+
+        return instance;
+    }
+
+    public GameObject InstantiateVFX_VFXPalierValidated(Transform pos)
+    {
+        GameObject instance = Instantiate(_VFXPalierValidated, pos.position, Quaternion.identity);
 
         instance.transform.SetParent(null);
 

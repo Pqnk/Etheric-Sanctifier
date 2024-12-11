@@ -87,6 +87,7 @@ MonoBehaviour:
   _soundVFXShootBig: {fileID: 8300000, guid: fdba85bf8157ca0419cb7230a8e8e3db, type: 3}
   _soundVFXShootBigImpact: {fileID: 8300000, guid: f5a06df96781c5d478dc2301802de0ae, type: 3}
   _soundVFXSwordImpact: {fileID: 8300000, guid: 7045b0e90d771204b8937196f120a28c, type: 3}
+  _soundVFXBigShootReady: {fileID: 8300000, guid: f3b1b7513703e084cb3995cbc194acff, type: 3}
 --- !u!114 &1157268568273184427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,10 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a36c9bad921ff4088a58fe7135a110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _VFXPrefab: {fileID: 0}
   _vfxHeavyImpact: {fileID: 1948280498453613136, guid: 28f24c390225ac44388e4e39f5a9b9af, type: 3}
   _vfxFootImpact: {fileID: 2544064726984189275, guid: 697b6fcabdb9f874bb8f94efe79239e9, type: 3}
   _vfxLightImpact: {fileID: 2498280545193927438, guid: 4240f34b15a71954ea24c22d56a52b9d, type: 3}
+  _VFXChargingHeavyShoot: {fileID: 4600756758632846416, guid: 40865be8a4f352a49b6f00fbb20713c4, type: 3}
+  _VFXPalierValidated: {fileID: 4018217129707485235, guid: 58200044c7a12d944862fa1743bbc186, type: 3}
 --- !u!114 &8369437736979271891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +146,7 @@ MonoBehaviour:
   _goatPrefab: {fileID: 4497303493123727353, guid: af00e3dc5b3aa8c40a37d150a59ec9e8, type: 3}
   _ghostPrefab: {fileID: 7400775839584797558, guid: 5fcee4158d642694e908a4be03379b0a, type: 3}
   _mainTargetName: Camera_Player
+  _cameraPlayer: {fileID: 0}
   _mainTarget: {fileID: 0}
   _secondaryTarget: {fileID: 0}
   _radarRef: {fileID: 0}
@@ -157,6 +160,7 @@ MonoBehaviour:
   _maxGhostInTotal: 10
   _isReady: 0
   timeBetweenWave: 2
+  isTutorial: 0
 --- !u!114 &565082960265743651
 MonoBehaviour:
   m_ObjectHideFlags: 0

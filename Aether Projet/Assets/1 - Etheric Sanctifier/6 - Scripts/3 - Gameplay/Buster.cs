@@ -55,7 +55,7 @@ public class Buster : MonoBehaviour
     private void TimerBuster()
     {
         if (nextWave)
-        {            
+        {
             currentTimer += Time.deltaTime;
 
             sliderImage.fillAmount = currentTimer / maxTime;
@@ -104,11 +104,32 @@ public class Buster : MonoBehaviour
         Light light = transform.GetChild(1).gameObject.GetComponent<Light>();
         MeshRenderer mesh = transform.GetChild(0).gameObject.GetComponent<MeshRenderer>();
 
+        switch (indexPalier)
+        {
+            case 1:
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
+                GameObject vfxLight1 = SuperManager.instance.vfxManager.InstantiateVFX_VFXPalierValidated(this.transform);
+                SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.FirstPalier, 0.5f, this.transform);
+                break;
+
+            case 2:
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
+                GameObject vfxLight2 = SuperManager.instance.vfxManager.InstantiateVFX_VFXPalierValidated(this.transform);
+                SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.SecondPalier, 0.5f, this.transform);
+                break;
+
+            case 3:
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
+                GameObject vfxLight3 = SuperManager.instance.vfxManager.InstantiateVFX_VFXPalierValidated(this.transform);
+                SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.Victory, 0.5f, this.transform);
+                break;
+        }
+
         light.innerSpotAngle = intensityLight[indexPalier];
         light.intensity = intensityLight[indexPalier];
         light.spotAngle = outerAngleLight[indexPalier];
 
         MaterialList groupMat = materialGroups[indexPalier];
         mesh.SetMaterials(groupMat.materials);
-    }    
+    }
 }

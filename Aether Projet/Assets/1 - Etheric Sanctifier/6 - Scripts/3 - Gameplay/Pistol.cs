@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityEngine.XR.OpenXR.Input;
 using Valve.VR;
 
@@ -32,8 +34,17 @@ public class Pistol : MonoBehaviour
     public SteamVR_Action_Boolean triggerGrab;
     public SteamVR_Input_Sources handType;
 
+    [Header("Materials")]
+    [SerializeField] List<Material> outOfMana_Mat;
+    [SerializeField] List<Material> fullOfMana_Mat;
+
     private Player player;
     private bool readyHeavyShoot = false;
+    private bool getGameObjectShoot = false;
+    private bool isIntantiate = false;
+    private bool chargingSound = true;
+    private GameObject chargingShoot = null;
+    private VisualEffect visual = null;
 
     private void Start()
     {
@@ -42,21 +53,58 @@ public class Pistol : MonoBehaviour
 
     void Update()
     {
+        SimpleShootInput();
+        HeavyShootInput();
+        CheckManaReady();
+    }
+
+    private void CheckManaReady()
+    {
+        if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
+        {
+            if (chargingSound)
+            {
+                chargingSound = false;
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BigShootReady, 0.5f, shootPoint.position);
+            }
+            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().SetMaterials(fullOfMana_Mat);
+        }
+        else
+        {
+            transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().SetMaterials(outOfMana_Mat);
+        }
+    }
+
+    private void SimpleShootInput()
+    {
         if (triggerAction.GetStateDown(handType))
         {
-            //Debug.Log("Trigger pressed on: " + handType);
             Perform_Shoot();
         }
+    }
 
+    private void HeavyShootInput()
+    {
         if (triggerAction.GetState(handType))
         {
             if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
             {
+                if (!getGameObjectShoot)
+                {
+                    getGameObjectShoot = true;
+                    chargingShoot = SuperManager.instance.vfxManager.InstantiateVFX_VFXChargingHeavyShoot(shootPoint);
+                    chargingShoot.transform.parent = transform;
+                    visual = chargingShoot.GetComponent<VisualEffect>();
+                }
+
                 currentTimerShoot += Time.deltaTime;
+
+                visual.SetFloat("Size", currentTimerShoot / timeForShooting);
 
                 if (currentTimerShoot >= timeForShooting)
                 {
                     Debug.Log("Trigger Long pressed on: " + handType);
+                    visual.SetFloat("Size", timeForShooting);                    
                     readyHeavyShoot = true;
                 }
             }
@@ -68,12 +116,13 @@ public class Pistol : MonoBehaviour
             if (readyHeavyShoot)
             {
                 readyHeavyShoot = false;
+                getGameObjectShoot = false;
                 player.AsShootRail();
                 Perform_ShootRail();
+                Destroy(chargingShoot);
             }
         }
     }
-
 
     void Perform_Shoot()
     {
