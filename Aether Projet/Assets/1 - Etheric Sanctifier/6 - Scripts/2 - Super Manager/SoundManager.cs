@@ -46,7 +46,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _soundVFXFindingObjective;
     [SerializeField] private AudioClip _soundVFXExplosionGOAT;
     [SerializeField] private AudioClip _soundVFXSlurpGOAT;
+    [SerializeField] private AudioClip _soundVFXSlurpGOATReverb;
     [SerializeField] private AudioClip _soundVFXBeehGOAT;
+    [SerializeField] private AudioClip _soundVFXBeehGOATReverb;
     [SerializeField] private AudioClip _soundVFXTeleportAppearing;
 
 
