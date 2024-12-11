@@ -43,6 +43,9 @@ public class GhostManager : MonoBehaviour
     [Header("Time Between Wave")]
     public float timeBetweenWave = 10.0f;
 
+    [Header("Is it a Tutorial ?")]
+    public bool isTutorial = false;
+
     private void Start()
     {
 
@@ -57,7 +60,9 @@ public class GhostManager : MonoBehaviour
     {
         LevelType levelType = LevelType.HUB;
 
-        if (isTuto)
+        isTutorial = isTuto;
+
+        if (isTutorial)
         {
             levelType = LevelType.Tutorial;
         }
@@ -105,14 +110,14 @@ public class GhostManager : MonoBehaviour
         return children;
     }
 
-    IEnumerator SpawnPrefabs(bool isTuto)
+    IEnumerator SpawnPrefabs()
     {
         while (allGhosts.Count < _maxGhostInTotal)
         {
             Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
             Vector3 spawnPosition = randomSpawnPoint.position;
             GameObject p;
-            if (isTuto)
+            if (isTutorial)
             {
                 p = _goatPrefab;
             }
@@ -134,18 +139,18 @@ public class GhostManager : MonoBehaviour
         }
     }
 
-    public void SetCanSpawn(bool newCanSpawn, bool isTuto)
+    public void SetCanSpawn(bool newCanSpawn)
     {
         _canSpawn = newCanSpawn;
         _radarRef.GetComponent<Radar>().ToggleRadar(_canSpawn);
 
         if (_canSpawn)
         {
-            StartCoroutine(SpawnPrefabs(isTuto));
+            StartCoroutine(SpawnPrefabs());
         }
         else
         {
-            StopCoroutine(SpawnPrefabs(isTuto));
+            StopCoroutine(SpawnPrefabs());
         }
     }
 
@@ -165,7 +170,7 @@ public class GhostManager : MonoBehaviour
 
     public void StopWaveAndClearAllGhost()
     {
-        SetCanSpawn(false, false);
+        SetCanSpawn(false);
 
         foreach (Transform t in allGhosts)
         {
@@ -180,13 +185,13 @@ public class GhostManager : MonoBehaviour
     IEnumerator NextWave()
     {
         yield return new WaitForSeconds(timeBetweenWave);
-        SetCanSpawn(true, false);
+        SetCanSpawn(true);
     }
 
 
     public void DefinitiveStopWaveAndClearGhosts()
     {
-        SetCanSpawn(false, false);
+        SetCanSpawn(false);
 
         foreach (Transform t in allGhosts)
         {

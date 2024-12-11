@@ -65,7 +65,7 @@ public class TutoManagerScrolls : MonoBehaviour
     }
     public void FinishTutorial()
     {
-        SuperManager.instance.ghostManager.SetCanSpawn(true, false);
+        SuperManager.instance.ghostManager.SetCanSpawn(true);
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.SearchingObjective, 0.5f, this.transform.position);
         SuperManager.instance.radarManager.ToggleRadar(true);
     }

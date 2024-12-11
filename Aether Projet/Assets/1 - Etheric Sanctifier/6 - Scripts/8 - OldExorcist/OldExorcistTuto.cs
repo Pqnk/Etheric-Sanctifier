@@ -39,7 +39,7 @@ public class OldExorcistTuto : MonoBehaviour
             _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.ChoiceTuto);
             _npcSource.Play();
 
-            SuperManager.instance.ghostManager.SetCanSpawn(false, false);
+            SuperManager.instance.ghostManager.SetCanSpawn(false);
         }
     }
 

@@ -29,8 +29,8 @@ public class GameManagerAetherPunk : MonoBehaviour
     //  ####################################################
     private void GameplayHUB()
     {
-        SuperManager.instance.ghostManager.DefinitiveStopWaveAndClearGhosts();
         SuperManager.instance.soundManager.PlaySound(SoundType.HUB, 0.1f);
+        SuperManager.instance.ghostManager.DefinitiveStopWaveAndClearGhosts();
     }
 
 
@@ -43,7 +43,7 @@ public class GameManagerAetherPunk : MonoBehaviour
 
         if (SuperManager.instance.ghostManager.InitializeghostManager(true))
         {
-            StartCoroutine(ToggleGhostWaveWithDelay(true, 10.0f, true));
+            StartCoroutine(ToggleGhostWaveWithDelay(true, 10.0f));
         }
         else
         {
@@ -66,7 +66,7 @@ public class GameManagerAetherPunk : MonoBehaviour
         if (SuperManager.instance.ghostManager.InitializeghostManager(false))
         {
             SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.BriefingMission, 0.5f, SuperManager.instance.ghostManager.GetMainTarget());
-            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f, false));
+            StartCoroutine(ToggleGhostWaveWithDelay(true, 15.0f));
         }
         else
         {
@@ -111,20 +111,20 @@ public class GameManagerAetherPunk : MonoBehaviour
         return indexPalier;
     }
 
-    IEnumerator ToggleGhostWaveWithDelay(bool toggle, float delay, bool istuto)
+    IEnumerator ToggleGhostWaveWithDelay(bool toggle, float delay)
     {
         yield return new WaitForSeconds(delay);
-        ToggleGhostWave(toggle, istuto);
+        ToggleGhostWave(toggle);
     }
-    public void ToggleGhostWave(bool toggle, bool isTuto)
+    public void ToggleGhostWave(bool toggle)
     {
         if (toggle)
         {
-            SuperManager.instance.ghostManager.SetCanSpawn(true, isTuto);
+            SuperManager.instance.ghostManager.SetCanSpawn(true);
         }
         else
         {
-            SuperManager.instance.ghostManager.SetCanSpawn(false, isTuto);
+            SuperManager.instance.ghostManager.SetCanSpawn(false);
         }
     }
 

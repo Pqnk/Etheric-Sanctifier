@@ -9,8 +9,8 @@ public class Yanis : MonoBehaviour
     {
         SuperManager.instance.ghostManager.InitializeghostManager(false);
 
-        SuperManager.instance.ghostManager.SetCanSpawn(true, false);
-        SuperManager.instance.gameManagerAetherPunk.ToggleGhostWave(true, false);
+        SuperManager.instance.ghostManager.SetCanSpawn(true);
+        SuperManager.instance.gameManagerAetherPunk.ToggleGhostWave(true);
     }
 
     // Update is called once per frame

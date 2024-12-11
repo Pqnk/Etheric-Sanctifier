@@ -30,6 +30,7 @@ public class Ghost : MonoBehaviour
     private void Start()
     {
         _ghostRenderer = this.transform.GetChild(0).GetComponent<MeshRenderer>();
+
     }
 
     private void Update()
@@ -121,6 +122,7 @@ public class Ghost : MonoBehaviour
 
     private void DestroyGhost()
     {
+
         _isAlreadyDead = true;
         SuperManager.instance.ghostManager.RemoveGhostFromList(_indexInManagerList);
         SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
