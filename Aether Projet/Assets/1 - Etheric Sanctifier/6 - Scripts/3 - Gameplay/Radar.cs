@@ -35,6 +35,7 @@ public class Radar : MonoBehaviour
     
     void Update()
     {
+        
         Debug.DrawRay(transform.position, new Vector3(Mathf.Sin((transform.eulerAngles.y + detectionAngleUpdate) * Mathf.PI / 180), 0, Mathf.Cos((transform.eulerAngles.y + detectionAngleUpdate) * Mathf.PI / 180)));
         Debug.DrawRay(transform.position, new Vector3(Mathf.Sin((transform.eulerAngles.y - detectionAngleUpdate) * Mathf.PI / 180), 0, Mathf.Cos((transform.eulerAngles.y - detectionAngleUpdate) * Mathf.PI / 180)));
 
