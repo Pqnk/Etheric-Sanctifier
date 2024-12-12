@@ -23,13 +23,14 @@ public class Ghost : MonoBehaviour
     [SerializeField] private Material _emissiveMatDetection;
     [SerializeField] private Material _emissiveMatDamage;
 
-    [SerializeField]  private MeshRenderer _ghostRenderer;
+    [SerializeField] private MeshRenderer _ghostRenderer;
 
     [Header("RigidBody")]
     private Rigidbody _rbGhost;
 
     [Header("Index In List")]
     [SerializeField] private int _indexInManagerList;
+    [SerializeField] private int _id;
 
     [Header("Is Detected")]
     [SerializeField] private bool _isDetected = false;
@@ -71,6 +72,16 @@ public class Ghost : MonoBehaviour
             _indexInManagerList = 0;
             KillAndDestroyGhost();
         }
+    }
+
+    public int GetId()
+    {
+        return _id;
+    }
+
+    public void SetId(int id)
+    {
+        _id = id;
     }
 
     //  ###########################################
@@ -160,7 +171,7 @@ public class Ghost : MonoBehaviour
     }
     public void Set_Life(float newLife)
     {
-        _health = newLife; 
+        _health = newLife;
     }
     private IEnumerator ScaleDownGhostAndDestroy()
     {
@@ -174,7 +185,7 @@ public class Ghost : MonoBehaviour
         }
         transform.localScale = Vector3.zero;
 
-        gM.RemoveGhostFromList(_indexInManagerList);
+        gM.RemoveGhostFromList(GetId());
         Destroy(gameObject);
     }
 
@@ -200,7 +211,6 @@ public class Ghost : MonoBehaviour
     }
     public void ChangeMaterialDamage(float time)
     {
-        Debug.Log("Coucou");
         _ghostRenderer.material = _emissiveMatDamage;
         _timeToDamageMat = Time.time + time;
     }

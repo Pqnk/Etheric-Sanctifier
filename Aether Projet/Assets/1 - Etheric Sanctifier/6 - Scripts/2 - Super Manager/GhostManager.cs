@@ -55,6 +55,8 @@ public class GhostManager : MonoBehaviour
     [Header("Is it a Tutorial ?")]
     public bool isTutorial = false;
 
+    private int _currentIdGhost = 0;
+
     public Transform GetMainTarget()
     {
         return _mainTarget;
@@ -151,6 +153,8 @@ public class GhostManager : MonoBehaviour
 
             //ghostBehavior.SetTarget(_mainTarget);
             ghostBehavior.SetTarget(GetRandomTargetBetweenMainAndLow());
+            ghostBehavior.SetId(_currentIdGhost);
+            _currentIdGhost++;
             // Vitesse
             _moveSpeed = Random.Range(_moveSpeedMin, _moveSpeedMax);
             ghostBehavior.SetSpeed(_moveSpeed);
@@ -203,17 +207,18 @@ public class GhostManager : MonoBehaviour
         }
     }
 
-    public void RemoveGhostFromList(int index)
+    public void RemoveGhostFromList(int idGhost)
     {
-        if (index < 0)
-        {
-            index = 0;
-        }
-        allGhosts.RemoveAt(index);
-
+        //allGhosts.RemoveAt(index);
+        int index = 0;
         foreach (Transform t in allGhosts)
         {
-            t.gameObject.GetComponent<Ghost>().SetIndexMinusOne();
+            Ghost g = t.gameObject.GetComponent<Ghost>();
+            if(g.GetId() == idGhost)
+            {
+                allGhosts.RemoveAt(index);
+            }
+            index++;
         }
     }
 
