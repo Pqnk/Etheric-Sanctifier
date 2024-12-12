@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
 
@@ -97,13 +98,14 @@ public class GameManagerAetherPunk : MonoBehaviour
         if (isValidate)
         {
             indexPalier++;
-            SuperManager.instance.ghostManager.StopWaveAndClearAllGhost();
         }
         else
         {
             indexPalier--;
-            SuperManager.instance.ghostManager.StopWaveAndClearAllGhost();
         }
+
+        SuperManager.instance.ghostManager.StopWaveAndClearAllGhost();
+        SuperManager.instance.ghostManager.UpdateMaxGhost(indexPalier);
     }
     public int Get_Palier()
     {

@@ -47,7 +47,7 @@ Light:
   m_Color: {r: 0.28764686, g: 0.3875918, b: 0.6037736, a: 1}
   m_Intensity: 400
   m_Range: 50
-  m_SpotAngle: 80
+  m_SpotAngle: 30
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -280,6 +280,10 @@ MonoBehaviour:
   - 100
   - 400
   - 400
+  colorLight:
+  - {r: 0.28627452, g: 0.3882353, b: 0.6039216, a: 1}
+  - {r: 0.5759327, g: 0.6039216, b: 0.28627452, a: 1}
+  - {r: 0.6039216, g: 0.36939046, b: 0.28627452, a: 1}
   sliderImage: {fileID: 7179401057828770725}
   materialGroups:
   - materials:

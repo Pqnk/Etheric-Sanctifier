@@ -4963,7 +4963,7 @@ GameObject:
   - component: {fileID: 7860925738397792160}
   - component: {fileID: 3702192206616056188}
   - component: {fileID: 1948918755800605270}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: --HEADLIGHT--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5018,9 +5018,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
-  m_Height: 50
+  m_Height: 49.076374
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 25}
+  m_Center: {x: 0, y: -0.000002113404, z: 25.462076}
 --- !u!1 &1528937688295193762
 GameObject:
   m_ObjectHideFlags: 0
@@ -5152,7 +5152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: 500
   _playerIsDead: 0
-  _playerMaxMana: 20
+  _playerMaxMana: 5
   _playerCurrentMana: 0
 --- !u!1 &1533282959204991264
 GameObject:
@@ -6926,18 +6926,6 @@ PrefabInstance:
     - target: {fileID: 642436731669015471, guid: b8dee52e881c42c4598f4e2af9ceebd1, type: 3}
       propertyPath: m_Size.y
       value: 0.88751435
-      objectReference: {fileID: 0}
-    - target: {fileID: 642436731669015471, guid: b8dee52e881c42c4598f4e2af9ceebd1, type: 3}
-      propertyPath: m_Size.z
-      value: 0.07930964
-      objectReference: {fileID: 0}
-    - target: {fileID: 642436731669015471, guid: b8dee52e881c42c4598f4e2af9ceebd1, type: 3}
-      propertyPath: m_Center.y
-      value: 0.44503334
-      objectReference: {fileID: 0}
-    - target: {fileID: 642436731669015471, guid: b8dee52e881c42c4598f4e2af9ceebd1, type: 3}
-      propertyPath: m_Center.z
-      value: -0.0870324
       objectReference: {fileID: 0}
     - target: {fileID: 1265278240936406394, guid: b8dee52e881c42c4598f4e2af9ceebd1, type: 3}
       propertyPath: m_Name

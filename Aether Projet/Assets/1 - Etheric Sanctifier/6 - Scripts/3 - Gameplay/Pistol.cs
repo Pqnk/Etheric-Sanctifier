@@ -104,7 +104,7 @@ public class Pistol : MonoBehaviour
                 if (currentTimerShoot >= timeForShooting)
                 {
                     Debug.Log("Trigger Long pressed on: " + handType);
-                    visual.SetFloat("Size", timeForShooting);                    
+                    visual.SetFloat("Size", 1.2f);                    
                     readyHeavyShoot = true;
                 }
             }

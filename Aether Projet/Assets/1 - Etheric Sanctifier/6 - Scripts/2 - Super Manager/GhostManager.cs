@@ -29,11 +29,17 @@ public class GhostManager : MonoBehaviour
 
     [Header("Spawn Settings")]
     private float _moveSpeed;
-    [SerializeField] private float _spawnInterval = 2f;
+    [SerializeField] private float[] _spawnInterval;
     [SerializeField] private float _moveSpeedMin = 2f;
     [SerializeField] private float _moveSpeedMax = 100f;
     [SerializeField] private bool _canSpawn = false;
 
+    [Header("Taille des ghost")]
+    public float tailleGhostMin = .7f;
+    public float tailleGhostMax = 1.2f;
+
+    [Header("Material par défaut ghost")]
+    public Material[] baseMats;
 
     [Header("List of All ghost in scene")]
     public List<Transform> allGhosts;
@@ -120,7 +126,9 @@ public class GhostManager : MonoBehaviour
 
     IEnumerator SpawnPrefabs()
     {
-        if (allGhosts.Count < _maxGhostInTotal)
+        float spawnIntervalActual = 5f;
+
+        if (allGhosts.Count < _maxGhostInTotal && _canSpawn)
         {
             Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
             Vector3 spawnPosition = randomSpawnPoint.position;
@@ -135,19 +143,49 @@ public class GhostManager : MonoBehaviour
             }
             GameObject ghostInstance = Instantiate(p, spawnPosition, Quaternion.identity);
 
+            // Changement de la size
+            float rd = Random.Range(tailleGhostMin, tailleGhostMax);
+            ghostInstance.transform.localScale = new Vector3(rd, rd, rd);
+
             Ghost ghostBehavior = ghostInstance.GetComponent<Ghost>();
 
             //ghostBehavior.SetTarget(_mainTarget);
             ghostBehavior.SetTarget(GetRandomTargetBetweenMainAndLow());
+            // Vitesse
             _moveSpeed = Random.Range(_moveSpeedMin, _moveSpeedMax);
             ghostBehavior.SetSpeed(_moveSpeed);
+
+
+            switch (SuperManager.instance.gameManagerAetherPunk.indexPalier)
+            {
+                case 0:
+                    // Life
+                    ghostBehavior.Set_Life(100);
+                    spawnIntervalActual = _spawnInterval[0];
+                    ghostBehavior.Set_BaseMat(baseMats[0]);
+                    break;
+
+                case 1:
+                    // Life
+                    ghostBehavior.Set_Life(200);
+                    spawnIntervalActual = _spawnInterval[1];
+                    ghostBehavior.Set_BaseMat(baseMats[1]);
+                    break;
+
+                case 2:
+                    // Life
+                    ghostBehavior.Set_Life(300);
+                    spawnIntervalActual = _spawnInterval[2];
+                    ghostBehavior.Set_BaseMat(baseMats[2]);
+                    break;
+            }
 
             allGhosts.Add(ghostBehavior.transform);
             ghostBehavior.SetIndexGhost(allGhosts.Count - 1);
 
         }
 
-        yield return new WaitForSeconds(_spawnInterval);
+        yield return new WaitForSeconds(spawnIntervalActual);
         StartCoroutine(SpawnPrefabs());
     }
     public void SetCanSpawn(bool newCanSpawn)
@@ -224,5 +262,21 @@ public class GhostManager : MonoBehaviour
         }
     }
 
+    public void UpdateMaxGhost(int indexPalier)
+    {
+        switch (indexPalier)
+        {
+            case 0:
+                _maxGhostInTotal = SuperManager.instance.gameManagerAetherPunk.palierKills[0];
+                break;
 
+            case 1:
+                _maxGhostInTotal = SuperManager.instance.gameManagerAetherPunk.palierKills[1];
+                break;
+
+            case 2:
+                _maxGhostInTotal = SuperManager.instance.gameManagerAetherPunk.palierKills[2];
+                break;
+        }
+    }
 }

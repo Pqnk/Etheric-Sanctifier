@@ -51,7 +51,7 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -81,8 +81,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.8403924, z: 0.061661124}
-  m_Center: {x: 0, y: 0.5801993, z: 0.0049779983}
+  m_Size: {x: 0.104496926, y: 0.8403924, z: 0.12263459}
+  m_Center: {x: 0, y: 0.4450336, z: -0.087032445}
 --- !u!114 &1835455419470488462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5ee0178fa9e1a4081435c89b0b8daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceImpulse: 200
+  forceImpulse: 20
   damage: 50
 --- !u!1001 &3007551691870599197
 PrefabInstance:

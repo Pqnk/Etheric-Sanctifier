@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     public void AddMana()
     {
-        _playerCurrentMana+=5;
+        _playerCurrentMana++;
     }
 
     public void AsShootRail()

@@ -18,6 +18,7 @@ public class Buster : MonoBehaviour
     [SerializeField] float[] outerAngleLight;
     [SerializeField] float[] innerAngleLight;
     [SerializeField] float[] intensityLight;
+    [SerializeField] Color[] colorLight;
 
     [Header("Image du timer")]
     [SerializeField] Image sliderImage;
@@ -132,6 +133,7 @@ public class Buster : MonoBehaviour
         light.innerSpotAngle = intensityLight[indexPalier];
         light.intensity = intensityLight[indexPalier];
         light.spotAngle = outerAngleLight[indexPalier];
+        light.color = colorLight[indexPalier];
 
         MaterialList groupMat = materialGroups[indexPalier];
         mesh.SetMaterials(groupMat.materials);

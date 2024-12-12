@@ -23,7 +23,7 @@ public class Ghost : MonoBehaviour
     [SerializeField] private Material _emissiveMatDetection;
     [SerializeField] private Material _emissiveMatDamage;
 
-    private MeshRenderer _ghostRenderer;
+    [SerializeField]  private MeshRenderer _ghostRenderer;
 
     [Header("RigidBody")]
     private Rigidbody _rbGhost;
@@ -158,6 +158,10 @@ public class Ghost : MonoBehaviour
         StartCoroutine(ScaleDownGhostAndDestroy());
 
     }
+    public void Set_Life(float newLife)
+    {
+        _health = newLife; 
+    }
     private IEnumerator ScaleDownGhostAndDestroy()
     {
         float elapsedTime = 0f;
@@ -196,8 +200,13 @@ public class Ghost : MonoBehaviour
     }
     public void ChangeMaterialDamage(float time)
     {
+        Debug.Log("Coucou");
         _ghostRenderer.material = _emissiveMatDamage;
         _timeToDamageMat = Time.time + time;
+    }
+    public void Set_BaseMat(Material newMat)
+    {
+        _baseMat = newMat;
     }
 
     //  ###########################################
@@ -231,7 +240,6 @@ public class Ghost : MonoBehaviour
             s = SoundType.SlurpGoatReverb;
         }
         sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
-        SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(this.transform);
     }
     private void PlayKillSoundAndVFXGhost()
     {
