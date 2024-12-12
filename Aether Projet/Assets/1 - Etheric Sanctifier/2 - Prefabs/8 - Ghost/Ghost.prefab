@@ -77,7 +77,7 @@ MonoBehaviour:
   _target: {fileID: 0}
   _moveSpeed: 1
   _timeOffsetToDisapear: 5
-  _maxDistanceFromPlayer: 1.5
+  _maxDistanceFromPlayer: 1.2
   _repulsiveForceNearPlayer: 15
   _health: 100
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
@@ -85,7 +85,9 @@ MonoBehaviour:
   _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
   _ghostRenderer: {fileID: 0}
   _indexInManagerList: 0
+  _id: 0
   _isDetected: 0
+  _isTakingDamage: 0
   _isAlreadyDead: 0
   _attackTime: 2
 --- !u!65 &5641889228245277663

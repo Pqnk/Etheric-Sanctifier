@@ -115,7 +115,7 @@ public class Buster : MonoBehaviour
             case 1:
                 SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBigImpact, 0.5f, this.transform.position);
                 GameObject vfxLight1 = SuperManager.instance.vfxManager.InstantiateVFX_VFXPalierValidated(this.transform);
-                SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.FirstPalier, 0.5f, this.transform);
+                SuperManager.instance.voiceManager.PlayVoiceAtLocation(VoiceType.FirstPalier, 1f, this.transform);
                 break;
 
             case 2:

@@ -26,6 +26,8 @@ public class Pistol : MonoBehaviour
     [SerializeField] float heavyBulletSpeed;
     [SerializeField] GameObject heavyBulletPrefabs;
     [SerializeField] float timeForShooting;
+    [SerializeField] float timeSizeMaxShooting;
+    [SerializeField] float upSizeMaxShooting;
     [SerializeField] float rangeHeavyImpact;
     private float currentTimerShoot = 0;
 
@@ -54,8 +56,51 @@ public class Pistol : MonoBehaviour
     void Update()
     {
         SimpleShootInput();
-        HeavyShootInput();
+        //HeavyShootInput();
         CheckManaReady();
+
+        DebugChargingShoot();
+    }
+
+    private void DebugChargingShoot()
+    {
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
+            {
+                if (!getGameObjectShoot)
+                {
+                    getGameObjectShoot = true;
+                    chargingShoot = SuperManager.instance.vfxManager.InstantiateVFX_VFXChargingHeavyShoot(shootPoint);
+                    chargingShoot.transform.parent = transform;
+                    visual = chargingShoot.GetComponent<VisualEffect>();
+                }
+
+                currentTimerShoot += Time.deltaTime;
+
+                visual.SetFloat("Size", currentTimerShoot / timeSizeMaxShooting);
+
+                if (currentTimerShoot >= timeForShooting)
+                {
+                    Debug.Log("Trigger Long pressed on: " + handType);
+                    visual.SetFloat("Size", upSizeMaxShooting);
+                    readyHeavyShoot = true;
+                }
+            }
+        }
+        else
+        {
+            currentTimerShoot = 0;
+
+            if (readyHeavyShoot)
+            {
+                readyHeavyShoot = false;
+                getGameObjectShoot = false;
+                player.AsShootRail();
+                Perform_ShootRail();
+                Destroy(chargingShoot);
+            }
+        }
     }
 
     private void CheckManaReady()
@@ -99,12 +144,12 @@ public class Pistol : MonoBehaviour
 
                 currentTimerShoot += Time.deltaTime;
 
-                visual.SetFloat("Size", currentTimerShoot / timeForShooting);
+                visual.SetFloat("Size", currentTimerShoot / timeSizeMaxShooting);
 
                 if (currentTimerShoot >= timeForShooting)
                 {
                     Debug.Log("Trigger Long pressed on: " + handType);
-                    visual.SetFloat("Size", 1.2f);                    
+                    visual.SetFloat("Size", 1.2f);
                     readyHeavyShoot = true;
                 }
             }

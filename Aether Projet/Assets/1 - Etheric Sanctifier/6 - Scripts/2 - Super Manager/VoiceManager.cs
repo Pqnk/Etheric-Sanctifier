@@ -103,7 +103,8 @@ public class VoiceManager : MonoBehaviour
                 break;
         }
 
-        voiceSource.volume = volume;
+        //voiceSource.volume = volume;
+        voiceSource.volume = 1;
         voiceSource.Play();
     }
 
