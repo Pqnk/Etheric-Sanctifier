@@ -260,15 +260,15 @@ public class GhostManager : MonoBehaviour
 
     private Transform GetRandomTargetBetweenMainAndLow()
     {
-        int randomIndex = Random.Range(0, 1);
+        int randomIndex = _currentIdGhost % 5;
 
         if (randomIndex == 0)
         {
-            return _mainTarget;
+            return _lowTarget;
         }
         else
         {
-            return _lowTarget;
+            return _mainTarget;
         }
     }
 
