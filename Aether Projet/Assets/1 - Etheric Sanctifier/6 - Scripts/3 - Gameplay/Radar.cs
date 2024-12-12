@@ -90,10 +90,7 @@ public class Radar : MonoBehaviour
         if (currentNearestGhost != null)
         {
             float distanceToTarget = Vector3.Distance(currentNearestGhost.position, this.gameObject.transform.position);
-            /*float dotProduct = Vector3.Dot(-this.gameObject.transform.forward, distanceToTarget);
-            float angle = Mathf.Acos(dotProduct) * Mathf.Rad2Deg;*/
-            float volume = 1 - distanceToTarget / detectionRadius;  //Mathf.Lerp(maxVolume, minVolume, Mathf.Clamp01(angle / angleThreshold));
-
+            float volume = 1 - distanceToTarget / detectionRadius;
             _radarSource.volume = volume;
         } 
     }

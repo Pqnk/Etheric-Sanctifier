@@ -45,6 +45,13 @@ public class Ghost : MonoBehaviour
     [SerializeField] private float _attackTime = 2.0f;
     private float _alarmEndAttack = -1;
 
+    [Header("Death Scale Down")]
+    [SerializeField] private float scaleDuration = 2.0f;
+    [SerializeField] private AnimationCurve scaleCurve;
+
+    //  ###########################################
+    //  ############  START & UPDATE  #############
+    //  ###########################################
     private void Start()
     {
         _ghostRenderer = this.transform.GetChild(0).GetComponent<MeshRenderer>();
@@ -53,7 +60,6 @@ public class Ghost : MonoBehaviour
         gM = SuperManager.instance.ghostManager;
         sM = SuperManager.instance.soundManager;
     }
-
     private void Update()
     {
         if (_target != null && !_isAlreadyDead)
@@ -73,15 +79,6 @@ public class Ghost : MonoBehaviour
         }
 
         CheckChangeMaterial();
-    }
-
-    public int GetId()
-    {
-        return _id;
-    }
-    public void SetId(int id)
-    {
-        _id = id;
     }
 
     //  ###########################################
@@ -108,7 +105,6 @@ public class Ghost : MonoBehaviour
             AddForceToGhostOppositeToTarget(_repulsiveForceNearPlayer, ForceMode.Impulse);
         }
     }
-
     private void Attack()
     {
         _alarmEndAttack = Time.time + _attackTime;
@@ -139,7 +135,14 @@ public class Ghost : MonoBehaviour
     {
         _moveSpeed = newSpeed;
     }
-
+    public int GetId()
+    {
+        return _id;
+    }
+    public void SetId(int id)
+    {
+        _id = id;
+    }
 
     //  ###########################################
     //  ########  GHOST HEALTH MANAGMENT  #########
@@ -154,14 +157,18 @@ public class Ghost : MonoBehaviour
         {
             if (!_isAlreadyDead)
             {
-                KillAndDestroyGhost();
+                KillAndDestroyGhost(false);
             }
         }
     }
-    public void KillAndDestroyGhost()
+    public void KillAndDestroyGhost(bool isKillingAllAtOnce)
     {
         _isAlreadyDead = true;
-        PlayKillSoundAndVFXGhost();
+        if (!isKillingAllAtOnce)
+        {
+            PlaySoundKillGhost();
+        }
+        PlayVFXKillGhost();
         gM.GetCameraPlayer().GetComponent<Player>().AddMana();
         if (!gM.isTutorial && gM.Get_CanSpawn())
         {
@@ -176,17 +183,21 @@ public class Ghost : MonoBehaviour
     }
     private IEnumerator ScaleDownGhostAndDestroy()
     {
+        Vector3 initialScale = transform.localScale;
         float elapsedTime = 0f;
-        float duration = 2.0f;
-        while (elapsedTime < duration)
+
+        while (elapsedTime < scaleDuration)
         {
-            elapsedTime += Time.time;
-            transform.localScale = Vector3.Lerp(this.transform.localScale, Vector3.zero, elapsedTime / duration);
+            float progress = elapsedTime / scaleDuration;
+            float scaleValue = scaleCurve != null ? scaleCurve.Evaluate(progress) : 1f - progress;
+            transform.localScale = initialScale * scaleValue;
+
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
         transform.localScale = Vector3.zero;
 
-        gM.RemoveGhostFromList(GetId());
+        gM.RemoveGhostFromListAndDestroy(GetId());
     }
 
     //  ###########################################
@@ -201,7 +212,6 @@ public class Ghost : MonoBehaviour
             _alarmIsDetected = Time.time + _timeOffsetToDisapear;
         }
     }
-
     public void SetIsTakingDamage(bool newTakingDamage)
     {
         _isTakingDamage = newTakingDamage;
@@ -211,7 +221,6 @@ public class Ghost : MonoBehaviour
             _alarmTakingDamage = Time.time + 0.3f;
         }
     }
-
     public void CheckChangeMaterial()
     {
         if (_isTakingDamage)
@@ -227,27 +236,10 @@ public class Ghost : MonoBehaviour
             _ghostRenderer.material = _baseMat;
         }
     }
-
     public void Set_BaseMat(Material newMat)
     {
         _baseMat = newMat;
     }
-
-    //  ###########################################
-    //  ##########  GHOST INDEX MANAGMENT  ########
-    //  ###########################################
-    public void SetIndexGhost(int newIndex)
-    {
-        _indexInManagerList = newIndex;
-    }
-    public void SetIndexMinusOne()
-    {
-        if (_indexInManagerList <= 0)
-        {
-            _indexInManagerList--;
-        }
-    }
-
 
     //  ###########################################
     //  ##########  GHOST SOUND AND FX  ###########
@@ -265,7 +257,7 @@ public class Ghost : MonoBehaviour
         }
         sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
     }
-    private void PlayKillSoundAndVFXGhost()
+    private void PlaySoundKillGhost()
     {
         SoundType s;
         if (gM.isTutorial)
@@ -277,6 +269,9 @@ public class Ghost : MonoBehaviour
             s = SoundType.BeehGoatReverb;
         }
         sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
+    }
+    private void PlayVFXKillGhost()
+    {
         SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(this.transform);
     }
 }

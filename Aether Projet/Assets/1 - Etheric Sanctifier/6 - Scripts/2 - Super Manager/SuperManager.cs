@@ -15,6 +15,7 @@ public class SuperManager : MonoBehaviour
     public RadarManager radarManager { get; private set; }
     public UIManager uiManager { get; private set; }
     public LevelManager levelManager { get; private set; }
+    public VibrationManager vibrationManager { get; private set; }
 
     private void Awake()
     {
@@ -36,6 +37,6 @@ public class SuperManager : MonoBehaviour
         radarManager = GetComponent<RadarManager>();
         uiManager = GetComponent<UIManager>();
         levelManager = GetComponent<LevelManager>();
-
+        vibrationManager = GetComponent<VibrationManager>();
     }
 }

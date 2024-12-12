@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Boot: MonoBehaviour
 {
-    [SerializeField] private float force = 50f;
-    [SerializeField] private float damageMultiplier = 1.0f;
+    [SerializeField] private float force = 150f;
+    [SerializeField] private float damage = 25.0f;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -13,15 +13,11 @@ public class Boot: MonoBehaviour
         {
             GameObject vfxHeavy = SuperManager.instance.vfxManager.InstantiateVFX_vfxFootImpact(this.transform);
 
-            Vector3 collisionDirection = (collision.transform.position - transform.position).normalized;
-            Rigidbody rbGhost = collision.gameObject.GetComponent<Rigidbody>();
-            rbGhost.AddForce(collisionDirection * force, ForceMode.Impulse);
-
-            float damage = force * damageMultiplier;
             Ghost behaviorGhost = collision.gameObject.GetComponent<Ghost>();
             behaviorGhost.LowerHealth(damage);
+            behaviorGhost.AddForceToGhostOppositeToTarget(force, ForceMode.Impulse);
 
-            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Collision, 0.5f, this.transform.position);
+            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Sword, 0.2f, this.transform.position);
         }
     }
 }

@@ -40,6 +40,10 @@ public class LevelManager : MonoBehaviour
     {
         return _currentNameLevel;
     }
+    public LevelType GetCurrentLevelType()
+    {
+        return _currentLevel;
+    }
 
     public void LoadLevel(LevelType levelType)
     {
@@ -73,6 +77,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadSceneAsync(_currentNameLevel);
         yield return new WaitForSeconds(0.5f);
         SuperManager.instance.uiManager.GetPostProcessVolumeInScene(_currentLevel);
+        SuperManager.instance.vibrationManager.InitializeVibrationManager();
     }
 
     //  ###########################################

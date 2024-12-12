@@ -52,57 +52,17 @@ public class Pistol : MonoBehaviour
     {
         player = transform.root.GetComponent<Player>();
     }
-
     void Update()
     {
         SimpleShootInput();
         HeavyShootInput();
         CheckManaReady();
-
-        //DebugChargingShoot();
     }
 
-    private void DebugChargingShoot()
-    {
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
-            {
-                if (!getGameObjectShoot)
-                {
-                    getGameObjectShoot = true;
-                    chargingShoot = SuperManager.instance.vfxManager.InstantiateVFX_VFXChargingHeavyShoot(shootPoint);
-                    chargingShoot.transform.parent = transform;
-                    visual = chargingShoot.GetComponent<VisualEffect>();
-                }
 
-                currentTimerShoot += Time.deltaTime;
-
-                visual.SetFloat("Size", currentTimerShoot / timeSizeMaxShooting);
-
-                if (currentTimerShoot >= timeForShooting)
-                {
-                    Debug.Log("Trigger Long pressed on: " + handType);
-                    visual.SetFloat("Size", upSizeMaxShooting);
-                    readyHeavyShoot = true;
-                }
-            }
-        }
-        else
-        {
-            currentTimerShoot = 0;
-
-            if (readyHeavyShoot)
-            {
-                readyHeavyShoot = false;
-                getGameObjectShoot = false;
-                player.AsShootRail();
-                Perform_ShootRail();
-                Destroy(chargingShoot);
-            }
-        }
-    }
-
+    //  ###########################################
+    //  #############  PISTOL MANA  ###############
+    //  ###########################################
     private void CheckManaReady()
     {
         if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
@@ -120,6 +80,9 @@ public class Pistol : MonoBehaviour
         }
     }
 
+    //  ###########################################
+    //  ############  PISTOL INPUTS  ##############
+    //  ###########################################
     private void SimpleShootInput()
     {
         if (triggerAction.GetStateDown(handType))
@@ -127,7 +90,6 @@ public class Pistol : MonoBehaviour
             Perform_Shoot();
         }
     }
-
     private void HeavyShootInput()
     {
         if (triggerAction.GetState(handType))
@@ -169,18 +131,24 @@ public class Pistol : MonoBehaviour
         }
     }
 
+    //  ###########################################
+    //  ############  PISTOL PERFORMS  ############
+    //  ###########################################
     void Perform_Shoot()
     {
-        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Shoot, 0.5f, shootPoint.position);
+        SuperManager.instance.vibrationManager.leftController.ShootHaptic();
+
+        PlaySoundShoot();
         GameObject lightBullet = Instantiate(lightBulletPrefabs, shootPoint.position, shootPoint.rotation);
         lightBullet.GetComponent<Bullet>().bulletSpeed = lightBulletSpeed;
         lightBullet.GetComponent<Bullet>().forcePush = forcePush;
         lightBullet.GetComponent<Bullet>().damage = lightDamage;
     }
-
     void Perform_ShootRail()
     {
-        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBig, 0.5f, shootPoint.position);
+        SuperManager.instance.vibrationManager.leftController.BigShootHaptic();
+        PlaySoundBigShoot();
+
         GameObject heavyBullet = Instantiate(heavyBulletPrefabs, shootPoint.position, shootPoint.rotation);
         heavyBullet.GetComponent<Bullet>().bulletSpeed = heavyBulletSpeed;
         heavyBullet.GetComponent<Bullet>().isHeavyShoot = true;
@@ -188,6 +156,64 @@ public class Pistol : MonoBehaviour
         heavyBullet.GetComponent<Bullet>().damage = 10000;
     }
 
+    //  ###########################################
+    //  ############  PISTOL SOUNDS  ##############
+    //  ###########################################
+    private void PlaySoundShoot()
+    {
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Shoot, 0.5f, shootPoint.position);
+    }
+    private void PlaySoundBigShoot()
+    {
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBig, 0.5f, shootPoint.position);
+    }
+
+
+
+
+    //  ###########################################
+    //  ##############  DEBUGGING  ################
+    //  ###########################################
+    private void DebugChargingShoot()
+    {
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
+            {
+                if (!getGameObjectShoot)
+                {
+                    getGameObjectShoot = true;
+                    chargingShoot = SuperManager.instance.vfxManager.InstantiateVFX_VFXChargingHeavyShoot(shootPoint);
+                    chargingShoot.transform.parent = transform;
+                    visual = chargingShoot.GetComponent<VisualEffect>();
+                }
+
+                currentTimerShoot += Time.deltaTime;
+
+                visual.SetFloat("Size", currentTimerShoot / timeSizeMaxShooting);
+
+                if (currentTimerShoot >= timeForShooting)
+                {
+                    Debug.Log("Trigger Long pressed on: " + handType);
+                    visual.SetFloat("Size", upSizeMaxShooting);
+                    readyHeavyShoot = true;
+                }
+            }
+        }
+        else
+        {
+            currentTimerShoot = 0;
+
+            if (readyHeavyShoot)
+            {
+                readyHeavyShoot = false;
+                getGameObjectShoot = false;
+                player.AsShootRail();
+                Perform_ShootRail();
+                Destroy(chargingShoot);
+            }
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         if (grabPoint != null)

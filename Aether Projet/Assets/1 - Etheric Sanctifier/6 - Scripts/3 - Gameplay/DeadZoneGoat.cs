@@ -9,7 +9,7 @@ public class DeadZoneGoat : MonoBehaviour
     {
         if (other.CompareTag("Ghost"))
         {
-            other.gameObject.GetComponent<Ghost>().KillAndDestroyGhost();
+            other.gameObject.GetComponent<Ghost>().KillAndDestroyGhost(false);
         }
     }
 }

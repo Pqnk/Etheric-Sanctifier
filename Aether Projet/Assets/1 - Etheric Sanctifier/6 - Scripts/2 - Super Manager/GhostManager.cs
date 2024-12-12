@@ -66,7 +66,6 @@ public class GhostManager : MonoBehaviour
     {
         return _cameraPlayer;
     }
-
     public Transform GetTargetLow()
     {
         return _lowTarget;
@@ -98,8 +97,6 @@ public class GhostManager : MonoBehaviour
             _mainTarget = _cameraPlayer.transform.GetChild(2).transform;
             _radarRef = _cameraPlayer.transform.GetChild(2).transform.GetChild(0).gameObject;
             _lowTarget = _cameraPlayer.transform.GetChild(2).transform.GetChild(2).transform;
-            //_targets.Add(_mainTarget);
-            //_targets.Add(_lowTarget);
         }
 
         if (_spawnPointsParent != null && _mainTarget != null)
@@ -152,7 +149,6 @@ public class GhostManager : MonoBehaviour
 
             Ghost ghostBehavior = ghostInstance.GetComponent<Ghost>();
 
-            //ghostBehavior.SetTarget(_mainTarget);
             ghostBehavior.SetTarget(GetRandomTargetBetweenMainAndLow());
             ghostBehavior.SetId(_currentIdGhost);
             _currentIdGhost++;
@@ -186,8 +182,6 @@ public class GhostManager : MonoBehaviour
             }
 
             allGhosts.Add(ghostBehavior.transform);
-            ghostBehavior.SetIndexGhost(allGhosts.Count - 1);
-
         }
 
         yield return new WaitForSeconds(spawnIntervalActual);
@@ -196,7 +190,6 @@ public class GhostManager : MonoBehaviour
     public void SetCanSpawn(bool newCanSpawn)
     {
         _canSpawn = newCanSpawn;
-        _radarRef.GetComponent<Radar>().ToggleRadar(_canSpawn);
 
         if (_canSpawn)
         {
@@ -207,20 +200,18 @@ public class GhostManager : MonoBehaviour
             StopCoroutine(SpawnPrefabs());
         }
     }
-
     public bool Get_CanSpawn()
     {
         return _canSpawn;
     }
 
-    public void RemoveGhostFromList(int idGhost)
+    public void RemoveGhostFromListAndDestroy(int idGhost)
     {
-        //allGhosts.RemoveAt(index);
         int index = 0;
         foreach (Transform t in allGhosts)
         {
             Ghost g = t.gameObject.GetComponent<Ghost>();
-            if(g.GetId() == idGhost)
+            if (g.GetId() == idGhost)
             {
                 allGhosts.RemoveAt(index);
                 Destroy(t.gameObject);
@@ -235,9 +226,10 @@ public class GhostManager : MonoBehaviour
 
         foreach (Transform t in allGhosts)
         {
-            t.gameObject.GetComponent<Ghost>().KillAndDestroyGhost();
+            t.gameObject.GetComponent<Ghost>().KillAndDestroyGhost(true);
         }
 
+        PlayOnceSoundKillGhost();
         StartCoroutine(NextWave());
     }
 
@@ -252,9 +244,9 @@ public class GhostManager : MonoBehaviour
 
         foreach (Transform t in allGhosts)
         {
-            t.gameObject.GetComponent<Ghost>().KillAndDestroyGhost();
+            t.gameObject.GetComponent<Ghost>().KillAndDestroyGhost(true);
         }
-
+        PlayOnceSoundKillGhost();
         allGhosts.Clear();
     }
 
@@ -271,7 +263,6 @@ public class GhostManager : MonoBehaviour
             return _mainTarget;
         }
     }
-
     public void UpdateMaxGhost(int indexPalier)
     {
         switch (indexPalier)
@@ -288,5 +279,10 @@ public class GhostManager : MonoBehaviour
                 _maxGhostInTotal = SuperManager.instance.gameManagerAetherPunk.palierKills[2];
                 break;
         }
+    }
+
+    private void PlayOnceSoundKillGhost()
+    {
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BeehGoatReverb, 0.5f, _mainTarget.transform.position);
     }
 }

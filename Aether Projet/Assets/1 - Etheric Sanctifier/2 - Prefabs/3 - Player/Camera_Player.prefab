@@ -5447,6 +5447,7 @@ MonoBehaviour:
   _playerIsDead: 0
   _playerMaxMana: 5
   _playerCurrentMana: 0
+  _headLight: {fileID: 7084197541808454829}
 --- !u!1 &1533282959204991264
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,6 +6313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2010896997990640989}
   - component: {fileID: 5673300343514520127}
+  - component: {fileID: 8435281940369093464}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -6369,6 +6371,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   broadcastDeviceChanges: 1
+--- !u!114 &8435281940369093464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032949844743984415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ad758229690fb47841b95b10f1d62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: 1
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!1 &3567194993927942661
 GameObject:
   m_ObjectHideFlags: 0
@@ -6851,6 +6869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3090068651888225838}
   - component: {fileID: 1773753855422344682}
+  - component: {fileID: 6711657140723966058}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -6867,7 +6886,7 @@ Transform:
   m_GameObject: {fileID: 4184034866518074080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.178, y: 1.344, z: 0.885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6908,6 +6927,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   broadcastDeviceChanges: 1
+--- !u!114 &6711657140723966058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4184034866518074080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ad758229690fb47841b95b10f1d62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: 2
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!1 &4234406931070375571
 GameObject:
   m_ObjectHideFlags: 0
@@ -8355,8 +8390,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67488445165662370}
+  - component: {fileID: 5230336766123505240}
   - component: {fileID: 3127217640833188708}
-  - component: {fileID: 6812483975941649976}
+  - component: {fileID: 8042375269278029509}
   m_Layer: 0
   m_Name: --RADAR--
   m_TagString: Untagged
@@ -8372,13 +8408,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7749973698074737937}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4252789931341446960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5230336766123505240
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7749973698074737937}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 65399
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 15
+  m_Height: 30
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -16.5}
 --- !u!82 &3127217640833188708
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8475,7 +8534,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6812483975941649976
+--- !u!114 &8042375269278029509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8484,18 +8543,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7749973698074737937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c52be744db6be4985ecd0f31885a88, type: 3}
+  m_Script: {fileID: 11500000, guid: a8b333d2782551c49ad965565ec8ab9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ghostBehindList: []
+  _currentNearestGhost: {fileID: 0}
+  _maxDetectionDistance: 25
+  _radarSource: {fileID: 0}
   maxVolume: 1
   minVolume: 0
-  angleThreshold: 90
-  isTest: 1
-  distanceMaxToDetect: 30
   maxFrequency: 2
   minFrequency: 0.2
-  detectionRadius: 50
-  detectionAngle: 120
 --- !u!1 &7799377759008294984
 GameObject:
   m_ObjectHideFlags: 0
