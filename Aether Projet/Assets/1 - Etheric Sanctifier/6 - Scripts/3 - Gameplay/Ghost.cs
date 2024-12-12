@@ -56,7 +56,7 @@ public class Ghost : MonoBehaviour
 
     private void Update()
     {
-        if (_target != null)
+        if (_target != null && !_isAlreadyDead)
         {
             MoveTowardPlayer();
             BlockMaximumApprochFromPlayer();
@@ -163,7 +163,7 @@ public class Ghost : MonoBehaviour
         _isAlreadyDead = true;
         PlayKillSoundAndVFXGhost();
         gM.GetCameraPlayer().GetComponent<Player>().AddMana();
-        if (!gM.isTutorial)
+        if (!gM.isTutorial && gM.Get_CanSpawn())
         {
             SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
         }
@@ -177,17 +177,16 @@ public class Ghost : MonoBehaviour
     private IEnumerator ScaleDownGhostAndDestroy()
     {
         float elapsedTime = 0f;
-        float duration = 1.0f;
+        float duration = 2.0f;
         while (elapsedTime < duration)
         {
-            transform.localScale = Vector3.Lerp(this.transform.localScale, Vector3.zero, elapsedTime / duration);
             elapsedTime += Time.time;
+            transform.localScale = Vector3.Lerp(this.transform.localScale, Vector3.zero, elapsedTime / duration);
             yield return null;
         }
         transform.localScale = Vector3.zero;
 
         gM.RemoveGhostFromList(GetId());
-        Destroy(gameObject);
     }
 
     //  ###########################################

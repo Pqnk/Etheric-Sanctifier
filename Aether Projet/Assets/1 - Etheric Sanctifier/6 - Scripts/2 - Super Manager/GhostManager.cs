@@ -208,6 +208,11 @@ public class GhostManager : MonoBehaviour
         }
     }
 
+    public bool Get_CanSpawn()
+    {
+        return _canSpawn;
+    }
+
     public void RemoveGhostFromList(int idGhost)
     {
         //allGhosts.RemoveAt(index);
@@ -218,6 +223,7 @@ public class GhostManager : MonoBehaviour
             if(g.GetId() == idGhost)
             {
                 allGhosts.RemoveAt(index);
+                Destroy(t.gameObject);
             }
             index++;
         }
@@ -231,8 +237,6 @@ public class GhostManager : MonoBehaviour
         {
             t.gameObject.GetComponent<Ghost>().KillAndDestroyGhost();
         }
-
-        allGhosts.Clear();
 
         StartCoroutine(NextWave());
     }

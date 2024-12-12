@@ -104,7 +104,6 @@ public class GameManagerAetherPunk : MonoBehaviour
             indexPalier--;
         }
 
-        Set_ResetGhost();
         SuperManager.instance.ghostManager.StopWaveAndClearAllGhost();
         SuperManager.instance.ghostManager.UpdateMaxGhost(indexPalier);
     }
