@@ -12,9 +12,6 @@ public class Ghost : MonoBehaviour
     [SerializeField] private float _maxDistanceFromPlayer = 2.5f;
     [SerializeField] private float _repulsiveForceNearPlayer = 30.0f;
 
-    private float _timeToDisapear = -1;
-    private float _timeToDamageMat = -1;
-
     [Header("Health")]
     [SerializeField] private float _health = 100.0f;
 
@@ -34,6 +31,10 @@ public class Ghost : MonoBehaviour
 
     [Header("Is Detected")]
     [SerializeField] private bool _isDetected = false;
+    [SerializeField] private bool _isTakingDamage = false;
+    private float _alarmTakingDamage = -1;
+    private float _alarmIsDetected = -1;
+
     [Header("Is Dead")]
     [SerializeField] private bool _isAlreadyDead = false;
 
@@ -42,7 +43,6 @@ public class Ghost : MonoBehaviour
 
     [Header("Attack")]
     [SerializeField] private float _attackTime = 2.0f;
-    private bool _isAlreadyAttacking = false;
     private float _alarmEndAttack = -1;
 
     private void Start()
@@ -62,23 +62,23 @@ public class Ghost : MonoBehaviour
             BlockMaximumApprochFromPlayer();
         }
 
-        if (_timeToDisapear <= Time.time)
+        if (_alarmIsDetected <= Time.time)
         {
             SetIsDetected(false);
         }
 
-        if (_indexInManagerList < 0)
+        if (_alarmTakingDamage <= Time.time)
         {
-            _indexInManagerList = 0;
-            KillAndDestroyGhost();
+            SetIsTakingDamage(false);
         }
+
+        CheckChangeMaterial();
     }
 
     public int GetId()
     {
         return _id;
     }
-
     public void SetId(int id)
     {
         _id = id;
@@ -147,7 +147,8 @@ public class Ghost : MonoBehaviour
     public void LowerHealth(float damage)
     {
         _health = _health - damage;
-        ChangeMaterialDamage(0.3f);
+
+        SetIsTakingDamage(true);
 
         if (_health <= 0)
         {
@@ -195,25 +196,39 @@ public class Ghost : MonoBehaviour
     public void SetIsDetected(bool newIsDetected)
     {
         _isDetected = newIsDetected;
-        ChangeMaterial(_timeOffsetToDisapear);
+
+        if (_isDetected == true)
+        {
+            _alarmIsDetected = Time.time + _timeOffsetToDisapear;
+        }
     }
-    public void ChangeMaterial(float time)
+
+    public void SetIsTakingDamage(bool newTakingDamage)
     {
-        if (_isDetected)
+        _isTakingDamage = newTakingDamage;
+
+        if (_isTakingDamage == true)
+        {
+            _alarmTakingDamage = Time.time + 0.3f;
+        }
+    }
+
+    public void CheckChangeMaterial()
+    {
+        if (_isTakingDamage)
+        {
+            _ghostRenderer.material = _emissiveMatDamage;
+        }
+        else if (_isDetected)
         {
             _ghostRenderer.material = _emissiveMatDetection;
-            _timeToDisapear = Time.time + time;
         }
         else
         {
             _ghostRenderer.material = _baseMat;
         }
     }
-    public void ChangeMaterialDamage(float time)
-    {
-        _ghostRenderer.material = _emissiveMatDamage;
-        _timeToDamageMat = Time.time + time;
-    }
+
     public void Set_BaseMat(Material newMat)
     {
         _baseMat = newMat;
