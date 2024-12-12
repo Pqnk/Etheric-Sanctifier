@@ -36,6 +36,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public string Get_currentNameLevel()
+    {
+        return _currentNameLevel;
+    }
+
     public void LoadLevel(LevelType levelType)
     {
         _oldNameLevel = _currentNameLevel;

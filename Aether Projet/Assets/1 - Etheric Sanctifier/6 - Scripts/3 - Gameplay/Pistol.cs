@@ -56,10 +56,10 @@ public class Pistol : MonoBehaviour
     void Update()
     {
         SimpleShootInput();
-        //HeavyShootInput();
+        HeavyShootInput();
         CheckManaReady();
 
-        DebugChargingShoot();
+        //DebugChargingShoot();
     }
 
     private void DebugChargingShoot()

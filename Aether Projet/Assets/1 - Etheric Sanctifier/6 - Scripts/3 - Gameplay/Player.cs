@@ -8,7 +8,14 @@ public class Player : MonoBehaviour
     [SerializeField] private bool _playerIsDead = false;
     [SerializeField] private float _playerMaxMana = 20.0f;
     [SerializeField] private float _playerCurrentMana = 0.0f;
-    
+
+    private void Start()
+    {
+        if (SuperManager.instance.levelManager.Get_currentNameLevel() == "Scene - Etheric Sanctifier - HUB")
+        {
+            transform.GetChild(2).transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
+        }        
+    }
 
     public void DamagerPlayer(float damage)
     {
