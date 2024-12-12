@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _postProcessVolume;
     [SerializeField] float minExposure = -10.0f;
     [SerializeField] float maxExposure = -0.5f;
-    [SerializeField] float transitionSpeed = 0.5f;
+    [SerializeField] float transitionSpeed = 1.0f;
 
     private Volume _volume;
     private ColorAdjustments _colorAdjustments;

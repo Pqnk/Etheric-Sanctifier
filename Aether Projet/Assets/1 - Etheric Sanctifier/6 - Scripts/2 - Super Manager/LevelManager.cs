@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
     }
     IEnumerator LoadingNextSceneFading()
     {
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(8.0f);
         SceneManager.LoadSceneAsync(_currentNameLevel);
         yield return new WaitForSeconds(0.5f);
         SuperManager.instance.uiManager.GetPostProcessVolumeInScene(_currentLevel);
