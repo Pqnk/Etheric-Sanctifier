@@ -166,6 +166,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 15c870d1802a3f84da77294dcc26bdce, type: 2}
   - {fileID: 2100000, guid: d6608b48f5b04214090617b7e32226fa, type: 2}
   - {fileID: 2100000, guid: 6944ea869f19ec24eb005b5e1b29bcff, type: 2}
+  lifesPalier:
+  - 100
+  - 150
+  - 200
   allGhosts: []
   _maxGhostInTotal: 10
   _isReady: 0

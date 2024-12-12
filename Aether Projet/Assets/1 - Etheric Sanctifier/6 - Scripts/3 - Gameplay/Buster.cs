@@ -26,12 +26,15 @@ public class Buster : MonoBehaviour
     [Header("Liste de groupes de matériaux")]
     [SerializeField] List<MaterialList> materialGroups = new List<MaterialList>();
 
+    [SerializeField] GameManagerAetherPunk gm;
+
     private float currentTimer;
     private float maxTime;
     private bool nextWave = false;
 
     private void Start()
     {
+        gm = SuperManager.instance.gameManagerAetherPunk;
         indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
         maxTime = SuperManager.instance.ghostManager.timeBetweenWave;
         ApplyChangeBuster(indexPalier);

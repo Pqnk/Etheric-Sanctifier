@@ -34,12 +34,13 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private float _moveSpeedMax = 100f;
     [SerializeField] private bool _canSpawn = false;
 
-    [Header("Taille des ghost")]
+    [Header("Parametre Ghost")]
     public float tailleGhostMin = .7f;
     public float tailleGhostMax = 1.2f;
-
-    [Header("Material par défaut ghost")]
+    [Tooltip("Liste des materiaux de base des ghost")]
     public Material[] baseMats;
+    [Tooltip("Liste des points de vie par palier des ghost")]
+    public float[] lifesPalier;
 
     [Header("List of All ghost in scene")]
     public List<Transform> allGhosts;
@@ -164,21 +165,21 @@ public class GhostManager : MonoBehaviour
             {
                 case 0:
                     // Life
-                    ghostBehavior.Set_Life(100);
+                    ghostBehavior.Set_Life(lifesPalier[0]);
                     spawnIntervalActual = _spawnInterval[0];
                     ghostBehavior.Set_BaseMat(baseMats[0]);
                     break;
 
                 case 1:
                     // Life
-                    ghostBehavior.Set_Life(200);
+                    ghostBehavior.Set_Life(lifesPalier[1]);
                     spawnIntervalActual = _spawnInterval[1];
                     ghostBehavior.Set_BaseMat(baseMats[1]);
                     break;
 
                 case 2:
                     // Life
-                    ghostBehavior.Set_Life(300);
+                    ghostBehavior.Set_Life(lifesPalier[2]);
                     spawnIntervalActual = _spawnInterval[2];
                     ghostBehavior.Set_BaseMat(baseMats[2]);
                     break;
