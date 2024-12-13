@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _postProcessVolume;
     [SerializeField] float minExposure = -10.0f;
     [SerializeField] float maxExposure = -0.5f;
+    [SerializeField] float maxExposureLevel1 = -2.5f;
     [SerializeField] float transitionSpeed = 1.0f;
 
     private Volume _volume;
@@ -43,8 +44,16 @@ public class UIManager : MonoBehaviour
     {
         if (_volume.profile.TryGet<ColorAdjustments>(out _colorAdjustments))
         {
-            currentExposure = maxExposure;
             targetExposure = minExposure;
+
+            if (_lM.GetCurrentLevelType() == LevelType.Level01)
+            {
+                currentExposure = maxExposureLevel1;
+            }
+            else
+            {
+                currentExposure = maxExposure;
+            }
             StartCoroutine(InterpolateExposure());
         }
         else
@@ -56,8 +65,17 @@ public class UIManager : MonoBehaviour
     {
         if (_volume.profile.TryGet<ColorAdjustments>(out _colorAdjustments))
         {
-            targetExposure = maxExposure;
             currentExposure = minExposure;
+
+            if (_lM.GetCurrentLevelType() == LevelType.Level01)
+            {
+                targetExposure = maxExposureLevel1;
+            }
+            else
+            {
+                targetExposure = maxExposure;
+
+            }
             StartCoroutine(InterpolateExposure());
         }
         else

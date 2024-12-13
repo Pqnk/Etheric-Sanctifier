@@ -94,6 +94,25 @@ public class Pistol : MonoBehaviour
     {
         if (triggerAction.GetState(handType))
         {
+            Coroutine hapticCoroutine = null;
+
+            if (triggerAction.GetStateDown(handType))
+            {
+                if (hapticCoroutine == null)
+                {
+                    hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.leftController.StartHapticFeedback()); ;
+                }
+            }
+            else if (triggerAction.GetStateUp(handType))
+            {
+                if (hapticCoroutine != null)
+                {
+                    StopCoroutine(hapticCoroutine);
+                    hapticCoroutine = null;
+                }
+            }
+
+
             if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
             {
                 if (!getGameObjectShoot)
@@ -105,7 +124,6 @@ public class Pistol : MonoBehaviour
                 }
 
                 currentTimerShoot += Time.deltaTime;
-
                 visual.SetFloat("Size", currentTimerShoot / timeSizeMaxShooting);
 
                 if (currentTimerShoot >= timeForShooting)
@@ -167,6 +185,9 @@ public class Pistol : MonoBehaviour
     {
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.ShootBig, 0.5f, shootPoint.position);
     }
+
+
+
 
 
 

@@ -23,10 +23,22 @@ public class ViveControllerVibration : MonoBehaviour
     //  #####################################
     public void ShootHaptic()
     {
-        TriggerHapticPulse(0.3f, 55.0f, 0.5f);
+        TriggerHapticPulse(0.3f, 55.0f, 0.7f);
     }
     public void BigShootHaptic()
     {
-        TriggerHapticPulse(1.0f, 75.0f, 1.0f);
+        TriggerHapticPulse(1.5f, 75.0f, 1.0f);
     }
+
+
+    public IEnumerator StartHapticFeedback()
+    {
+        while (true)
+        {
+            TriggerHapticPulse(Time.deltaTime, 40.0f, 1.0f);
+            yield return null;
+        }
+    }
+
+
 }
