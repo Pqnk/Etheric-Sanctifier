@@ -63,6 +63,13 @@ MonoBehaviour:
   _isTakingDamage: 0
   _isAlreadyDead: 0
   _attackTime: 2
+  scaleDuration: 0.4
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!54 &660619105344224404
 Rigidbody:
   m_ObjectHideFlags: 0

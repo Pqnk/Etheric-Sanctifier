@@ -90,7 +90,7 @@ MonoBehaviour:
   _isTakingDamage: 0
   _isAlreadyDead: 0
   _attackTime: 2
-  scaleDuration: 2
+  scaleDuration: 0.4
   scaleCurve:
     serializedVersion: 2
     m_Curve: []
