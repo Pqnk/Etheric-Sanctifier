@@ -40,16 +40,17 @@ public class Portal : MonoBehaviour
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Teleporting, 0.8f, this.transform.position);
         SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
         SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
+
+        alarmscale = Time.time + duration;
         StartCoroutine(ScaleDownToZero());
     }
 
     private IEnumerator ScaleDownToZero()
     {
-        alarmscale = Time.time + duration;
         while (alarmscale > Time.time )
         {
             float progress = Time.time / alarmscale;
-            float scaleMultiplier = scaleCurve != null ? scaleCurve.Evaluate(progress) : 1 - progress;
+            float scaleMultiplier = 1 - progress;
 
             transform.localScale = initialScale * scaleMultiplier;
             yield return null;
