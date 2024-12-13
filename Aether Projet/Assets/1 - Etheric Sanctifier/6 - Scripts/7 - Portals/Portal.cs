@@ -9,6 +9,8 @@ public class Portal : MonoBehaviour
     [SerializeField] private float scaleDownDuration = 1.0f;
     [SerializeField] private AnimationCurve scaleCurve;
     private Vector3 initialScale;
+    private float duration = 5.0f;
+    private float alarmscale = -1.0f;
 
     public bool isPortalActive = true;
 
@@ -43,15 +45,13 @@ public class Portal : MonoBehaviour
 
     private IEnumerator ScaleDownToZero()
     {
-        float elapsedTime = 0f;
-        while (elapsedTime < 2.0f)
+        alarmscale = Time.time + duration;
+        while (alarmscale > Time.time )
         {
-            float progress = elapsedTime / 2.0f;
+            float progress = Time.time / alarmscale;
             float scaleMultiplier = scaleCurve != null ? scaleCurve.Evaluate(progress) : 1 - progress;
 
             transform.localScale = initialScale * scaleMultiplier;
-
-            elapsedTime += Time.deltaTime;
             yield return null;
         }
         transform.localScale = Vector3.zero;
