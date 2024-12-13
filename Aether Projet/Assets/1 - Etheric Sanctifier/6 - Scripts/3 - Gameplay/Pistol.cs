@@ -48,6 +48,9 @@ public class Pistol : MonoBehaviour
     private GameObject chargingShoot = null;
     private VisualEffect visual = null;
 
+    Coroutine hapticCoroutine = null;
+    bool coroutineAlreadyLaunched = false;
+
     private void Start()
     {
         player = transform.root.GetComponent<Player>();
@@ -94,24 +97,11 @@ public class Pistol : MonoBehaviour
     {
         if (triggerAction.GetState(handType))
         {
-            Coroutine hapticCoroutine = null;
-
-            if (triggerAction.GetStateDown(handType))
+            if (hapticCoroutine == null)
             {
-                if (hapticCoroutine == null)
-                {
-                    hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.leftController.StartHapticFeedback()); ;
-                }
+                coroutineAlreadyLaunched = true;
+                hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.leftController.StartHapticFeedback()); ;
             }
-            else if (triggerAction.GetStateUp(handType))
-            {
-                if (hapticCoroutine != null)
-                {
-                    StopCoroutine(hapticCoroutine);
-                    hapticCoroutine = null;
-                }
-            }
-
 
             if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
             {
@@ -136,6 +126,13 @@ public class Pistol : MonoBehaviour
         }
         else
         {
+            if (hapticCoroutine != null)
+            {
+                coroutineAlreadyLaunched = false;
+                StopCoroutine(hapticCoroutine);
+                hapticCoroutine = null;
+            }
+
             currentTimerShoot = 0;
 
             if (readyHeavyShoot)
