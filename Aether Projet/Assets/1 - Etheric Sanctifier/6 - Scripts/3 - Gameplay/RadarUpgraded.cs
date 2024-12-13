@@ -69,6 +69,11 @@ public class RadarUpgraded : MonoBehaviour
 
             foreach (Ghost g in _ghostBehindList)
             {
+                if (g == null)
+                {
+                    _ghostBehindList.Remove(g);
+                }
+
                 float distanceToGhost = Vector3.Distance(this.gameObject.transform.position, g.transform.position);
 
                 if (distanceToGhost < closestDistance)

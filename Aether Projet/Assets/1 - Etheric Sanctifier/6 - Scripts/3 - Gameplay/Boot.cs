@@ -14,19 +14,19 @@ public class Boot : MonoBehaviour
     private void Start()
     {
         _bootMaterialBase = this.transform.GetChild(0).GetComponent<MeshRenderer>().material;
-        _bootMaterial.SetColor("_EmissionColor", Color.red * 15);
-        _bootMaterial.EnableKeyword("_EMISSION");
+        //_bootMaterial.SetColor("_EmissionColor", Color.red * 15);
+        //_bootMaterial.EnableKeyword("_EMISSION");
 
 
 
-        while (_camera == null)
-        {
-            _camera = SuperManager.instance.ghostManager.GetMainTarget();
-        }
+        //while (_camera == null)
+        //{
+        //    _camera = SuperManager.instance.ghostManager.GetMainTarget();
+        //}
 
         if (_camera != null)
         {
-            MeasureHeightBoot();
+            //MeasureHeightBoot();
         }
     }
 

@@ -95,8 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcefec72fe5733f4ba559a896d2fbcf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 150
-  damage: 25
+  _baseForce: 400
+  _damage: 25
+  _forceMultiplier: 1
+  _camera: {fileID: 0}
+  _bootMaterial: {fileID: 0}
+  _bootMaterialBase: {fileID: 0}
 --- !u!1001 &4191955042430662513
 PrefabInstance:
   m_ObjectHideFlags: 0

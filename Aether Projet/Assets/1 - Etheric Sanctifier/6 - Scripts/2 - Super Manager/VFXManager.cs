@@ -20,6 +20,7 @@ public class VFXManager : MonoBehaviour
     [SerializeField] private GameObject _VFXChargingHeavyShoot;
     [SerializeField] private GameObject _VFXPalierValidated;
     [SerializeField] private GameObject _vfxDeadGhostImpact;
+    [SerializeField] private GameObject _vfxSwordImpact;
 
     public GameObject InstantiateVFX_VFXChargingHeavyShoot(Transform pos)
     {
@@ -63,6 +64,15 @@ public class VFXManager : MonoBehaviour
     public GameObject InstantiateVFX_vfxDeadGhostImpact(Transform pos)
     {
         GameObject instance = Instantiate(_vfxDeadGhostImpact, pos.position, Quaternion.identity);
+
+        instance.transform.SetParent(null);
+
+        return instance;
+    }
+    
+    public GameObject InstantiateVFX_vfxSwordImpact(Transform pos)
+    {
+        GameObject instance = Instantiate(_vfxSwordImpact, pos.position, Quaternion.identity);
 
         instance.transform.SetParent(null);
 

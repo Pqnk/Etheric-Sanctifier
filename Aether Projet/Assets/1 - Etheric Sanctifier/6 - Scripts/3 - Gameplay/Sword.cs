@@ -11,17 +11,24 @@ public class Sword : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ghost")
         {
+            ContactPoint contact = collision.contacts[0];
+            Vector3 collisionPoint = contact.point;
+
             Vector3 collisionDirection = (collision.transform.position - transform.position).normalized;
+
             Ghost behaviorGhost = collision.gameObject.GetComponent<Ghost>();
             behaviorGhost.AddForceToGhost(collisionDirection, forceImpulse, ForceMode.Impulse);
             behaviorGhost.LowerHealth(damage);
-            PlaySoundAndVFXSword();
+
+            PlaySoundAndVFXSword(collisionPoint);
         }
     }
 
-    private void PlaySoundAndVFXSword()
+    private void PlaySoundAndVFXSword(Vector3 posContact)
     {
-        SuperManager.instance.vfxManager.InstantiateVFX_vfxFootImpact(this.transform);
+        //SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(posContact);
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Sword, 0.5f, this.transform.position);
+
+        SuperManager.instance.vibrationManager.rightController.BigShootHaptic();
     }
 }

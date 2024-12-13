@@ -132,6 +132,7 @@ MonoBehaviour:
   _VFXChargingHeavyShoot: {fileID: 4600756758632846416, guid: 40865be8a4f352a49b6f00fbb20713c4, type: 3}
   _VFXPalierValidated: {fileID: 4018217129707485235, guid: 58200044c7a12d944862fa1743bbc186, type: 3}
   _vfxDeadGhostImpact: {fileID: 8447418903007522576, guid: 428c3d156dd086c4f925f04ecf8cf7e0, type: 3}
+  _vfxSwordImpact: {fileID: 2544064726984189275, guid: 16ee777c938b39b4ba2f00661a2b33b2, type: 3}
 --- !u!114 &8369437736979271891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +238,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a1b44801f3e1f4393e4a85aa8aaeed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rightController: {fileID: 0}
+  leftController: {fileID: 0}

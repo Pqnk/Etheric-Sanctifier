@@ -8393,7 +8393,7 @@ GameObject:
   - component: {fileID: 5230336766123505240}
   - component: {fileID: 3127217640833188708}
   - component: {fileID: 8042375269278029509}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: --RADAR--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
