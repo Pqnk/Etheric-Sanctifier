@@ -44,10 +44,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.28764686, g: 0.3875918, b: 0.6037736, a: 1}
-  m_Intensity: 400
+  m_Color: {r: 0.28627452, g: 0.38823533, b: 0.6039216, a: 1}
+  m_Intensity: 80
   m_Range: 50
-  m_SpotAngle: 30
+  m_SpotAngle: 33
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 400
+  m_Intensity: 20
   m_EnableSpotReflector: 1
-  m_LuxAtDistance: 1
+  m_LuxAtDistance: 2
   m_InnerSpotPercent: 75
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
@@ -284,6 +284,7 @@ MonoBehaviour:
   - {r: 0.28627452, g: 0.3882353, b: 0.6039216, a: 1}
   - {r: 0.5759327, g: 0.6039216, b: 0.28627452, a: 1}
   - {r: 0.6039216, g: 0.36939046, b: 0.28627452, a: 1}
+  - {r: 0.6039216, g: 0.36939046, b: 0.28627452, a: 1}
   sliderImage: {fileID: 7179401057828770725}
   materialGroups:
   - materials:
@@ -306,6 +307,7 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 276446bb0dfceba42b5e79c3dd49a2a4, type: 2}
     - {fileID: 2100000, guid: dad6e6854e78aac42a01f02e45d19dfb, type: 2}
     - {fileID: 2100000, guid: bdaae4d3b605ac4429be3697e8060e5f, type: 2}
+  gm: {fileID: 0}
 --- !u!1 &6897896761748846610
 GameObject:
   m_ObjectHideFlags: 0

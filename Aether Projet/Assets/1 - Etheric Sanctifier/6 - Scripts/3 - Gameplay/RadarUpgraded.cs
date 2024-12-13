@@ -46,13 +46,15 @@ public class RadarUpgraded : MonoBehaviour
     {
         if (other.CompareTag("Ghost"))
         {
-            foreach (Ghost g in _ghostBehindList)
-            {
-                if (other.GetComponent<Ghost>() == g)
-                {
-                    _ghostBehindList.Remove(g);
-                }
-            }
+            _ghostBehindList.RemoveAll(g => other.GetComponent<Ghost>() == g);
+
+            //foreach (Ghost g in _ghostBehindList)
+            //{
+            //    if (other.GetComponent<Ghost>() == g)
+            //    {
+            //        _ghostBehindList.Remove(g);
+            //    }
+            //}
         }
     }
 
@@ -64,16 +66,13 @@ public class RadarUpgraded : MonoBehaviour
     {
         if (_ghostBehindList != null)
         {
+            _ghostBehindList.RemoveAll(g => g == null);
+
             float closestDistance = Mathf.Infinity;
             Ghost nearestGhost = null;
 
             foreach (Ghost g in _ghostBehindList)
             {
-                if (g == null)
-                {
-                    _ghostBehindList.Remove(g);
-                }
-
                 float distanceToGhost = Vector3.Distance(this.gameObject.transform.position, g.transform.position);
 
                 if (distanceToGhost < closestDistance)

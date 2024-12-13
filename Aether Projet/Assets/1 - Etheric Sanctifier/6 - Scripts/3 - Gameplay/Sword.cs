@@ -26,7 +26,7 @@ public class Sword : MonoBehaviour
 
     private void PlaySoundAndVFXSword(Vector3 posContact)
     {
-        //SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(posContact);
+        SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(posContact);
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Sword, 0.5f, this.transform.position);
 
         SuperManager.instance.vibrationManager.rightController.BigShootHaptic();

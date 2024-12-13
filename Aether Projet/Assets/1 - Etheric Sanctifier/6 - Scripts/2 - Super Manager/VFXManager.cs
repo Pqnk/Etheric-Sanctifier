@@ -70,13 +70,12 @@ public class VFXManager : MonoBehaviour
         return instance;
     }
     
-    public GameObject InstantiateVFX_vfxSwordImpact(Transform pos)
+    public GameObject InstantiateVFX_vfxSwordImpact(Vector3 pos)
     {
-        GameObject instance = Instantiate(_vfxSwordImpact, pos.position, Quaternion.identity);
+        GameObject instance = Instantiate(_vfxSwordImpact, pos, Quaternion.identity);
 
         instance.transform.SetParent(null);
 
         return instance;
     }
-
 }

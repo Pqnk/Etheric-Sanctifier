@@ -207,17 +207,28 @@ public class GhostManager : MonoBehaviour
 
     public void RemoveGhostFromListAndDestroy(int idGhost)
     {
-        int index = 0;
-        foreach (Transform t in allGhosts)
+        allGhosts.RemoveAll(t =>
         {
             Ghost g = t.gameObject.GetComponent<Ghost>();
             if (g.GetId() == idGhost)
             {
-                allGhosts.RemoveAt(index);
                 Destroy(t.gameObject);
+                return true;
             }
-            index++;
-        }
+            return false;
+        });
+
+        //int index = 0;
+        //foreach (Transform t in allGhosts)
+        //{
+        //    Ghost g = t.gameObject.GetComponent<Ghost>();
+        //    if (g.GetId() == idGhost)
+        //    {
+        //        allGhosts.RemoveAt(index);
+        //        Destroy(t.gameObject);
+        //    }
+        //    index++;
+        //}
     }
 
     public void StopWaveAndClearAllGhost()
@@ -283,6 +294,6 @@ public class GhostManager : MonoBehaviour
 
     private void PlayOnceSoundKillGhost()
     {
-        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BeehGoatReverb, 0.5f, _mainTarget.transform.position);
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BeehGoatReverb, 0.5f,new Vector3(0,0,0));
     }
 }
