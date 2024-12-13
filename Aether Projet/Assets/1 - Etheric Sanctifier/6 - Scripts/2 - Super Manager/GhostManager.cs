@@ -217,18 +217,6 @@ public class GhostManager : MonoBehaviour
             }
             return false;
         });
-
-        //int index = 0;
-        //foreach (Transform t in allGhosts)
-        //{
-        //    Ghost g = t.gameObject.GetComponent<Ghost>();
-        //    if (g.GetId() == idGhost)
-        //    {
-        //        allGhosts.RemoveAt(index);
-        //        Destroy(t.gameObject);
-        //    }
-        //    index++;
-        //}
     }
 
     public void StopWaveAndClearAllGhost()
