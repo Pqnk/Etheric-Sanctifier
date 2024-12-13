@@ -41,8 +41,7 @@ public class Portal : MonoBehaviour
         SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
         SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
 
-        alarmscale = Time.time + duration;
-        StartCoroutine(ScaleDownToZero());
+        ScaleDownPortal();
     }
 
     private IEnumerator ScaleDownToZero()
@@ -56,5 +55,12 @@ public class Portal : MonoBehaviour
             yield return null;
         }
         transform.localScale = Vector3.zero;
+    }
+
+    private void ScaleDownPortal()
+    {
+
+        alarmscale = Time.time + duration;
+        StartCoroutine(ScaleDownToZero());
     }
 }

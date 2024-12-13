@@ -49,11 +49,15 @@ public class Ghost : MonoBehaviour
     [SerializeField] private float scaleDuration = 2.0f;
     [SerializeField] private AnimationCurve scaleCurve;
 
+    private Vector3 initialScale;
+
     //  ###########################################
     //  ############  START & UPDATE  #############
     //  ###########################################
     private void Start()
     {
+        initialScale = transform.localScale;
+
         _ghostRenderer = this.transform.GetChild(0).GetComponent<MeshRenderer>();
         _rbGhost = gameObject.GetComponent<Rigidbody>();
 
@@ -161,6 +165,9 @@ public class Ghost : MonoBehaviour
             }
         }
     }
+
+    private float duration = 2.0f;
+    private float alarmscale = -1.0f;
     public void KillAndDestroyGhost(bool isKillingAllAtOnce)
     {
         _isAlreadyDead = true;
@@ -174,6 +181,8 @@ public class Ghost : MonoBehaviour
         {
             SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
         }
+
+        alarmscale = Time.time + duration;
         StartCoroutine(ScaleDownGhostAndDestroy());
 
     }
@@ -183,20 +192,15 @@ public class Ghost : MonoBehaviour
     }
     private IEnumerator ScaleDownGhostAndDestroy()
     {
-        Vector3 initialScale = transform.localScale;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < scaleDuration)
+        while (alarmscale > Time.time)
         {
-            float progress = elapsedTime / scaleDuration;
-            float scaleValue = scaleCurve != null ? scaleCurve.Evaluate(progress) : 1f - progress;
-            transform.localScale = initialScale * scaleValue;
+            float progress = Time.time / alarmscale;
+            float scaleMultiplier = 1 - progress;
 
-            elapsedTime += Time.deltaTime;
+            transform.localScale = initialScale * scaleMultiplier;
             yield return null;
         }
         transform.localScale = Vector3.zero;
-
         gM.RemoveGhostFromListAndDestroy(GetId());
     }
 
