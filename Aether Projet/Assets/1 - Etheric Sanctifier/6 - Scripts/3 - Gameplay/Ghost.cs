@@ -194,8 +194,9 @@ public class Ghost : MonoBehaviour
     {
         while (alarmscale > Time.time)
         {
-            float progress = Time.time / alarmscale;
-            float scaleMultiplier = 1 - progress;
+            float remainingtime = alarmscale - Time.time;
+            float progress = remainingtime / alarmscale;
+            float scaleMultiplier = progress;
 
             transform.localScale = initialScale * scaleMultiplier;
             yield return null;
