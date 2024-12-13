@@ -294,6 +294,6 @@ public class GhostManager : MonoBehaviour
 
     private void PlayOnceSoundKillGhost()
     {
-        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BeehGoatReverb, 0.5f,new Vector3(0,0,0));
+        //SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BeehGoatReverb, 0.5f,new Vector3(0,0,0));
     }
 }

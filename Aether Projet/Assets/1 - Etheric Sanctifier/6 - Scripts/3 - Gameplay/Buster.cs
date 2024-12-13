@@ -15,10 +15,7 @@ public class Buster : MonoBehaviour
     [SerializeField] int indexPalier;
 
     [Header("Gestion de la light")]
-    [SerializeField] float[] outerAngleLight;
-    [SerializeField] float[] innerAngleLight;
-    [SerializeField] float[] intensityLight;
-    [SerializeField] Color[] colorLight;
+    [SerializeField] GameObject[] lights;
 
     [Header("Image du timer")]
     [SerializeField] Image sliderImage;
@@ -77,28 +74,31 @@ public class Buster : MonoBehaviour
 
     private void CheckPalier()
     {
-        int kills = SuperManager.instance.gameManagerAetherPunk.Get_KillGhost();
-
-        if (kills >= SuperManager.instance.gameManagerAetherPunk.palierKills[indexPalier])
+        if (SuperManager.instance.gameManagerAetherPunk.Get_Palier() < 3)
         {
-            SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
+            int kills = SuperManager.instance.gameManagerAetherPunk.Get_KillGhost();
 
-            if (indexPalier < SuperManager.instance.gameManagerAetherPunk.palierKills.Count)
+            if (kills >= SuperManager.instance.gameManagerAetherPunk.palierKills[indexPalier])
             {
-                SuperManager.instance.gameManagerAetherPunk.Set_NextPalier(true);
-                indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
-                ApplyChangeBuster(indexPalier);
+                SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
+
+                if (indexPalier < SuperManager.instance.gameManagerAetherPunk.palierKills.Count)
+                {
+                    SuperManager.instance.gameManagerAetherPunk.Set_NextPalier(true);
+                    indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
+                    ApplyChangeBuster(indexPalier);
+                }
             }
-        }
-        else if (kills < 0)
-        {
-            SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
-
-            if (indexPalier > 0)
+            else if (kills < 0)
             {
-                indexPalier--;
-                ApplyChangeBuster(indexPalier);
-                SuperManager.instance.gameManagerAetherPunk.Set_NextPalier(false);
+                SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
+
+                if (indexPalier > 0)
+                {
+                    indexPalier--;
+                    ApplyChangeBuster(indexPalier);
+                    SuperManager.instance.gameManagerAetherPunk.Set_NextPalier(false);
+                }
             }
         }
     }
@@ -107,8 +107,14 @@ public class Buster : MonoBehaviour
     {
         nextWave = true;
 
-        Light light = transform.GetChild(1).gameObject.GetComponent<Light>();
         MeshRenderer mesh = transform.GetChild(0).gameObject.GetComponent<MeshRenderer>();
+
+        foreach (var item in lights)
+        {
+            item.gameObject.SetActive(false);
+        }
+
+        lights[indexPalier].SetActive(true);
 
         switch (indexPalier)
         {
@@ -133,10 +139,6 @@ public class Buster : MonoBehaviour
                 break;
         }
 
-        light.innerSpotAngle = intensityLight[indexPalier];
-        light.intensity = intensityLight[indexPalier];
-        light.spotAngle = outerAngleLight[indexPalier];
-        light.color = colorLight[indexPalier];
 
         MaterialList groupMat = materialGroups[indexPalier];
         mesh.SetMaterials(groupMat.materials);
