@@ -97,14 +97,14 @@ public class Pistol : MonoBehaviour
     {
         if (triggerAction.GetState(handType))
         {
-            if (hapticCoroutine == null)
-            {
-                coroutineAlreadyLaunched = true;
-                hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.leftController.StartHapticFeedback()); ;
-            }
-
             if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
             {
+                if (hapticCoroutine == null)
+                {
+                    coroutineAlreadyLaunched = true;
+                    hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.leftController.StartHapticFeedback()); ;
+                }
+
                 if (!getGameObjectShoot)
                 {
                     getGameObjectShoot = true;
