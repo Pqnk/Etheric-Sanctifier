@@ -192,15 +192,29 @@ public class Ghost : MonoBehaviour
     }
     private IEnumerator ScaleDownGhostAndDestroy()
     {
-        while (alarmscale > Time.time)
-        {
-            float remainingtime = alarmscale - Time.time;
-            float progress = remainingtime / alarmscale;
-            float scaleMultiplier = progress;
+        Vector3 initialScalelle = transform.localScale;
 
-            transform.localScale = initialScale * scaleMultiplier;
+        //while (alarmscale > Time.time)
+        //{
+        //    float remainingtime = alarmscale - Time.time;
+        //    float scaleMultiplier = remainingtime / alarmscale;
+        //    transform.localScale = initialScalelle * scaleMultiplier;
+        //    yield return null;
+        //}
+
+        float elapsedTime = 0f;
+        float startValue = 1f;
+        float endValue = 0f;
+
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration; 
+            float currentValue = Mathf.Lerp(startValue, endValue, t);
+            transform.localScale = initialScalelle * currentValue;
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
+
         transform.localScale = Vector3.zero;
         gM.RemoveGhostFromListAndDestroy(GetId());
     }
