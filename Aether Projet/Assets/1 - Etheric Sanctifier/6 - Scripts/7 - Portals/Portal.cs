@@ -10,7 +10,7 @@ public class Portal : MonoBehaviour
     [SerializeField] private float scaleDownDuration = 1.0f;
     [SerializeField] private AnimationCurve scaleCurve;
     private Vector3 initialScale;
-    private float duration = 5.0f;
+    private float scaleDuration = 5.0f;
     private float alarmscale = -1.0f;
 
     public bool isPortalActive = true;
@@ -42,27 +42,25 @@ public class Portal : MonoBehaviour
         SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
         SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
 
-        ScaleDownPortal();
+        StartCoroutine(ScaleDownToZero());
     }
 
     private IEnumerator ScaleDownToZero()
     {
-        while (alarmscale > Time.time )
+        this.transform.GetChild(2).gameObject.SetActive(false);
+        Vector3 initialScalelle = transform.localScale;
+        float elapsedTime = 0f;
+        float startValue = 1f;
+        float endValue = 0f;
+        while (elapsedTime < scaleDuration)
         {
-            float remainingtime = alarmscale - Time.time;
-            float progress = remainingtime / alarmscale;
-            float scaleMultiplier = progress;
-
-            transform.localScale = initialScale * scaleMultiplier;
+            float t = elapsedTime / scaleDuration;
+            float currentValue = Mathf.Lerp(startValue, endValue, t);
+            transform.localScale = initialScalelle * currentValue;
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
+
         transform.localScale = Vector3.zero;
-    }
-
-    private void ScaleDownPortal()
-    {
-
-        alarmscale = Time.time + duration;
-        StartCoroutine(ScaleDownToZero());
     }
 }

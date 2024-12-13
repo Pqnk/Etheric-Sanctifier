@@ -46,18 +46,14 @@ public class Ghost : MonoBehaviour
     private float _alarmEndAttack = -1;
 
     [Header("Death Scale Down")]
-    [SerializeField] private float scaleDuration = 2.0f;
+    [SerializeField] private float scaleDuration = 1.0f;
     [SerializeField] private AnimationCurve scaleCurve;
-
-    private Vector3 initialScale;
 
     //  ###########################################
     //  ############  START & UPDATE  #############
     //  ###########################################
     private void Start()
     {
-        initialScale = transform.localScale;
-
         _ghostRenderer = this.transform.GetChild(0).GetComponent<MeshRenderer>();
         _rbGhost = gameObject.GetComponent<Rigidbody>();
 
@@ -175,7 +171,6 @@ public class Ghost : MonoBehaviour
         {
             PlaySoundKillGhost();
         }
-        PlayVFXKillGhost();
         gM.GetCameraPlayer().GetComponent<Player>().AddMana();
         if (!gM.isTutorial && gM.Get_CanSpawn())
         {
@@ -193,22 +188,12 @@ public class Ghost : MonoBehaviour
     private IEnumerator ScaleDownGhostAndDestroy()
     {
         Vector3 initialScalelle = transform.localScale;
-
-        //while (alarmscale > Time.time)
-        //{
-        //    float remainingtime = alarmscale - Time.time;
-        //    float scaleMultiplier = remainingtime / alarmscale;
-        //    transform.localScale = initialScalelle * scaleMultiplier;
-        //    yield return null;
-        //}
-
         float elapsedTime = 0f;
         float startValue = 1f;
         float endValue = 0f;
-
-        while (elapsedTime < duration)
+        while (elapsedTime < scaleDuration)
         {
-            float t = elapsedTime / duration; 
+            float t = elapsedTime / scaleDuration; 
             float currentValue = Mathf.Lerp(startValue, endValue, t);
             transform.localScale = initialScalelle * currentValue;
             elapsedTime += Time.deltaTime;
@@ -216,6 +201,7 @@ public class Ghost : MonoBehaviour
         }
 
         transform.localScale = Vector3.zero;
+        PlayVFXKillGhost();
         gM.RemoveGhostFromListAndDestroy(GetId());
     }
 
