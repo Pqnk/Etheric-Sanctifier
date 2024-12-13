@@ -193,7 +193,6 @@ public class SoundManager : MonoBehaviour
 
             case SoundType.Teleporting:
                 soundSource.clip = _soundVFXTeleporting;
-                volume = 0.2f;
                 break;
 
             case SoundType.TeleportAppearing:

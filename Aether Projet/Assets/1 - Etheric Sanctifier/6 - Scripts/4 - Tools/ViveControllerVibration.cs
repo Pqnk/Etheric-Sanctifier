@@ -30,6 +30,10 @@ public class ViveControllerVibration : MonoBehaviour
         TriggerHapticPulse(1.5f, 75.0f, 1.0f);
     }
 
+    public void TeleportHaptic()
+    {
+        TriggerHapticPulse(5.0f, 90.0f, 1.0f);
+    }
 
     public IEnumerator StartHapticFeedback()
     {
