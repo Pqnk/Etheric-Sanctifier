@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5974166552497631642}
   - component: {fileID: 8130659393193683437}
-  - component: {fileID: 8353626908048531365}
   - component: {fileID: 1157268568273184427}
   - component: {fileID: 6001254030239941167}
   - component: {fileID: 8369437736979271891}
-  - component: {fileID: 565082960265743651}
+  - component: {fileID: 8353626908048531365}
   - component: {fileID: 4925675943462278177}
   - component: {fileID: 3952739212470397633}
   - component: {fileID: 1295926724860862891}
@@ -52,42 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c3bc06df5156440a387da90d7bdec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8353626908048531365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6970777979904676757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8fd863c3eb8a2d439ab59d736d55bf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _soundPrefab3D: {fileID: 1240526180307793453, guid: 9787225676a3d394b83f246ce3c89471, type: 3}
-  _soundPrefab2D: {fileID: 1240526180307793453, guid: d0d50e6671604a545ba6707c3b09ecc2, type: 3}
-  _music: {fileID: 8300000, guid: cd4e98362d9c92048ad76cca1f4981d7, type: 3}
-  _hub: {fileID: 8300000, guid: e575cdd1541ac2f46b7cea4e81933b80, type: 3}
-  _tuto: {fileID: 8300000, guid: 60fd775df35162c419f2099269fede45, type: 3}
-  _soundVFXCollision: {fileID: 8300000, guid: f0b9650ee253e5d49b8f38f573f97104, type: 3}
-  _soundVFXTeleportReady: {fileID: 8300000, guid: a1b81bcaf2b726443991254889aec4b3, type: 3}
-  _soundVFXTeleporting: {fileID: 8300000, guid: 03061254fcbbfe04e9bbe300749ae8ab, type: 3}
-  _soundVFXTeleportValidated: {fileID: 8300000, guid: 982b84e0b368f15459d494735ee0a6f9, type: 3}
-  _soundVFXTeleportCanceled: {fileID: 8300000, guid: 816d8beff16a9914fae5783f81cd4e2a, type: 3}
-  _soundVFXSearchingObjective: {fileID: 8300000, guid: ba488f4ce21e9f6489d719a54eb1b057, type: 3}
-  _soundVFXFindingObjective: {fileID: 8300000, guid: d9c6523d54cc5944cbead6b8f883247d, type: 3}
-  _soundVFXExplosionGOAT: {fileID: 8300000, guid: 7d66798b6cf74fb4f8bf6d9f1833c4fa, type: 3}
-  _soundVFXSlurpGOAT: {fileID: 8300000, guid: e36cbae3552aee0449c531dfb2233abf, type: 3}
-  _soundVFXSlurpGOATReverb: {fileID: 8300000, guid: 47e6f6c92fc91454298035d76ca95524, type: 3}
-  _soundVFXBeehGOAT: {fileID: 8300000, guid: 07f0197ef24044c449a4001a174ae0cc, type: 3}
-  _soundVFXBeehGOATReverb: {fileID: 8300000, guid: 26643148e6421f34aa2da4b70bd203ff, type: 3}
-  _soundVFXTeleportAppearing: {fileID: 8300000, guid: ec45d5e2aff8815499ec289a8b69eecd, type: 3}
-  _soundVFXShoot: {fileID: 8300000, guid: 550f48cd66508f84aa29107bc5579548, type: 3}
-  _soundVFXShootImpact: {fileID: 8300000, guid: 89bf28d9d8057ba4ca7c409636d01238, type: 3}
-  _soundVFXShootBig: {fileID: 8300000, guid: fdba85bf8157ca0419cb7230a8e8e3db, type: 3}
-  _soundVFXShootBigImpact: {fileID: 8300000, guid: f5a06df96781c5d478dc2301802de0ae, type: 3}
-  _soundVFXSwordImpact: {fileID: 8300000, guid: 7045b0e90d771204b8937196f120a28c, type: 3}
-  _soundVFXBigShootReady: {fileID: 8300000, guid: f3b1b7513703e084cb3995cbc194acff, type: 3}
 --- !u!114 &1157268568273184427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +140,7 @@ MonoBehaviour:
   _isReady: 0
   timeBetweenWave: 15
   isTutorial: 0
---- !u!114 &565082960265743651
+--- !u!114 &8353626908048531365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,12 +149,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 6970777979904676757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0470553dd52e3488a5337ce89d50bc, type: 3}
+  m_Script: {fileID: 11500000, guid: a8fd863c3eb8a2d439ab59d736d55bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentKill: 0
-  indexPalier: 0
-  palierKills: 0a0000000f00000014000000
+  _soundPrefab3D: {fileID: 1240526180307793453, guid: 9787225676a3d394b83f246ce3c89471, type: 3}
+  _soundPrefab2D: {fileID: 1240526180307793453, guid: d0d50e6671604a545ba6707c3b09ecc2, type: 3}
+  _music: {fileID: 8300000, guid: cd4e98362d9c92048ad76cca1f4981d7, type: 3}
+  _hub: {fileID: 8300000, guid: e575cdd1541ac2f46b7cea4e81933b80, type: 3}
+  _tuto: {fileID: 8300000, guid: 60fd775df35162c419f2099269fede45, type: 3}
+  _soundVFXCollision: {fileID: 8300000, guid: f0b9650ee253e5d49b8f38f573f97104, type: 3}
+  _soundVFXTeleportReady: {fileID: 8300000, guid: a1b81bcaf2b726443991254889aec4b3, type: 3}
+  _soundVFXTeleporting: {fileID: 8300000, guid: 03061254fcbbfe04e9bbe300749ae8ab, type: 3}
+  _soundVFXTeleportValidated: {fileID: 8300000, guid: 982b84e0b368f15459d494735ee0a6f9, type: 3}
+  _soundVFXTeleportCanceled: {fileID: 8300000, guid: 816d8beff16a9914fae5783f81cd4e2a, type: 3}
+  _soundVFXSearchingObjective: {fileID: 8300000, guid: ba488f4ce21e9f6489d719a54eb1b057, type: 3}
+  _soundVFXFindingObjective: {fileID: 8300000, guid: d9c6523d54cc5944cbead6b8f883247d, type: 3}
+  _soundVFXExplosionGOAT: {fileID: 8300000, guid: 7d66798b6cf74fb4f8bf6d9f1833c4fa, type: 3}
+  _soundVFXSlurpGOAT: {fileID: 8300000, guid: e36cbae3552aee0449c531dfb2233abf, type: 3}
+  _soundVFXSlurpGOATReverb: {fileID: 8300000, guid: 47e6f6c92fc91454298035d76ca95524, type: 3}
+  _soundVFXBeehGOAT: {fileID: 8300000, guid: 07f0197ef24044c449a4001a174ae0cc, type: 3}
+  _soundVFXBeehGOATReverb: {fileID: 8300000, guid: 26643148e6421f34aa2da4b70bd203ff, type: 3}
+  _soundVFXTeleportAppearing: {fileID: 8300000, guid: ec45d5e2aff8815499ec289a8b69eecd, type: 3}
+  _soundVFXShoot: {fileID: 8300000, guid: 550f48cd66508f84aa29107bc5579548, type: 3}
+  _soundVFXShootImpact: {fileID: 8300000, guid: 89bf28d9d8057ba4ca7c409636d01238, type: 3}
+  _soundVFXShootBig: {fileID: 8300000, guid: fdba85bf8157ca0419cb7230a8e8e3db, type: 3}
+  _soundVFXShootBigImpact: {fileID: 8300000, guid: f5a06df96781c5d478dc2301802de0ae, type: 3}
+  _soundVFXSwordImpact: {fileID: 8300000, guid: 7045b0e90d771204b8937196f120a28c, type: 3}
+  _soundVFXBigShootReady: {fileID: 8300000, guid: f3b1b7513703e084cb3995cbc194acff, type: 3}
 --- !u!114 &4925675943462278177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +191,7 @@ MonoBehaviour:
   _postProcessVolume: {fileID: 0}
   minExposure: -10
   maxExposure: -0.5
+  maxExposureLevel1: -2.5
   transitionSpeed: 1
 --- !u!114 &3952739212470397633
 MonoBehaviour:

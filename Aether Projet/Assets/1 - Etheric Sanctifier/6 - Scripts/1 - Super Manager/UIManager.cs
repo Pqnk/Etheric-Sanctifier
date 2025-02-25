@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     float targetExposure;
     float currentExposure;
 
-    private GameManagerAetherPunk _gM;
+    private GameManagerAFSFOR _gM;
     private LevelManager _lM;
 
     private void Start()

@@ -23,7 +23,7 @@ public class Buster : MonoBehaviour
     [Header("Liste de groupes de matériaux")]
     [SerializeField] List<MaterialList> materialGroups = new List<MaterialList>();
 
-    [SerializeField] GameManagerAetherPunk gm;
+    [SerializeField] GameManagerAFSFOR gm;
 
     private float currentTimer;
     private float maxTime;

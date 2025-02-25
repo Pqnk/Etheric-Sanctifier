@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Valve.VR;
 
-public class GameManagerAetherPunk : MonoBehaviour
+public class GameManagerAFSFOR : MonoBehaviour
 {
     public void LaunchGameplay(LevelType levelType)
     {

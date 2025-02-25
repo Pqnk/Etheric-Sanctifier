@@ -47,14 +47,6 @@ public class RadarUpgraded : MonoBehaviour
         if (other.CompareTag("Ghost"))
         {
             _ghostBehindList.RemoveAll(g => other.GetComponent<Ghost>() == g);
-
-            //foreach (Ghost g in _ghostBehindList)
-            //{
-            //    if (other.GetComponent<Ghost>() == g)
-            //    {
-            //        _ghostBehindList.Remove(g);
-            //    }
-            //}
         }
     }
 
