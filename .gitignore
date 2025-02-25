@@ -10,6 +10,15 @@ Aether Projet/[Bb]uilds/
 Aether Projet/[Ll]ogs/
 Aether Projet/[Uu]ser[Ss]ettings/
 
+AFSFOR/[Ll]ibrary/
+AFSFOR/[Tt]emp/
+AFSFOR/[Oo]bj/
+AFSFOR/[Bb]uild/
+AFSFOR/[Bb]uilds/
+AFSFOR/[Ll]ogs/
+AFSFOR/[Uu]ser[Ss]ettings/
+
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
