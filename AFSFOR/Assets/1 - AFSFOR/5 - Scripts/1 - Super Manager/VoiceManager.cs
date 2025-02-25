@@ -25,7 +25,7 @@ public class VoiceManager : MonoBehaviour
     [Header("Prefab Voice")]
     [SerializeField] private GameObject _voicePrefab3D;
 
-    [Header("Voices HUB")]
+    [Header("Voices HUBMusic")]
     [SerializeField] private AudioClip _voiceIntro;
     [SerializeField] private AudioClip _voiceChoiceTuto;
     [SerializeField] private AudioClip _voiceChoiceMission;

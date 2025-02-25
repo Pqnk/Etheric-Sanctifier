@@ -8,7 +8,7 @@ using UnityEngine;
 public enum SoundType
 {
     Music,
-    HUB,
+    HUBMusic,
     MusicTuto,
     Collision,
     TeleportReady,
@@ -102,7 +102,7 @@ public class SoundManager : MonoBehaviour
                 break;
 
 
-            case SoundType.HUB:
+            case SoundType.HUBMusic:
                 soundSource.clip = _hub;
                 soundSource.loop = true;
                 _isMusicPlaying = true;
@@ -169,7 +169,7 @@ public class SoundManager : MonoBehaviour
                 }
                 break;
 
-            case SoundType.HUB:
+            case SoundType.HUBMusic:
                 if (!_isMusicPlaying)
                 {
                     soundSource.clip = _hub;

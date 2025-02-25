@@ -24,16 +24,14 @@ public class GameManagerAFSFOR : MonoBehaviour
         }
     }
 
-
     //  ####################################################
-    //  HUB
+    //  HUBMusic
     //  ####################################################
     private void GameplayHUB()
     {
-        SuperManager.instance.soundManager.PlaySound(SoundType.HUB, 0.1f);
+        SuperManager.instance.soundManager.PlaySound(SoundType.HUBMusic, 0.1f);
         SuperManager.instance.ghostManager.DefinitiveStopWaveAndClearGhosts();
     }
-
 
     //  ####################################################
     //  Tutorial
@@ -51,7 +49,6 @@ public class GameManagerAFSFOR : MonoBehaviour
             Debug.Log("ERROR : Ghost Manager cannot initialize into tutorial!");
         }
     }
-
 
     //  ####################################################
     //  Level 01
@@ -128,8 +125,6 @@ public class GameManagerAFSFOR : MonoBehaviour
             SuperManager.instance.ghostManager.SetCanSpawn(false);
         }
     }
-
-
 
     //  ####################################################
     //  Player Managment

@@ -16,7 +16,6 @@ public class OldExorcist : MonoBehaviour
     {
         _portals.SetActive(false);
         _npcSource = GetComponent<AudioSource>();
-
         _portalTutoRef = _portals.transform.GetChild(1).GetComponent<Portal>();
         _portalMissionRef = _portals.transform.GetChild(2).GetComponent<Portal>();
     }
@@ -24,7 +23,7 @@ public class OldExorcist : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartIntroVoice());
-        SuperManager.instance.soundManager.PlaySound(SoundType.HUB, 0.05f);
+        SuperManager.instance.soundManager.PlaySound(SoundType.HUBMusic, 0.05f);
     }
 
     private void Update()

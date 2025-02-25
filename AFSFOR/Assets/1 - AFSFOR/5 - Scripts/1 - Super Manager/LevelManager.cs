@@ -11,14 +11,13 @@ public enum LevelType
     Level01
 }
 
-
 public class LevelManager : MonoBehaviour
 {
     [Header("Current Level in Game")]
     [SerializeField] private LevelType _currentLevel = LevelType.HUB;
 
     [Header("Names of all Game Levels")]
-    [SerializeField] private string _nameLevel_HUB = "Scene - Etheric Sanctifier - HUB";
+    [SerializeField] private string _nameLevel_HUB = "Scene - Etheric Sanctifier - HUBMusic";
     [SerializeField] private string _nameLevel_Tutorial = "Scene - Etheric Sanctifier - Tutorial";
     [SerializeField] private string _nameLevel_Level01 = "Scene - Etheric Sanctifier - Level 1";
     [SerializeField] private string _currentNameLevel;
