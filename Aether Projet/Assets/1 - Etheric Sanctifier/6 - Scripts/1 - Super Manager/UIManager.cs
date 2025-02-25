@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        _gM = SuperManager.instance.gameManagerAetherPunk;
+        _gM = SuperManager.instance.gameManagerAFSFOR;
         _lM = SuperManager.instance.levelManager;
         GetPostProcessVolumeInScene(LevelType.HUB);
     }

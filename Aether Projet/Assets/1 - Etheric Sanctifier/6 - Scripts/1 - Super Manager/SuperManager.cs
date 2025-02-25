@@ -6,7 +6,7 @@ public class SuperManager : MonoBehaviour
 {
     public static SuperManager instance { get; private set; }
 
-    public GameManagerAFSFOR gameManagerAetherPunk { get; private set; }
+    public GameManagerAFSFOR gameManagerAFSFOR { get; private set; }
     public SoundManager soundManager { get; private set; }
     public VoiceManager voiceManager { get; private set; }
     public VFXManager vfxManager { get; private set; }
@@ -26,7 +26,7 @@ public class SuperManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        gameManagerAetherPunk = GetComponent<GameManagerAFSFOR>();
+        gameManagerAFSFOR = GetComponent<GameManagerAFSFOR>();
         soundManager = GetComponent<SoundManager>();
         voiceManager = GetComponent<VoiceManager>();
         vfxManager = GetComponent<VFXManager>();

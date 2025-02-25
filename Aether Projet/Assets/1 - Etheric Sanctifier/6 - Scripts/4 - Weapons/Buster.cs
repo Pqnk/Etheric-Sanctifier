@@ -31,8 +31,8 @@ public class Buster : MonoBehaviour
 
     private void Start()
     {
-        gm = SuperManager.instance.gameManagerAetherPunk;
-        indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
+        gm = SuperManager.instance.gameManagerAFSFOR;
+        indexPalier = SuperManager.instance.gameManagerAFSFOR.Get_Palier();
         maxTime = SuperManager.instance.ghostManager.timeBetweenWave;
         ApplyChangeBuster(indexPalier);
 
@@ -46,12 +46,12 @@ public class Buster : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.KeypadPlus))
         {
-            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
+            SuperManager.instance.gameManagerAFSFOR.Set_KillGhost(false);
         }
 
         if (Input.GetKeyDown(KeyCode.KeypadMinus))
         {
-            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(true);
+            SuperManager.instance.gameManagerAFSFOR.Set_KillGhost(true);
         }
     }
 
@@ -74,30 +74,30 @@ public class Buster : MonoBehaviour
 
     private void CheckPalier()
     {
-        if (SuperManager.instance.gameManagerAetherPunk.Get_Palier() < 3)
+        if (SuperManager.instance.gameManagerAFSFOR.Get_Palier() < 3)
         {
-            int kills = SuperManager.instance.gameManagerAetherPunk.Get_KillGhost();
+            int kills = SuperManager.instance.gameManagerAFSFOR.Get_KillGhost();
 
-            if (kills >= SuperManager.instance.gameManagerAetherPunk.palierKills[indexPalier])
+            if (kills >= SuperManager.instance.gameManagerAFSFOR.palierKills[indexPalier])
             {
-                SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
+                SuperManager.instance.gameManagerAFSFOR.Set_ResetGhost();
 
-                if (indexPalier < SuperManager.instance.gameManagerAetherPunk.palierKills.Count)
+                if (indexPalier < SuperManager.instance.gameManagerAFSFOR.palierKills.Count)
                 {
-                    SuperManager.instance.gameManagerAetherPunk.Set_NextPalier(true);
-                    indexPalier = SuperManager.instance.gameManagerAetherPunk.Get_Palier();
+                    SuperManager.instance.gameManagerAFSFOR.Set_NextPalier(true);
+                    indexPalier = SuperManager.instance.gameManagerAFSFOR.Get_Palier();
                     ApplyChangeBuster(indexPalier);
                 }
             }
             else if (kills < 0)
             {
-                SuperManager.instance.gameManagerAetherPunk.Set_ResetGhost();
+                SuperManager.instance.gameManagerAFSFOR.Set_ResetGhost();
 
                 if (indexPalier > 0)
                 {
                     indexPalier--;
                     ApplyChangeBuster(indexPalier);
-                    SuperManager.instance.gameManagerAetherPunk.Set_NextPalier(false);
+                    SuperManager.instance.gameManagerAFSFOR.Set_NextPalier(false);
                 }
             }
         }

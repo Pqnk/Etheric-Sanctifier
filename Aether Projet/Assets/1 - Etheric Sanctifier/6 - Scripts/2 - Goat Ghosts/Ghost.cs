@@ -174,7 +174,7 @@ public class Ghost : MonoBehaviour
         gM.GetCameraPlayer().GetComponent<Player>().AddMana();
         if (!gM.isTutorial && gM.Get_CanSpawn())
         {
-            SuperManager.instance.gameManagerAetherPunk.Set_KillGhost(false);
+            SuperManager.instance.gameManagerAFSFOR.Set_KillGhost(false);
         }
 
         alarmscale = Time.time + duration;

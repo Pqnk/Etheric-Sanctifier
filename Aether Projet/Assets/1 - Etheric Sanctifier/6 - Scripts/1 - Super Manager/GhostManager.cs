@@ -157,7 +157,7 @@ public class GhostManager : MonoBehaviour
             ghostBehavior.SetSpeed(_moveSpeed);
 
 
-            switch (SuperManager.instance.gameManagerAetherPunk.indexPalier)
+            switch (SuperManager.instance.gameManagerAFSFOR.indexPalier)
             {
                 case 0:
                     // Life
@@ -267,15 +267,15 @@ public class GhostManager : MonoBehaviour
         switch (indexPalier)
         {
             case 0:
-                _maxGhostInTotal = SuperManager.instance.gameManagerAetherPunk.palierKills[0];
+                _maxGhostInTotal = SuperManager.instance.gameManagerAFSFOR.palierKills[0];
                 break;
 
             case 1:
-                _maxGhostInTotal = SuperManager.instance.gameManagerAetherPunk.palierKills[1];
+                _maxGhostInTotal = SuperManager.instance.gameManagerAFSFOR.palierKills[1];
                 break;
 
             case 2:
-                _maxGhostInTotal = SuperManager.instance.gameManagerAetherPunk.palierKills[2];
+                _maxGhostInTotal = SuperManager.instance.gameManagerAFSFOR.palierKills[2];
                 break;
         }
     }

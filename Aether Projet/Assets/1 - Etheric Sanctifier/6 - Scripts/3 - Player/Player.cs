@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         if(_playerHealth <= 0 )
         {
             _playerIsDead = true;
-            SuperManager.instance.gameManagerAetherPunk.PlayerDeadCinematic();
+            SuperManager.instance.gameManagerAFSFOR.PlayerDeadCinematic();
         }
     }
 
