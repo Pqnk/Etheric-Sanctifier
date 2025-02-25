@@ -2,13 +2,6 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-Aether Projet/[Ll]ibrary/
-Aether Projet/[Tt]emp/
-Aether Projet/[Oo]bj/
-Aether Projet/[Bb]uild/
-Aether Projet/[Bb]uilds/
-Aether Projet/[Ll]ogs/
-Aether Projet/[Uu]ser[Ss]ettings/
 
 AFSFOR/[Ll]ibrary/
 AFSFOR/[Tt]emp/
