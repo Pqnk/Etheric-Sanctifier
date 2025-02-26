@@ -27,8 +27,23 @@ MonoBehaviour:
     - goDatas_byGlobalId:
         keys:
         - globalObjectIdString: GlobalObjectId_V1-2-3aff02f0d275ddc42a4ab3784b402735-1224993621-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3aff02f0d275ddc42a4ab3784b402735-1209601554-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3aff02f0d275ddc42a4ab3784b402735-1218321034-0
+        - globalObjectIdString: GlobalObjectId_V1-2-3aff02f0d275ddc42a4ab3784b402735-393438961-0
         values:
         - colorIndex: 3
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 5
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 2
+          iconNameOrGuid: Folder Icon
+          isIconRecursive: 0
+          isColorRecursive: 0
+        - colorIndex: 9
           iconNameOrGuid: Folder Icon
           isIconRecursive: 0
           isColorRecursive: 0

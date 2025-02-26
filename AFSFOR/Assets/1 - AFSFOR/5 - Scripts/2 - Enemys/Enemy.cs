@@ -13,8 +13,25 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed = 1;
     public float currentSpeed;
 
-    public bool idDead = false;
+    [HideInInspector] public bool idDead = false;
+    [HideInInspector] public Rigidbody rb;
+
+    SoundManager sM;
+
     private float scaleDuration = 1.0f;
+
+    private void Awake()
+    {
+        currentLife = life;
+        currentSpeed = speed;
+
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        sM = SuperManager.instance.soundManager;      
+    }
 
     public void Get_Hit(int hit)
     {
@@ -29,11 +46,18 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        currentSpeed = 0;
+        StartCoroutine(ScaleDownGhostAndDestroy());
     }
 
     private IEnumerator ScaleDownGhostAndDestroy()
     {
+        // Joue le son de la mort ------------------------------------------------------
+        SoundType s;
+        s = SoundType.BeehGoatReverb;
+        sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
+
+        // Reduit la taille du mesh ------------------------------------------------------
         Vector3 initialScalelle = transform.localScale;
         float elapsedTime = 0f;
         float startValue = 1f;
@@ -46,9 +70,23 @@ public class Enemy : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
         transform.localScale = Vector3.zero;
-        //PlayVFXKillGhost();
-        //gM.RemoveGhostFromListAndDestroy(GetId());
+
+        // Joue le VFX de la mort ------------------------------------------------------
+        PlayVFXKillGhost();
+        Destroy(gameObject);
+    }
+
+    private void PlayVFXKillGhost()
+    {
+        SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(this.transform);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Get_Hit(1);
+        }
     }
 }
