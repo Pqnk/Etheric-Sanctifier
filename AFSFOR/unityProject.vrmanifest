@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.aetherpunk.exe",
+      "app_key": "application.generated.unity.amazingfightingsheepfromouterreality.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Robin\\Documents\\Robin\\Unity\\Etheric Sanctifier\\Aether Projet\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Ely\\Documents\\11 - Etheric Sanctifier\\AFSFOR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
-          "name": "Aether Punk [Testing]"
+          "name": "Amazing Fighting Sheep From Outer Reality [Testing]"
         }
       }
     }
