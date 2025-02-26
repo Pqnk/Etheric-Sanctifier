@@ -16,6 +16,7 @@ TagManager:
   - Boot
   - projectile
   - FxTemporaire
+  - UIButton
   layers:
   - Default
   - TransparentFX
