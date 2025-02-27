@@ -21,7 +21,6 @@ public class WeaponInventory : MonoBehaviour
             if (leftHandLeftArrow || leftHandRightArrow)
             {
                 SuperManager.instance.timeScaleManager.ToggleSlowMotion(true);
-                transform.GetChild(0).gameObject.SetActive(true);
                 Debug.Log("LeftHand");
                 if (leftHandLeftArrow)
                 { 

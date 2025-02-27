@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseTimeScale: 0.1
-  _slowMoDuration: 1
+  _slowMoDuration: 2
   _slowMoActive: 0
 --- !u!114 &8353626908048531365
 MonoBehaviour:

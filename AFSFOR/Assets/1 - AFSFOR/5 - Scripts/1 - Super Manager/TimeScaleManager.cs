@@ -8,6 +8,8 @@ public class TimeScaleManager : MonoBehaviour
     [SerializeField] private float _slowMoDuration = 1.0f;
     [SerializeField] private bool _slowMoActive = false;
 
+    private Coroutine _coroutine;
+
     private GameObject _ppBlackAndWhite;
 
     private void Awake()
@@ -19,15 +21,17 @@ public class TimeScaleManager : MonoBehaviour
     {
         if (activate)
         {
-            if(_slowMoActive)
-            {
-                StopCoroutine(DeactivateSlowMotionWithDelay());
-            }
+
             _slowMoActive = true;
             _ppBlackAndWhite.SetActive(true);
             Time.timeScale = _pauseTimeScale;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            StartCoroutine(DeactivateSlowMotionWithDelay());
+
+            if (_coroutine != null)
+            {
+                StopCoroutine(DeactivateSlowMotionWithDelay());
+            }
+            _coroutine = StartCoroutine(DeactivateSlowMotionWithDelay());
         }
         else
         {
