@@ -17,6 +17,7 @@ TagManager:
   - projectile
   - FxTemporaire
   - UIButton
+  - Hand
   layers:
   - Default
   - TransparentFX

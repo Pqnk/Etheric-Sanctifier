@@ -6,20 +6,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField] private LevelType _levelDestination = LevelType.HUB;
-
-    [SerializeField] private float scaleDownDuration = 1.0f;
-    [SerializeField] private AnimationCurve scaleCurve;
-    private Vector3 initialScale;
-    private float scaleDuration = 5.0f;
-    private float alarmscale = -1.0f;
-
     public bool isPortalActive = true;
-
-    private void Start()
-    {
-
-        initialScale = transform.localScale;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,11 +14,13 @@ public class Portal : MonoBehaviour
         {
             DeactivatePortal();
             LoadLevelFromPortal();
+
+            Debug.Log("Ok portail");
         }
     }
     private void LoadLevelFromPortal()
     {
-        SuperManager.instance.uiManager.VisibleToBlack();
+        //SuperManager.instance.uiManager.VisibleToBlack();
         SuperManager.instance.levelManager.LoadLevel(_levelDestination);
     }
     public void DeactivatePortal()
