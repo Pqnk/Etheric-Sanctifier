@@ -17,9 +17,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LevelType _currentLevel = LevelType.HUB;
 
     [Header("Names of all Game Levels")]
-    [SerializeField] private string _nameLevel_HUB = "Scene - Etheric Sanctifier - HUBMusic";
-    [SerializeField] private string _nameLevel_Tutorial = "Scene - Etheric Sanctifier - Tutorial";
-    [SerializeField] private string _nameLevel_Level01 = "Scene - Etheric Sanctifier - Level 1";
+    [SerializeField] private string _nameLevel_HUB = "Scene - AFSFOR - HUB";
+    [SerializeField] private string _nameLevel_Tutorial = "Scene - AFSFOR - Tutorial";
+    [SerializeField] private string _nameLevel_Level01 = "Scene - AFSFOR - Level 1";
     [SerializeField] private string _currentNameLevel;
     [SerializeField] private string _oldNameLevel;
 
@@ -72,11 +72,11 @@ public class LevelManager : MonoBehaviour
     }
     IEnumerator LoadingNextSceneFading()
     {
-        yield return new WaitForSeconds(8.0f);
+        yield return new WaitForSeconds(2.0f);
         SceneManager.LoadSceneAsync(_currentNameLevel);
         yield return new WaitForSeconds(0.5f);
-        SuperManager.instance.uiManager.GetPostProcessVolumeInScene(_currentLevel);
-        SuperManager.instance.vibrationManager.InitializeVibrationManager();
+        //SuperManager.instance.uiManager.GetPostProcessVolumeInScene(_currentLevel);
+        //SuperManager.instance.vibrationManager.InitializeVibrationManager();
     }
 
     //  ###########################################
