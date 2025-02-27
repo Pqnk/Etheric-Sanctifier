@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 using UnityEngine.XR.OpenXR.Input;
 using Valve.VR;
 
-public class Pistol : MonoBehaviour
+public class Pistol : Weapon
 {
     [Header("Points")]
     [SerializeField] Transform shootPoint;
