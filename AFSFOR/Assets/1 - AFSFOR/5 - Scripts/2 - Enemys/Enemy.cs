@@ -32,9 +32,10 @@ public class Enemy : MonoBehaviour
 
     private float scaleDuration = 1.0f;
     private bool isTakingDamage = false;
+    private bool isDetected = false;
+    private Renderer ghostRenderer;
     private float timerTakingDamage = -1;
     private float timerIsDetected = -1;
-    private bool ghostRenderer = false;
 
     #region Get / Set
     public int GetLife()
@@ -130,7 +131,7 @@ public class Enemy : MonoBehaviour
         {
             ghostRenderer.material = _emissiveMatDamage;
         }
-        else if (_isDetected)
+        else if (isDetected)
         {
             ghostRenderer.material = _emissiveMatDetection;
         }
