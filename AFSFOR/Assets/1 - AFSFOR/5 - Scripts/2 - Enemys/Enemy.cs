@@ -6,27 +6,35 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Vie de l'enemy")]
+    [Header("Stat de l'enemy")]
     [SerializeField] int _life = 10;
     public int currentLife;
-
-    [Header("Vie de l'enemy")]
     [SerializeField] float _speed = 1;
     public float currentSpeed;
-
-    [Header("Vie de l'enemy")]
     [SerializeField] float _damage = 1;
     public float currentDamage;
 
     [Header("Info")]
     public float stopDistance = 2.5f;
+    public bool getForceBack = false;
+    public bool canLightDetected = false;
+
+    [Header("Materials")]
+    [SerializeField] private Material _baseMat;
+    [SerializeField] private Material _emissiveMatDetection;
+    [SerializeField] private Material _emissiveMatDamage;
 
     [HideInInspector] public bool idDead = false;
     [HideInInspector] public Rigidbody rb;
+    [HideInInspector] public Transform target;
 
     [HideInInspector] public SoundManager sM;
 
     private float scaleDuration = 1.0f;
+    private bool isTakingDamage = false;
+    private float timerTakingDamage = -1;
+    private float timerIsDetected = -1;
+    private bool ghostRenderer = false;
 
     #region Get / Set
     public int GetLife()
@@ -50,6 +58,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        target = GameObject.Find("Player").transform;
         sM = SuperManager.instance.soundManager;
     }
 
@@ -97,5 +106,53 @@ public class Enemy : MonoBehaviour
         {
             Get_Hit(1);
         }
+
+        if (timerTakingDamage <= Time.time)
+        {
+            SetIsTakingDamage(false);
+        }
     }
+
+
+    public void AddForceBack(float force, ForceMode forceMode)
+    {
+        if (getForceBack)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            rb.AddForce(-direction * force, forceMode);
+        }
+    }
+
+    #region Changement Couleur
+    public void CheckChangeMaterial()
+    {
+        if (isTakingDamage)
+        {
+            ghostRenderer.material = _emissiveMatDamage;
+        }
+        else if (_isDetected)
+        {
+            ghostRenderer.material = _emissiveMatDetection;
+        }
+        else
+        {
+            ghostRenderer.material = _baseMat;
+        }
+    }
+
+    private void SetIsTakingDamage(bool v)
+    {
+        isTakingDamage = v;
+
+        if (isTakingDamage == true)
+        {
+            timerTakingDamage = Time.time + 0.3f;
+        }
+    }
+
+    public void Set_BaseMat(Material newMat)
+    {
+        _baseMat = newMat;
+    }
+    #endregion
 }

@@ -8,7 +8,6 @@ using static UnityEngine.GraphicsBuffer;
 [RequireComponent(typeof(Enemy))]
 public class Walker : MonoBehaviour
 {
-    private Transform target;
     private Enemy enemy;
 
     [Header("Repli")]
@@ -36,7 +35,7 @@ public class Walker : MonoBehaviour
     void Init()
     {
         // Temporaire mais donner au script enemy à l'instantiation
-        target = GameObject.Find("Player").transform;
+        
 
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
@@ -67,7 +66,7 @@ public class Walker : MonoBehaviour
             checkedEsquive = false;
         }
 
-        if (target != null)
+        if (enemy.target != null)
         {
             Move();
         }
@@ -76,7 +75,7 @@ public class Walker : MonoBehaviour
 
     void Move()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction = (enemy.target.position - transform.position).normalized;
         direction.y = 0;
 
         if (isRepli)
@@ -91,7 +90,7 @@ public class Walker : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 10f);
         }
 
-        if (Vector3.Distance(transform.position, target.position) > enemy.stopDistance)
+        if (Vector3.Distance(transform.position, enemy.target.position) > enemy.stopDistance)
         {
             enemy.rb.MovePosition(transform.position + direction * enemy.currentSpeed * Time.fixedDeltaTime);
             transform.forward = direction;
@@ -105,7 +104,7 @@ public class Walker : MonoBehaviour
     private void AttackPlayer()
     {
         Debug.Log("Attaque");
-        target.gameObject.GetComponent<Player>().DamagerPlayer(enemy.currentDamage);
+        enemy.target.gameObject.GetComponent<Player>().DamagerPlayer(enemy.currentDamage);
 
         // Joue le son
         SoundType s;
