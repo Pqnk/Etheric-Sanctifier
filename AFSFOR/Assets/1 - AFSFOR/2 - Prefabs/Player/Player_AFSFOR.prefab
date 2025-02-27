@@ -2890,6 +2890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VRCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 6832911696336775537, guid: 946520e51e0c25c4ea4d67667108e777, type: 3}
+      propertyPath: volumeLayerMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
