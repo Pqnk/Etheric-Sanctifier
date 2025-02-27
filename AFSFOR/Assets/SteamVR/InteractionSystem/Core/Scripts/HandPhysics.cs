@@ -134,7 +134,7 @@ namespace Valve.VR.InteractionSystem
 
 
             //bypass physics when game paused
-            if (Time.timeScale == 0)
+            if (Time.timeScale < 0.9f)
             {
                 handCollider.TeleportTo(targetPosition, targetRotation);
             }

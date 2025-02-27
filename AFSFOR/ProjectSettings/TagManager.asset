@@ -22,7 +22,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerVR
   - Water
   - UI
   - NavMesh

@@ -1298,7 +1298,7 @@ namespace Valve.VR.InteractionSystem
 
             Vector3 targetItemPosition = TargetItemPosition(attachedObjectInfo);
             Vector3 positionDelta = (targetItemPosition - attachedObjectInfo.attachedRigidbody.position);
-            velocityTarget = (positionDelta * velocityMagic * Time.deltaTime);
+            velocityTarget = (positionDelta * velocityMagic * Time.unscaledDeltaTime);
 
             if (float.IsNaN(velocityTarget.x) == false && float.IsInfinity(velocityTarget.x) == false)
             {
@@ -1324,7 +1324,7 @@ namespace Valve.VR.InteractionSystem
 
             if (angle != 0 && float.IsNaN(axis.x) == false && float.IsInfinity(axis.x) == false)
             {
-                angularTarget = angle * axis * angularVelocityMagic * Time.deltaTime;
+                angularTarget = angle * axis * angularVelocityMagic * Time.unscaledDeltaTime;
 
                 if (noSteamVRFallbackCamera)
                     angularTarget /= 10; //hacky fix for fallback

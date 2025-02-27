@@ -216,7 +216,7 @@ namespace Valve.VR.InteractionSystem
             float angularVelocityMagic = AngularVelocityMagic;
 
             Vector3 positionDelta = (targetPosition - rigidbody.position);
-            velocityTarget = (positionDelta * velocityMagic * Time.deltaTime);
+            velocityTarget = (positionDelta * velocityMagic * Time.unscaledDeltaTime);
 
             if (float.IsNaN(velocityTarget.x) == false && float.IsInfinity(velocityTarget.x) == false)
             {
@@ -238,7 +238,7 @@ namespace Valve.VR.InteractionSystem
 
             if (angle != 0 && float.IsNaN(axis.x) == false && float.IsInfinity(axis.x) == false)
             {
-                angularTarget = angle * axis * angularVelocityMagic * Time.deltaTime;
+                angularTarget = angle * axis * angularVelocityMagic * Time.unscaledDeltaTime;
 
                 realNumbers &= true;
             }

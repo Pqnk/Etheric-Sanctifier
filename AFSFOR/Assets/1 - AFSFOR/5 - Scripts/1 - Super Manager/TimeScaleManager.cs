@@ -31,7 +31,7 @@ public class TimeScaleManager : MonoBehaviour
 
     IEnumerator DeactivateSlowMotionWithDelay()
     {
-        yield return new WaitForSeconds(_slowMoDuration);
+        yield return new WaitForSecondsRealtime(_slowMoDuration);
         ToggleSlowMotion(false);
     }
 

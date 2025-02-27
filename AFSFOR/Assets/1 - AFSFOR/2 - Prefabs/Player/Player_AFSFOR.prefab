@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7794102997136984654}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 449697076510831333}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1951715409880335717}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3795511414768371589}
   - component: {fileID: 6985343224928085242}
   - component: {fileID: 7103046923002883570}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: LeftHand
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8749205049435169904}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: arrow 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6707533444337227109}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7783018462579704934}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NoSteamVRFallbackObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6388569705412460847}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: ObjectAttachmentPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1193744243065877117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8943109225092908857}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: HoverPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4176095334186577357}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6805566541814211296}
   - component: {fileID: 1878809239692504602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: snapTurnFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2490430403460819710}
   - component: {fileID: 3535462406099044802}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2262387706211227869}
   - component: {fileID: 4431033604891189887}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6653845574828855997}
   - component: {fileID: 3264953125494964597}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: snapTurnFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8211768763989959456}
   - component: {fileID: 1364169808498229359}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Snap Turn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6752472447112382471}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1396851408211820975}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 5300406165355831563}
   - component: {fileID: 2149595184233532442}
   - component: {fileID: 7532861804147582597}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: FallbackHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 717628505269473278}
   - component: {fileID: 4463396202179692644}
   - component: {fileID: 564432604291107981}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FallbackObjects
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1064,7 +1064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4277099524207938744}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6809130579605992485}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009751867498742380}
   - component: {fileID: 3166892722169770189}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player_AFSFOR
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -1198,7 +1198,7 @@ GameObject:
   - component: {fileID: 4800403313426943509}
   - component: {fileID: 8465435173249334502}
   - component: {fileID: 224039416801107897}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VRCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1259,7 +1259,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4160749567
+    m_Bits: 1
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1310,7 +1310,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
@@ -1430,7 +1430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5907083056820753655}
   - component: {fileID: 3048398258017584635}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7622152679359644372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1555,7 @@ GameObject:
   - component: {fileID: 2818954128775650421}
   - component: {fileID: 8131769889175400094}
   - component: {fileID: 555116591897884590}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1663,7 +1663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5004133952983566475}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 3852824938329375995}
   - component: {fileID: 2638813557142605655}
   - component: {fileID: 8600734260116419697}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1777,7 +1777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2823313281149794177}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1816,7 +1816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7755643032386324799}
   - component: {fileID: 4011454578634302170}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1862,7 +1862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3197493017499543188}
   - component: {fileID: 1270034543395910542}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WeaponInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1905,7 +1905,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 3862738317184934460, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
   - {fileID: 1265278240936406394, guid: b8dee52e881c42c4598f4e2af9ceebd1, type: 3}
-  - {fileID: 1265278240936406394, guid: b8dee52e881c42c4598f4e2af9ceebd1, type: 3}
+  - {fileID: 0}
 --- !u!1 &5904084121252126724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,7 +1915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5026072619712387140}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1947,7 +1947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 729520144467948294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1980,7 +1980,7 @@ GameObject:
   - component: {fileID: 716470558897732804}
   - component: {fileID: 1057952272658100158}
   - component: {fileID: 1961562496076478669}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: HeadCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2060,7 +2060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6053550965903571210}
   - component: {fileID: 6707322836727050627}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sound Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2187,7 +2187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628516982110117279}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SteamVRObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2225,7 +2225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621239100221198801}
   - component: {fileID: 6958715422283502724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DebugUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2268,7 +2268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9131393980057386114}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2307,7 +2307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8265590011520308946}
   - component: {fileID: 872163516498585222}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ControllerHoverHighlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2355,7 +2355,7 @@ GameObject:
   - component: {fileID: 2450810772083188068}
   - component: {fileID: 7248433920409280102}
   - component: {fileID: 1252401179990346869}
-  m_Layer: 27
+  m_Layer: 3
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2449,7 +2449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4430223394487363539}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dot_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2481,7 +2481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6688294935134141436}
   - component: {fileID: 111940047593176}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: ControllerButtonHints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2533,7 +2533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5631142896960709131}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: arrow 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2564,7 +2564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45834421766455603}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: HoverPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2600,7 +2600,7 @@ GameObject:
   - component: {fileID: 6345521805402224089}
   - component: {fileID: 2605667890275596679}
   - component: {fileID: 3188063392180924128}
-  m_Layer: 26
+  m_Layer: 3
   m_Name: RightHand
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -2788,7 +2788,7 @@ GameObject:
   - component: {fileID: 7019142847689258589}
   - component: {fileID: 6010543831248845945}
   - component: {fileID: 6469732623886946801}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: '[SteamVR]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2868,7 +2868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3513021281225543178}
   - component: {fileID: 8672550366185765583}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2962,7 +2962,7 @@ GameObject:
   - component: {fileID: 5188480144611488734}
   - component: {fileID: 1252167033363066881}
   - component: {fileID: 1636694959200552623}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: InputModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3042,7 +3042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7620275465422385052}
   - component: {fileID: 7632244449629320132}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FollowHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
