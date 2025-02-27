@@ -14,7 +14,7 @@ public class OldExorcist : MonoBehaviour
 
     private void Awake()
     {
-        _portals.SetActive(false);
+        //_portals.SetActive(false);
         _npcSource = GetComponent<AudioSource>();
         _portalTutoRef = _portals.transform.GetChild(1).GetComponent<Portal>();
         _portalMissionRef = _portals.transform.GetChild(2).GetComponent<Portal>();

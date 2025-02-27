@@ -23,7 +23,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Sword"))
+        if (other.CompareTag("Hand"))
         {
             DeactivatePortal();
             LoadLevelFromPortal();
@@ -41,26 +41,5 @@ public class Portal : MonoBehaviour
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Teleporting, 0.8f, this.transform.position);
         SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
         SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
-
-        StartCoroutine(ScaleDownToZero());
-    }
-
-    private IEnumerator ScaleDownToZero()
-    {
-        this.transform.GetChild(2).gameObject.SetActive(false);
-        Vector3 initialScalelle = transform.localScale;
-        float elapsedTime = 0f;
-        float startValue = 1f;
-        float endValue = 0f;
-        while (elapsedTime < scaleDuration)
-        {
-            float t = elapsedTime / scaleDuration;
-            float currentValue = Mathf.Lerp(startValue, endValue, t);
-            transform.localScale = initialScalelle * currentValue;
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.localScale = Vector3.zero;
     }
 }
