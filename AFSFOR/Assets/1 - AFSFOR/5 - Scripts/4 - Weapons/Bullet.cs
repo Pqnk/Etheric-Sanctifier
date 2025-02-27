@@ -39,9 +39,13 @@ public class Bullet : MonoBehaviour
         {
             if (other.gameObject.tag == "Ghost")
             {
-                Ghost scriptGhost = other.gameObject.GetComponent<Ghost>();
-                scriptGhost.AddForceToGhostOppositeToTarget(forcePush, ForceMode.Impulse);
-                scriptGhost.LowerHealth(damage);
+                //Ghost scriptGhost = other.gameObject.GetComponent<Ghost>();
+                //scriptGhost.AddForceToGhostOppositeToTarget(forcePush, ForceMode.Impulse);
+                //scriptGhost.LowerHealth(damage);
+
+                Enemy scriptEnemy = other.gameObject.GetComponent<Enemy>();
+                scriptEnemy.AddForceBack(forcePush, ForceMode.Impulse);
+                scriptEnemy.Get_Hit(damage);
 
                 PlaySoundAndFXShootImpact();
                 Destroy(transform.root.gameObject);
@@ -56,9 +60,6 @@ public class Bullet : MonoBehaviour
         {
             if (other.gameObject.tag == "Ghost")
             {
-                GameObject ghost = other.gameObject;
-                Ghost scriptGhost = ghost.GetComponent<Ghost>();
-                Rigidbody rbGhost = ghost.GetComponent<Rigidbody>();
                 Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, rangeHeavyImpact, LayerMask);
 
                 foreach (var collider in hitColliders)
@@ -67,7 +68,8 @@ public class Bullet : MonoBehaviour
 
                     if (((1 << collider.gameObject.layer) & LayerMask) != 0)
                     {
-                        ghostCollider.GetComponent<Ghost>().LowerHealth(damage);
+                        //ghostCollider.GetComponent<Ghost>().LowerHealth(damage);
+                        ghostCollider.GetComponent<Enemy>().Get_Hit(damage);
                     }
                 }
 
