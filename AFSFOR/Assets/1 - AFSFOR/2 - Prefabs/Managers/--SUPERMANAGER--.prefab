@@ -199,7 +199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6970777979904676757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87d033144fef3a74797abd51f34c41e0, type: 3}
   m_Name: 
@@ -222,9 +222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentLevel: 0
-  _nameLevel_HUB: Scene - Etheric Sanctifier - HUB
-  _nameLevel_Tutorial: Scene - Etheric Sanctifier - Tutorial
-  _nameLevel_Level01: Scene - Etheric Sanctifier - Level 1
+  _nameLevel_HUB: Scene - AFSFOR - HUB
+  _nameLevel_Tutorial: Scene - AFSFOR - Tutorial
+  _nameLevel_Level01: Scene - AFSFOR - Level 1
   _currentNameLevel: 
   _oldNameLevel: 
 --- !u!114 &1295926724860862891
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6970777979904676757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7a1b44801f3e1f4393e4a85aa8aaeed, type: 3}
   m_Name: 

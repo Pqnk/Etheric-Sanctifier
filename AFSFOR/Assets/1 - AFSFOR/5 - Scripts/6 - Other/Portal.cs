@@ -28,7 +28,7 @@ public class Portal : MonoBehaviour
         isPortalActive = false;
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Teleporting, 0.8f, this.transform.position);
-        SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
-        SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
+        //SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
+        //SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
     }
 }
