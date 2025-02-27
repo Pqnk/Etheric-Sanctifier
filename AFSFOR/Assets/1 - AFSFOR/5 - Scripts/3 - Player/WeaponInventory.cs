@@ -21,10 +21,28 @@ public class WeaponInventory : MonoBehaviour
             if (leftHandLeftArrow || leftHandRightArrow)
             {
                 SuperManager.instance.timeScaleManager.ToggleSlowMotion(true);
+                Debug.Log("LeftHand");
+                if (leftHandLeftArrow)
+                { 
+                    Debug.Log("LeftArrow"); 
+                }
+                if (leftHandRightArrow)
+                {
+                    Debug.Log("RightArrow");
+                }
             }
             else if (rightHandLeftArrow || rightHandRightArrow)
             {
                 SuperManager.instance.timeScaleManager.ToggleSlowMotion(true);
+                Debug.Log("RightHand");
+                if (rightHandLeftArrow)
+                {
+                    Debug.Log("LeftArrow");
+                }
+                if (rightHandRightArrow)
+                {
+                    Debug.Log("RightArrow");
+                }
             }
         }
     }
