@@ -21,7 +21,6 @@ public class TimeScaleManager : MonoBehaviour
     {
         if (activate)
         {
-
             _slowMoActive = true;
             _ppBlackAndWhite.SetActive(true);
             Time.timeScale = _pauseTimeScale;
@@ -29,7 +28,9 @@ public class TimeScaleManager : MonoBehaviour
 
             if (_coroutine != null)
             {
+                Debug.Log("Stop coroutine ! ");
                 StopCoroutine(DeactivateSlowMotionWithDelay());
+                _coroutine = null;
             }
             _coroutine = StartCoroutine(DeactivateSlowMotionWithDelay());
         }
