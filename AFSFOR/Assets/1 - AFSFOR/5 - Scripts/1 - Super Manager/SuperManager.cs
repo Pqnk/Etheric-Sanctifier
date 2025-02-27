@@ -15,6 +15,8 @@ public class SuperManager : MonoBehaviour
     public LevelManager levelManager { get; private set; }
     public VibrationManager vibrationManager { get; private set; }
 
+    public TimeScaleManager timeScaleManager { get; private set; }
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -34,5 +36,6 @@ public class SuperManager : MonoBehaviour
         uiManager = GetComponent<UIManager>();
         levelManager = GetComponent<LevelManager>();
         vibrationManager = GetComponent<VibrationManager>();
+        timeScaleManager = GetComponent<TimeScaleManager>();
     }
 }
