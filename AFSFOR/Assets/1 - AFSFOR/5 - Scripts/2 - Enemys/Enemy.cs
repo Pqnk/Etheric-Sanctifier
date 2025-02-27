@@ -1,36 +1,56 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [Header("Vie de l'enemy")]
-    [SerializeField] int life = 10;
+    [SerializeField] int _life = 10;
     public int currentLife;
 
     [Header("Vie de l'enemy")]
-    [SerializeField] float speed = 1;
+    [SerializeField] float _speed = 1;
     public float currentSpeed;
+
+    [Header("Vie de l'enemy")]
+    [SerializeField] float _damage = 1;
+    public float currentDamage;
+
+    [Header("Info")]
+    public float stopDistance = 2.5f;
 
     [HideInInspector] public bool idDead = false;
     [HideInInspector] public Rigidbody rb;
 
-    SoundManager sM;
+    [HideInInspector] public SoundManager sM;
 
     private float scaleDuration = 1.0f;
 
+    #region Get / Set
+    public int GetLife()
+    {
+        return _life;
+    }
+    public float GetSpeed()
+    {
+        return _speed;
+    }
+    #endregion
+
     private void Awake()
     {
-        currentLife = life;
-        currentSpeed = speed;
+        currentLife = _life;
+        currentSpeed = _speed;
+        currentDamage = _damage;
 
         rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
-        sM = SuperManager.instance.soundManager;      
+        sM = SuperManager.instance.soundManager;
     }
 
     public void Get_Hit(int hit)
@@ -40,19 +60,13 @@ public class Enemy : MonoBehaviour
         if (currentLife <= 0)
         {
             currentLife = 0;
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
-        currentSpeed = 0;
-        StartCoroutine(ScaleDownGhostAndDestroy());
-    }
-
-    private IEnumerator ScaleDownGhostAndDestroy()
-    {
-        // Joue le son de la mort ------------------------------------------------------
+        // Joue le son de la mort --------------------------------------------------------
         SoundType s;
         s = SoundType.BeehGoatReverb;
         sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
@@ -73,13 +87,8 @@ public class Enemy : MonoBehaviour
         transform.localScale = Vector3.zero;
 
         // Joue le VFX de la mort ------------------------------------------------------
-        PlayVFXKillGhost();
-        Destroy(gameObject);
-    }
-
-    private void PlayVFXKillGhost()
-    {
         SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(this.transform);
+        Destroy(gameObject);
     }
 
     private void Update()

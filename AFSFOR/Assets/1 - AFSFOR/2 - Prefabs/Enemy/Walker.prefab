@@ -398,12 +398,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1533a206d630a6e498a57a7514d9af33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
+  _life: 10
   currentLife: 0
-  speed: 1
+  _speed: 1
   currentSpeed: 0
+  _damage: 1
+  currentDamage: 0
+  stopDistance: 2
   idDead: 0
   rb: {fileID: 0}
+  sM: {fileID: 0}
 --- !u!114 &6157116281228071899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +420,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8c3c4bd85eede438c0042a0fb16dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  repliDistance: 1.5
+  repliDuration: 0.9
+  esquiveDistance: 2
+  esquiveDuration: 0.3
+  esquiveDetectionRadius: 2
+  esquiveChance: 10
 --- !u!54 &6312777622140020660
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -462,7 +472,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.31
+  m_Radius: 0.35
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
