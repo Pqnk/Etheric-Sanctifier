@@ -12,6 +12,9 @@ public class WeaponInventoryByHand : MonoBehaviour
     private int currentIndex = 0;
     public bool isLeftHand = false;
 
+    [SerializeField] private float _switchTimer = 0.5f;
+    private bool _readyToSwitch = true;
+
     [SerializeField] private Hand hand;
 
    void Start() { UpdateWeapons(); }
@@ -32,8 +35,10 @@ public class WeaponInventoryByHand : MonoBehaviour
             handRightArrow = rightAction.GetStateDown(SteamVR_Input_Sources.RightHand);
         }
 
-        if (handLeftArrow || handRightArrow)
+        if ( (handLeftArrow || handRightArrow) && _readyToSwitch)
         {
+            _readyToSwitch = false;
+            StartCoroutine(SelectionCountDown());
             SuperManager.instance.timeScaleManager.ToggleSlowMotion(true);
 
             if (handLeftArrow)
@@ -68,4 +73,11 @@ public class WeaponInventoryByHand : MonoBehaviour
         foreach (var w in weapons) w.SetActive(false);
         weapons[currentIndex].SetActive(true);
     }
+
+    IEnumerator SelectionCountDown()
+    {
+        yield return new WaitForSecondsRealtime(_switchTimer);
+        _readyToSwitch = true;
+    }
+
 }
