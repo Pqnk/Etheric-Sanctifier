@@ -57,15 +57,16 @@ public class WeaponInventoryByHand : MonoBehaviour
     {
         weapons[currentIndex].SetActive(false);
         currentIndex = (currentIndex + direction + weapons.Count) % weapons.Count;
-        if (weapons[currentIndex] == null)
+        weapons[currentIndex].SetActive(true);
+
+        if(currentIndex == 0)
         {
-            Debug.Log("Hand !");
             hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithoutController);
         }
         else
         {
-            weapons[currentIndex].SetActive(true);
-            hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithoutController);
+            hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithController);
+
         }
     }
 
