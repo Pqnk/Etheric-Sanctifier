@@ -18,6 +18,7 @@ TagManager:
   - FxTemporaire
   - UIButton
   - Hand
+  - HandNaked
   layers:
   - Default
   - TransparentFX

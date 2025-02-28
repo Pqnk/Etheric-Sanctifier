@@ -573,7 +573,7 @@ namespace Valve.VR
 
         protected IEnumerator DoRangeOfMotionBlend(EVRSkeletalMotionRange oldRangeOfMotion, EVRSkeletalMotionRange newRangeOfMotion, float overTime)
         {
-            float startTime = Time.time;
+            float startTime = Time.unscaledTime;
             float endTime = startTime + overTime;
 
             Vector3[] oldBonePositions;
@@ -582,10 +582,10 @@ namespace Valve.VR
             Vector3[] newBonePositions;
             Quaternion[] newBoneRotations;
 
-            while (Time.time < endTime)
+            while (Time.unscaledTime < endTime)
             {
                 yield return null;
-                float lerp = (Time.time - startTime) / overTime;
+                float lerp = (Time.unscaledTime - startTime) / overTime;
 
                 if (skeletonBlend > 0)
                 {

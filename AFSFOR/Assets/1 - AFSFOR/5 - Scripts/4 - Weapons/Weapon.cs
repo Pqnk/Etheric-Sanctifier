@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public static bool areWeaponsActive = true;
 
-
+    public void ToggleActivationWeapons(bool activate)
+    {
+        areWeaponsActive = activate;
+    }
 }

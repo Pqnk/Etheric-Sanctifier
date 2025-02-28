@@ -6,7 +6,7 @@ public class TimeScaleManager : MonoBehaviour
 {
     [SerializeField] private float _pauseTimeScale = 0.1f;
     [SerializeField] private float _slowMoDuration = 1.0f;
-    [SerializeField] private bool _slowMoActive = false;
+    public bool slowMoActive = false;
 
     private Coroutine _coroutine;
 
@@ -21,7 +21,7 @@ public class TimeScaleManager : MonoBehaviour
     {
         if (activate)
         {
-            _slowMoActive = true;
+            slowMoActive = true;
             _ppBlackAndWhite.SetActive(true);
             Time.timeScale = _pauseTimeScale;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
@@ -29,14 +29,14 @@ public class TimeScaleManager : MonoBehaviour
             if (_coroutine != null)
             {
                 Debug.Log("Stop coroutine ! ");
-                StopCoroutine(DeactivateSlowMotionWithDelay());
+                StopCoroutine(_coroutine);
                 _coroutine = null;
             }
             _coroutine = StartCoroutine(DeactivateSlowMotionWithDelay());
         }
         else
         {
-            _slowMoActive = false;
+            slowMoActive = false;
             _ppBlackAndWhite.SetActive(false);
             Time.timeScale = 1.0f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
