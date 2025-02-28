@@ -14,8 +14,8 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private GameObject _ghostPrefab;
 
     [Header("Spawn Settings : Main Target")]
-    [SerializeField] private string _mainTargetName = "Camera_Player";
-    [SerializeField] private GameObject _cameraPlayer;
+    [SerializeField] private string _mainTargetName = "Player_AFSFOR";
+    [SerializeField] private GameObject _playerRef;
     [SerializeField] private Transform _mainTarget;
     [SerializeField] private Transform _secondaryTarget;
     [SerializeField] private Transform _lowTarget;
@@ -64,7 +64,7 @@ public class GhostManager : MonoBehaviour
     }
     public GameObject GetCameraPlayer()
     {
-        return _cameraPlayer;
+        return _playerRef;
     }
     public Transform GetTargetLow()
     {
@@ -87,16 +87,16 @@ public class GhostManager : MonoBehaviour
 
         }
         _spawnPointsParent = SuperManager.instance.levelManager.FindInScene(levelType, _ghostSpawnPointsName);
-        _cameraPlayer = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName);
-        if (_cameraPlayer == null)
+        _playerRef = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName);
+        if (_playerRef == null)
         {
-            Debug.LogError("PAS DE CAMERA MAIN TARGET");
+            Debug.LogError("PAS DE PLAYER_AFSFOR DANS LA SCENE");
         }
         else
         {
-            _mainTarget = _cameraPlayer.transform.GetChild(2).transform;
-            _radarRef = _cameraPlayer.transform.GetChild(2).transform.GetChild(0).gameObject;
-            _lowTarget = _cameraPlayer.transform.GetChild(2).transform.GetChild(2).transform;
+            _mainTarget =   _playerRef.transform.GetChild(6).transform;
+            _lowTarget =    _playerRef.transform.GetChild(6).transform.GetChild(0).transform;
+            _radarRef =     _playerRef.transform.GetChild(6).transform.GetChild(1).gameObject;
         }
 
         if (_spawnPointsParent != null && _mainTarget != null)
@@ -142,6 +142,8 @@ public class GhostManager : MonoBehaviour
                 p = _ghostPrefab;
             }
             GameObject ghostInstance = Instantiate(p, spawnPosition, Quaternion.identity);
+
+            SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(ghostInstance.transform);
 
             // Changement de la size
             float rd = Random.Range(tailleGhostMin, tailleGhostMax);

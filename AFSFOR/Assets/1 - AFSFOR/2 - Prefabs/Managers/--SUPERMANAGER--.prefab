@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a429230ba14f17e4294b4c321e4f457e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goatPrefab: {fileID: 4497303493123727353, guid: af00e3dc5b3aa8c40a37d150a59ec9e8, type: 3}
+  _goatPrefab: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
   _ghostPrefab: {fileID: 7400775839584797558, guid: 5fcee4158d642694e908a4be03379b0a, type: 3}
   _mainTargetName: Camera_Player
   _cameraPlayer: {fileID: 0}
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseTimeScale: 0.1
   _slowMoDuration: 2
-  _slowMoActive: 0
+  slowMoActive: 0
 --- !u!114 &8353626908048531365
 MonoBehaviour:
   m_ObjectHideFlags: 0
