@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goatPrefab: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
   _ghostPrefab: {fileID: 7400775839584797558, guid: 5fcee4158d642694e908a4be03379b0a, type: 3}
-  _mainTargetName: Camera_Player
-  _cameraPlayer: {fileID: 0}
+  _mainTargetName: Player_AFSFOR
+  _playerRef: {fileID: 0}
   _mainTarget: {fileID: 0}
   _secondaryTarget: {fileID: 0}
   _lowTarget: {fileID: 0}

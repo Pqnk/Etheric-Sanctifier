@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.Find("Player").transform;
+        //target = GameObject.Find("Player").transform;
         scriptPlayer = target.GetComponent<Player>();
         sM = SuperManager.instance.soundManager;
     }
@@ -140,6 +140,11 @@ public class Enemy : MonoBehaviour
             Vector3 direction = (target.position - transform.position).normalized;
             rb.AddForce(-direction * force, forceMode);
         }
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 
     #region Changement Couleur
