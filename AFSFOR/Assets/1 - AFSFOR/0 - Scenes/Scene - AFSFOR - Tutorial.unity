@@ -650,7 +650,7 @@ PrefabInstance:
     - target: {fileID: 8369437736979271891, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
       propertyPath: _goatPrefab
       value: 
-      objectReference: {fileID: 2753366762146159031, guid: 7de379014acd5ac4686b66fc75e59e41, type: 3}
+      objectReference: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
     - target: {fileID: 8369437736979271891, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
       propertyPath: _spawnPointsParent
       value: 
