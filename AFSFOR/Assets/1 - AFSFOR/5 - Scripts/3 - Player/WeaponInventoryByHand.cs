@@ -12,12 +12,15 @@ public class WeaponInventoryByHand : MonoBehaviour
     private int currentIndex = 0;
     public bool isLeftHand = false;
 
-    [SerializeField] private float _switchTimer = 1.0f;
+    [SerializeField] private float _switchTimer = 0.5f;
     private bool _readyToSwitch = true;
 
     [SerializeField] private Hand hand;
 
-   void Start() { UpdateWeapons(); }
+   void Start() 
+    { 
+        StartingWeapons(); 
+    }
 
     void Update()
     {
@@ -70,7 +73,7 @@ public class WeaponInventoryByHand : MonoBehaviour
         }
     }
 
-    void UpdateWeapons()
+    void StartingWeapons()
     {
         foreach (var w in weapons) w.SetActive(false);
         weapons[currentIndex].SetActive(true);
