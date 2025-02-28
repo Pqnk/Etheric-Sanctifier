@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int currentLife;
     [SerializeField] float _speed = 1;
     public float currentSpeed;
+    public float rotationSpeed = 2;
     [SerializeField] float _damage = 1;
     public float currentDamage;
 
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public bool idDead = false;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform target;
+    [HideInInspector] public Player scriptPlayer;
 
     [HideInInspector] public SoundManager sM;
 
@@ -54,18 +56,29 @@ public class Enemy : MonoBehaviour
         currentSpeed = _speed;
         currentDamage = _damage;
 
+        if (this.gameObject.name == "HeadBoss")
+        {
+            ghostRenderer = transform.GetChild(0).GetComponentInChildren<Renderer>();
+        }
+        else
+        {
+            ghostRenderer = GetComponentInChildren<Renderer>();
+        }
+
         rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
         target = GameObject.Find("Player").transform;
+        scriptPlayer = target.GetComponent<Player>();
         sM = SuperManager.instance.soundManager;
     }
 
     public void Get_Hit(int hit)
     {
         currentLife -= hit;
+        SetIsTakingDamage(true);
 
         if (currentLife <= 0)
         {
@@ -111,6 +124,11 @@ public class Enemy : MonoBehaviour
         if (timerTakingDamage <= Time.time)
         {
             SetIsTakingDamage(false);
+        }
+
+        if (ghostRenderer)
+        {
+            CheckChangeMaterial();
         }
     }
 

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Enemy))]
 public class Walker : MonoBehaviour
@@ -29,14 +28,6 @@ public class Walker : MonoBehaviour
 
     private void Start()
     {
-        Init();
-    }
-
-    void Init()
-    {
-        // Temporaire mais donner au script enemy à l'instantiation
-        
-
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
     }
