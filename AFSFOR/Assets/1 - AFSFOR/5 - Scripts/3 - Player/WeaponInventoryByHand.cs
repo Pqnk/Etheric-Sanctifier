@@ -12,7 +12,7 @@ public class WeaponInventoryByHand : MonoBehaviour
     private int currentIndex = 0;
     public bool isLeftHand = false;
 
-    [SerializeField] private float _switchTimer = 0.5f;
+    [SerializeField] private float _switchTimer = 1.0f;
     private bool _readyToSwitch = true;
 
     [SerializeField] private Hand hand;
@@ -37,6 +37,7 @@ public class WeaponInventoryByHand : MonoBehaviour
 
         if ( (handLeftArrow || handRightArrow) && _readyToSwitch)
         {
+            Debug.Log("Switch ! ");
             _readyToSwitch = false;
             StartCoroutine(SelectionCountDown());
             SuperManager.instance.timeScaleManager.ToggleSlowMotion(true);
