@@ -10,7 +10,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Hand"))
+        if (other.CompareTag("HandNaked"))
         {
             DeactivatePortal();
             LoadLevelFromPortal();

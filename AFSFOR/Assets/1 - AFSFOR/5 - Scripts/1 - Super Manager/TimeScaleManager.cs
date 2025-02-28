@@ -29,7 +29,7 @@ public class TimeScaleManager : MonoBehaviour
             if (_coroutine != null)
             {
                 Debug.Log("Stop coroutine ! ");
-                StopCoroutine(DeactivateSlowMotionWithDelay());
+                StopCoroutine(_coroutine);
                 _coroutine = null;
             }
             _coroutine = StartCoroutine(DeactivateSlowMotionWithDelay());
