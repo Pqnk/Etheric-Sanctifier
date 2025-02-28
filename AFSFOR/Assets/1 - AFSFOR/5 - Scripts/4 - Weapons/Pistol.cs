@@ -35,6 +35,7 @@ public class Pistol : Weapon
     public SteamVR_Action_Boolean triggerAction;
     public SteamVR_Action_Boolean triggerGrab;
     public SteamVR_Input_Sources handType;
+    [SerializeField] private SteamVR_Action_Boolean triggerA = SteamVR_Input.GetBooleanAction("GrabPinch");
 
     [Header("Materials")]
     [SerializeField] List<Material> outOfMana_Mat;
@@ -57,9 +58,12 @@ public class Pistol : Weapon
     }
     void Update()
     {
-        SimpleShootInput();
-        HeavyShootInput();
-        CheckManaReady();
+        if ((isWeaponEquiped) && areWeaponsActive)
+        {
+            SimpleShootInput();
+            HeavyShootInput();
+            CheckManaReady();    
+        }
     }
 
 
@@ -88,7 +92,22 @@ public class Pistol : Weapon
     //  ###########################################
     private void SimpleShootInput()
     {
-        if (triggerAction.GetStateDown(handType))
+        //if (triggerAction.GetStateDown(handType))
+        //{
+        //    Perform_Shoot();
+        //}
+        bool triggerActionned = false;
+
+        if (isWeaponOnLeftHand)
+        {
+            triggerActionned = triggerA.GetStateDown(SteamVR_Input_Sources.LeftHand);
+        }
+        else
+        {
+            triggerActionned = triggerA.GetStateDown(SteamVR_Input_Sources.RightHand);
+        }
+
+        if (triggerActionned)
         {
             Perform_Shoot();
         }

@@ -7,9 +7,9 @@ using UnityEngine;
 
 public enum SoundType
 {
-    Music,
-    HUBMusic,
-    MusicTuto,
+    //Music,
+    //HUBMusic,
+    //MusicTuto,
     Collision,
     TeleportReady,
     Teleporting,
@@ -89,24 +89,24 @@ public class SoundManager : MonoBehaviour
 
         switch (soundtype)
         {
-            case SoundType.Music:
-                soundSource.clip = _music;
-                soundSource.loop = true;
-                _isMusicPlaying = true;
-                break;
+            //case SoundType.Music:
+            //    soundSource.clip = _music;
+            //    soundSource.loop = true;
+            //    _isMusicPlaying = true;
+            //    break;
 
-            case SoundType.MusicTuto:
-                soundSource.clip = _tuto;
-                soundSource.loop = true;
-                _isMusicPlaying = true;
-                break;
+            //case SoundType.MusicTuto:
+            //    soundSource.clip = _tuto;
+            //    soundSource.loop = true;
+            //    _isMusicPlaying = true;
+            //    break;
 
 
-            case SoundType.HUBMusic:
-                soundSource.clip = _hub;
-                soundSource.loop = true;
-                _isMusicPlaying = true;
-                break;
+            //case SoundType.HUBMusic:
+            //    soundSource.clip = _hub;
+            //    soundSource.loop = true;
+            //    _isMusicPlaying = true;
+            //    break;
 
             case SoundType.Collision:
                 soundSource.clip = _soundVFXCollision;
@@ -156,31 +156,31 @@ public class SoundManager : MonoBehaviour
 
         switch (soundtype)
         {
-            case SoundType.Music:
-                if (!_isMusicPlaying)
-                {
-                    soundSource.clip = _music;
-                    soundSource.loop = true;
-                    _isMusicPlaying = true;
-                }
-                else
-                {
-                    sound.GetComponent<Destroy>().countdown = 0.1f;
-                }
-                break;
+            //case SoundType.Music:
+            //    if (!_isMusicPlaying)
+            //    {
+            //        soundSource.clip = _music;
+            //        soundSource.loop = true;
+            //        _isMusicPlaying = true;
+            //    }
+            //    else
+            //    {
+            //        sound.GetComponent<Destroy>().countdown = 0.1f;
+            //    }
+            //    break;
 
-            case SoundType.HUBMusic:
-                if (!_isMusicPlaying)
-                {
-                    soundSource.clip = _hub;
-                    soundSource.loop = true;
-                    _isMusicPlaying = true;
-                }
-                else
-                {
-                    sound.GetComponent<Destroy>().countdown = 0.1f;
-                }
-                break;
+            //case SoundType.HUBMusic:
+            //    if (!_isMusicPlaying)
+            //    {
+            //        soundSource.clip = _hub;
+            //        soundSource.loop = true;
+            //        _isMusicPlaying = true;
+            //    }
+            //    else
+            //    {
+            //        sound.GetComponent<Destroy>().countdown = 0.1f;
+            //    }
+            //    break;
 
             case SoundType.Collision:
                 soundSource.clip = _soundVFXCollision;

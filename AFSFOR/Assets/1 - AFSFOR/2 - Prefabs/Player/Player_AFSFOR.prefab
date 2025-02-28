@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 18115957532746694}
   - component: {fileID: 5639521096128284086}
   - component: {fileID: 3795511414768371589}
+  - component: {fileID: 6581925008851848339}
   m_Layer: 3
   m_Name: LeftHand
   m_TagString: Untagged
@@ -172,6 +173,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65271
   hand: {fileID: 0}
+--- !u!114 &6581925008851848339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122939821186870115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ad758229690fb47841b95b10f1d62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: 1
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!1 &581115508968300406
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +415,7 @@ GameObject:
   - component: {fileID: 7047203797433950556}
   - component: {fileID: 2547575186385767832}
   - component: {fileID: 6342403939119814971}
+  - component: {fileID: 4321812527010929097}
   m_Layer: 3
   m_Name: Empty_Right
   m_TagString: HandNaked
@@ -468,6 +486,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4321812527010929097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553955104028079177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fad30f877123f4cbb7b679c16fb32f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWeaponEquiped: 0
+  isWeaponOnLeftHand: 0
 --- !u!1 &3596705733625635481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1411,7 @@ GameObject:
   - component: {fileID: 2563730877304910347}
   - component: {fileID: 4925011494626782727}
   - component: {fileID: 5962100870390770671}
+  - component: {fileID: 6269854564780783757}
   m_Layer: 3
   m_Name: Empty_Left
   m_TagString: HandNaked
@@ -1449,6 +1482,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6269854564780783757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946519675152413311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fad30f877123f4cbb7b679c16fb32f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWeaponEquiped: 0
+  isWeaponOnLeftHand: 0
 --- !u!1 &6042363987238602510
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2139,7 @@ GameObject:
   - component: {fileID: 8479754057952096430}
   - component: {fileID: 5360825520105609145}
   - component: {fileID: 6345521805402224089}
+  - component: {fileID: 2477135328076019158}
   m_Layer: 3
   m_Name: RightHand
   m_TagString: Untagged
@@ -2221,6 +2269,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65271
   hand: {fileID: 0}
+--- !u!114 &2477135328076019158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385904405377855809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ad758229690fb47841b95b10f1d62b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: 2
+  hapticAction:
+    actionPath: /actions/default/out/Haptic
+    needsReinit: 0
 --- !u!1 &8957968944923199141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,6 +2622,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3862738317184934460, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607848641331644388, guid: 9dc66022e7dd4cc42a2492f19a1fbdbc, type: 3}
+      propertyPath: isWeaponOnLeftHand
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -23,7 +23,7 @@ public class OldExorcist : MonoBehaviour
     void Start()
     {
         StartCoroutine(StartIntroVoice());
-        SuperManager.instance.soundManager.PlaySound(SoundType.HUBMusic, 0.05f);
+        //SuperManager.instance.soundManager.PlaySound(SoundType.HUBMusic, 0.05f);
     }
 
     private void Update()

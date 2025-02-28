@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TimeScaleManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class TimeScaleManager : MonoBehaviour
     private Coroutine _coroutine;
 
     private GameObject _ppBlackAndWhite;
+
+    public static event Action OnSlowMoFinished;
+
 
     private void Awake()
     {
@@ -47,6 +51,7 @@ public class TimeScaleManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(_slowMoDuration);
         ToggleSlowMotion(false);
+        OnSlowMoFinished?.Invoke();
     }
 
 }
