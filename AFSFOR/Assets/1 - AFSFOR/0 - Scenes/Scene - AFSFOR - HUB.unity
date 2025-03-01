@@ -2418,8 +2418,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4530113621554085224, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
       propertyPath: m_Name
-      value: Player_AFSFOR
+      value: --PLAYER_AFSFOR--
       objectReference: {fileID: 0}
+    - target: {fileID: 6269854564780783757, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9395a09ce838a6841a0553eda6a93298, type: 3}
+    - target: {fileID: 6329319788140804498, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107938998948330833, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107938998948330833, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206023945497015249, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e08bbb69f034cb4e9e755aec9739da8, type: 3}
+    - target: {fileID: 8032262924246846355, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924688277525778939, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9124603803398858366, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: ec795e6ae54bc4d40bc59cdbdb8091fa, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5ee0178fa9e1a4081435c89b0b8daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWeaponEquiped: 0
+  isWeaponOnLeftHand: 0
+  weaponIcon: {fileID: 21300000, guid: ec795e6ae54bc4d40bc59cdbdb8091fa, type: 3}
   forceImpulse: 20
   damage: 50
 --- !u!1001 &3007551691870599197

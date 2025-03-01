@@ -8,6 +8,8 @@ public class Weapon : MonoBehaviour
     public bool isWeaponEquiped = false;
     public bool isWeaponOnLeftHand = false;
 
+    public Sprite weaponIcon;
+
     public void ToggleActivationWeapons(bool activate)
     {
         areWeaponsActive = activate;

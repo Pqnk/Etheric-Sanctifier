@@ -9,7 +9,10 @@ public class WeaponInventoryByHand : MonoBehaviour
 {
     [SerializeField] private SteamVR_Action_Boolean leftAction = SteamVR_Input.GetBooleanAction("SnapTurnLeft");
     [SerializeField] private SteamVR_Action_Boolean rightAction = SteamVR_Input.GetBooleanAction("SnapTurnRight");
-    public List<Weapon> weapons;
+
+    [SerializeField] private UIIventory _UiIventory;
+
+    [SerializeField] private List<Weapon> _weapons;
     private int currentIndex = 0;
     public bool isLeftHand = false;
 
@@ -18,9 +21,11 @@ public class WeaponInventoryByHand : MonoBehaviour
 
     [SerializeField] private Hand hand;
 
-   void Start() 
-    { 
-        StartingWeapons(); 
+    void Start()
+    {
+        StartingWeapons();
+
+        //_UiIventory.InitializeUIIventory(_weapons);
     }
 
     void Update()
@@ -39,14 +44,12 @@ public class WeaponInventoryByHand : MonoBehaviour
             handRightArrow = rightAction.GetStateDown(SteamVR_Input_Sources.RightHand);
         }
 
-        if ( (handLeftArrow || handRightArrow) && _readyToSwitch)
+        if ((handLeftArrow || handRightArrow) && _readyToSwitch)
         {
             _readyToSwitch = false;
             StartCoroutine(SelectionCountDown());
-            SuperManager.instance.timeScaleManager.ToggleSlowMotion(true);
-            TimeScaleManager.OnSlowMoFinished += OnSlowMoDone;
 
-            weapons[currentIndex].ToggleActivationWeapons(false);
+            OnSlowMoStarted();
 
             if (handLeftArrow)
             {
@@ -59,21 +62,27 @@ public class WeaponInventoryByHand : MonoBehaviour
         }
     }
 
+    private void OnSlowMoStarted()
+    {
+        SuperManager.instance.timeScaleManager.ToggleSlowMotion(true);
+        TimeScaleManager.OnSlowMoFinished += OnSlowMoDone;
+        _weapons[currentIndex].ToggleActivationWeapons(false);
+    }
     private void OnSlowMoDone()
     {
-        weapons[currentIndex].ToggleActivationWeapons(true);
+        _weapons[currentIndex].ToggleActivationWeapons(true);
         TimeScaleManager.OnSlowMoFinished -= OnSlowMoDone;
     }
 
     void SwitchWeapon(int direction)
     {
-        weapons[currentIndex].transform.gameObject.SetActive(false);    
-        weapons[currentIndex].isWeaponEquiped = false;
+        _weapons[currentIndex].transform.gameObject.SetActive(false);
+        _weapons[currentIndex].isWeaponEquiped = false;
 
-        currentIndex = (currentIndex + direction + weapons.Count) % weapons.Count;
+        currentIndex = (currentIndex + direction + _weapons.Count) % _weapons.Count;
 
-        weapons[currentIndex].transform.gameObject.SetActive(true);
-        weapons[currentIndex].isWeaponEquiped = true;
+        _weapons[currentIndex].transform.gameObject.SetActive(true);
+        _weapons[currentIndex].isWeaponEquiped = true;
 
         if (currentIndex == 0)
         {
@@ -84,12 +93,15 @@ public class WeaponInventoryByHand : MonoBehaviour
             hand.SetSkeletonRangeOfMotion(Valve.VR.EVRSkeletalMotionRange.WithController);
 
         }
+
+        CallUpdateUIIventory();
     }
 
     void StartingWeapons()
     {
-        foreach (var w in weapons) w.transform.gameObject.SetActive(false);
-        weapons[currentIndex].transform.gameObject.SetActive(true);
+        foreach (var w in _weapons) w.transform.gameObject.SetActive(false);
+        _weapons[currentIndex].transform.gameObject.SetActive(true);
+        CallUpdateUIIventory();
     }
 
     IEnumerator SelectionCountDown()
@@ -98,4 +110,18 @@ public class WeaponInventoryByHand : MonoBehaviour
         _readyToSwitch = true;
     }
 
+
+    public void CallUpdateUIIventory()
+    {
+        Sprite centerImageTmp, leftImageTmp, rightImageTmp;
+
+        int leftIndex   = (currentIndex - 1 + _weapons.Count) % _weapons.Count;
+        int rightIndex  = (currentIndex + 1) % _weapons.Count;
+
+        centerImageTmp  = _weapons[currentIndex].weaponIcon;
+        leftImageTmp   = _weapons[leftIndex].weaponIcon;
+        rightImageTmp   = _weapons[rightIndex].weaponIcon;
+
+        _UiIventory.SetUIImages(centerImageTmp, leftImageTmp, rightImageTmp);
+    }
 }
