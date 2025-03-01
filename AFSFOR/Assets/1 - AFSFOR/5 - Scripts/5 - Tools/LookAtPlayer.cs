@@ -8,12 +8,12 @@ public class LookAtPlayer : MonoBehaviour
 
     private void Awake()
     {
-        target = GameObject.Find("Player").transform;
+        //target = GameObject.Find("Player").transform;
     }
 
     void Update()
     {
-        if (target == null) return;
-        transform.LookAt(target);
+        //if (target == null) return;
+        //transform.LookAt(target);
     }
 }
