@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-
+using System;
+using VHierarchy.Libs;
 
 public enum SoundType
 {
-    //Music,
-    //HUBMusic,
-    //MusicTuto,
     Collision,
     TeleportReady,
     Teleporting,
@@ -34,17 +32,15 @@ public enum SoundType
 
 public class SoundManager : MonoBehaviour
 {
+
+    [Header("List Of All SoundPrefab Instanciated")]
+    [SerializeField] private List<GameObject> _listOfAllSoundPrefabs;
+
     [Header("Prefab Sound")]
     [SerializeField] private GameObject _soundPrefab3D;
-    [SerializeField] private GameObject _soundPrefab2D;
-
-    [Header("Musics")]
-    [SerializeField] private AudioClip _music;
-    [SerializeField] private AudioClip _hub;
-    [SerializeField] private AudioClip _tuto;
-    private bool _isMusicPlaying = false;
 
     [Header("Sound Effects")]
+    #region AudioClips
     [SerializeField] private AudioClip _soundVFXCollision;
     [SerializeField] private AudioClip _soundVFXTeleportReady;
     [SerializeField] private AudioClip _soundVFXTeleporting;
@@ -64,91 +60,28 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _soundVFXShootBigImpact;
     [SerializeField] private AudioClip _soundVFXSwordImpact;
     [SerializeField] private AudioClip _soundVFXBigShootReady;
+    #endregion
+
 
 
     //  #################################################
     //  ######      MODULARY SOUND GENERATION      ######
     //  #################################################
-    private void Start()
-    {
-    }
 
-    private GameObject InstantiateSound2D()
-    {
-        return Instantiate(_soundPrefab2D);
-    }
     private GameObject InstantiateSound3D(Vector3 target)
     {
-        return Instantiate(_soundPrefab3D, target, Quaternion.identity);
+        GameObject s = Instantiate(_soundPrefab3D, target, Quaternion.identity);
+        _listOfAllSoundPrefabs.Add(s);
+        s.GetComponent<SoundPrefab3D>().OnAudioFinished += DestroySoundPrefab3D;
+        return s;
     }
 
-    public void PlaySound(SoundType soundtype, float volume)
+    private void DestroySoundPrefab3D(GameObject s)
     {
-        GameObject sound = InstantiateSound2D();
-        AudioSource soundSource = sound.GetComponent<AudioSource>();
-
-        switch (soundtype)
-        {
-            //case SoundType.Music:
-            //    soundSource.clip = _music;
-            //    soundSource.loop = true;
-            //    _isMusicPlaying = true;
-            //    break;
-
-            //case SoundType.MusicTuto:
-            //    soundSource.clip = _tuto;
-            //    soundSource.loop = true;
-            //    _isMusicPlaying = true;
-            //    break;
-
-
-            //case SoundType.HUBMusic:
-            //    soundSource.clip = _hub;
-            //    soundSource.loop = true;
-            //    _isMusicPlaying = true;
-            //    break;
-
-            case SoundType.Collision:
-                soundSource.clip = _soundVFXCollision;
-                break;
-
-            case SoundType.TeleportReady:
-                soundSource.clip = _soundVFXTeleportReady;
-                break;
-
-            case SoundType.Teleporting:
-                soundSource.clip = _soundVFXTeleporting;
-                volume = 0.2f;
-                break;
-
-            case SoundType.TeleportValidated:
-                soundSource.clip = _soundVFXTeleportValidated;
-                break;
-
-            case SoundType.TeleportCanceled:
-                soundSource.clip = _soundVFXTeleportCanceled;
-                break;
-
-            case SoundType.SearchingObjective:
-                soundSource.clip = _soundVFXSearchingObjective;
-                volume = 0.2f;
-                break;
-
-            case SoundType.FindingObjective:
-                soundSource.clip = _soundVFXFindingObjective;
-                volume = 0.2f;
-                break;
-
-
-            case SoundType.BigShootReady:
-                soundSource.clip = _soundVFXBigShootReady;
-                volume = 0.2f;
-                break;
-        }
-
-        soundSource.volume = volume;
-        soundSource.Play();
+        _listOfAllSoundPrefabs.Remove(s);
+        Destroy(s);
     }
+
     public void PlaySoundAtLocation(SoundType soundtype, float volume, Vector3 targetPosition)
     {
         GameObject sound = InstantiateSound3D(targetPosition);
@@ -156,35 +89,8 @@ public class SoundManager : MonoBehaviour
 
         switch (soundtype)
         {
-            //case SoundType.Music:
-            //    if (!_isMusicPlaying)
-            //    {
-            //        soundSource.clip = _music;
-            //        soundSource.loop = true;
-            //        _isMusicPlaying = true;
-            //    }
-            //    else
-            //    {
-            //        sound.GetComponent<Destroy>().countdown = 0.1f;
-            //    }
-            //    break;
-
-            //case SoundType.HUBMusic:
-            //    if (!_isMusicPlaying)
-            //    {
-            //        soundSource.clip = _hub;
-            //        soundSource.loop = true;
-            //        _isMusicPlaying = true;
-            //    }
-            //    else
-            //    {
-            //        sound.GetComponent<Destroy>().countdown = 0.1f;
-            //    }
-            //    break;
-
             case SoundType.Collision:
                 soundSource.clip = _soundVFXCollision;
-
                 break;
 
             case SoundType.TeleportReady:
@@ -256,5 +162,16 @@ public class SoundManager : MonoBehaviour
 
         soundSource.volume = volume;
         soundSource.Play();
+
+        sound.GetComponent<SoundPrefab3D>().StartWaitingEndOfSound();
+    }
+
+
+    public void UpdatePitchAllSounds3D(float pitch)
+    {
+        foreach(GameObject g in _listOfAllSoundPrefabs)
+        {
+            g.GetComponent<AudioSource>().pitch = pitch;
+        }
     }
 }

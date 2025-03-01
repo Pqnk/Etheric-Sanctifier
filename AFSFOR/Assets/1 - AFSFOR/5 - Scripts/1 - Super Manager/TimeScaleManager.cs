@@ -9,12 +9,11 @@ public class TimeScaleManager : MonoBehaviour
     [SerializeField] private float _slowMoDuration = 1.0f;
     public bool slowMoActive = false;
 
+    [SerializeField] private Vinyl _vinylRef;
+
     private Coroutine _coroutine;
-
     private GameObject _ppBlackAndWhite;
-
     public static event Action OnSlowMoFinished;
-
 
     private void Awake()
     {
@@ -29,10 +28,10 @@ public class TimeScaleManager : MonoBehaviour
             _ppBlackAndWhite.SetActive(true);
             Time.timeScale = _pauseTimeScale;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            UpdatePitchSounds();
 
             if (_coroutine != null)
             {
-                Debug.Log("Stop coroutine ! ");
                 StopCoroutine(_coroutine);
                 _coroutine = null;
             }
@@ -44,6 +43,7 @@ public class TimeScaleManager : MonoBehaviour
             _ppBlackAndWhite.SetActive(false);
             Time.timeScale = 1.0f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            UpdatePitchSounds();
         }
     }
 
@@ -52,6 +52,12 @@ public class TimeScaleManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(_slowMoDuration);
         ToggleSlowMotion(false);
         OnSlowMoFinished?.Invoke();
+    }
+
+    private void UpdatePitchSounds()
+    {
+        SuperManager.instance.soundManager.UpdatePitchAllSounds3D(Time.timeScale);
+        _vinylRef.UpdatePitchMusic(Time.timeScale);
     }
 
 }

@@ -8,11 +8,6 @@ public class Vinyl : MonoBehaviour
     [SerializeField] private List<AudioClip> _vinylMusics;
     private int currentIndex = 0;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     void Start()
     {
         _vinylSource = GetComponent<AudioSource>();
@@ -37,5 +32,10 @@ public class Vinyl : MonoBehaviour
         currentIndex = (currentIndex + 1) % _vinylMusics.Count;
         _vinylSource.clip = _vinylMusics[currentIndex];
         _vinylSource.Play();
+    }
+
+    public void UpdatePitchMusic(float pitch)
+    {
+        _vinylSource.pitch = pitch;
     }
 }
