@@ -82,6 +82,11 @@ public class SoundManager : MonoBehaviour
         Destroy(s);
     }
 
+    public void DestroyAllSoundsPrefabs3D()
+    {
+        _listOfAllSoundPrefabs.Clear();
+    }
+
     public void PlaySoundAtLocation(SoundType soundtype, float volume, Vector3 targetPosition)
     {
         GameObject sound = InstantiateSound3D(targetPosition);
