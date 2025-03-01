@@ -34,8 +34,12 @@ public class Vinyl : MonoBehaviour
         _vinylSource.Play();
     }
 
-    public void UpdatePitchMusic(float pitch)
+    public void UpdatePitchMusic(float newPitch)
     {
-        _vinylSource.pitch = pitch;
+        if(newPitch < 0.2)
+        {
+            newPitch *= 5;
+        }
+        _vinylSource.pitch = newPitch;
     }
 }
