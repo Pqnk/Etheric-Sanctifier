@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5167849732128721304}
+  - component: {fileID: 8569911721015242104}
   - component: {fileID: 6292024368326697045}
   - component: {fileID: 7558766251534833878}
-  - component: {fileID: 8569911721015242104}
   - component: {fileID: 5435799676374524529}
   - component: {fileID: 3840935912161081291}
   m_Layer: 7
@@ -38,6 +38,19 @@ Transform:
   - {fileID: 7433968982782175881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8569911721015242104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504508502494390500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbfa3d46c9616b4c8d955ac4d53ee30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTest: 1
 --- !u!114 &6292024368326697045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,19 +96,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 952581842973094090, guid: 4092252e8637d2243ae6396e715f49df, type: 3}
   firePoint: {fileID: 7433968982782175881}
   fireRate: 2
---- !u!114 &8569911721015242104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4504508502494390500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fbfa3d46c9616b4c8d955ac4d53ee30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTest: 1
 --- !u!54 &5435799676374524529
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ffc94d7e0a19548b0ba74b72cc43cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1001 &402382786430532506
 PrefabInstance:
   m_ObjectHideFlags: 0

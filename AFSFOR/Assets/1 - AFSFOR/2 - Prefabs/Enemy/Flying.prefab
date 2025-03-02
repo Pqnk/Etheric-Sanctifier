@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7900266902494728565}
+  - component: {fileID: 3005393538023013043}
   - component: {fileID: 9119217413768955274}
   - component: {fileID: 5884637990675012282}
   - component: {fileID: 6535094521278592331}
   - component: {fileID: 1164576459146136367}
-  - component: {fileID: 3005393538023013043}
   m_Layer: 7
   m_Name: Flying
   m_TagString: Ghost
@@ -37,6 +37,19 @@ Transform:
   - {fileID: 1222902258203514185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3005393538023013043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381790209181045063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbfa3d46c9616b4c8d955ac4d53ee30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTest: 1
 --- !u!114 &9119217413768955274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,19 +148,6 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3005393538023013043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381790209181045063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fbfa3d46c9616b4c8d955ac4d53ee30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTest: 1
 --- !u!1001 &1689455015141520034
 PrefabInstance:
   m_ObjectHideFlags: 0
