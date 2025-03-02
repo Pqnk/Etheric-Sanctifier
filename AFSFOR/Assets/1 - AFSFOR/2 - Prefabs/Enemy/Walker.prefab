@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 6157116281228071899}
   - component: {fileID: 6312777622140020660}
   - component: {fileID: 5958128189032117561}
+  - component: {fileID: 672010825084533999}
   m_Layer: 7
   m_Name: Walker
   m_TagString: Ghost
@@ -484,6 +485,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &672010825084533999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146182413988385762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbfa3d46c9616b4c8d955ac4d53ee30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTest: 1
 --- !u!1 &8347199884055003575
 GameObject:
   m_ObjectHideFlags: 0

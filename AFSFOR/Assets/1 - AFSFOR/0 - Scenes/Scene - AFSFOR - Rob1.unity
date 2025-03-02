@@ -3157,11 +3157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08261245db3b23347b20c4263a23daf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: 500
+  _playerMaxHealth: 500
+  _playerCurrentHealth: 0
   _playerIsDead: 0
   _playerMaxMana: 20
   _playerCurrentMana: 0
+  _playerCurrentScore: 0
   _headLight: {fileID: 0}
+  _UIPlayer: {fileID: 0}
 --- !u!54 &2030077473
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3395,6 +3398,10 @@ PrefabInstance:
     - target: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
       propertyPath: m_Name
       value: Tireur
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5167849732128721304, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
       propertyPath: m_LocalPosition.x

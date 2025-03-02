@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
 {
-    private Transform target;
-
-    private void Awake()
-    {
-        //target = GameObject.Find("Player").transform;
-    }
+    [HideInInspector] public Transform target;
 
     void Update()
     {
-        //if (target == null) return;
-        //transform.LookAt(target);
+        if (target == null) return;
+        transform.LookAt(target);
     }
 }

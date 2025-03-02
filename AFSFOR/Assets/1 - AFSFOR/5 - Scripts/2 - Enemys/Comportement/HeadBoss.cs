@@ -43,6 +43,7 @@ public class HeadBoss : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         StartCoroutine(BossPatternRoutine());
+        PointsLookAtPlayer();
     }
 
     void Update()
@@ -53,13 +54,24 @@ public class HeadBoss : MonoBehaviour
         }
     }
 
+    private void PointsLookAtPlayer()
+    {
+        firePoint.GetComponent<LookAtPlayer>().target = enemy.target;
+
+        foreach (var item in spawnPoints)
+        {
+            item.GetComponent<LookAtPlayer>().target = enemy.target;
+        }
+    }
+
     #region Move
     private void Move()
     {
         Vector3 direction = (enemy.target.position - transform.position).normalized;
         direction.y = 0;
 
-        float distance = direction.magnitude;
+        //float distance = direction.magnitude;
+        float distance = Vector3.Distance(transform.position, enemy.target.position);
 
         if (distance > enemy.stopDistance + 1f)
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,8 @@ public class Tireur : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-    }
+        PointsLookAtPlayer();
+    }      
 
     void Update()
     {
@@ -28,6 +30,11 @@ public class Tireur : MonoBehaviour
         MoveTowardsTarget();
         RandomMovement();
         ShootAtTarget();
+    }
+
+    private void PointsLookAtPlayer()
+    {
+        firePoint.GetComponent<LookAtPlayer>().target = enemy.target;
     }
 
     void MoveTowardsTarget()
