@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2279253214730973553}
   - component: {fileID: 8677482943699004797}
   - component: {fileID: 7964642571797473429}
-  - component: {fileID: 7725719134249417719}
+  - component: {fileID: 4670043136871934140}
   m_Layer: 3
   m_Name: HandNaked
   m_TagString: HandNaked
@@ -82,7 +82,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7725719134249417719
+--- !u!114 &4670043136871934140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,9 +91,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7976986804816834821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3fad30f877123f4cbb7b679c16fb32f, type: 3}
+  m_Script: {fileID: 11500000, guid: f5e72371783a50340a0e3dba3e7b68b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeaponEquiped: 0
+  isWeaponEquiped: 1
   isWeaponOnLeftHand: 0
   weaponIcon: {fileID: 21300000, guid: 9395a09ce838a6841a0553eda6a93298, type: 3}

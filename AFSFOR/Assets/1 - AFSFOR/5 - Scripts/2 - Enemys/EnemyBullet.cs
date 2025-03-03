@@ -66,6 +66,13 @@ public class EnemyBullet : MonoBehaviour
             _oppositeDirection = (targetEnemyBullet.position - transform.position).normalized;
             _isDeflected = true;
         }
+        else if (other.gameObject.tag == "HandNaked" && !_isDeflected)
+        {
+            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
+            _oppositeDirection = (targetEnemyBullet.position - transform.position).normalized;
+            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Slap, 1.0f, this.gameObject.transform.position);
+            _isDeflected = true;
+        }
     }
 
     private void PlaySoundAndFX()

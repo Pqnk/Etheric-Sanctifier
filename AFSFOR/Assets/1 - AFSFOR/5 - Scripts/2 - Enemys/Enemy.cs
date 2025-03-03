@@ -154,6 +154,20 @@ public class Enemy : MonoBehaviour
         target = newTarget;
     }
 
+
+    IEnumerator SlapEnemyAndRestoreRigidbody()
+    {    
+        rb.isKinematic = true;
+        rb.AddForce(-1 * (target.position - this.gameObject.transform.position) * 100);
+        yield return new WaitForSeconds(2.0f);
+        rb.isKinematic = false;
+    }
+
+    public void StartExpulsion()
+    {
+        StartCoroutine(SlapEnemyAndRestoreRigidbody());
+    }
+
     #region Changement Couleur
     public void CheckChangeMaterial()
     {

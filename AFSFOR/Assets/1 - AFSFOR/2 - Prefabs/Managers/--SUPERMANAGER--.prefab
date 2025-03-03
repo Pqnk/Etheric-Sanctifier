@@ -493,6 +493,7 @@ MonoBehaviour:
   _soundVFXShootBigImpact: {fileID: 8300000, guid: f5a06df96781c5d478dc2301802de0ae, type: 3}
   _soundVFXSwordImpact: {fileID: 8300000, guid: 7045b0e90d771204b8937196f120a28c, type: 3}
   _soundVFXBigShootReady: {fileID: 8300000, guid: f3b1b7513703e084cb3995cbc194acff, type: 3}
+  _soundVFXSlap: {fileID: 8300000, guid: dcb236838f769bc468a7bdbeba527211, type: 3}
 --- !u!114 &4925675943462278177
 MonoBehaviour:
   m_ObjectHideFlags: 0
