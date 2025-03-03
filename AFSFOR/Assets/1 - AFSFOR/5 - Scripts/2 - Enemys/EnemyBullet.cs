@@ -69,4 +69,9 @@ public class EnemyBullet : MonoBehaviour
         yield return new WaitForSeconds(lifeTimeBullet);
         Destroy(gameObject);
     }
+
+    public void RotateEnemyBullet()
+    {
+        transform.Rotate(0, 180, 0, Space.Self);
+    }
 }

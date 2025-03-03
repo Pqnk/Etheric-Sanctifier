@@ -13,14 +13,17 @@ public class Sword : Weapon
         {
             ContactPoint contact = collision.contacts[0];
             Vector3 collisionPoint = contact.point;
-
             Vector3 collisionDirection = (collision.transform.position - transform.position).normalized;
-
             Ghost behaviorGhost = collision.gameObject.GetComponent<Ghost>();
             behaviorGhost.AddForceToGhost(collisionDirection, forceImpulse, ForceMode.Impulse);
             behaviorGhost.LowerHealth(damage);
 
             PlaySoundAndVFXSword(collisionPoint);
+        }
+
+        if(collision.gameObject.tag == "EnemyBullet")
+        {
+            collision.gameObject.GetComponent<EnemyBullet>().RotateEnemyBullet();
         }
     }
 

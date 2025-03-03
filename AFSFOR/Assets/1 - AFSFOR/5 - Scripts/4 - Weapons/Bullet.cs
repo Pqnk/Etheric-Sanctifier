@@ -39,10 +39,6 @@ public class Bullet : MonoBehaviour
         {
             if (other.gameObject.tag == "Ghost")
             {
-                //Ghost scriptGhost = other.gameObject.GetComponent<Ghost>();
-                //scriptGhost.AddForceToGhostOppositeToTarget(forcePush, ForceMode.Impulse);
-                //scriptGhost.LowerHealth(damage);
-
                 Enemy scriptEnemy = other.gameObject.GetComponent<Enemy>();
                 scriptEnemy.AddForceBack(forcePush, ForceMode.Impulse);
                 scriptEnemy.Get_Hit(damage);
@@ -54,6 +50,11 @@ public class Bullet : MonoBehaviour
             {
                 PlaySoundAndFXShootImpact();
                 Destroy(transform.root.gameObject);
+            }
+            else if(other.gameObject.tag == "EnemyBullet")
+            {
+                PlaySoundAndFXShootImpact();
+                Destroy(other.gameObject);
             }
         }
         else

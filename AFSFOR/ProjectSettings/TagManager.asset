@@ -21,6 +21,7 @@ TagManager:
   - HandNaked
   - Vinyl
   - Player_AFSFOR
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
