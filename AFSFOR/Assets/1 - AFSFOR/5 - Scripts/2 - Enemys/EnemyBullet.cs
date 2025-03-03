@@ -14,9 +14,13 @@ public class EnemyBullet : MonoBehaviour
     private bool _isDeflected = false;
     [SerializeField] private GameObject _meshSkullGoat;
 
+    private GameObject _playerRef;
+
     private void Start()
     {
         StartCoroutine(DestroyBullet());
+
+        _playerRef = GameObject.Find("--Player_AFSFOR--");
     }
 
     private void Update()
@@ -32,8 +36,9 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            //_meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
-            transform.Translate(-1*transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
+            Vector3 direction = (_playerRef.transform.position - transform.position).normalized;
+            transform.Translate(-direction * (bulletSpeed*5 * Time.deltaTime), Space.World);
         }
     }
 
@@ -85,8 +90,4 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void RotateEnemyBullet()
-    {
-        transform.Rotate(0, 180, 0, Space.Self);
-    }
 }
