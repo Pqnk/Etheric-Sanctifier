@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
+            //_meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
             transform.Translate(-1*transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
         }
     }

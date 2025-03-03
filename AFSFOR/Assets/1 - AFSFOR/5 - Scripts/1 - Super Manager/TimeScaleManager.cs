@@ -6,7 +6,7 @@ using System;
 public class TimeScaleManager : MonoBehaviour
 {
     [SerializeField] private float _pauseTimeScale = 0.1f;
-    [SerializeField] private float _slowMoDuration = 0.5f;
+    [SerializeField] private float _slowMoDuration = 1.0f;
     public bool slowMoActive = false;
 
     [SerializeField] private Vinyl _vinylRef;

@@ -57,7 +57,7 @@ public class Vinyl : MonoBehaviour
     {
         if (newPitch < 0.2)
         {
-            newPitch *= 5;
+            newPitch *= 7;
         }
         _vinylSource.pitch = newPitch;
     }
