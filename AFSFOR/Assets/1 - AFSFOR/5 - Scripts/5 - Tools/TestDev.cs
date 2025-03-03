@@ -12,7 +12,7 @@ public class TestDev : MonoBehaviour
     {
         if (isTest)
         {
-            searchTarget = GameObject.Find("Player_AFSFOR").transform;
+            searchTarget = GameObject.Find("--Player_AFSFOR--").transform;
             GetComponent<Enemy>().target = searchTarget;
         }
     }
