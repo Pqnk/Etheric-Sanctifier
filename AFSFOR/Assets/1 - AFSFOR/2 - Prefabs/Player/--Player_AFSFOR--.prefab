@@ -309,7 +309,7 @@ MonoBehaviour:
     needsReinit: 0
   _UiIventory: {fileID: 7587489075814699053}
   _weapons:
-  - {fileID: 1576263568007916039}
+  - {fileID: 4474349039824877900}
   - {fileID: 2430070486137961982}
   - {fileID: 2469770242058848496}
   isLeftHand: 0
@@ -477,7 +477,7 @@ MonoBehaviour:
     needsReinit: 0
   _UiIventory: {fileID: 2150787509342859205}
   _weapons:
-  - {fileID: 6269854564780783757}
+  - {fileID: 9005765913210907590}
   - {fileID: 9124603803398858366}
   - {fileID: 7206023945497015249}
   isLeftHand: 1
@@ -2246,15 +2246,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2279253214730973553, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
   m_PrefabInstance: {fileID: 4338579559340393338}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6269854564780783757 stripped
+--- !u!114 &9005765913210907590 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7725719134249417719, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4670043136871934140, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
   m_PrefabInstance: {fileID: 4338579559340393338}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3fad30f877123f4cbb7b679c16fb32f, type: 3}
+  m_Script: {fileID: 11500000, guid: f5e72371783a50340a0e3dba3e7b68b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4702593829080052197
@@ -2739,15 +2739,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
---- !u!114 &1576263568007916039 stripped
+--- !u!114 &4474349039824877900 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7725719134249417719, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4670043136871934140, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
   m_PrefabInstance: {fileID: 9139852874516238832}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3fad30f877123f4cbb7b679c16fb32f, type: 3}
+  m_Script: {fileID: 11500000, guid: f5e72371783a50340a0e3dba3e7b68b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &7023028794607493249 stripped
