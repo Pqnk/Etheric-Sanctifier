@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player_AFSFOR : MonoBehaviour
 {
     [SerializeField] private int _playerMaxHealth = 500;
     [SerializeField] private int _playerCurrentHealth = 0;

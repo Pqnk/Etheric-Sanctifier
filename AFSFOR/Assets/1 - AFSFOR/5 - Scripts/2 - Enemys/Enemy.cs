@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public bool idDead = false;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform target;
-    [HideInInspector] public Player scriptPlayer;
+    [HideInInspector] public Player_AFSFOR scriptPlayer;
 
     [HideInInspector] public SoundManager sM;
 
@@ -70,8 +70,8 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        //target = GameObject.Find("Player").transform;
-        scriptPlayer = target.GetComponent<Player>();
+        //target = GameObject.Find("Player_AFSFOR").transform;
+        scriptPlayer = target.GetComponent<Player_AFSFOR>();
         sM = SuperManager.instance.soundManager;
     }
 

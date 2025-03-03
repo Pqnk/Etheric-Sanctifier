@@ -127,7 +127,7 @@ public class GameManagerAFSFOR : MonoBehaviour
     }
 
     //  ####################################################
-    //  Player Managment
+    //  Player_AFSFOR Managment
     //  ####################################################
     public void PlayerDeadCinematic()
     {

@@ -41,7 +41,7 @@ public class Pistol : Weapon
     [SerializeField] List<Material> outOfMana_Mat;
     [SerializeField] List<Material> fullOfMana_Mat;
 
-    private Player player;
+    private Player_AFSFOR player;
     private bool readyHeavyShoot = false;
     private bool getGameObjectShoot = false;
     private bool isIntantiate = false;
@@ -54,7 +54,7 @@ public class Pistol : Weapon
 
     private void Start()
     {
-        player = transform.root.GetComponent<Player>();
+        player = transform.root.GetComponent<Player_AFSFOR>();
     }
     void Update()
     {

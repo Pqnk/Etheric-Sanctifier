@@ -24,8 +24,6 @@ public class WeaponInventoryByHand : MonoBehaviour
     void Start()
     {
         StartingWeapons();
-
-        //_UiIventory.InitializeUIIventory(_weapons);
     }
 
     void Update()

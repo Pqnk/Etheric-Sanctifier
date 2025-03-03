@@ -733,7 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009751867498742380}
   - component: {fileID: 3166892722169770189}
-  - component: {fileID: 7446592906927767537}
+  - component: {fileID: 1545078249377335567}
   m_Layer: 3
   m_Name: Player_AFSFOR
   m_TagString: Untagged
@@ -790,7 +790,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/HeadsetOnHead
     needsReinit: 0
   allowToggleTo2D: 1
---- !u!114 &7446592906927767537
+--- !u!114 &1545078249377335567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4530113621554085224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08261245db3b23347b20c4263a23daf3, type: 3}
+  m_Script: {fileID: 11500000, guid: a29c64bf57e2f8846a7de536d0185e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMaxHealth: 500

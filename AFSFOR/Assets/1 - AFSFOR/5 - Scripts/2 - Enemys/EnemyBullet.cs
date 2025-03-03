@@ -29,9 +29,9 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player_AFSFOR")
         {
-            Player script = other.gameObject.GetComponent<Player>();
+            Player_AFSFOR script = other.gameObject.GetComponent<Player_AFSFOR>();
             script.DamagerPlayer(damage);
 
             // Si gros tir alors empecher le joueur de tirer pendant x Secondes
