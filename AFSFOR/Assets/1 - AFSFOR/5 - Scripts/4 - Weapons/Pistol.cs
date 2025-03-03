@@ -58,14 +58,13 @@ public class Pistol : Weapon
     }
     void Update()
     {
-        if ((isWeaponEquiped) && areWeaponsActive)
+        if (isWeaponEquiped && areWeaponsActive)
         {
             SimpleShootInput();
             HeavyShootInput();
-            CheckManaReady();    
+            CheckManaReady();
         }
     }
-
 
     //  ###########################################
     //  #############  PISTOL MANA  ###############
@@ -90,12 +89,8 @@ public class Pistol : Weapon
     //  ###########################################
     //  ############  PISTOL INPUTS  ##############
     //  ###########################################
-    private void SimpleShootInput()
+    private bool GetTriggerActionned()
     {
-        //if (triggerAction.GetStateDown(handType))
-        //{
-        //    Perform_Shoot();
-        //}
         bool triggerActionned = false;
 
         if (isWeaponOnLeftHand)
@@ -107,6 +102,12 @@ public class Pistol : Weapon
             triggerActionned = triggerA.GetStateDown(SteamVR_Input_Sources.RightHand);
         }
 
+        return triggerActionned;
+    }
+    private void SimpleShootInput()
+    {
+        bool triggerActionned = GetTriggerActionned();
+
         if (triggerActionned)
         {
             Perform_Shoot();
@@ -114,8 +115,11 @@ public class Pistol : Weapon
     }
     private void HeavyShootInput()
     {
-        if (triggerAction.GetState(handType))
+        bool triggerActionned = GetTriggerActionned();
+
+        if (triggerActionned)
         {
+
             if (player.Get_playerCurrentMana() >= player.Get_playerMaxMana())
             {
                 if (hapticCoroutine == null)
