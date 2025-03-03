@@ -17,6 +17,7 @@ public class Vinyl : MonoBehaviour
         _vinylSource.clip = _vinylMusics[currentIndex];
         _vinylSource?.Play();
         _isVinylActive = true;
+        UpdateTextUIVinyl();
     }
 
 

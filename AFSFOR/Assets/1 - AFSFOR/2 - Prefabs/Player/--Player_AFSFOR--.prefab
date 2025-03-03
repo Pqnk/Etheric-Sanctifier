@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 8359498565968162774}
   - component: {fileID: 9041797476493649218}
   m_Layer: 3
-  m_Name: Player_AFSFOR
+  m_Name: --Player_AFSFOR--
   m_TagString: Player
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

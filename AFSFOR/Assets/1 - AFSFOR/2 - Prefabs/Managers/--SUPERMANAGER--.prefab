@@ -562,6 +562,10 @@ PrefabInstance:
       propertyPath: _uiVinyl
       value: 
       objectReference: {fileID: 1618912867046736213}
+    - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: _textUIVinyl
+      value: 
+      objectReference: {fileID: 2012617169755210152}
     - target: {fileID: 6820478786128430880, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
