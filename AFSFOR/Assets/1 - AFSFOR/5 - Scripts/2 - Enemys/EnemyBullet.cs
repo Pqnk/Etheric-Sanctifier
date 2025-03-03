@@ -14,6 +14,8 @@ public class EnemyBullet : MonoBehaviour
     private bool _isDeflected = false;
     [SerializeField] private GameObject _meshSkullGoat;
 
+    private Vector3 _oppositeDirection;
+
     private GameObject _playerRef;
 
     private void Start()
@@ -36,9 +38,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
-            Vector3 direction = (_playerRef.transform.position - transform.position).normalized;
-            transform.Translate(-direction * (bulletSpeed*5 * Time.deltaTime), Space.World);
+            transform.Translate(-_oppositeDirection * (bulletSpeed*5 * Time.deltaTime), Space.World);
         }
     }
 
@@ -64,6 +64,8 @@ public class EnemyBullet : MonoBehaviour
         }
         else if (other.gameObject.tag == "Sword")
         {
+            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
+            _oppositeDirection = (_playerRef.transform.position - transform.position).normalized;
             _isDeflected = true;
         }
     }

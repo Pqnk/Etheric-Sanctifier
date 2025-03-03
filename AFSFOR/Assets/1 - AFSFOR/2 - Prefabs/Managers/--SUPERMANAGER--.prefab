@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseTimeScale: 0.1
-  _slowMoDuration: 0.5
+  _slowMoDuration: 1
   slowMoActive: 0
   _vinylRef: {fileID: 3933779465695249336}
 --- !u!114 &8353626908048531365

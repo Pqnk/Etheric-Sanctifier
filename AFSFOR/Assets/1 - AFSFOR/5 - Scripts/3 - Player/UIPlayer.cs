@@ -10,7 +10,7 @@ public class UIPlayer : MonoBehaviour
     [SerializeField] private Slider _scoreBar;
     [SerializeField] private GameObject _damageUI;
     [SerializeField] private float _damageUICoolDown = 1.0f;
-    private Coroutine _coroutineDamageUI;
+    private Coroutine _coroutineDamageUI = null;
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class UIPlayer : MonoBehaviour
 
     public void StartUIDamage()
     {
-        if (_coroutineDamageUI != null)
+        if (_coroutineDamageUI == null)
         {
             _coroutineDamageUI = StartCoroutine(UIDamageCoolDown());
         }
