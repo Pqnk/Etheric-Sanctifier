@@ -89,9 +89,10 @@ public class Flying : MonoBehaviour
         }
     }
 
-    private void AttackPlayer()
+    IEnumerator AttackPlayer()
     {
         Debug.Log("Attaque");
+        yield return new WaitForSeconds(1f);
         enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
 
         // Joue le son

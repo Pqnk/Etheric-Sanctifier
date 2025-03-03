@@ -29,7 +29,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player_AFSFOR")
+        if (other.gameObject.tag == "Player")
         {
             Player_AFSFOR script = other.gameObject.GetComponent<Player_AFSFOR>();
             script.DamagerPlayer(damage);

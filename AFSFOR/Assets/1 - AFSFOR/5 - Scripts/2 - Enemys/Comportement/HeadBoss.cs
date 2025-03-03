@@ -39,9 +39,13 @@ public class HeadBoss : MonoBehaviour
 
     private int startingHealth;
 
+    private void Awake()
+    {
+        enemy = GetComponent<Enemy>();        
+    }
+
     void Start()
     {
-        enemy = GetComponent<Enemy>();
         StartCoroutine(BossPatternRoutine());
         PointsLookAtPlayer();
     }

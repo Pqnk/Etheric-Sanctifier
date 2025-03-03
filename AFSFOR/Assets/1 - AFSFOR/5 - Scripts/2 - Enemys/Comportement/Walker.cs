@@ -88,13 +88,14 @@ public class Walker : MonoBehaviour
         }
         else
         {
-            AttackPlayer();
+            StartCoroutine(AttackPlayer());
         }
     }
 
-    private void AttackPlayer()
+    IEnumerator AttackPlayer()
     {
         Debug.Log("Attaque");
+        yield return new WaitForSeconds(1f);
         enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
 
         // Joue le son
