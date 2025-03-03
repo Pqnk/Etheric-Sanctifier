@@ -62,7 +62,7 @@ public class EnemyBullet : MonoBehaviour
         {
             PlaySoundAndFX();
         }
-        else if (other.gameObject.tag == "Sword")
+        else if (other.gameObject.tag == "Sword" && !_isDeflected)
         {
             _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
             _oppositeDirection = (_playerRef.transform.position - transform.position).normalized;
