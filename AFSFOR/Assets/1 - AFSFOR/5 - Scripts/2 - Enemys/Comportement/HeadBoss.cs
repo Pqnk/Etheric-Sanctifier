@@ -53,7 +53,7 @@ public class HeadBoss : MonoBehaviour
 
     void Update()
     {
-        if (enemy.target != null && canMove && !isAttacking)
+        if (enemy.target != null && canMove && !isAttacking && !enemy.idDead)
         {
             Move();
         }
@@ -71,7 +71,7 @@ public class HeadBoss : MonoBehaviour
 
     IEnumerator BossPatternRoutine()
     {
-        while (true)
+        while (!enemy.idDead)
         {
             yield return new WaitForSeconds(timerBeforePatern);
 

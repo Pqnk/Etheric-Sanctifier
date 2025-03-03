@@ -15,7 +15,7 @@ public class Walker : MonoBehaviour
     private bool isRepli = false;
     private float repliTimer = 0f;
 
-    [Header("Esquive")] 
+    [Header("Esquive")]
     public float esquiveDistance = 3f;
     public float esquiveDuration = 0.3f;
     public float esquiveDetectionRadius = 5f;
@@ -34,32 +34,35 @@ public class Walker : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isEsquive)
+        if (!enemy.idDead)
         {
-            PerformEsquive();
-            return;
-        }
-                
-        if (DetectProjectile())
-        {
-            if (!checkedEsquive)
+            if (isEsquive)
             {
-                checkedEsquive = true;
-                if (CheckSiDoitEsquive())
+                PerformEsquive();
+                return;
+            }
+
+            if (DetectProjectile())
+            {
+                if (!checkedEsquive)
                 {
-                    StartEsquive();
-                    return;
+                    checkedEsquive = true;
+                    if (CheckSiDoitEsquive())
+                    {
+                        StartEsquive();
+                        return;
+                    }
                 }
             }
-        }
-        else
-        {
-            checkedEsquive = false;
-        }
+            else
+            {
+                checkedEsquive = false;
+            }
 
-        if (enemy.target != null)
-        {
-            Move();
+            if (enemy.target != null)
+            {
+                Move();
+            }
         }
 
     }

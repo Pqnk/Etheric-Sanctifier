@@ -21,15 +21,18 @@ public class Tireur : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         PointsLookAtPlayer();
-    }      
+    }
 
     void Update()
     {
         transform.LookAt(enemy.target.position);
 
-        MoveTowardsTarget();
-        RandomMovement();
-        ShootAtTarget();
+        if (!enemy.idDead)
+        {
+            MoveTowardsTarget();
+            RandomMovement();
+            ShootAtTarget();
+        }
     }
 
     private void PointsLookAtPlayer()
