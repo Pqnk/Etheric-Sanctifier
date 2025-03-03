@@ -76,6 +76,8 @@ public class EnemyBullet : MonoBehaviour
         else if(other.gameObject.tag == "Ghost" && _isDeflected)
         {
             other.gameObject.GetComponent<Enemy>().Get_Hit(10000);
+            SuperManager.instance.vfxManager.InstantiateVFX_vfxHeavyImpact(this.gameObject.transform);
+            Destroy(gameObject);
         }
     }
 
