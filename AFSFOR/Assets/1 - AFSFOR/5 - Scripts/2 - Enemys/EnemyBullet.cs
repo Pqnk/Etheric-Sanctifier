@@ -46,6 +46,10 @@ public class EnemyBullet : MonoBehaviour
         {
             PlaySoundAndFX();
         }
+        else if(other.gameObject.tag == "Sword")
+        {
+            RotateEnemyBullet();
+        }
     }
 
     private void PlaySoundAndFX()
@@ -72,6 +76,6 @@ public class EnemyBullet : MonoBehaviour
 
     public void RotateEnemyBullet()
     {
-        transform.Rotate(0, 180, 0, Space.Self);
+        transform.Rotate(0, 180, 0);
     }
 }

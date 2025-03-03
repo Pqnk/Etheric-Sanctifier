@@ -748,6 +748,18 @@ PrefabInstance:
       propertyPath: _secondaryTarget
       value: 
       objectReference: {fileID: 1810266367}
+    - target: {fileID: 8857462990798434354, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.616
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857462990798434354, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857462990798434354, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.819
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
