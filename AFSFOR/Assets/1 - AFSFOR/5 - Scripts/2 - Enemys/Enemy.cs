@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Stat de l'enemy")]
+    [Header("Enemy's Stats")]
     [SerializeField] int _life = 10;
     public int currentLife;
     [SerializeField] float _speed = 1;
     public float currentSpeed;
     public float rotationSpeed = 2;
-    [SerializeField] float _damage = 1;
+    [SerializeField] int _damage = 1;
     public float currentDamage;
 
     [Header("Info")]
@@ -118,6 +118,7 @@ public class Enemy : MonoBehaviour
             gM.EnemyKilled();
         }
 
+        scriptPlayer.AddMana(5);
         Destroy(gameObject);
     }
 
@@ -154,19 +155,19 @@ public class Enemy : MonoBehaviour
         target = newTarget;
     }
 
-
+    #region SLAP DAT GOAT
     IEnumerator SlapEnemyAndRestoreRigidbody()
     {    
         rb.isKinematic = true;
-        rb.AddForce(-1 * (target.position - this.gameObject.transform.position) * 100);
+        rb.AddForce(-1 * (target.position - this.gameObject.transform.position) * 10000);
         yield return new WaitForSeconds(2.0f);
         rb.isKinematic = false;
     }
-
     public void StartExpulsion()
     {
         StartCoroutine(SlapEnemyAndRestoreRigidbody());
     }
+    #endregion
 
     #region Changement Couleur
     public void CheckChangeMaterial()

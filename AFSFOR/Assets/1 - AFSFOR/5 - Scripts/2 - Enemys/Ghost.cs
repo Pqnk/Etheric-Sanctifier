@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Ghost : MonoBehaviour
 {
@@ -171,7 +172,9 @@ public class Ghost : MonoBehaviour
         {
             PlaySoundKillGhost();
         }
-        gM.GetCameraPlayer().GetComponent<Player_AFSFOR>().AddMana();
+
+        Player.instance.gameObject.GetComponent<Player_AFSFOR>().AddMana(5);
+
         if (!gM.isTutorial && gM.Get_CanSpawn())
         {
             SuperManager.instance.gameManagerAFSFOR.Set_KillGhost(false);

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIPlayer : MonoBehaviour
 {
     [SerializeField] private Slider _healthBar;
+    [SerializeField] private Slider _manaBar;
     [SerializeField] private Slider _scoreBar;
     [SerializeField] private GameObject _damageUI;
     [SerializeField] private float _damageUICoolDown = 1.0f;
@@ -17,17 +18,19 @@ public class UIPlayer : MonoBehaviour
         _damageUI.SetActive(false);
     }
 
+    #region Health
     public void SetMaxHealth(int maxHealth)
     {
         _healthBar.maxValue = maxHealth;
         _healthBar.value = maxHealth;
     }
-
     public void SetHealth(int health)
     {
         _healthBar.value = health;
     }
+    #endregion
 
+    #region Score
     public void SetMaxScore(int maxScore)
     {
         _scoreBar.maxValue = maxScore;
@@ -38,7 +41,9 @@ public class UIPlayer : MonoBehaviour
     {
         _scoreBar.value = score;
     }
+    #endregion
 
+    #region UI Damage
     public void StartUIDamage()
     {
         if (_coroutineDamageUI == null)
@@ -59,4 +64,18 @@ public class UIPlayer : MonoBehaviour
         _damageUI.SetActive(false);
 
     }
+    #endregion
+
+    #region Mana
+    public void SetMaxMana(int maxMana)
+    {
+        _manaBar.maxValue = maxMana;
+        _manaBar.value = 0;
+    }
+    public void SetMana(int mana)
+    {
+        _manaBar.value = mana;
+    }
+
+    #endregion
 }

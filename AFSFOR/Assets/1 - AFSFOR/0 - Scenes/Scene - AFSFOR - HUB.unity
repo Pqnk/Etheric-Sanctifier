@@ -2359,6 +2359,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016630312817752233, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4530113621554085224, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
       propertyPath: m_Name
       value: --Player_AFSFOR--
