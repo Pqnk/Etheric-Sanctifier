@@ -70,8 +70,12 @@ public class EnemyBullet : MonoBehaviour
         {
             _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
             _oppositeDirection = (targetEnemyBullet.position - transform.position).normalized;
-            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Slap, 1.0f, this.gameObject.transform.position);
+            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Slap, 0.5f, this.gameObject.transform.position);
             _isDeflected = true;
+        }
+        else if(other.gameObject.tag == "Ghost" && _isDeflected)
+        {
+            other.gameObject.GetComponent<Enemy>().Get_Hit(10000);
         }
     }
 
