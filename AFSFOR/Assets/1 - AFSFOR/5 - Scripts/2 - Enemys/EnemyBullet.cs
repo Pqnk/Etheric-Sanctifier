@@ -16,13 +16,11 @@ public class EnemyBullet : MonoBehaviour
 
     private Vector3 _oppositeDirection;
 
-    private GameObject _playerRef;
+    public Transform targetEnemyBullet;
 
     private void Start()
     {
         StartCoroutine(DestroyBullet());
-
-        _playerRef = GameObject.Find("--Player_AFSFOR--");
     }
 
     private void Update()
@@ -65,7 +63,7 @@ public class EnemyBullet : MonoBehaviour
         else if (other.gameObject.tag == "Sword" && !_isDeflected)
         {
             _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
-            _oppositeDirection = (_playerRef.transform.position - transform.position).normalized;
+            _oppositeDirection = (targetEnemyBullet.position - transform.position).normalized;
             _isDeflected = true;
         }
     }

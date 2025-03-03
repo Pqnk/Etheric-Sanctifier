@@ -551,6 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 1873803683}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &805015801
 Transform:
   m_ObjectHideFlags: 19
@@ -1441,6 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 1856848898}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1535393552
 Transform:
   m_ObjectHideFlags: 19
@@ -2359,7 +2361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4530113621554085224, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
       propertyPath: m_Name
-      value: --PLAYER_AFSFOR--
+      value: --Player_AFSFOR--
       objectReference: {fileID: 0}
     - target: {fileID: 7107938998948330833, guid: 68dfb154f333d7649b5c91e882514514, type: 3}
       propertyPath: m_AnchorMax.x
