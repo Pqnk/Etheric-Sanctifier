@@ -20,10 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] float waveInterval = 10f;
 
     int idBoss = 0;
-    int totalEnemiesKilled = 0;
-    int currentWaveIndex = 0;
-    int enemiesKilledThisWave = 0;
-    int enemiesToKillThisWave = 0;
+    [SerializeField] int totalEnemiesKilled = 0;
+    [SerializeField] int currentWaveIndex = 0;
+    [SerializeField] int enemiesKilledThisWave = 0;
+    [SerializeField] int enemiesToKillThisWave = 0;
     bool waveInProgress = false;
     bool bossWaveActive = false;
     Transform player;
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
                 yield return new WaitUntil(() => enemiesKilledThisWave >= enemiesToKillThisWave);
                 KillAllEnemies();
                 yield return new WaitForSeconds(waveInterval);
+                currentWaveIndex++;
             }
 
             // Boss Vague
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
             GameObject enemyPrefab = wave.enemyPrefabs[Random.Range(0, wave.enemyPrefabs.Length)];
             GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
             enemy.GetComponent<Enemy>().target = player;
+            enemy.GetComponent<Enemy>().gM = this;
             yield return new WaitForSeconds(wave.spawnDelay);
         }
     }
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
         Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
         GameObject boss = Instantiate(bossPrefab[idBoss], spawnPoint.position, Quaternion.identity);
         boss.GetComponent<Enemy>().target = player;
+        boss.GetComponent<Enemy>().gM = this;
 
         if (idBoss == 0)
         {

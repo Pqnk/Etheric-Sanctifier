@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Player_AFSFOR scriptPlayer;
 
     [HideInInspector] public SoundManager sM;
+    [HideInInspector] public GameManager gM;
 
     private float scaleDuration = 1.0f;
     private bool isTakingDamage = false;
@@ -70,7 +71,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        //target = GameObject.Find("Player_AFSFOR").transform;
         scriptPlayer = target.GetComponent<Player_AFSFOR>();
         sM = SuperManager.instance.soundManager;
     }
@@ -111,6 +111,13 @@ public class Enemy : MonoBehaviour
 
         // Joue le VFX de la mort ------------------------------------------------------
         SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(this.transform);
+
+        // Ajoute un kill au GameManager -----------------------------------------------
+        if (gM != null)
+        {
+            gM.EnemyKilled();
+        }
+
         Destroy(gameObject);
     }
 
