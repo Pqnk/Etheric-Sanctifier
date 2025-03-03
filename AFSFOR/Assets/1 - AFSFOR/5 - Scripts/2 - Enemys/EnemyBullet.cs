@@ -76,6 +76,6 @@ public class EnemyBullet : MonoBehaviour
 
     public void RotateEnemyBullet()
     {
-        transform.Rotate(0, 180, 0);
+        transform.Rotate(0, 180, 0, Space.Self);
     }
 }
