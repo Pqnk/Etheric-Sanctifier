@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Vinyl : MonoBehaviour
 {
     [SerializeField] private AudioSource _vinylSource;
     [SerializeField] private List<AudioClip> _vinylMusics;
     private int currentIndex = 0;
-
     private bool _isVinylActive = false;
+    [SerializeField] private TMP_Text _textUIVinyl;
 
     void Start()
     {
@@ -33,11 +34,12 @@ public class Vinyl : MonoBehaviour
                 _isVinylActive = true;
             }
         }
-
         if (other.CompareTag("Sword"))
         {
-            ToggleVinylMusic();    
+            ToggleVinylMusic();
         }
+
+        UpdateTextUIVinyl();
     }
 
     private void SwitchToNext()
@@ -70,6 +72,18 @@ public class Vinyl : MonoBehaviour
         {
             _vinylSource?.Play();
             _isVinylActive = true;
+        }
+    }
+
+    private void UpdateTextUIVinyl()
+    {
+        if (_isVinylActive)
+        {
+            _textUIVinyl.text = _vinylMusics[currentIndex].name;
+        }
+        else
+        {
+            _textUIVinyl.text = "Song title here...";
         }
     }
 }
