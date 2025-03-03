@@ -11,6 +11,9 @@ public class EnemyBullet : MonoBehaviour
     [Space]
     public bool isBossBullet;
 
+    private bool _isDeflected = false;
+    [SerializeField] private GameObject _meshSkullGoat;
+
     private void Start()
     {
         StartCoroutine(DestroyBullet());
@@ -23,7 +26,15 @@ public class EnemyBullet : MonoBehaviour
 
     private void Movebullet()
     {
-        transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+        if (!_isDeflected)
+        {
+            transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+        }
+        else
+        {
+            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
+            transform.Translate(-1*transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+        }
     }
 
 
@@ -33,22 +44,22 @@ public class EnemyBullet : MonoBehaviour
         {
             Player_AFSFOR playerScript = other.gameObject.GetComponent<Player_AFSFOR>();
             playerScript.DamagerPlayer(damage);
- 
+
             // Si gros tir alors empecher le joueur de tirer pendant x Secondes
             if (isBossBullet)
             {
 
             }
 
-            PlaySoundAndFX();            
+            PlaySoundAndFX();
         }
         else if (other.gameObject.tag == "Object")
         {
             PlaySoundAndFX();
         }
-        else if(other.gameObject.tag == "Sword")
+        else if (other.gameObject.tag == "Sword")
         {
-            RotateEnemyBullet();
+            _isDeflected = true;
         }
     }
 

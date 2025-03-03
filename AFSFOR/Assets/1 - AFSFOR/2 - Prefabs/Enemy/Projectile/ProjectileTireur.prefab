@@ -54,6 +54,7 @@ MonoBehaviour:
   rangeHeavyImpact: 0
   lifeTimeBullet: 5
   isBossBullet: 0
+  _meshSkullGoat: {fileID: 5895774630832773896}
 --- !u!135 &4440061853738373545
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9917,6 +9918,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c7d6c3434e1ea4eafcfaa0ac041fb6, type: 3}
+--- !u!1 &5895774630832773896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 55c7d6c3434e1ea4eafcfaa0ac041fb6, type: 3}
+  m_PrefabInstance: {fileID: 6706024891193304665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6528582728051081650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55c7d6c3434e1ea4eafcfaa0ac041fb6, type: 3}
