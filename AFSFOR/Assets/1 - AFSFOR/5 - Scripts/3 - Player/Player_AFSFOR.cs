@@ -65,6 +65,8 @@ public class Player_AFSFOR : MonoBehaviour
             _playerIsDead = true;
             SuperManager.instance.gameManagerAFSFOR.PlayerDeadCinematic();
         }
+
+        _UIPlayer.StartUIDamage();
     }
 
 
