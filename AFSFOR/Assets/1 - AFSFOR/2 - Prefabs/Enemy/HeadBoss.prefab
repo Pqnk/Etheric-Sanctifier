@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootCooldown: 2
-  projectilePrefab: {fileID: 3867854908817488521, guid: e8a45e333ab52794fb644d21f3e553b7, type: 3}
+  projectilePrefab: {fileID: 952581842973094090, guid: 4092252e8637d2243ae6396e715f49df, type: 3}
+  projectileHeavyPrefab: {fileID: 3867854908817488521, guid: e8a45e333ab52794fb644d21f3e553b7, type: 3}
   firePoint: {fileID: 5002499738457745600}
   spawnPoints:
   - {fileID: 912638927942894547}
@@ -183,7 +184,10 @@ MonoBehaviour:
   - {fileID: 1010572674784686918}
   - {fileID: 5534065041311855561}
   - {fileID: 529058224611393086}
-  enemyPrefab: {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
+  enemyPrefab:
+  - {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
+  - {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
+  - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
   chargeDuration: 2
   repliDuration: 2
   vieRetirerAvantRepli: 3
@@ -214,9 +218,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 2
 --- !u!136 &4446372717995663545
 CapsuleCollider:

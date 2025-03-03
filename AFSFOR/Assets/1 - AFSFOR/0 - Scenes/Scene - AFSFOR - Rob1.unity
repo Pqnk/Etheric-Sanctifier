@@ -1164,7 +1164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &678453013
 Transform:
   m_ObjectHideFlags: 0
@@ -2068,6 +2068,7 @@ Transform:
   - {fileID: 1036267300701212056}
   - {fileID: 327835401}
   - {fileID: 1378607984}
+  - {fileID: 1725868528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1224993621
@@ -2541,6 +2542,37 @@ MonoScript:
   m_ClassName: SceneObjectIDMapSceneAsset
   m_Namespace: UnityEngine.Rendering.HighDefinition
   m_AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
+--- !u!1 &1725868527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1725868528}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1725868528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725868527}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1218321035}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1729836002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,7 +2696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1801481124
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3157,7 +3189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29c64bf57e2f8846a7de536d0185e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMaxHealth: 500
+  _playerMaxHealth: 1000000
   _playerCurrentHealth: 0
   _playerIsDead: 0
   _playerMaxMana: 20
@@ -3401,7 +3433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5167849732128721304, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3655,18 +3687,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AstroBuster
       objectReference: {fileID: 0}
-    - target: {fileID: 3320217861718794029, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3320217861718794029, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3320217861718794029, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6927369874176706618, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3801,6 +3821,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeadBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 3555359972573601821, guid: 776bbee45a4822d4a947baaf07897883, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8439751663108624044, guid: 776bbee45a4822d4a947baaf07897883, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -3858,9 +3882,9 @@ SceneRoots:
   - {fileID: 241084960}
   - {fileID: 682718977}
   - {fileID: 2030077471}
+  - {fileID: 3018249820249989381}
   - {fileID: 1801481127}
   - {fileID: 3398882826154128560}
   - {fileID: 10901971153331381}
   - {fileID: 587343110526853902}
   - {fileID: 8447252988923099694}
-  - {fileID: 3018249820249989381}

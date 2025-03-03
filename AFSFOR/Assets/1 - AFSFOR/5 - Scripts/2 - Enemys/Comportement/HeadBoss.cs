@@ -11,11 +11,12 @@ public class HeadBoss : MonoBehaviour
     [Header("Info Tir")]
     [SerializeField] float shootCooldown = 2f;
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject projectileHeavyPrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] Transform[] spawnPoints;
 
     [Header("Info Spawn Enemy")]
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject[] enemyPrefab;
 
     [Header("Info charge")]
     [SerializeField] float chargeDuration = 2f;
@@ -28,7 +29,7 @@ public class HeadBoss : MonoBehaviour
     [Header("Info Move")]
     [SerializeField] float hoverAmplitude = 0.2f;
     [SerializeField] float hoverSpeed = 3f;
-    [SerializeField] private float randomDirectionChangeTime = 3f; // Temps entre chaque changement de direction
+    [SerializeField] private float randomDirectionChangeTime = 3f;
     private float hoverTime = 0f;
     private float directionChangeTimer = 0f;
     private int rotationDirection = 1;
@@ -41,7 +42,7 @@ public class HeadBoss : MonoBehaviour
 
     private void Awake()
     {
-        enemy = GetComponent<Enemy>();        
+        enemy = GetComponent<Enemy>();
     }
 
     void Start()
@@ -65,6 +66,29 @@ public class HeadBoss : MonoBehaviour
         foreach (var item in spawnPoints)
         {
             item.GetComponent<LookAtPlayer>().target = enemy.target;
+        }
+    }
+
+    IEnumerator BossPatternRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(timerBeforePatern);
+
+            int randomPattern = UnityEngine.Random.Range(0, 3);
+
+            if (randomPattern == 0)
+            {
+                yield return StartCoroutine(SpawnEnemies());
+            }
+            else if (randomPattern == 1)
+            {
+                yield return StartCoroutine(ChargeAttack());
+            }
+            else if (randomPattern == 2)
+            {
+                yield return StartCoroutine(ShootingPattern());
+            }
         }
     }
 
@@ -104,44 +128,53 @@ public class HeadBoss : MonoBehaviour
     }
     #endregion
 
-    IEnumerator BossPatternRoutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(timerBeforePatern);
-
-            int randomPattern = UnityEngine.Random.Range(0, 3);
-
-            if (randomPattern == 0)
-            {
-                yield return StartCoroutine(SpawnEnemies());
-            }
-            else if (randomPattern == 1)
-            {
-                yield return StartCoroutine(ChargeAttack());
-            }
-            else if (randomPattern == 2)
-            {
-                yield return StartCoroutine(ShootingPattern());
-            }
-        }
-    }
-
+    #region Spawn Ennemies
     IEnumerator SpawnEnemies()
     {
         isAttacking = true;
         canMove = false;
         yield return new WaitForSeconds(1f);
 
-        foreach (Transform spawn in spawnPoints)
+        int chance = UnityEngine.Random.Range(0, 3);
+
+        switch (chance)
         {
-            Instantiate(enemyPrefab, spawn.position, Quaternion.identity);
+            case 0:
+                foreach (Transform spawn in spawnPoints)
+                {
+                    if (spawn.gameObject.name.Contains("2") || spawn.gameObject.name.Contains("3"))
+                    {
+                        Instantiate(enemyPrefab[0], spawn.position, Quaternion.identity);
+                    }
+                }
+                break;
+
+            case 1:
+                foreach (Transform spawn in spawnPoints)
+                {
+                    if (spawn.gameObject.name.Contains("1") || spawn.gameObject.name.Contains("4") || spawn.gameObject.name.Contains("5"))
+                    {
+                        Instantiate(enemyPrefab[1], spawn.position, Quaternion.identity);
+                    }
+                }
+                break;
+
+            case 2:
+                foreach (Transform spawn in spawnPoints)
+                {
+                    if (spawn.gameObject.name.Contains("1"))
+                    {
+                        Instantiate(enemyPrefab[2], spawn.position, Quaternion.identity);
+                    }
+                }
+                break;
         }
 
         yield return new WaitForSeconds(2f);
         isAttacking = false;
         canMove = true;
     }
+    #endregion
 
     #region Charge Attack
     IEnumerator ChargeAttack()
@@ -226,6 +259,7 @@ public class HeadBoss : MonoBehaviour
     }
     #endregion
 
+    #region Tir
     IEnumerator ShootingPattern()
     {
         isAttacking = true;
@@ -233,10 +267,24 @@ public class HeadBoss : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        int chance = UnityEngine.Random.Range(0, 2);
+
+        if (chance == 0)
+        {
+            Instantiate(projectileHeavyPrefab, firePoint.position, firePoint.rotation);
+        }
+        else
+        {
+            foreach (Transform spawn in spawnPoints)
+            {
+                Instantiate(projectilePrefab, spawn.position, spawn.rotation);
+                yield return new WaitForSeconds(.5f);
+            }
+        }
 
         yield return new WaitForSeconds(shootCooldown);
         isAttacking = false;
         canMove = true;
     }
+    #endregion
 }
