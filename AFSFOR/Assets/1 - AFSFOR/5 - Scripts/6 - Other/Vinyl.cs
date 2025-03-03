@@ -8,11 +8,14 @@ public class Vinyl : MonoBehaviour
     [SerializeField] private List<AudioClip> _vinylMusics;
     private int currentIndex = 0;
 
+    private bool _isVinylActive = false;
+
     void Start()
     {
         _vinylSource = GetComponent<AudioSource>();
         _vinylSource.clip = _vinylMusics[currentIndex];
-        _vinylSource.Play();
+        _vinylSource?.Play();
+        _isVinylActive = true;
     }
 
 
@@ -20,7 +23,20 @@ public class Vinyl : MonoBehaviour
     {
         if (other.CompareTag("HandNaked"))
         {
-            SwitchToNext();
+            if (_isVinylActive)
+            {
+                SwitchToNext();
+            }
+            else
+            {
+                _vinylSource?.Play();
+                _isVinylActive = true;
+            }
+        }
+
+        if (other.CompareTag("Sword"))
+        {
+            ToggleVinylMusic();    
         }
     }
 
@@ -36,10 +52,24 @@ public class Vinyl : MonoBehaviour
 
     public void UpdatePitchMusic(float newPitch)
     {
-        if(newPitch < 0.2)
+        if (newPitch < 0.2)
         {
             newPitch *= 5;
         }
         _vinylSource.pitch = newPitch;
+    }
+
+    public void ToggleVinylMusic()
+    {
+        if (_isVinylActive)
+        {
+            _vinylSource?.Stop();
+            _isVinylActive = false;
+        }
+        else
+        {
+            _vinylSource?.Play();
+            _isVinylActive = true;
+        }
     }
 }

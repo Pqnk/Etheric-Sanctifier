@@ -31,9 +31,9 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Player_AFSFOR script = other.gameObject.GetComponent<Player_AFSFOR>();
-            script.DamagerPlayer(damage);
-
+            Player_AFSFOR playerScript = other.gameObject.GetComponent<Player_AFSFOR>();
+            playerScript.DamagerPlayer(damage);
+ 
             // Si gros tir alors empecher le joueur de tirer pendant x Secondes
             if (isBossBullet)
             {
@@ -67,7 +67,6 @@ public class EnemyBullet : MonoBehaviour
     IEnumerator DestroyBullet()
     {
         yield return new WaitForSeconds(lifeTimeBullet);
-
         Destroy(gameObject);
     }
 }

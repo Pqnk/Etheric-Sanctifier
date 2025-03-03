@@ -19,6 +19,8 @@ TagManager:
   - UIButton
   - Hand
   - HandNaked
+  - Vinyl
+  - Player_AFSFOR
   layers:
   - Default
   - TransparentFX
