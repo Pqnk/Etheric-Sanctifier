@@ -8,6 +8,14 @@ public class UIPlayer : MonoBehaviour
 {
     [SerializeField] private Slider _healthBar;
     [SerializeField] private Slider _scoreBar;
+    [SerializeField] private GameObject _damageUI;
+    [SerializeField] private float _damageUICoolDown = 1.0f;
+    private Coroutine _coroutineDamageUI = null;
+
+    private void Start()
+    {
+        _damageUI.SetActive(false);
+    }
 
     public void SetMaxHealth(int maxHealth)
     {
@@ -29,5 +37,26 @@ public class UIPlayer : MonoBehaviour
     public void SetScore(int score)
     {
         _scoreBar.value = score;
+    }
+
+    public void StartUIDamage()
+    {
+        if (_coroutineDamageUI == null)
+        {
+            _coroutineDamageUI = StartCoroutine(UIDamageCoolDown());
+        }
+        else
+        {
+            StopCoroutine(_coroutineDamageUI);
+           _coroutineDamageUI = StartCoroutine(UIDamageCoolDown());
+        }
+    }
+    IEnumerator UIDamageCoolDown()
+    {
+        _damageUI.SetActive(true);
+        yield return new WaitForSecondsRealtime(_damageUICoolDown);
+        _coroutineDamageUI = null;
+        _damageUI.SetActive(false);
+
     }
 }

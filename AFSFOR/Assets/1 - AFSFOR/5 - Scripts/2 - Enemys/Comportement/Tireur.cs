@@ -70,6 +70,7 @@ public class Tireur : MonoBehaviour
         if (enemy.target == null || Time.time < nextFireTime) return;
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)
         {

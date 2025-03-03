@@ -20,11 +20,6 @@ public class Sword : Weapon
 
             PlaySoundAndVFXSword(collisionPoint);
         }
-
-        if(collision.gameObject.tag == "EnemyBullet")
-        {
-            collision.gameObject.GetComponent<EnemyBullet>().RotateEnemyBullet();
-        }
     }
 
     private void PlaySoundAndVFXSword(Vector3 posContact)

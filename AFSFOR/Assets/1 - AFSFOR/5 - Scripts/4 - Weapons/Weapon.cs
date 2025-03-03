@@ -15,5 +15,4 @@ public class Weapon : MonoBehaviour
         areWeaponsActive = activate;
     }
 
-
 }

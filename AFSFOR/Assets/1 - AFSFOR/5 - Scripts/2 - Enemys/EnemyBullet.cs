@@ -11,6 +11,13 @@ public class EnemyBullet : MonoBehaviour
     [Space]
     public bool isBossBullet;
 
+    private bool _isDeflected = false;
+    [SerializeField] private GameObject _meshSkullGoat;
+
+    private Vector3 _oppositeDirection;
+
+    public Transform targetEnemyBullet;
+
     private void Start()
     {
         StartCoroutine(DestroyBullet());
@@ -23,7 +30,14 @@ public class EnemyBullet : MonoBehaviour
 
     private void Movebullet()
     {
-        transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+        if (!_isDeflected)
+        {
+            transform.Translate(transform.forward * (bulletSpeed * Time.deltaTime), Space.World);
+        }
+        else
+        {
+            transform.Translate(-_oppositeDirection * (bulletSpeed*5 * Time.deltaTime), Space.World);
+        }
     }
 
 
@@ -33,18 +47,31 @@ public class EnemyBullet : MonoBehaviour
         {
             Player_AFSFOR playerScript = other.gameObject.GetComponent<Player_AFSFOR>();
             playerScript.DamagerPlayer(damage);
- 
+
             // Si gros tir alors empecher le joueur de tirer pendant x Secondes
             if (isBossBullet)
             {
 
             }
 
-            PlaySoundAndFX();            
+            PlaySoundAndFX();
         }
         else if (other.gameObject.tag == "Object")
         {
             PlaySoundAndFX();
+        }
+        else if (other.gameObject.tag == "Sword" && !_isDeflected)
+        {
+            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
+            _oppositeDirection = (targetEnemyBullet.position - transform.position).normalized;
+            _isDeflected = true;
+        }
+        else if (other.gameObject.tag == "HandNaked" && !_isDeflected)
+        {
+            _meshSkullGoat.transform.Rotate(0, 180, 0, Space.Self);
+            _oppositeDirection = (targetEnemyBullet.position - transform.position).normalized;
+            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Slap, 1.0f, this.gameObject.transform.position);
+            _isDeflected = true;
         }
     }
 
@@ -70,8 +97,4 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void RotateEnemyBullet()
-    {
-        transform.Rotate(0, 180, 0, Space.Self);
-    }
 }

@@ -16,7 +16,7 @@ public class WeaponInventoryByHand : MonoBehaviour
     private int currentIndex = 0;
     public bool isLeftHand = false;
 
-    [SerializeField] private float _switchTimer = 0.5f;
+    [SerializeField] private float _switchTimer = 0.2f;
     private bool _readyToSwitch = true;
 
     [SerializeField] private Hand hand;
