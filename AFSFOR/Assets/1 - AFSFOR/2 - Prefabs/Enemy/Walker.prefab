@@ -359,6 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 240618220380704273}
+  - component: {fileID: 672010825084533999}
   - component: {fileID: 2920051468349658471}
   - component: {fileID: 6157116281228071899}
   - component: {fileID: 6312777622140020660}
@@ -386,6 +387,19 @@ Transform:
   - {fileID: 4748336073942934036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &672010825084533999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146182413988385762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbfa3d46c9616b4c8d955ac4d53ee30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTest: 1
 --- !u!114 &2920051468349658471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,11 +416,19 @@ MonoBehaviour:
   currentLife: 0
   _speed: 1
   currentSpeed: 0
+  rotationSpeed: 2
   _damage: 1
   currentDamage: 0
   stopDistance: 2
+  getForceBack: 1
+  canLightDetected: 1
+  _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
+  _emissiveMatDetection: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
+  _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
   idDead: 0
   rb: {fileID: 0}
+  target: {fileID: 0}
+  scriptPlayer: {fileID: 0}
   sM: {fileID: 0}
 --- !u!114 &6157116281228071899
 MonoBehaviour:

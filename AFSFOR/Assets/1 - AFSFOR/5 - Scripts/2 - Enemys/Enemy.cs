@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int currentLife;
     [SerializeField] float _speed = 1;
     public float currentSpeed;
+    public float rotationSpeed = 2;
     [SerializeField] float _damage = 1;
     public float currentDamage;
 
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public bool idDead = false;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform target;
+    [HideInInspector] public Player_AFSFOR scriptPlayer;
 
     [HideInInspector] public SoundManager sM;
 
@@ -54,18 +56,29 @@ public class Enemy : MonoBehaviour
         currentSpeed = _speed;
         currentDamage = _damage;
 
+        if (this.gameObject.name == "HeadBoss")
+        {
+            ghostRenderer = transform.GetChild(0).GetComponentInChildren<Renderer>();
+        }
+        else
+        {
+            ghostRenderer = GetComponentInChildren<Renderer>();
+        }
+
         rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
-        target = GameObject.Find("Player").transform;
+        //target = GameObject.Find("Player_AFSFOR").transform;
+        scriptPlayer = target.GetComponent<Player_AFSFOR>();
         sM = SuperManager.instance.soundManager;
     }
 
     public void Get_Hit(int hit)
     {
         currentLife -= hit;
+        SetIsTakingDamage(true);
 
         if (currentLife <= 0)
         {
@@ -112,6 +125,11 @@ public class Enemy : MonoBehaviour
         {
             SetIsTakingDamage(false);
         }
+
+        if (ghostRenderer)
+        {
+            CheckChangeMaterial();
+        }
     }
 
 
@@ -122,6 +140,11 @@ public class Enemy : MonoBehaviour
             Vector3 direction = (target.position - transform.position).normalized;
             rb.AddForce(-direction * force, forceMode);
         }
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 
     #region Changement Couleur

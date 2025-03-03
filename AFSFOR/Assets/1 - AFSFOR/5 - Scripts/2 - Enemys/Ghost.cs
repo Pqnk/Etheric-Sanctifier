@@ -171,7 +171,7 @@ public class Ghost : MonoBehaviour
         {
             PlaySoundKillGhost();
         }
-        gM.GetCameraPlayer().GetComponent<Player>().AddMana();
+        gM.GetCameraPlayer().GetComponent<Player_AFSFOR>().AddMana();
         if (!gM.isTutorial && gM.Get_CanSpawn())
         {
             SuperManager.instance.gameManagerAFSFOR.Set_KillGhost(false);

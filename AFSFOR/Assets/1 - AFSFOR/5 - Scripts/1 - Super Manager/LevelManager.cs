@@ -73,6 +73,7 @@ public class LevelManager : MonoBehaviour
     IEnumerator LoadingNextSceneFading()
     {
         yield return new WaitForSeconds(2.0f);
+        SuperManager.instance.soundManager.DestroyAllSoundsPrefabs3D();
         SceneManager.LoadSceneAsync(_currentNameLevel);
         yield return new WaitForSeconds(0.5f);
         //SuperManager.instance.uiManager.GetPostProcessVolumeInScene(_currentLevel);

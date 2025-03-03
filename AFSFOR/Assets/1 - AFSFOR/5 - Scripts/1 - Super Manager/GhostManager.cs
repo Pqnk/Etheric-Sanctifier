@@ -14,8 +14,8 @@ public class GhostManager : MonoBehaviour
     [SerializeField] private GameObject _ghostPrefab;
 
     [Header("Spawn Settings : Main Target")]
-    [SerializeField] private string _mainTargetName = "Camera_Player";
-    [SerializeField] private GameObject _cameraPlayer;
+    [SerializeField] private string _mainTargetName = "Player_AFSFOR";
+    [SerializeField] private GameObject _playerRef;
     [SerializeField] private Transform _mainTarget;
     [SerializeField] private Transform _secondaryTarget;
     [SerializeField] private Transform _lowTarget;
@@ -64,7 +64,7 @@ public class GhostManager : MonoBehaviour
     }
     public GameObject GetCameraPlayer()
     {
-        return _cameraPlayer;
+        return _playerRef;
     }
     public Transform GetTargetLow()
     {
@@ -87,16 +87,16 @@ public class GhostManager : MonoBehaviour
 
         }
         _spawnPointsParent = SuperManager.instance.levelManager.FindInScene(levelType, _ghostSpawnPointsName);
-        _cameraPlayer = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName);
-        if (_cameraPlayer == null)
+        //_playerRef = SuperManager.instance.levelManager.FindInScene(levelType, _mainTargetName);
+        if (_playerRef == null)
         {
-            Debug.LogError("PAS DE CAMERA MAIN TARGET");
+            Debug.LogError("PAS DE PLAYER_AFSFOR DANS LA SCENE");
         }
         else
         {
-            _mainTarget = _cameraPlayer.transform.GetChild(2).transform;
-            _radarRef = _cameraPlayer.transform.GetChild(2).transform.GetChild(0).gameObject;
-            _lowTarget = _cameraPlayer.transform.GetChild(2).transform.GetChild(2).transform;
+            //_mainTarget =   _playerRef.transform.GetChild(6).transform;
+            //_lowTarget =    _playerRef.transform.GetChild(6).transform.GetChild(0).transform;
+            //_radarRef =     _playerRef.transform.GetChild(6).transform.GetChild(1).gameObject;
         }
 
         if (_spawnPointsParent != null && _mainTarget != null)
@@ -142,46 +142,49 @@ public class GhostManager : MonoBehaviour
                 p = _ghostPrefab;
             }
             GameObject ghostInstance = Instantiate(p, spawnPosition, Quaternion.identity);
+            ghostInstance.GetComponent<Enemy>().SetTarget(_mainTarget);
+
+            SuperManager.instance.vfxManager.InstantiateVFX_vfxDeadGhostImpact(ghostInstance.transform);
 
             // Changement de la size
-            float rd = Random.Range(tailleGhostMin, tailleGhostMax);
-            ghostInstance.transform.localScale = new Vector3(rd, rd, rd);
+            //float rd = Random.Range(tailleGhostMin, tailleGhostMax);
+            //ghostInstance.transform.localScale = new Vector3(rd, rd, rd);
 
-            Ghost ghostBehavior = ghostInstance.GetComponent<Ghost>();
+            //Ghost ghostBehavior = ghostInstance.GetComponent<Ghost>();
 
-            ghostBehavior.SetTarget(GetRandomTargetBetweenMainAndLow());
-            ghostBehavior.SetId(_currentIdGhost);
-            _currentIdGhost++;
+            //ghostBehavior.SetTarget(GetRandomTargetBetweenMainAndLow());
+            //ghostBehavior.SetId(_currentIdGhost);
+            //_currentIdGhost++;
             // Vitesse
-            _moveSpeed = Random.Range(_moveSpeedMin, _moveSpeedMax);
-            ghostBehavior.SetSpeed(_moveSpeed);
+            //_moveSpeed = Random.Range(_moveSpeedMin, _moveSpeedMax);
+            //ghostBehavior.SetSpeed(_moveSpeed);
 
 
-            switch (SuperManager.instance.gameManagerAFSFOR.indexPalier)
-            {
-                case 0:
-                    // Life
-                    ghostBehavior.Set_Life(lifesPalier[0]);
-                    spawnIntervalActual = _spawnInterval[0];
-                    ghostBehavior.Set_BaseMat(baseMats[0]);
-                    break;
+        //    switch (SuperManager.instance.gameManagerAFSFOR.indexPalier)
+        //    {
+        //        case 0:
+        //            // Life
+        //            ghostBehavior.Set_Life(lifesPalier[0]);
+        //            spawnIntervalActual = _spawnInterval[0];
+        //            ghostBehavior.Set_BaseMat(baseMats[0]);
+        //            break;
 
-                case 1:
-                    // Life
-                    ghostBehavior.Set_Life(lifesPalier[1]);
-                    spawnIntervalActual = _spawnInterval[1];
-                    ghostBehavior.Set_BaseMat(baseMats[1]);
-                    break;
+        //        case 1:
+        //            // Life
+        //            ghostBehavior.Set_Life(lifesPalier[1]);
+        //            spawnIntervalActual = _spawnInterval[1];
+        //            ghostBehavior.Set_BaseMat(baseMats[1]);
+        //            break;
 
-                case 2:
-                    // Life
-                    ghostBehavior.Set_Life(lifesPalier[2]);
-                    spawnIntervalActual = _spawnInterval[2];
-                    ghostBehavior.Set_BaseMat(baseMats[2]);
-                    break;
-            }
+        //        case 2:
+        //            // Life
+        //            ghostBehavior.Set_Life(lifesPalier[2]);
+        //            spawnIntervalActual = _spawnInterval[2];
+        //            ghostBehavior.Set_BaseMat(baseMats[2]);
+        //            break;
+        //    }
 
-            allGhosts.Add(ghostBehavior.transform);
+        //    allGhosts.Add(ghostBehavior.transform);
         }
 
         yield return new WaitForSeconds(spawnIntervalActual);

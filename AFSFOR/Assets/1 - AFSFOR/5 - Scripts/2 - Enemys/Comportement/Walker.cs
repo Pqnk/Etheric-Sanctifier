@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Enemy))]
 public class Walker : MonoBehaviour
@@ -29,14 +28,6 @@ public class Walker : MonoBehaviour
 
     private void Start()
     {
-        Init();
-    }
-
-    void Init()
-    {
-        // Temporaire mais donner au script enemy à l'instantiation
-        
-
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
     }
@@ -104,7 +95,7 @@ public class Walker : MonoBehaviour
     private void AttackPlayer()
     {
         Debug.Log("Attaque");
-        enemy.target.gameObject.GetComponent<Player>().DamagerPlayer(enemy.currentDamage);
+        enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
 
         // Joue le son
         SoundType s;

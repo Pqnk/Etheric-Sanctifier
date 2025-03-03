@@ -29,7 +29,7 @@ public class GameManagerAFSFOR : MonoBehaviour
     //  ####################################################
     private void GameplayHUB()
     {
-        SuperManager.instance.soundManager.PlaySound(SoundType.HUBMusic, 0.1f);
+        //SuperManager.instance.soundManager.PlaySound(SoundType.HUBMusic, 0.1f);
         SuperManager.instance.ghostManager.DefinitiveStopWaveAndClearGhosts();
     }
 
@@ -38,7 +38,7 @@ public class GameManagerAFSFOR : MonoBehaviour
     //  ####################################################
     private void GameplayTutorial()
     {
-        SuperManager.instance.soundManager.PlaySound(SoundType.MusicTuto, 0.1f);
+        //SuperManager.instance.soundManager.PlaySound(SoundType.MusicTuto, 0.1f);
 
         if (SuperManager.instance.ghostManager.InitializeghostManager(true))
         {
@@ -59,7 +59,7 @@ public class GameManagerAFSFOR : MonoBehaviour
 
     private void GameplayLevel01()
     {
-        SuperManager.instance.soundManager.PlaySound(SoundType.Music, 0.1f);
+        //SuperManager.instance.soundManager.PlaySound(SoundType.Music, 0.1f);
 
         if (SuperManager.instance.ghostManager.InitializeghostManager(false))
         {
@@ -127,7 +127,7 @@ public class GameManagerAFSFOR : MonoBehaviour
     }
 
     //  ####################################################
-    //  Player Managment
+    //  Player_AFSFOR Managment
     //  ####################################################
     public void PlayerDeadCinematic()
     {
