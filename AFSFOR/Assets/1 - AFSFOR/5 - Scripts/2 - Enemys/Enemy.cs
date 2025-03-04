@@ -80,6 +80,7 @@ public class Enemy : MonoBehaviour
     public void InitStatEnemy(int life, int damage)
     {
         _life = life;
+        currentLife = _life;
         _damage = damage;
         currentLife = life;
         currentDamage = damage;

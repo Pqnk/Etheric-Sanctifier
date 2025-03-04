@@ -229,6 +229,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lifeTimeBullet: 5
+  hitcanvas: {fileID: 9197432632926656861, guid: 9df77bda79656924085b0b78c6444497, type: 3}
 --- !u!135 &5049463037998408085
 SphereCollider:
   m_ObjectHideFlags: 0
