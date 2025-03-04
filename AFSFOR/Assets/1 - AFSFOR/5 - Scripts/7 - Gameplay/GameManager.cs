@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 using Valve.VR.InteractionSystem;
 
 public class GameManager : MonoBehaviour
@@ -20,10 +21,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] float waveInterval = 10f;
 
     int idBoss = 0;
-    [SerializeField] int totalEnemiesKilled = 0;
-    [SerializeField] int currentWaveIndex = 0;
-    [SerializeField] int enemiesKilledThisWave = 0;
-    [SerializeField] int enemiesToKillThisWave = 0;
+    int totalEnemiesKilled = 0;
+    int currentWaveIndex = 0;
+    int enemiesKilledThisWave = 0;
+    int enemiesToKillThisWave = 0;
     bool waveInProgress = false;
     bool bossWaveActive = false;
     Transform player;
@@ -39,18 +40,18 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            for (int i = 0; i < 2; i++) // Ennemi Vague
+
+            if((currentWaveIndex + 1) % 3 == 0)
+            {
+                yield return StartCoroutine(SpawnBossWaves());
+                yield return new WaitUntil(() => !bossWaveActive);                
+            }
+            else
             {
                 yield return StartCoroutine(SpawnWaves(waves[currentWaveIndex % waves.Length]));
                 yield return new WaitUntil(() => enemiesKilledThisWave >= enemiesToKillThisWave);
-                KillAllEnemies();
-                yield return new WaitForSeconds(waveInterval);
-                currentWaveIndex++;
             }
 
-            // Boss Vague
-            yield return StartCoroutine(SpawnBossWaves());
-            yield return new WaitUntil(() => !bossWaveActive);
             KillAllEnemies();
             yield return new WaitForSeconds(waveInterval);
             currentWaveIndex++;
