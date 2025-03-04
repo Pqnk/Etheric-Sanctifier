@@ -24,6 +24,8 @@ public class Player_AFSFOR : MonoBehaviour
     [SerializeField] private GameObject _headLight;
     [SerializeField] private UIPlayer _UIPlayer;
 
+    public GameObject VRHead;
+
     private DamageManager _damageManager;
     #endregion
 

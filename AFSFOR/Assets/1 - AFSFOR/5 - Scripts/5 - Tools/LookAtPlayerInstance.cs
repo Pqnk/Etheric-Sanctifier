@@ -6,16 +6,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class LookAtPlayerInstance : MonoBehaviour
 {
-    private Transform _target;
-
-    private void Start()
-    {
-        _target = Player.instance.transform;
-    }
-
     void Update()
     {
-        if (_target == null) return;
-        transform.LookAt(_target);
+        transform.LookAt(Player.instance.gameObject.GetComponent<Player_AFSFOR>().VRHead.transform);
+        transform.Translate(0, 0.01f, 0);
     }
 }

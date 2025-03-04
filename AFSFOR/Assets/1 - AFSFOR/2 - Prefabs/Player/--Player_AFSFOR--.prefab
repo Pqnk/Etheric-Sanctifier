@@ -976,6 +976,7 @@ MonoBehaviour:
   _playerCurrentScore: 0
   _headLight: {fileID: 6042363987238602510}
   _UIPlayer: {fileID: 1955612916367874464}
+  VRHead: {fileID: 85360891937077031}
 --- !u!54 &8359498565968162774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2864,6 +2865,11 @@ PrefabInstance:
 --- !u!4 &85360891936757481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8068126706454865338, guid: 1dc26f7755362b048b0c8954bc2f98bf, type: 3}
+  m_PrefabInstance: {fileID: 7987412361680810835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &85360891937077031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8068126706454676596, guid: 1dc26f7755362b048b0c8954bc2f98bf, type: 3}
   m_PrefabInstance: {fileID: 7987412361680810835}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1955612916367874464 stripped
