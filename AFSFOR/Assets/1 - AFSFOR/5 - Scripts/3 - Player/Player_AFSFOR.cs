@@ -103,6 +103,7 @@ public class Player_AFSFOR : MonoBehaviour
         if (_playerCurrentHealth <= 0)
         {
             _playerIsDead = true;
+            StartCoroutine(LoadingHUb());
         }
     }
 
@@ -116,5 +117,13 @@ public class Player_AFSFOR : MonoBehaviour
     public void ToggleHeadLight(bool activate)
     {
         _headLight.SetActive(activate);
+    }
+    
+
+
+    IEnumerator LoadingHUb()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        SuperManager.instance.levelManager.LoadLevel(LevelType.HUB);
     }
 }
