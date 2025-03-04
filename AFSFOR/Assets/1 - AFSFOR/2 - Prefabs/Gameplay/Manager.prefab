@@ -55,7 +55,18 @@ MonoBehaviour:
     - {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
     - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
     enemyToKill: 20
-    spawnDelay: 3
+    spawnDelay: 4
+  - enemyPrefabs:
+    - {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
+    - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
+    enemyToKill: 20
+    spawnDelay: 4
+  - enemyPrefabs:
+    - {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
+    - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
+    - {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
+    enemyToKill: 20
+    spawnDelay: 4
   bossPrefab:
   - {fileID: 3555359972573601821, guid: 776bbee45a4822d4a947baaf07897883, type: 3}
   - {fileID: 3555359972573601821, guid: 776bbee45a4822d4a947baaf07897883, type: 3}

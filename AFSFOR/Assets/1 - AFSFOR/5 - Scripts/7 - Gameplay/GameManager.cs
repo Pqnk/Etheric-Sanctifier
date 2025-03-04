@@ -6,6 +6,8 @@ using Valve.VR.InteractionSystem;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [System.Serializable]
     public class Wave
     {
@@ -29,6 +31,10 @@ public class GameManager : MonoBehaviour
     bool bossWaveActive = false;
     Transform player;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

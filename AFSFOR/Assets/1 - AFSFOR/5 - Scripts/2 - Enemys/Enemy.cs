@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Enemy's Stats")]
-    [SerializeField] int _life = 10;
+    int _life = 10;
+    int _damage = 1;
+
+    [Header("Enemy Stats")]
     public int currentLife;
     [SerializeField] float _speed = 1;
     public float currentSpeed;
     public float rotationSpeed = 2;
-    [SerializeField] int _damage = 1;
     public float currentDamage;
 
     [Header("Info")]
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Material _baseMat;
     [SerializeField] private Material _emissiveMatDetection;
     [SerializeField] private Material _emissiveMatDamage;
+    [SerializeField] private GameObject _PrefabSoul;
 
     [HideInInspector] public bool idDead = false;
     [HideInInspector] public Rigidbody rb;
@@ -79,6 +81,8 @@ public class Enemy : MonoBehaviour
     {
         _life = life;
         _damage = damage;
+        currentLife = life;
+        currentDamage = damage;
     }
 
     public void Get_Hit(int hit)
@@ -132,6 +136,7 @@ public class Enemy : MonoBehaviour
             if (!allDead)
             {
                 gM.EnemyKilled();
+                Instantiate(_PrefabSoul,transform.position, Quaternion.identity);
             }
         }
 
@@ -180,6 +185,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         rb.isKinematic = true;
     }
+
     public void StartExpulsion()
     {
         StartCoroutine(SlapEnemyAndRestoreRigidbody());
@@ -218,6 +224,4 @@ public class Enemy : MonoBehaviour
         _baseMat = newMat;
     }
     #endregion
-
-
 }
