@@ -8,18 +8,15 @@ public class Vinyl : MonoBehaviour
     [SerializeField] private AudioSource _vinylSource;
     [SerializeField] private List<AudioClip> _vinylMusics;
     private int currentIndex = 0;
-    private bool _isVinylActive = false;
+    [SerializeField] private bool _isVinylActive = false;
     [SerializeField] private TMP_Text _textUIVinyl;
 
     void Start()
     {
         _vinylSource = GetComponent<AudioSource>();
         _vinylSource.clip = _vinylMusics[currentIndex];
-        _vinylSource?.Play();
-        _isVinylActive = true;
         UpdateTextUIVinyl();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,10 +31,6 @@ public class Vinyl : MonoBehaviour
                 _vinylSource?.Play();
                 _isVinylActive = true;
             }
-        }
-        if (other.CompareTag("Sword"))
-        {
-            ToggleVinylMusic();
         }
 
         UpdateTextUIVinyl();
@@ -84,7 +77,7 @@ public class Vinyl : MonoBehaviour
         }
         else
         {
-            _textUIVinyl.text = "Song title here...";
+            _textUIVinyl.text = "Touch with hand to play ! ";
         }
     }
 }

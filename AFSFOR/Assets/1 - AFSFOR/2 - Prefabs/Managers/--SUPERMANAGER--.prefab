@@ -176,16 +176,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5188990661911446387}
-  m_LocalRotation: {x: -0, y: -0.9891316, z: 0, w: -0.14703257}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0.08125364, y: -0.8243731, z: 0.54661727, w: -0.122541524}
+  m_LocalPosition: {x: 0, y: 0, z: 2.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8857462990798434354}
-  m_LocalEulerAnglesHint: {x: 0, y: -196.91, z: 0}
+  m_LocalEulerAnglesHint: {x: 67.094, y: -196.91, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.7, y: -6.6}
   m_SizeDelta: {x: 156.8, y: 18.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8054244492087327905
@@ -243,8 +243,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11.34
-  m_fontSizeBase: 11.34
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -606,35 +606,35 @@ PrefabInstance:
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: b98d0bcd08ed1f24f864fc2fb9e4717d, type: 3}
+      objectReference: {fileID: 8300000, guid: e398606d681f03f4191baa2df8235210, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 44b3fe1b9b8af0d4ea48722888ba15fc, type: 3}
+      objectReference: {fileID: 8300000, guid: faabe678d3230e9419bdb1e8c6615a25, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: b4f89a90e7e2e0645be9d12e3c149758, type: 3}
+      objectReference: {fileID: 8300000, guid: 44b3fe1b9b8af0d4ea48722888ba15fc, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: faabe678d3230e9419bdb1e8c6615a25, type: 3}
+      objectReference: {fileID: 8300000, guid: 0e038440b0f038547900bc8edb6e9b85, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[5]
       value: 
-      objectReference: {fileID: 8300000, guid: 2845bc7a20ad4a9418ee6e8e1bfe034e, type: 3}
+      objectReference: {fileID: 8300000, guid: b4f89a90e7e2e0645be9d12e3c149758, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: e398606d681f03f4191baa2df8235210, type: 3}
+      objectReference: {fileID: 8300000, guid: 6da0d745abdfa1342b6838befd22d2b0, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[7]
       value: 
-      objectReference: {fileID: 8300000, guid: 0e038440b0f038547900bc8edb6e9b85, type: 3}
+      objectReference: {fileID: 8300000, guid: 2845bc7a20ad4a9418ee6e8e1bfe034e, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[8]
       value: 
-      objectReference: {fileID: 8300000, guid: 6da0d745abdfa1342b6838befd22d2b0, type: 3}
+      objectReference: {fileID: 8300000, guid: b98d0bcd08ed1f24f864fc2fb9e4717d, type: 3}
     - target: {fileID: 6820478786128430880, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
