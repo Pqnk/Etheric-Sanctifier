@@ -42,7 +42,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476771462401470906}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 9ff77f8f174a059408017eed25984dd9, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: fd8b957b0dba99c4b9dfe27bc2de8a91, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 128
+  lifeTimeBullet: 5
 --- !u!135 &5555191169071793407
 SphereCollider:
   m_ObjectHideFlags: 0
