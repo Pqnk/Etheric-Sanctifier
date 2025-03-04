@@ -90,11 +90,18 @@ public class Enemy : MonoBehaviour
         {
             idDead = true;
             currentLife = 0;
-            StartCoroutine(Die());
+            StartCoroutine(Die(false));
         }
     }
 
-    private IEnumerator Die()
+    public void Get_HitAll()
+    {
+        idDead = true;
+        currentLife = 0;
+        StartCoroutine(Die(true));
+    }
+
+    private IEnumerator Die(bool allDead)
     {
         // Joue le son de la mort --------------------------------------------------------
         SoundType s;
@@ -122,7 +129,10 @@ public class Enemy : MonoBehaviour
         // Ajoute un kill au GameManager -----------------------------------------------
         if (gM != null)
         {
-            gM.EnemyKilled();
+            if (!allDead)
+            {
+                gM.EnemyKilled();
+            }
         }
 
         scriptPlayer.AddMana(5);
@@ -164,7 +174,7 @@ public class Enemy : MonoBehaviour
 
     #region SLAP DAT GOAT
     IEnumerator SlapEnemyAndRestoreRigidbody()
-    {    
+    {
         rb.isKinematic = true;
         rb.AddForce(-1 * this.gameObject.transform.forward * 10000);
         yield return new WaitForSeconds(2.0f);

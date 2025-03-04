@@ -87,16 +87,18 @@ public class Walker : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 10f);
         }
 
-        if (!hasAttacked)
+
+        if (Vector3.Distance(transform.position, enemy.target.position) > enemy.stopDistance + .1f)
         {
-            if (Vector3.Distance(transform.position, enemy.target.position) > enemy.stopDistance + .1f)
+            enemy.rb.MovePosition(transform.position + direction * enemy.currentSpeed * Time.fixedDeltaTime);
+            transform.forward = direction;
+        }
+        else
+        {
+            enemy.currentSpeed = 0;
+            if (!hasAttacked)
             {
-                enemy.rb.MovePosition(transform.position + direction * enemy.currentSpeed * Time.fixedDeltaTime);
-                transform.forward = direction;
-            }
-            else
-            {
-                enemy.currentSpeed = 0;
+                hasAttacked = true;
                 StartCoroutine(AttackPlayer());
             }
         }
@@ -106,14 +108,19 @@ public class Walker : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         Debug.Log("Attaque");
+        bool attack = true; ;
         yield return new WaitForSeconds(1f);
-        hasAttacked = true;
 
         // Joue le son
         SoundType s;
         s = SoundType.SlurpGoat;
         enemy.sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
-        enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
+
+        if (attack)
+        {
+            attack = false;
+            enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
+        }
 
         // Repli
         repliTimer = repliDuration;

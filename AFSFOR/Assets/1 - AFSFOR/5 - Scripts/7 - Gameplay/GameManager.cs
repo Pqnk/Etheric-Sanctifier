@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Player.instance.gameObject.GetComponent<Player_AFSFOR>().ToggleHeadLight(true);
         player = Player.instance.transform;
         StartCoroutine(SpawnWaves());
     }
@@ -40,7 +41,6 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-
             if((currentWaveIndex + 1) % 3 == 0)
             {
                 yield return StartCoroutine(SpawnBossWaves());
@@ -103,7 +103,6 @@ public class GameManager : MonoBehaviour
     {
         totalEnemiesKilled++;
         enemiesKilledThisWave++;
-        Debug.Log("Enemies killed: " + totalEnemiesKilled);
 
         if (bossWaveActive && enemiesKilledThisWave >= enemiesToKillThisWave)
         {
@@ -116,7 +115,7 @@ public class GameManager : MonoBehaviour
         Enemy[] enemies = FindObjectsOfType<Enemy>();
         foreach (Enemy enemy in enemies)
         {
-            enemy.Get_Hit(1000000);
+            enemy.Get_HitAll();
         }
     }
 }
