@@ -684,6 +684,18 @@ PrefabInstance:
       propertyPath: rightController
       value: 
       objectReference: {fileID: 4747292314306283541}
+    - target: {fileID: 2012617169755210152, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 2012617169755210152, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 2012617169755210152, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5974166552497631642, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
