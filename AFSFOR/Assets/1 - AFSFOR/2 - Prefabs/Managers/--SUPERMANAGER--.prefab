@@ -353,12 +353,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2c2a53c8004b4438a36443e542ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePlayerSWORD: 500
-  damagePlayerGUN: 70
+  damagePlayerSWORD: 5000
+  damagePlayerGUN: 10
   damagePlayerHAND: 0
   lifePlayer: 100
   damageWALKER: 10
-  lifeWALKER: 100
+  lifeWALKER: 1000
   damageTIREUR: 0
   lifeTIREUR: 0
   damageGHOST: 0

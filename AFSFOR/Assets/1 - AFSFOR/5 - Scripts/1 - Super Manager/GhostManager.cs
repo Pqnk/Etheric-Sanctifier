@@ -129,7 +129,7 @@ public class GhostManager : MonoBehaviour
 
     IEnumerator SpawnPrefabs()
     {
-        float spawnIntervalActual = 5f;
+        float spawnIntervalActual = 1.5f;
 
         if (allGhosts.Count < _maxGhostInTotal && _canSpawn)
         {

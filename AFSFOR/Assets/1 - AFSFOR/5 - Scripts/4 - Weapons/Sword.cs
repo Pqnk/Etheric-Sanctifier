@@ -12,19 +12,21 @@ public class Sword : Weapon
         damage = SuperManager.instance.damageManager.damagePlayerSWORD;
     }
 
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ghost")
+        if (areWeaponsActive)
         {
-            ContactPoint contact = collision.contacts[0];
-            Vector3 collisionPoint = contact.point;
-            Vector3 collisionDirection = (collision.transform.position - transform.position).normalized;
-            Ghost behaviorGhost = collision.gameObject.GetComponent<Ghost>();
-            behaviorGhost.AddForceToGhost(collisionDirection, forceImpulse, ForceMode.Impulse);
-            behaviorGhost.LowerHealth(damage);
+            if (collision.gameObject.tag == "Ghost")
+            {
+                ContactPoint contact = collision.contacts[0];
+                Vector3 collisionPoint = contact.point;
+                collision.gameObject.GetComponent<Enemy>().Get_Hit(damage);
+                collision.gameObject.GetComponent<Enemy>().StartExpulsion(10000);
 
-            PlaySoundAndVFXSword(collisionPoint);
+                SuperManager.instance.damageManager.SpawnHitCanvas(damage, collisionPoint);
+
+                PlaySoundAndVFXSword(collisionPoint);
+            }
         }
     }
 

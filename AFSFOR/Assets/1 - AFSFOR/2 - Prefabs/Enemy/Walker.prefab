@@ -412,12 +412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1533a206d630a6e498a57a7514d9af33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _life: 10
   currentLife: 0
-  _speed: 1
+  _speed: 6
   currentSpeed: 0
   rotationSpeed: 2
-  _damage: 1
   currentDamage: 0
   stopDistance: 1
   getForceBack: 1
@@ -425,10 +423,12 @@ MonoBehaviour:
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
   _emissiveMatDetection: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
   _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
+  _PrefabSoul: {fileID: 0}
   idDead: 0
   rb: {fileID: 0}
   target: {fileID: 0}
   scriptPlayer: {fileID: 0}
+  isDetected: 0
   sM: {fileID: 0}
   gM: {fileID: 0}
 --- !u!114 &6157116281228071899
@@ -445,6 +445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repliDistance: 1.5
   repliDuration: 0.9
+  isRepli: 0
+  hasAttacked: 0
   esquiveDistance: 2
   esquiveDuration: 0.3
   esquiveDetectionRadius: 2

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class Enemy : MonoBehaviour
 {
@@ -73,8 +74,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        scriptPlayer = target.GetComponent<Player_AFSFOR>();
         sM = SuperManager.instance.soundManager;
+        target = Player.instance.transform;
+        scriptPlayer = target.gameObject.GetComponent<Player_AFSFOR>();
     }
 
     public void InitStatEnemy(int life, int damage)
@@ -179,17 +181,17 @@ public class Enemy : MonoBehaviour
     }
 
     #region SLAP DAT GOAT
-    IEnumerator SlapEnemyAndRestoreRigidbody()
+    IEnumerator SlapEnemyAndRestoreRigidbody(float powerSlap)
     {
         rb.isKinematic = false;
-        rb.AddForce(-1 * this.gameObject.transform.forward * 10000);
+        rb.AddForce(-1 * this.gameObject.transform.forward * powerSlap);
         yield return new WaitForSeconds(2.0f);
         rb.isKinematic = true;
     }
 
-    public void StartExpulsion()
+    public void StartExpulsion(float powerslap)
     {
-        StartCoroutine(SlapEnemyAndRestoreRigidbody());
+        StartCoroutine(SlapEnemyAndRestoreRigidbody(powerslap));
     }
     #endregion
 

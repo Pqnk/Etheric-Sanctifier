@@ -36,7 +36,7 @@ public class DamageManager : MonoBehaviour
 
     public void SpawnHitCanvas(int hitDamage, Vector3 pos)
     {
-        GameObject newHitUi = Instantiate(hitcanvas, pos + new Vector3(0,1,0), Quaternion.identity);
+        GameObject newHitUi = Instantiate(hitcanvas, pos + new Vector3(0,0.3f,0), Quaternion.identity);
 
         newHitUi.transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>().text = hitDamage.ToString();
     }
