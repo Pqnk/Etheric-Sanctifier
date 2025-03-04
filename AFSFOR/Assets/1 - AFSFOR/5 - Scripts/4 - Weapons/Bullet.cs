@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         damageLight = SuperManager.instance.damageManager.damagePlayerGUNLIGHT;
-        damageLight = SuperManager.instance.damageManager.damagePlayerGUNHEAVY;
+        damageHeavy = SuperManager.instance.damageManager.damagePlayerGUNHEAVY;
 
         StartCoroutine(DestroyBullet());
     }

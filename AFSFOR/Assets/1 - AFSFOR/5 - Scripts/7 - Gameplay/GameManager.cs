@@ -21,12 +21,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] bossPrefab;
     [SerializeField] Transform[] spawnPoints;
     [SerializeField] float waveInterval = 10f;
+    [HideInInspector] public int enemiesKilledThisWave = 0;
+    [HideInInspector] public int enemiesToKillThisWave = 0;
+    [HideInInspector] public int currentWaveIndex = 0;
 
     int idBoss = 0;
     int totalEnemiesKilled = 0;
-    int currentWaveIndex = 0;
-    int enemiesKilledThisWave = 0;
-    int enemiesToKillThisWave = 0;
     bool waveInProgress = false;
     bool bossWaveActive = false;
     Transform player;
@@ -47,10 +47,10 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            if((currentWaveIndex + 1) % 3 == 0)
+            if ((currentWaveIndex + 1) % 3 == 0)
             {
                 yield return StartCoroutine(SpawnBossWaves());
-                yield return new WaitUntil(() => !bossWaveActive);                
+                yield return new WaitUntil(() => !bossWaveActive);
             }
             else
             {
@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             GameObject enemyPrefab = wave.enemyPrefabs[Random.Range(0, wave.enemyPrefabs.Length)];
             GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<Enemy>().target = player;
             enemy.GetComponent<Enemy>().gM = this;
             yield return new WaitForSeconds(wave.spawnDelay);
         }
@@ -88,9 +87,9 @@ public class GameManager : MonoBehaviour
         enemiesToKillThisWave = 1;
         bossWaveActive = true;
 
-        Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+        Transform[] newWaypoints = { spawnPoints[1], spawnPoints[2], spawnPoints[3], spawnPoints[8], spawnPoints[9], spawnPoints[10] };
+        Transform spawnPoint = newWaypoints[UnityEngine.Random.Range(0, newWaypoints.Length)];
         GameObject boss = Instantiate(bossPrefab[idBoss], spawnPoint.position, Quaternion.identity);
-        boss.GetComponent<Enemy>().target = player;
         boss.GetComponent<Enemy>().gM = this;
 
         if (idBoss == 0)
@@ -108,7 +107,7 @@ public class GameManager : MonoBehaviour
     public void EnemyKilled()
     {
         totalEnemiesKilled++;
-        enemiesKilledThisWave++;
+        //enemiesKilledThisWave++;
 
         if (bossWaveActive && enemiesKilledThisWave >= enemiesToKillThisWave)
         {
