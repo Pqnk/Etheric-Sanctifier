@@ -28,7 +28,7 @@ public class SoulMove : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.5f);
 
         target.Add_Point();
 
