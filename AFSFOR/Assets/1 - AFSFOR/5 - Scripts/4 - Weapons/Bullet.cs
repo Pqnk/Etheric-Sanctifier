@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage = 50;
+    public int damageLight = 5;
+    public int damageHeavy = 100000;
     public float forcePush;
     public float bulletSpeed;
     public float rangeHeavyImpact;
@@ -17,7 +18,8 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        damage = SuperManager.instance.damageManager.damagePlayerGUN;
+        damageLight = SuperManager.instance.damageManager.damagePlayerGUNLIGHT;
+        damageLight = SuperManager.instance.damageManager.damagePlayerGUNHEAVY;
 
         StartCoroutine(DestroyBullet());
     }
@@ -45,11 +47,11 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.tag == "Ghost")
             {
                 Vector3 contactPoint = other.ClosestPoint(transform.position);
-                SuperManager.instance.damageManager.SpawnHitCanvas(damage, transform.position);
+                SuperManager.instance.damageManager.SpawnHitCanvas(damageLight, transform.position);
 
                 Enemy scriptEnemy = other.gameObject.GetComponent<Enemy>();
                 scriptEnemy.AddForceBack(forcePush, ForceMode.Impulse);
-                scriptEnemy.Get_Hit(damage);
+                scriptEnemy.Get_Hit(damageLight);
 
                 PlaySoundAndFXShootImpact();
                 Destroy(transform.root.gameObject);
@@ -70,7 +72,7 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.tag == "Ghost")
             {
                 Vector3 contactPoint = other.ClosestPoint(transform.position);
-                SuperManager.instance.damageManager.SpawnHitCanvas(damage, transform.position);
+                SuperManager.instance.damageManager.SpawnHitCanvas(damageLight, transform.position);
 
                 Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, rangeHeavyImpact, LayerMask);
 
@@ -81,7 +83,7 @@ public class Bullet : MonoBehaviour
                     if (((1 << collider.gameObject.layer) & LayerMask) != 0)
                     {
                         //ghostCollider.GetComponent<Ghost>().LowerHealth(damage);
-                        ghostCollider.GetComponent<Enemy>().Get_Hit(damage);
+                        ghostCollider.GetComponent<Enemy>().Get_Hit(damageLight);
                     }
                 }
 

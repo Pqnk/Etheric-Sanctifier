@@ -354,7 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePlayerSWORD: 5000
-  damagePlayerGUN: 10
+  damagePlayerGUNLIGHT: 5
+  damagePlayerGUNHEAVY: 10000
   damagePlayerHAND: 0
   lifePlayer: 100
   damageWALKER: 10

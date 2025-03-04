@@ -8,7 +8,8 @@ public class DamageManager : MonoBehaviour
 {
     [Header("PLAYER")]
     public int damagePlayerSWORD;
-    public int damagePlayerGUN;
+    public int damagePlayerGUNLIGHT;
+    public int damagePlayerGUNHEAVY;
     public int damagePlayerHAND;
     public int lifePlayer;
 

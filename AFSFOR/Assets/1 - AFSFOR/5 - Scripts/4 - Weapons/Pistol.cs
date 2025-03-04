@@ -64,6 +64,7 @@ public class Pistol : Weapon
             HeavyShootInput();
             CheckManaReady();
         }
+
     }
 
     //  ###########################################
@@ -89,13 +90,14 @@ public class Pistol : Weapon
     //  ###########################################
     //  ############  PISTOL INPUTS  ##############
     //  ###########################################
-    private bool GetTriggerActionned()
+    private bool GetTriggeredActionned()
     {
         bool triggerActionned = false;
 
         if (isWeaponOnLeftHand)
         {
             triggerActionned = triggerA.GetStateDown(SteamVR_Input_Sources.LeftHand);
+
         }
         else
         {
@@ -104,9 +106,26 @@ public class Pistol : Weapon
 
         return triggerActionned;
     }
+
+    private bool GetTriggerActionnedCurrently()
+    {
+        bool triggerActionned = false;
+
+        if (isWeaponOnLeftHand)
+        {
+            triggerActionned = triggerA.GetState(SteamVR_Input_Sources.LeftHand);
+
+        }
+        else
+        {
+            triggerActionned = triggerA.GetState(SteamVR_Input_Sources.RightHand);
+        }
+
+        return triggerActionned;
+    }
     private void SimpleShootInput()
     {
-        bool triggerActionned = GetTriggerActionned();
+        bool triggerActionned = GetTriggeredActionned();
 
         if (triggerActionned)
         {
@@ -115,7 +134,7 @@ public class Pistol : Weapon
     }
     private void HeavyShootInput()
     {
-        bool triggerActionned = GetTriggerActionned();
+        bool triggerActionned = GetTriggerActionnedCurrently();
 
         if (triggerActionned)
         {
@@ -125,7 +144,14 @@ public class Pistol : Weapon
                 if (hapticCoroutine == null)
                 {
                     coroutineAlreadyLaunched = true;
-                    hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.leftController.StartHapticFeedback()); ;
+                    if (isWeaponOnLeftHand)
+                    {
+                        hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.leftController.StartHapticFeedback()); ;
+                    }
+                    else
+                    {
+                        hapticCoroutine = StartCoroutine(SuperManager.instance.vibrationManager.rightController.StartHapticFeedback()); ;
+                    }
                 }
 
                 if (!getGameObjectShoot)
@@ -174,24 +200,38 @@ public class Pistol : Weapon
     //  ###########################################
     void Perform_Shoot()
     {
-        SuperManager.instance.vibrationManager.leftController.ShootHaptic();
+        if (isWeaponOnLeftHand)
+        {
+            SuperManager.instance.vibrationManager.leftController.ShootHaptic();
+        }
+        else
+        {
+            SuperManager.instance.vibrationManager.rightController.ShootHaptic();
+        }
 
-        PlaySoundShoot();
+            PlaySoundShoot();
         GameObject lightBullet = Instantiate(lightBulletPrefabs, shootPoint.position, shootPoint.rotation);
         lightBullet.GetComponent<Bullet>().bulletSpeed = lightBulletSpeed;
         lightBullet.GetComponent<Bullet>().forcePush = forcePush;
-        lightBullet.GetComponent<Bullet>().damage = lightDamage;
+        lightBullet.GetComponent<Bullet>().damageLight = lightDamage;
     }
     void Perform_ShootRail()
     {
-        SuperManager.instance.vibrationManager.leftController.BigShootHaptic();
+        if (isWeaponOnLeftHand)
+        {
+            SuperManager.instance.vibrationManager.leftController.BigShootHaptic();
+        }
+        else
+        {
+            SuperManager.instance.vibrationManager.rightController.BigShootHaptic();
+        }
         PlaySoundBigShoot();
 
         GameObject heavyBullet = Instantiate(heavyBulletPrefabs, shootPoint.position, shootPoint.rotation);
         heavyBullet.GetComponent<Bullet>().bulletSpeed = heavyBulletSpeed;
         heavyBullet.GetComponent<Bullet>().isHeavyShoot = true;
         heavyBullet.GetComponent<Bullet>().rangeHeavyImpact = rangeHeavyImpact;
-        heavyBullet.GetComponent<Bullet>().damage = 10000;
+        heavyBullet.GetComponent<Bullet>().damageLight = 10000;
     }
 
     //  ###########################################

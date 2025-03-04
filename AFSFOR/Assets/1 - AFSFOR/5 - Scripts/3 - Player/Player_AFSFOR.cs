@@ -43,7 +43,7 @@ public class Player_AFSFOR : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             _playerCurrentMana = _playerMaxMana;
         }
