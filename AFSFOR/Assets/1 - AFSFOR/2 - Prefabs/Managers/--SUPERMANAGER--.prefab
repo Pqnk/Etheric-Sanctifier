@@ -295,6 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5974166552497631642}
   - component: {fileID: 8130659393193683437}
+  - component: {fileID: 5127183722250291898}
   - component: {fileID: 4142575221295965244}
   - component: {fileID: 1157268568273184427}
   - component: {fileID: 6001254030239941167}
@@ -340,6 +341,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c3bc06df5156440a387da90d7bdec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5127183722250291898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6970777979904676757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2c2a53c8004b4438a36443e542ae1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePlayerSWORD: 100
+  damagePlayerGUN: 100
+  damagePlayerHAND: 100
+  lifePlayer: 100
+  damageWALKER: 0
+  lifeWALKER: 0
+  damageTIREUR: 0
+  lifeTIREUR: 0
+  damageGHOST: 0
+  lifeGHOST: 0
+  damageBOSS: 0
+  lifeBOSS: 0
+  hitcanvas: {fileID: 9197432632926656861, guid: 9df77bda79656924085b0b78c6444497, type: 3}
 --- !u!114 &4142575221295965244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goatPrefab: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
   _ghostPrefab: {fileID: 7400775839584797558, guid: 5fcee4158d642694e908a4be03379b0a, type: 3}
+  _walkerPrefab: {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
   _mainTargetName: Player_AFSFOR
   _playerRef: {fileID: 0}
   _mainTarget: {fileID: 0}

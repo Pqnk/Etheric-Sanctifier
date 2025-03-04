@@ -13,6 +13,9 @@ public class GhostManager : MonoBehaviour
     [Header("Ghost Prefab")]
     [SerializeField] private GameObject _ghostPrefab;
 
+    [Header("Walker Prefab")]
+    [SerializeField] private GameObject _walkerPrefab;
+
     [Header("Spawn Settings : Main Target")]
     [SerializeField] private string _mainTargetName = "Player_AFSFOR";
     [SerializeField] private GameObject _playerRef;
@@ -135,7 +138,7 @@ public class GhostManager : MonoBehaviour
             GameObject p;
             if (isTutorial)
             {
-                p = _goatPrefab;
+                p = _walkerPrefab;
             }
             else
             {

@@ -7,6 +7,12 @@ public class Sword : Weapon
     [SerializeField] private float forceImpulse = 200.0f;
     [SerializeField] private int damage = 50;
 
+    private void Start()
+    {
+        damage = SuperManager.instance.damageManager.damagePlayerSWORD;
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ghost")

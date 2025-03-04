@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        damage = SuperManager.instance.damageManager.damagePlayerGUN;
+
         StartCoroutine(DestroyBullet());
     }
 
@@ -61,6 +63,9 @@ public class Bullet : MonoBehaviour
         {
             if (other.gameObject.tag == "Ghost")
             {
+                Vector3 contactPoint = other.ClosestPoint(transform.position);
+                SuperManager.instance.damageManager.SpawnHitCanvas(damage, contactPoint);
+
                 Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, rangeHeavyImpact, LayerMask);
 
                 foreach (var collider in hitColliders)

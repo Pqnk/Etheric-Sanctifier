@@ -22,15 +22,15 @@ public class Player_AFSFOR : MonoBehaviour
     [Header("Player's Stuff")]
     [SerializeField] private GameObject _headLight;
     [SerializeField] private UIPlayer _UIPlayer;
+
+    private DamageManager _damageManager;
     #endregion
 
-    #region Awake, Start and Update
-    private void Awake()
-    {
-        _playerCurrentHealth = _playerMaxHealth;
-    }
+    #region Start and Update
     private void Start()
     {
+        InitializePlayerFromDamageManager();
+
         if (SuperManager.instance.levelManager.GetCurrentLevelType() == LevelType.HUB)
         {
             _headLight.SetActive(false);
@@ -103,4 +103,10 @@ public class Player_AFSFOR : MonoBehaviour
         }
     }
 
+    private void InitializePlayerFromDamageManager()
+    {
+        _damageManager = SuperManager.instance.damageManager;
+        _playerMaxHealth = _damageManager.lifePlayer;
+        _playerCurrentHealth = _playerMaxHealth;
+    }
 }

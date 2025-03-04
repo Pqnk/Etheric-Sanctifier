@@ -16,6 +16,7 @@ public class SuperManager : MonoBehaviour
     public VibrationManager vibrationManager { get; private set; }
 
     public TimeScaleManager timeScaleManager { get; private set; }
+    public DamageManager damageManager { get; private set; }
 
     private void Awake()
     {
@@ -37,5 +38,6 @@ public class SuperManager : MonoBehaviour
         levelManager = GetComponent<LevelManager>();
         vibrationManager = GetComponent<VibrationManager>();
         timeScaleManager = GetComponent<TimeScaleManager>();
+        damageManager = GetComponent<DamageManager>();
     }
 }
