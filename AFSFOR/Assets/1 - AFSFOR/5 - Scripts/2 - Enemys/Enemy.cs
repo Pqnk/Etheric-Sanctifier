@@ -175,10 +175,10 @@ public class Enemy : MonoBehaviour
     #region SLAP DAT GOAT
     IEnumerator SlapEnemyAndRestoreRigidbody()
     {
-        rb.isKinematic = true;
+        rb.isKinematic = false;
         rb.AddForce(-1 * this.gameObject.transform.forward * 10000);
         yield return new WaitForSeconds(2.0f);
-        rb.isKinematic = false;
+        rb.isKinematic = true;
     }
     public void StartExpulsion()
     {
