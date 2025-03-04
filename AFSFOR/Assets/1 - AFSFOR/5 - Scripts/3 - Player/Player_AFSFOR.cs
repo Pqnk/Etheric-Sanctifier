@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class Player_AFSFOR : MonoBehaviour
 
         if (SuperManager.instance.levelManager.GetCurrentLevelType() == LevelType.HUB)
         {
-            _headLight.SetActive(false);
+            ToggleHeadLight(false);
         }
 
         InitializeUIPlayer();
@@ -69,7 +70,7 @@ public class Player_AFSFOR : MonoBehaviour
     #region Mana
     public void AddMana(int mana)
     {
-        _playerCurrentMana +=mana;
+        _playerCurrentMana += mana;
 
         if (_playerCurrentMana >= _playerMaxMana)
         {
@@ -108,5 +109,10 @@ public class Player_AFSFOR : MonoBehaviour
         _damageManager = SuperManager.instance.damageManager;
         _playerMaxHealth = _damageManager.lifePlayer;
         _playerCurrentHealth = _playerMaxHealth;
+    }
+
+    public void ToggleHeadLight(bool activate)
+    {
+        _headLight.SetActive(activate);
     }
 }
