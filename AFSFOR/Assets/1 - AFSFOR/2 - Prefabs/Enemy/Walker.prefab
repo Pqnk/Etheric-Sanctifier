@@ -419,7 +419,7 @@ MonoBehaviour:
   rotationSpeed: 2
   _damage: 1
   currentDamage: 0
-  stopDistance: 2
+  stopDistance: 1
   getForceBack: 1
   canLightDetected: 1
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}

@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7900266902494728565
 Transform:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   rotationSpeed: 2
   _damage: 1
   currentDamage: 0
-  stopDistance: 2.5
+  stopDistance: 1.5
   getForceBack: 1
   canLightDetected: 1
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
@@ -80,6 +80,7 @@ MonoBehaviour:
   target: {fileID: 0}
   scriptPlayer: {fileID: 0}
   sM: {fileID: 0}
+  gM: {fileID: 0}
 --- !u!114 &5884637990675012282
 MonoBehaviour:
   m_ObjectHideFlags: 0

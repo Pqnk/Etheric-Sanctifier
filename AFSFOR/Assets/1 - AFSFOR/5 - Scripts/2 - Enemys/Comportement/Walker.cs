@@ -12,7 +12,8 @@ public class Walker : MonoBehaviour
     [Header("Repli")]
     public float repliDistance = 2f;
     public float repliDuration = 0.5f;
-    private bool isRepli = false;
+    [SerializeField] private bool isRepli = false;
+    [SerializeField] private bool hasAttacked = false;
     private float repliTimer = 0f;
 
     [Header("Esquive")]
@@ -84,31 +85,40 @@ public class Walker : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 10f);
         }
 
-        if (Vector3.Distance(transform.position, enemy.target.position) > enemy.stopDistance)
+        if (!hasAttacked)
         {
-            enemy.rb.MovePosition(transform.position + direction * enemy.currentSpeed * Time.fixedDeltaTime);
-            transform.forward = direction;
+            if (Vector3.Distance(transform.position, enemy.target.position) > enemy.stopDistance + .1f)
+            {
+                enemy.rb.MovePosition(transform.position + direction * enemy.currentSpeed * Time.fixedDeltaTime);
+                transform.forward = direction;
+            }
+            else
+            {
+                enemy.currentSpeed = 0;
+                StartCoroutine(AttackPlayer());
+            }
         }
-        else
-        {
-            StartCoroutine(AttackPlayer());
-        }
+
     }
 
     IEnumerator AttackPlayer()
     {
         Debug.Log("Attaque");
         yield return new WaitForSeconds(1f);
-        enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
+        hasAttacked = true;
 
         // Joue le son
         SoundType s;
         s = SoundType.SlurpGoat;
         enemy.sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
+        enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
 
         // Repli
-        isRepli = true;
         repliTimer = repliDuration;
+        isRepli = true;
+
+        hasAttacked = false;
+        enemy.currentSpeed = enemy.GetSpeed();
     }
 
     #region Recul

@@ -29,13 +29,13 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform target;
     [HideInInspector] public Player_AFSFOR scriptPlayer;
+    [HideInInspector] public bool isDetected = false;
 
     [HideInInspector] public SoundManager sM;
     [HideInInspector] public GameManager gM;
 
     private float scaleDuration = 1.0f;
     private bool isTakingDamage = false;
-    private bool isDetected = false;
     private Renderer ghostRenderer;
     private float timerTakingDamage = -1;
     private float timerIsDetected = -1;
@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
 
         if (currentLife <= 0)
         {
+            idDead = true;
             currentLife = 0;
             StartCoroutine(Die());
         }
