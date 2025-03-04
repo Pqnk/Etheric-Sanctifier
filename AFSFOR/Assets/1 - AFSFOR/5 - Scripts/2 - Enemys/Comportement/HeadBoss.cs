@@ -249,7 +249,7 @@ public class HeadBoss : MonoBehaviour
         while (elapsed < duration)
         {
             Vector3 randomOffset = UnityEngine.Random.insideUnitSphere * magnitude;
-            randomOffset.y = 0; // Empêcher les vibrations en hauteur
+            randomOffset.y = 0;
             transform.position = originalPosition + randomOffset;
 
             elapsed += Time.deltaTime;
