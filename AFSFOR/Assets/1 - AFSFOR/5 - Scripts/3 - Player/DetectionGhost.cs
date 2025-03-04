@@ -8,8 +8,17 @@ public class DetectionGhost : MonoBehaviour
     {
         if (other.CompareTag("Ghost"))
         {
-            Ghost behaviorGhost = other.gameObject.GetComponent<Ghost>();
-            behaviorGhost.SetIsDetected(true);
+            Enemy behaviorGhost = other.gameObject.GetComponent<Enemy>();
+            behaviorGhost.isDetected = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ghost"))
+        {
+            Enemy behaviorGhost = other.gameObject.GetComponent<Enemy>();
+            behaviorGhost.isDetected = false;
         }
     }
 }
