@@ -7,7 +7,7 @@ using UnityEngine;
 public class SoulMove : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
-    AstroBuster target;
+    [SerializeField] AstroBuster target;
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -28,10 +28,11 @@ public class SoulMove : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
-        //target.
+        target.Add_Point();
 
+        GetComponent<TrailRenderer>().enabled = false;
         Destroy(gameObject);
     }
 }

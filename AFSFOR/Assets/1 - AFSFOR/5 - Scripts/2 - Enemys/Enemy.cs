@@ -151,7 +151,7 @@ public class Enemy : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Get_Hit(1);
+            Get_Hit(1000);
         }
 
         if (timerTakingDamage <= Time.time)

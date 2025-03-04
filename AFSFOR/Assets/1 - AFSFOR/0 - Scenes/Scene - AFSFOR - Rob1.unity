@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BallTrace
       objectReference: {fileID: 0}
-    - target: {fileID: 4376672543472639367, guid: 8a045c0597de0644c8fd63a82639f15e, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6927929616823692520, guid: 8a045c0597de0644c8fd63a82639f15e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.39
@@ -2976,6 +2972,10 @@ PrefabInstance:
     - target: {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
       propertyPath: m_Name
       value: Flying
+      objectReference: {fileID: 0}
+    - target: {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7900266902494728565, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
       propertyPath: m_LocalPosition.x

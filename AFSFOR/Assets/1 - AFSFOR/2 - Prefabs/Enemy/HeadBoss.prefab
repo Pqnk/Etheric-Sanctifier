@@ -144,12 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1533a206d630a6e498a57a7514d9af33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _life: 150
   currentLife: 0
   _speed: 1
   currentSpeed: 0
   rotationSpeed: 0.1
-  _damage: 1
   currentDamage: 0
   stopDistance: 10
   getForceBack: 0
@@ -157,10 +155,12 @@ MonoBehaviour:
   _baseMat: {fileID: 2100000, guid: caf4903ff069afe42b654dcd9f30c777, type: 2}
   _emissiveMatDetection: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
   _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
+  _PrefabSoul: {fileID: 2906502802082612186, guid: 8a045c0597de0644c8fd63a82639f15e, type: 3}
   idDead: 0
   rb: {fileID: 0}
   target: {fileID: 0}
   scriptPlayer: {fileID: 0}
+  isDetected: 0
   sM: {fileID: 0}
   gM: {fileID: 0}
 --- !u!114 &811053250533810184
