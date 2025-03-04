@@ -569,38 +569,42 @@ PrefabInstance:
       objectReference: {fileID: 2012617169755210152}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: b98d0bcd08ed1f24f864fc2fb9e4717d, type: 3}
+      objectReference: {fileID: 8300000, guid: bf959326e6bbe604dbc36aa28fd4c4c7, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 44b3fe1b9b8af0d4ea48722888ba15fc, type: 3}
+      objectReference: {fileID: 8300000, guid: b98d0bcd08ed1f24f864fc2fb9e4717d, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: b4f89a90e7e2e0645be9d12e3c149758, type: 3}
+      objectReference: {fileID: 8300000, guid: 44b3fe1b9b8af0d4ea48722888ba15fc, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: faabe678d3230e9419bdb1e8c6615a25, type: 3}
+      objectReference: {fileID: 8300000, guid: b4f89a90e7e2e0645be9d12e3c149758, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: 2845bc7a20ad4a9418ee6e8e1bfe034e, type: 3}
+      objectReference: {fileID: 8300000, guid: faabe678d3230e9419bdb1e8c6615a25, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[5]
       value: 
-      objectReference: {fileID: 8300000, guid: e398606d681f03f4191baa2df8235210, type: 3}
+      objectReference: {fileID: 8300000, guid: 2845bc7a20ad4a9418ee6e8e1bfe034e, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: 0e038440b0f038547900bc8edb6e9b85, type: 3}
+      objectReference: {fileID: 8300000, guid: e398606d681f03f4191baa2df8235210, type: 3}
     - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: _vinylMusics.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e038440b0f038547900bc8edb6e9b85, type: 3}
+    - target: {fileID: 6650108519965407170, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: _vinylMusics.Array.data[8]
       value: 
       objectReference: {fileID: 8300000, guid: 6da0d745abdfa1342b6838befd22d2b0, type: 3}
     - target: {fileID: 6820478786128430880, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}

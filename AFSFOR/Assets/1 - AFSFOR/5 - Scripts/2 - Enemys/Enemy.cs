@@ -159,7 +159,7 @@ public class Enemy : MonoBehaviour
     IEnumerator SlapEnemyAndRestoreRigidbody()
     {    
         rb.isKinematic = true;
-        rb.AddForce(-1 * (target.position - this.gameObject.transform.position) * 10000);
+        rb.AddForce(-1 * this.gameObject.transform.forward * 10000);
         yield return new WaitForSeconds(2.0f);
         rb.isKinematic = false;
     }

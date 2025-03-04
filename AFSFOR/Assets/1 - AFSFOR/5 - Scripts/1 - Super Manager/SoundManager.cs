@@ -176,7 +176,6 @@ public class SoundManager : MonoBehaviour
         sound.GetComponent<SoundPrefab3D>().StartWaitingEndOfSound();
     }
 
-
     public void UpdatePitchAllSounds3D(float pitch)
     {
         foreach(GameObject g in _listOfAllSoundPrefabs)
