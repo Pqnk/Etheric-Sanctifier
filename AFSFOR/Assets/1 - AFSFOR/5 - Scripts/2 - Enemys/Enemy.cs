@@ -75,6 +75,12 @@ public class Enemy : MonoBehaviour
         sM = SuperManager.instance.soundManager;
     }
 
+    public void InitStatEnemy(int life, int damage)
+    {
+        _life = life;
+        _damage = damage;
+    }
+
     public void Get_Hit(int hit)
     {
         currentLife -= hit;
@@ -202,4 +208,6 @@ public class Enemy : MonoBehaviour
         _baseMat = newMat;
     }
     #endregion
+
+
 }

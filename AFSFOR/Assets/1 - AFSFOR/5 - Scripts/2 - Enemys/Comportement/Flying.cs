@@ -28,6 +28,7 @@ public class Flying : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
+        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeGHOST, SuperManager.instance.damageManager.damageGHOST);
     }
 
     private void FixedUpdate()

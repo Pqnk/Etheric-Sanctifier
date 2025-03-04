@@ -31,6 +31,8 @@ public class Walker : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
+
+        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeWALKER, SuperManager.instance.damageManager.damageWALKER);
     }
 
     private void FixedUpdate()
