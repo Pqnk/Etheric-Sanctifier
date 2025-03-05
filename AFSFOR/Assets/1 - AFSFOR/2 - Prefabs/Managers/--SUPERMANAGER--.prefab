@@ -296,10 +296,8 @@ GameObject:
   - component: {fileID: 5974166552497631642}
   - component: {fileID: 8130659393193683437}
   - component: {fileID: 5127183722250291898}
-  - component: {fileID: 4142575221295965244}
   - component: {fileID: 1157268568273184427}
   - component: {fileID: 6001254030239941167}
-  - component: {fileID: 8369437736979271891}
   - component: {fileID: 8920453423001876186}
   - component: {fileID: 8353626908048531365}
   - component: {fileID: 4925675943462278177}
@@ -353,13 +351,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2c2a53c8004b4438a36443e542ae1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePlayerSWORD: 5000
+  damagePlayerSWORD: 100
   damagePlayerGUNLIGHT: 5
-  damagePlayerGUNHEAVY: 10000
+  damagePlayerGUNHEAVY: 100
   damagePlayerHAND: 0
   lifePlayer: 1000
   damageWALKER: 10
-  lifeWALKER: 1000
+  lifeWALKER: 100
   speedWALKER: 3
   damageTIREUR: 30
   lifeTIREUR: 100
@@ -368,24 +366,9 @@ MonoBehaviour:
   lifeFlying: 100
   speedFlying: 5
   damageBOSS: 80
-  lifeBOSS: 50000
+  lifeBOSS: 1000
   speedBOSS: 10
   hitcanvas: {fileID: 9197432632926656861, guid: 9df77bda79656924085b0b78c6444497, type: 3}
---- !u!114 &4142575221295965244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6970777979904676757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b53db95980621e44b8f12d97cb1ce4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentKill: 0
-  indexPalier: 0
-  palierKills: 0a000000140000001e000000
 --- !u!114 &1157268568273184427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,51 +414,6 @@ MonoBehaviour:
   _VFXPalierValidated: {fileID: 4018217129707485235, guid: 58200044c7a12d944862fa1743bbc186, type: 3}
   _vfxDeadGhostImpact: {fileID: 8447418903007522576, guid: 428c3d156dd086c4f925f04ecf8cf7e0, type: 3}
   _vfxSwordImpact: {fileID: 2544064726984189275, guid: 16ee777c938b39b4ba2f00661a2b33b2, type: 3}
---- !u!114 &8369437736979271891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6970777979904676757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a429230ba14f17e4294b4c321e4f457e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _goatPrefab: {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
-  _ghostPrefab: {fileID: 7400775839584797558, guid: 5fcee4158d642694e908a4be03379b0a, type: 3}
-  _walkerPrefab: {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
-  _mainTargetName: Player_AFSFOR
-  _playerRef: {fileID: 0}
-  _mainTarget: {fileID: 0}
-  _secondaryTarget: {fileID: 0}
-  _lowTarget: {fileID: 0}
-  _radarRef: {fileID: 0}
-  _ghostSpawnPointsName: --GHOST SPAWN POINTS--
-  _spawnPointsParent: {fileID: 0}
-  _spawnInterval:
-  - 5
-  - 3.5
-  - 2
-  _moveSpeedMin: 1
-  _moveSpeedMax: 2
-  _canSpawn: 0
-  tailleGhostMin: 0.5
-  tailleGhostMax: 1
-  baseMats:
-  - {fileID: 2100000, guid: 15c870d1802a3f84da77294dcc26bdce, type: 2}
-  - {fileID: 2100000, guid: d6608b48f5b04214090617b7e32226fa, type: 2}
-  - {fileID: 2100000, guid: 6944ea869f19ec24eb005b5e1b29bcff, type: 2}
-  lifesPalier:
-  - 100
-  - 150
-  - 200
-  allGhosts: []
-  _maxGhostInTotal: 10
-  _isReady: 0
-  timeBetweenWave: 15
-  isTutorial: 0
 --- !u!114 &8920453423001876186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +466,7 @@ MonoBehaviour:
   _soundVFXSlap: {fileID: 8300000, guid: dcb236838f769bc468a7bdbeba527211, type: 3}
   _soundVFXOuch: {fileID: 8300000, guid: 5d8b23f3255fa8845bbc6bf1809b926d, type: 3}
   _soundVFXDeath: {fileID: 8300000, guid: 9564534ebc476df45ac94647870a99b0, type: 3}
+  _soundVFXHorn: {fileID: 8300000, guid: d89bbe6ecee5b664984678c201f134cb, type: 3}
 --- !u!114 &4925675943462278177
 MonoBehaviour:
   m_ObjectHideFlags: 0

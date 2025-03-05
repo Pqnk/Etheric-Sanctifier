@@ -1484,33 +1484,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3034086248679775850, guid: 8c0d8d419d8ae394693a8ad8f0e88021, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3581548216223084520, guid: 8c0d8d419d8ae394693a8ad8f0e88021, type: 3}
       propertyPath: m_Name
       value: --ENVIRONMENT TUTORIAL--
-      objectReference: {fileID: 0}
-    - target: {fileID: 6539212789558481703, guid: 8c0d8d419d8ae394693a8ad8f0e88021, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6539212789558481703, guid: 8c0d8d419d8ae394693a8ad8f0e88021, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6539212789558481703, guid: 8c0d8d419d8ae394693a8ad8f0e88021, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8001867131018078783, guid: 8c0d8d419d8ae394693a8ad8f0e88021, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8137225210860484588, guid: 8c0d8d419d8ae394693a8ad8f0e88021, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

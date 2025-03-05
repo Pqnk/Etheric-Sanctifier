@@ -29,7 +29,8 @@ public enum SoundType
     BigShootReady,
     Slap,
     Ouch,
-    Death
+    Death,
+    Horn
 }
 
 
@@ -66,6 +67,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _soundVFXSlap;
     [SerializeField] private AudioClip _soundVFXOuch;
     [SerializeField] private AudioClip _soundVFXDeath;
+    [SerializeField] private AudioClip _soundVFXHorn;
     #endregion
 
 
@@ -100,6 +102,10 @@ public class SoundManager : MonoBehaviour
 
         switch (soundtype)
         {
+            case SoundType.Horn:
+                soundSource.clip = _soundVFXHorn;
+                break;
+
             case SoundType.Death:
                 soundSource.clip = _soundVFXDeath;
                 break;
