@@ -252,13 +252,22 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void Awake()
 		{
+            if (_instance != null && _instance != this)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+
+            _instance = this;
+
 			if ( trackingOriginTransform == null )
 			{
 				trackingOriginTransform = this.transform;
 			}
 
+
 #if OPENVR_XR_API && UNITY_LEGACY_INPUT_HELPERS
-			if (hmdTransforms != null)
+            if (hmdTransforms != null)
 			{
 				foreach (var hmd in hmdTransforms)
 				{

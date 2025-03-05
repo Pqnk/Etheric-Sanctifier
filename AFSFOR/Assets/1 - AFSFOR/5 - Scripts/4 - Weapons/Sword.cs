@@ -21,7 +21,7 @@ public class Sword : Weapon
                 ContactPoint contact = collision.contacts[0];
                 Vector3 collisionPoint = contact.point;
                 collision.gameObject.GetComponent<Enemy>().Get_Hit(damage);
-                collision.gameObject.GetComponent<Enemy>().StartExpulsion(10000);
+                collision.gameObject.GetComponent<Enemy>().StartExpulsion(1000);
 
                 SuperManager.instance.damageManager.SpawnHitCanvas(damage, collisionPoint);
 
