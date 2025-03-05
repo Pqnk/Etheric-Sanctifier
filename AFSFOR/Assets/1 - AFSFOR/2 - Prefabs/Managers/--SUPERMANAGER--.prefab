@@ -357,15 +357,19 @@ MonoBehaviour:
   damagePlayerGUNLIGHT: 5
   damagePlayerGUNHEAVY: 10000
   damagePlayerHAND: 0
-  lifePlayer: 100
+  lifePlayer: 1000
   damageWALKER: 10
   lifeWALKER: 1000
-  damageTIREUR: 0
-  lifeTIREUR: 0
-  damageGHOST: 0
-  lifeGHOST: 0
-  damageBOSS: 0
-  lifeBOSS: 0
+  speedWALKER: 3
+  damageTIREUR: 30
+  lifeTIREUR: 100
+  speedTIREUR: 4
+  damageFlying: 50
+  lifeFlying: 100
+  speedFlying: 5
+  damageBOSS: 80
+  lifeBOSS: 50000
+  speedBOSS: 10
   hitcanvas: {fileID: 9197432632926656861, guid: 9df77bda79656924085b0b78c6444497, type: 3}
 --- !u!114 &4142575221295965244
 MonoBehaviour:
