@@ -30,6 +30,7 @@ public class Vinyl : MonoBehaviour
             {
                 _vinylSource?.Play();
                 _isVinylActive = true;
+                SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(other.transform.position);
             }
         }
 
@@ -40,6 +41,8 @@ public class Vinyl : MonoBehaviour
     {
         if (_vinylMusics.Count == 0) return;
 
+
+        SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(this.transform.position);
         _vinylSource.Stop();
         currentIndex = (currentIndex + 1) % _vinylMusics.Count;
         _vinylSource.clip = _vinylMusics[currentIndex];

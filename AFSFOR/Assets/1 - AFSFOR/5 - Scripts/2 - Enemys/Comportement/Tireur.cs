@@ -24,6 +24,8 @@ public class Tireur : MonoBehaviour
         PointsLookAtPlayer();
 
         enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeTIREUR, SuperManager.instance.damageManager.damageTIREUR);
+
+        enemy.deathSoundType = SoundType.BeehGoatReverb;
     }
 
     void Update()

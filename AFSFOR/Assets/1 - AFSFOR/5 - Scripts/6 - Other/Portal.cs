@@ -12,23 +12,22 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("HandNaked"))
         {
-            DeactivatePortal();
-            LoadLevelFromPortal();
-
-            Debug.Log("Ok portail");
+            StartCoroutine(DeactivatePortal(other.transform.position));
         }
     }
-    private void LoadLevelFromPortal()
-    {
-        //SuperManager.instance.uiManager.VisibleToBlack();
-        SuperManager.instance.levelManager.LoadLevel(_levelDestination);
-    }
-    public void DeactivatePortal()
+    IEnumerator DeactivatePortal(Vector3 position)
     {
         isPortalActive = false;
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Teleporting, 0.8f, this.transform.position);
-        //SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
-        //SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
+        SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(position);
+        SuperManager.instance.vibrationManager.leftController.TeleportHaptic();
+        SuperManager.instance.vibrationManager.rightController.TeleportHaptic();
+        yield return new WaitForSeconds(3.0f);
+        LoadLevelFromPortal();
+    }
+    private void LoadLevelFromPortal()
+    {
+        SuperManager.instance.levelManager.LoadLevel(_levelDestination);
     }
 }

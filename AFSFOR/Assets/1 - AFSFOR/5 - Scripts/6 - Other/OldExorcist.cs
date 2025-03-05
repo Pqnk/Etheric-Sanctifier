@@ -28,23 +28,23 @@ public class OldExorcist : MonoBehaviour
 
     private void Update()
     {
-        if (!_portalTutoRef.isPortalActive && !_alreadySpeaking)
-        {
-            _portalMissionRef.DeactivatePortal();
-            _alreadySpeaking = true;
-            _npcSource.Stop();
-            _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.ChoiceTuto);
-            _npcSource.Play();
-        }
+        //if (!_portalTutoRef.isPortalActive && !_alreadySpeaking)
+        //{
+        //    _portalMissionRef.DeactivatePortal();
+        //    _alreadySpeaking = true;
+        //    _npcSource.Stop();
+        //    _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.ChoiceTuto);
+        //    _npcSource.Play();
+        //}
 
-        if (!_portalMissionRef.isPortalActive && !_alreadySpeaking)
-        {
-            _portalTutoRef?.DeactivatePortal();
-            _alreadySpeaking = true;
-            _npcSource.Stop();
-            _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.ChoiceMission);
-            _npcSource.Play();
-        }
+        //if (!_portalMissionRef.isPortalActive && !_alreadySpeaking)
+        //{
+        //    _portalTutoRef?.DeactivatePortal();
+        //    _alreadySpeaking = true;
+        //    _npcSource.Stop();
+        //    _npcSource.clip = SuperManager.instance.voiceManager.GetVoice(VoiceType.ChoiceMission);
+        //    _npcSource.Play();
+        //}
     }
 
     IEnumerator StartIntroVoice()

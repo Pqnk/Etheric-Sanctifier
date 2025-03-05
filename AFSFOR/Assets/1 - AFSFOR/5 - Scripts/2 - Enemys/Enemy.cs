@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     private Renderer ghostRenderer;
     private float timerTakingDamage = -1;
     private float timerIsDetected = -1;
+    public SoundType deathSoundType = SoundType.BeehGoat;
 
     #region Get / Set
     public int GetLife()
@@ -111,9 +112,8 @@ public class Enemy : MonoBehaviour
     private IEnumerator Die(bool allDead)
     {
         // Joue le son de la mort --------------------------------------------------------
-        SoundType s;
-        s = SoundType.BeehGoatReverb;
-        sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
+     
+        sM.PlaySoundAtLocation(deathSoundType, 0.5f, this.transform.position);
 
         // Reduit la taille du mesh ------------------------------------------------------
         Vector3 initialScalelle = transform.localScale;
