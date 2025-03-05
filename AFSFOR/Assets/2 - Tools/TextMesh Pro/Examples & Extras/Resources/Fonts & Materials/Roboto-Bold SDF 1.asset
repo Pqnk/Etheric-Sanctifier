@@ -99,7 +99,7 @@ Material:
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 64, g: 64, b: 64, a: 1}
+    - _FaceColor: {r: 38.93715, g: 38.93715, b: 38.93715, a: 1}
     - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Roboto-Bold SDF
+  m_Name: Roboto-Bold SDF 1
   m_EditorClassIdentifier: 
-  hashCode: -635320526
+  hashCode: -374319197
   material: {fileID: 2164040}
-  materialHashCode: -1838732846
+  materialHashCode: -1052032093
   m_Version: 1.1.0
   m_SourceFontFileGUID: 4beb055f07aaff244873dec698d0363e
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
