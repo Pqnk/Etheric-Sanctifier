@@ -49,7 +49,7 @@ public class HeadBoss : MonoBehaviour
     {
         StartCoroutine(BossPatternRoutine());
         PointsLookAtPlayer();
-        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeBOSS, SuperManager.instance.damageManager.damageBOSS);
+        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeBOSS, SuperManager.instance.damageManager.damageBOSS, SuperManager.instance.damageManager.speedBOSS);
     }
 
     void Update()

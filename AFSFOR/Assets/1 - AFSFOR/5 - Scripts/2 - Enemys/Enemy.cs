@@ -80,13 +80,15 @@ public class Enemy : MonoBehaviour
         scriptPlayer = target.gameObject.GetComponent<Player_AFSFOR>();
     }
 
-    public void InitStatEnemy(int life, int damage)
+    public void InitStatEnemy(int life, int damage, float speed)
     {
         _life = life;
         currentLife = _life;
         _damage = damage;
         currentLife = life;
         currentDamage = damage;
+        _speed = speed;
+        currentSpeed = _speed;
     }
 
     public void Get_Hit(int hit)

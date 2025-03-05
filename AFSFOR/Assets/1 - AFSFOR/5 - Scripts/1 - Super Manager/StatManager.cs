@@ -4,7 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DamageManager : MonoBehaviour
+public class StatManager : MonoBehaviour
 {
     [Header("PLAYER")]
     public int damagePlayerSWORD;
@@ -24,10 +24,10 @@ public class DamageManager : MonoBehaviour
     public int lifeTIREUR;
     public float speedTIREUR;
 
-    [Header("Ghost")]
-    public int damageGHOST;
-    public int lifeGHOST;
-    public float speedGHOST;
+    [Header("Flying")]
+    public int damageFlying;
+    public int lifeFlying;
+    public float speedFlying;
 
     [Header("Boss")]
     public int damageBOSS;

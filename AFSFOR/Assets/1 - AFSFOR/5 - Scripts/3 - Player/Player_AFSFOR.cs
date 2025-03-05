@@ -26,7 +26,7 @@ public class Player_AFSFOR : MonoBehaviour
 
     public GameObject VRHead;
 
-    private DamageManager _damageManager;
+    private StatManager _damageManager;
     #endregion
 
     #region Start and Update

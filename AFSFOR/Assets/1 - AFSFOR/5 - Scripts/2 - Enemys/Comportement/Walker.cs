@@ -32,7 +32,7 @@ public class Walker : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
-        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeWALKER, SuperManager.instance.damageManager.damageWALKER);
+        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeWALKER, SuperManager.instance.damageManager.damageWALKER, SuperManager.instance.damageManager.speedWALKER);
 
         enemy.deathSoundType = SoundType.BeehGoat;
     }
