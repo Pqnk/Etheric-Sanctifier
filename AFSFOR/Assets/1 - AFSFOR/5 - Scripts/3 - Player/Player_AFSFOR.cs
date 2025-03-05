@@ -100,7 +100,7 @@ public class Player_AFSFOR : MonoBehaviour
         _playerCurrentHealth -= (int)Mathf.Round(damage);
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Ouch, 0.5f, this.transform.position);
 
-        if (_playerCurrentHealth <= 0)
+        if (_playerCurrentHealth <= 0 && !_playerIsDead)
         {
             _playerIsDead = true;
             _UIPlayer.ToggleDeadText(true);
