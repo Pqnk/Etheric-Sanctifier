@@ -67,7 +67,7 @@ MonoBehaviour:
   currentSpeed: 0
   rotationSpeed: 2
   currentDamage: 0
-  stopDistance: 1.5
+  stopDistance: 1
   getForceBack: 1
   canLightDetected: 1
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
@@ -81,6 +81,7 @@ MonoBehaviour:
   isDetected: 0
   sM: {fileID: 0}
   gM: {fileID: 0}
+  deathSoundType: 10
 --- !u!114 &5884637990675012282
 MonoBehaviour:
   m_ObjectHideFlags: 0
