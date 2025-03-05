@@ -50,14 +50,13 @@ MonoBehaviour:
     - {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
     - {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
     enemyToKill: 10
+    spawnDelay: 4
+  - enemyPrefabs:
+    - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
+    enemyToKill: 20
     spawnDelay: 5
   - enemyPrefabs:
     - {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
-    - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
-    enemyToKill: 20
-    spawnDelay: 4
-  - enemyPrefabs:
-    - {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
     - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
     enemyToKill: 20
     spawnDelay: 4
@@ -84,6 +83,12 @@ MonoBehaviour:
   - {fileID: 966264236195107750}
   - {fileID: 5655537282683933832}
   waveInterval: 10
+  enemiesKilledThisWave: 0
+  enemiesToKillThisWave: 0
+  currentWaveIndex: 0
+  currentWaveIndexGlobal: 0
+  waveInProgress: 0
+  bossWaveActive: 0
 --- !u!1001 &9128156056276627347
 PrefabInstance:
   m_ObjectHideFlags: 0

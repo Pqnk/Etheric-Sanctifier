@@ -21,14 +21,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] bossPrefab;
     [SerializeField] Transform[] spawnPoints;
     [SerializeField] float waveInterval = 10f;
-    [HideInInspector] public int enemiesKilledThisWave = 0;
-    [HideInInspector] public int enemiesToKillThisWave = 0;
-    [HideInInspector] public int currentWaveIndex = 0;
+
+    [Space]
+    /*[HideInInspector]*/ public int enemiesKilledThisWave = 0;
+    /*[HideInInspector]*/ public int enemiesToKillThisWave = 0;
+    /*[HideInInspector]*/ public int currentWaveIndex = 0;
+    /*[HideInInspector]*/ public int currentWaveIndexGlobal = 0;
 
     int idBoss = 0;
     int totalEnemiesKilled = 0;
-    bool waveInProgress = false;
-    bool bossWaveActive = false;
+    public bool waveInProgress = false;
+    public bool bossWaveActive = false;
     Transform player;
 
     private void Awake()
@@ -47,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            if ((currentWaveIndex + 1) % 3 == 0)
+            if ((currentWaveIndexGlobal + 1) % 3 == 0)
             {
                 yield return StartCoroutine(SpawnBossWaves());
                 yield return new WaitUntil(() => !bossWaveActive);
@@ -56,11 +59,12 @@ public class GameManager : MonoBehaviour
             {
                 yield return StartCoroutine(SpawnWaves(waves[currentWaveIndex % waves.Length]));
                 yield return new WaitUntil(() => enemiesKilledThisWave >= enemiesToKillThisWave);
+                currentWaveIndex++;
             }
 
             KillAllEnemies();
             yield return new WaitForSeconds(waveInterval);
-            currentWaveIndex++;
+            currentWaveIndexGlobal++;
         }
     }
 
@@ -107,9 +111,8 @@ public class GameManager : MonoBehaviour
     public void EnemyKilled()
     {
         totalEnemiesKilled++;
-        //enemiesKilledThisWave++;
 
-        if (bossWaveActive && enemiesKilledThisWave >= enemiesToKillThisWave)
+        if (bossWaveActive)
         {
             bossWaveActive = false;
         }
@@ -118,6 +121,9 @@ public class GameManager : MonoBehaviour
     private void KillAllEnemies()
     {
         Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        if (enemies.Length == 0) return;
+
         foreach (Enemy enemy in enemies)
         {
             enemy.Get_HitAll();

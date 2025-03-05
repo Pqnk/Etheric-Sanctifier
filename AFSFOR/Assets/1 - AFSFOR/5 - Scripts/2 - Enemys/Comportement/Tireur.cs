@@ -15,6 +15,7 @@ public class Tireur : MonoBehaviour
     private float randomMoveSpeed = 1f;
     private float randomMoveAmount = 0.5f;
     private float nextFireTime;
+    private bool isShooting = false;
     private Vector3 randomOffset;
 
     void Start()
@@ -69,7 +70,15 @@ public class Tireur : MonoBehaviour
 
     void ShootAtTarget()
     {
-        if (enemy.target == null || Time.time < nextFireTime) return;
+        if (enemy.target == null || Time.time < nextFireTime || isShooting) return;
+
+        StartCoroutine(ShootWithDelay());
+    }
+
+    IEnumerator ShootWithDelay()
+    {
+        isShooting = true;
+        yield return new WaitForSeconds(1f);
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
@@ -81,5 +90,6 @@ public class Tireur : MonoBehaviour
         }
 
         nextFireTime = Time.time + fireRate;
+        isShooting = false;
     }
 }

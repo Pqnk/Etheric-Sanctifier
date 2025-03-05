@@ -24,6 +24,8 @@ public class Flying : MonoBehaviour
     private float esquiveTimer = 0f;
     private LayerMask projectileLayer;
 
+    bool hasAttacked = false;
+
     private void Start()
     {
         enemy = GetComponent<Enemy>();
@@ -89,20 +91,31 @@ public class Flying : MonoBehaviour
         }
         else
         {
-            AttackPlayer();
+            enemy.currentSpeed = 0;
+            if (!hasAttacked)
+            {
+                hasAttacked = true;
+                AttackPlayer();
+            }
         }
     }
 
     IEnumerator AttackPlayer()
     {
         Debug.Log("Attaque");
+        bool attack = true;
         yield return new WaitForSeconds(1f);
-        enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
 
         // Joue le son
         SoundType s;
         s = SoundType.SlurpGoatReverb;
         enemy.sM.PlaySoundAtLocation(s, 0.5f, this.transform.position);
+
+        if (attack)
+        {
+            attack = false;
+            enemy.target.gameObject.GetComponent<Player_AFSFOR>().DamagerPlayer(enemy.currentDamage);
+        }
 
         // Repli
         isRepli = true;

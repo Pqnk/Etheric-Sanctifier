@@ -12,9 +12,8 @@ public class Walker : MonoBehaviour
     [Header("Repli")]
     public float repliDistance = 2f;
     public float repliDuration = 0.5f;
-    [SerializeField] private bool isRepli = false;
-    [SerializeField] private bool hasAttacked = false;
     private float repliTimer = 0f;
+    bool isRepli = false;
 
     [Header("Esquive")]
     public float esquiveDistance = 3f;
@@ -27,11 +26,12 @@ public class Walker : MonoBehaviour
     private float esquiveTimer = 0f;
     private LayerMask projectileLayer;
 
+    bool hasAttacked = false;
+
     private void Start()
     {
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
-
         enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeWALKER, SuperManager.instance.damageManager.damageWALKER);
     }
 
@@ -108,7 +108,7 @@ public class Walker : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         Debug.Log("Attaque");
-        bool attack = true; ;
+        bool attack = true;
         yield return new WaitForSeconds(1f);
 
         // Joue le son

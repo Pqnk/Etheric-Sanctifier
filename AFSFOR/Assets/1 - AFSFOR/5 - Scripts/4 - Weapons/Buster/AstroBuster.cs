@@ -9,7 +9,7 @@ public class AstroBuster : MonoBehaviour
     [SerializeField] Transform busterParticule;
     [SerializeField] float currentRangeLight;
 
-    float[] valeurLightPalier = { 10, 20, 30, 30 };
+    float[] valeurLightPalier = { 17, 20, 30, 30 };
     float[] valeurParticulePalier = { .2f, .5f, 1, 1.7f };
 
     int currentPoints = 0;
