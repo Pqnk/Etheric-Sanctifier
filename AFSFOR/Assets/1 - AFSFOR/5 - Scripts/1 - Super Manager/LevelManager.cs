@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Valve.VR.InteractionSystem;
 
 public enum LevelType
 {
     HUB,
     Tutorial,
-    Level01
+    Level01,
+    HubWithoutPlayer
 }
 
 public class LevelManager : MonoBehaviour
@@ -20,6 +22,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string _nameLevel_HUB = "Scene - AFSFOR - HUB";
     [SerializeField] private string _nameLevel_Tutorial = "Scene - AFSFOR - Tutorial";
     [SerializeField] private string _nameLevel_Level01 = "Scene - AFSFOR - Level 1";
+    [SerializeField] private string _nameLevel_HUBwithoutPlayer = "Scene - AFSFOR - HUBwithoutPlayer";
     [SerializeField] private string _currentNameLevel;
     [SerializeField] private string _oldNameLevel;
 
@@ -53,7 +56,8 @@ public class LevelManager : MonoBehaviour
         switch (levelType)
         {
             case LevelType.HUB:
-                levelName = _nameLevel_HUB;
+                //levelName = _nameLevel_HUB;
+                levelName = _nameLevel_HUBwithoutPlayer;
                 break;
 
             case LevelType.Tutorial:
@@ -73,6 +77,7 @@ public class LevelManager : MonoBehaviour
     IEnumerator LoadingNextSceneFading()
     {
         yield return new WaitForSeconds(2.0f);
+        Player.instance.gameObject.GetComponent<Player_AFSFOR>().RefillPlayerLife();
         SuperManager.instance.soundManager.DestroyAllSoundsPrefabs3D();
         SceneManager.LoadSceneAsync(_currentNameLevel);
         yield return new WaitForSeconds(0.5f);
