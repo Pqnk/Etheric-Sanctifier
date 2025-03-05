@@ -86,7 +86,7 @@ MonoBehaviour:
   enemiesKilledThisWave: 0
   enemiesToKillThisWave: 0
   currentWaveIndex: 0
-  currentWaveIndexGlobal: 0
+  currentWaveIndexGlobal: 1
   waveInProgress: 0
   bossWaveActive: 0
 --- !u!1001 &9128156056276627347

@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
+        yield return new WaitForSeconds(waveInterval);
+
         while (true)
         {
             if ((currentWaveIndexGlobal) % 3 == 0)
