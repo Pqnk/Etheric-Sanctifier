@@ -84,7 +84,7 @@ public class Flying : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * 10f);
         }
 
-        if (Vector3.Distance(transform.position, enemy.target.position) > enemy.stopDistance)
+        if (Vector3.Distance(transform.position, enemy.target.position) > enemy.stopDistance + .1f)
         {
             enemy.rb.MovePosition(transform.position + direction * enemy.currentSpeed * Time.fixedDeltaTime);
             transform.forward = direction;

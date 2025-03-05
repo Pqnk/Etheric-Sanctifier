@@ -23,10 +23,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] float waveInterval = 10f;
 
     [Space]
-    /*[HideInInspector]*/ public int enemiesKilledThisWave = 0;
-    /*[HideInInspector]*/ public int enemiesToKillThisWave = 0;
-    /*[HideInInspector]*/ public int currentWaveIndex = 0;
-    /*[HideInInspector]*/ public int currentWaveIndexGlobal = 1;
+    /*[HideInInspector]*/
+    public int enemiesKilledThisWave = 0;
+    /*[HideInInspector]*/
+    public int enemiesToKillThisWave = 0;
+    /*[HideInInspector]*/
+    public int currentWaveIndex = 0;
+    /*[HideInInspector]*/
+    public int currentWaveIndexGlobal = 1;
 
     int idBoss = 0;
     int totalEnemiesKilled = 0;
@@ -52,6 +56,8 @@ public class GameManager : MonoBehaviour
 
         while (true)
         {
+            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Horn, 0.8f, player.transform.position);
+
             if ((currentWaveIndexGlobal) % 3 == 0)
             {
                 yield return StartCoroutine(SpawnBossWaves());

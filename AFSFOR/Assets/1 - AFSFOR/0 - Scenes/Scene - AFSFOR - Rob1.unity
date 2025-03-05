@@ -1617,10 +1617,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8890263022991891060, guid: 5c469b1be33773745b2b436e9d00692a, type: 3}
-      propertyPath: currentWaveIndexGlobal
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9194641856451739411, guid: 5c469b1be33773745b2b436e9d00692a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
