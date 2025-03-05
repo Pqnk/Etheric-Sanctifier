@@ -431,6 +431,7 @@ MonoBehaviour:
   isDetected: 0
   sM: {fileID: 0}
   gM: {fileID: 0}
+  deathSoundType: 10
 --- !u!114 &6157116281228071899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,8 +446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repliDistance: 1.5
   repliDuration: 0.9
-  isRepli: 0
-  hasAttacked: 0
   esquiveDistance: 2
   esquiveDuration: 0.3
   esquiveDetectionRadius: 2

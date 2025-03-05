@@ -67,7 +67,7 @@ MonoBehaviour:
   currentSpeed: 0
   rotationSpeed: 2
   currentDamage: 0
-  stopDistance: 1
+  stopDistance: 1.5
   getForceBack: 1
   canLightDetected: 1
   _baseMat: {fileID: 2100000, guid: cc1911395b054e344b49c090562f4e62, type: 2}
@@ -94,12 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47c17ecd68e8f448abdb693a786978d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repliDistance: 2
-  repliDuration: 0.5
+  repliDistance: 5
+  repliDuration: 1.2
   esquiveDistance: 3
   esquiveDuration: 0.3
   esquiveDetectionRadius: 5
   esquiveChance: 50
+  hasAttacked: 0
 --- !u!54 &6535094521278592331
 Rigidbody:
   m_ObjectHideFlags: 0

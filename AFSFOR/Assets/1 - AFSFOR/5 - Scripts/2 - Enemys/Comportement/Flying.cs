@@ -24,7 +24,7 @@ public class Flying : MonoBehaviour
     private float esquiveTimer = 0f;
     private LayerMask projectileLayer;
 
-    bool hasAttacked = false;
+    public bool hasAttacked = false;
 
     private void Start()
     {
@@ -88,14 +88,16 @@ public class Flying : MonoBehaviour
         {
             enemy.rb.MovePosition(transform.position + direction * enemy.currentSpeed * Time.fixedDeltaTime);
             transform.forward = direction;
+            Debug.Log("Move");
         }
         else
         {
+            Debug.Log("Proche");
             enemy.currentSpeed = 0;
             if (!hasAttacked)
             {
                 hasAttacked = true;
-                AttackPlayer();
+                StartCoroutine(AttackPlayer());
             }
         }
     }
@@ -120,6 +122,9 @@ public class Flying : MonoBehaviour
         // Repli
         isRepli = true;
         repliTimer = repliDuration;
+
+        hasAttacked = false;
+        enemy.currentSpeed = enemy.GetSpeed();
     }
 
     #region Recul
