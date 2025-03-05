@@ -19,6 +19,7 @@ public class Player_AFSFOR : MonoBehaviour
 
     [Header("Player's Score")]
     [SerializeField] private int _playerCurrentScore = 0;
+    [SerializeField] private int _playerMaxScore = 100;
 
     [Header("Player's Stuff")]
     [SerializeField] private GameObject _headLight;
@@ -59,7 +60,7 @@ public class Player_AFSFOR : MonoBehaviour
         _UIPlayer.SetHealth(_playerCurrentHealth);
         _UIPlayer.SetMaxMana(_playerMaxMana);
         _UIPlayer.SetMana(_playerCurrentMana);
-        _UIPlayer.SetMaxScore(1000);
+        _UIPlayer.SetMaxScore(_playerMaxScore);
     }
     private void UpdateUIPlayer()
     {
@@ -70,6 +71,8 @@ public class Player_AFSFOR : MonoBehaviour
         {
             _playerCurrentScore = GameManager.instance.enemiesKilledThisWave;
             _UIPlayer.SetScore(_playerCurrentScore);
+            _playerMaxScore = GameManager.instance.enemiesToKillThisWave;
+            _UIPlayer.SetMaxScore(_playerMaxScore);
         }
     }
     #endregion

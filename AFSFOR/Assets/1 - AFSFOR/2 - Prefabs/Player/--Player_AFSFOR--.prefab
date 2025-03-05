@@ -975,6 +975,7 @@ MonoBehaviour:
   _playerMaxMana: 20
   _playerCurrentMana: 0
   _playerCurrentScore: 0
+  _playerMaxScore: 100
   _headLight: {fileID: 6042363987238602510}
   _UIPlayer: {fileID: 1955612916367874464}
   VRHead: {fileID: 85360891937077031}
