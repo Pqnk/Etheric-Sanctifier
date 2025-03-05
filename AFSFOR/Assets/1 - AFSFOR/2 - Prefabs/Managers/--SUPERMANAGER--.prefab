@@ -177,7 +177,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5188990661911446387}
   m_LocalRotation: {x: -0.08125364, y: -0.8243731, z: 0.54661727, w: -0.122541524}
-  m_LocalPosition: {x: 0, y: 0, z: 2.2}
+  m_LocalPosition: {x: 0, y: 0, z: 3.36}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -185,7 +185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 67.094, y: -196.91, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.7, y: -6.6}
+  m_AnchoredPosition: {x: -1.05, y: -3.74}
   m_SizeDelta: {x: 156.8, y: 18.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8054244492087327905
@@ -218,8 +218,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Song...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -243,8 +243,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
