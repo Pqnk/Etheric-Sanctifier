@@ -595,12 +595,16 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3142657625395533577, guid: 603bbe83e322bd645abf0ed5a343ca7a, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142657625395533577, guid: 603bbe83e322bd645abf0ed5a343ca7a, type: 3}
       propertyPath: levitationRange
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3142657625395533577, guid: 603bbe83e322bd645abf0ed5a343ca7a, type: 3}
       propertyPath: levitationSpeed
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3295323616870064834, guid: 603bbe83e322bd645abf0ed5a343ca7a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1272,11 +1276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5253390925866613165, guid: b3c79d1344b627b4abc30bddb8e48ca6, type: 3}
       propertyPath: levitationRange
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5253390925866613165, guid: b3c79d1344b627b4abc30bddb8e48ca6, type: 3}
       propertyPath: levitationSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5280951701136404645, guid: b3c79d1344b627b4abc30bddb8e48ca6, type: 3}
       propertyPath: m_Layer
@@ -1288,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7916775577016532940, guid: b3c79d1344b627b4abc30bddb8e48ca6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.146
+      value: 1.223
       objectReference: {fileID: 0}
     - target: {fileID: 7916775577016532940, guid: b3c79d1344b627b4abc30bddb8e48ca6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2901,15 +2905,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6181715480243371537, guid: 6a3bbae32aef679418e13cb5ddbeca30, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.08103347
+      value: 0.13079318
       objectReference: {fileID: 0}
     - target: {fileID: 6181715480243371537, guid: 6a3bbae32aef679418e13cb5ddbeca30, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.4056604
+      value: 0.6415094
       objectReference: {fileID: 0}
     - target: {fileID: 6181715480243371537, guid: 6a3bbae32aef679418e13cb5ddbeca30, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278195559
+      value: 4278198692
       objectReference: {fileID: 0}
     - target: {fileID: 6405120961984512067, guid: 6a3bbae32aef679418e13cb5ddbeca30, type: 3}
       propertyPath: m_Layer
