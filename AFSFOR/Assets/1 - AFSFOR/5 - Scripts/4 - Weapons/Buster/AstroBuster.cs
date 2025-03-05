@@ -12,7 +12,7 @@ public class AstroBuster : MonoBehaviour
     float[] valeurLightPalier = { 17, 20, 30, 30 };
     float[] valeurParticulePalier = { .2f, .5f, 1, 1.7f };
 
-    int currentPoints = 0;
+    bool isBossWave = false;
 
     private void Start()
     {
@@ -28,63 +28,72 @@ public class AstroBuster : MonoBehaviour
     {
         GameManager.instance.enemiesKilledThisWave++;
 
-        if (IsWaveFinished())
+        int currentWave = GameManager.instance.currentWaveIndexGlobal;
+        int enemiesKilled = GameManager.instance.enemiesKilledThisWave;
+        int enemiesToKill = GameManager.instance.enemiesToKillThisWave;
+
+        int waveStep = (currentWave - 1) % 3;
+        isBossWave = (waveStep == 2);
+
+        if (isBossWave)
         {
-            if ((GameManager.instance.currentWaveIndex + 1) % 3 == 0) 
-            {
-                StartCoroutine(WaitBeforeReset());
-            }
+            BossAstroBuster();
         }
         else
         {
-            UpdateBusterSize();
-            UpdateBusterLight();
+            UpdateBusterSize(waveStep, enemiesKilled, enemiesToKill);
+            UpdateBusterLight(waveStep, enemiesKilled, enemiesToKill);
+        }
+
+        if (IsWaveFinished())
+        {
+            if (isBossWave)
+            {
+                StartCoroutine(WaitBeforeReset());
+            }
         }
     }
 
     void ResetAstroBuster()
     {
+        isBossWave = false;
         currentRangeLight = valeurLightPalier[0];
-        busterParticule.localScale = new Vector3(valeurParticulePalier[0], valeurParticulePalier[0], valeurParticulePalier[0]);
+        busterParticule.localScale = Vector3.one * valeurParticulePalier[0];
+    }
+    void BossAstroBuster()
+    {
+        currentRangeLight = valeurLightPalier[3];
+        busterParticule.localScale = Vector3.one * valeurParticulePalier[3];
     }
 
-    void UpdateBusterSize()
+    void UpdateBusterSize(int waveStep, int enemiesKilled, int enemiesToKill)
     {
-        int currentWave = GameManager.instance.currentWaveIndex;
-        int enemiesKilled = GameManager.instance.enemiesKilledThisWave;
-        int enemiesToKill = GameManager.instance.enemiesToKillThisWave;
-
-        if (enemiesToKill == 0 || currentWave >= valeurParticulePalier.Length - 1) return;
+        if (enemiesToKill == 0 || isBossWave) return;
 
         float progress = Mathf.Clamp01((float)enemiesKilled / enemiesToKill);
-        float scaleValue = Mathf.Lerp(valeurParticulePalier[currentWave], valeurParticulePalier[currentWave + 1], progress);
+        float targetScale = Mathf.Lerp(valeurParticulePalier[waveStep], valeurParticulePalier[waveStep + 1], progress);
 
-        busterParticule.localScale = Vector3.one * scaleValue;
+        busterParticule.localScale = Vector3.one * targetScale;
     }
 
-    void UpdateBusterLight()
+    void UpdateBusterLight(int waveStep, int enemiesKilled, int enemiesToKill)
     {
-        int currentWave = GameManager.instance.currentWaveIndex;
-        int enemiesKilled = GameManager.instance.enemiesKilledThisWave;
-        int enemiesToKill = GameManager.instance.enemiesToKillThisWave;
-
-        if (enemiesToKill == 0 || currentWave >= valeurLightPalier.Length - 1) return;
+        if (enemiesToKill == 0 || isBossWave) return;
 
         float progress = Mathf.Clamp01((float)enemiesKilled / enemiesToKill);
-        float lightValue = Mathf.Lerp(valeurLightPalier[currentWave], valeurLightPalier[currentWave + 1], progress);
+        float targetLight = Mathf.Lerp(valeurLightPalier[waveStep], valeurLightPalier[waveStep + 1], progress);
 
-        currentRangeLight = lightValue;
+        currentRangeLight = targetLight;
     }
 
     bool IsWaveFinished()
     {
         return GameManager.instance.enemiesKilledThisWave >= GameManager.instance.enemiesToKillThisWave;
-    }
+    }    
 
     IEnumerator WaitBeforeReset()
     {
         yield return new WaitForSeconds(5f);
-
         ResetAstroBuster();
     }
 }

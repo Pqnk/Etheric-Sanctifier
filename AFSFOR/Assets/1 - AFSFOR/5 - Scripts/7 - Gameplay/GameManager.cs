@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     /*[HideInInspector]*/ public int enemiesKilledThisWave = 0;
     /*[HideInInspector]*/ public int enemiesToKillThisWave = 0;
     /*[HideInInspector]*/ public int currentWaveIndex = 0;
-    /*[HideInInspector]*/ public int currentWaveIndexGlobal = 0;
+    /*[HideInInspector]*/ public int currentWaveIndexGlobal = 1;
 
     int idBoss = 0;
     int totalEnemiesKilled = 0;
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            if ((currentWaveIndexGlobal + 1) % 3 == 0)
+            if ((currentWaveIndexGlobal) % 3 == 0)
             {
                 yield return StartCoroutine(SpawnBossWaves());
                 yield return new WaitUntil(() => !bossWaveActive);

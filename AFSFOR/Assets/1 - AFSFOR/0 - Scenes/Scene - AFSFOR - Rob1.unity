@@ -1555,17 +1555,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: AstroBuster
       objectReference: {fileID: 0}
-    - target: {fileID: 6257520243303263988, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
-      propertyPath: m_Range
-      value: 0.001
-      objectReference: {fileID: 0}
     - target: {fileID: 6927369874176706618, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 14.36
       objectReference: {fileID: 0}
     - target: {fileID: 6927369874176706618, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.43
+      value: 6.88
       objectReference: {fileID: 0}
     - target: {fileID: 6927369874176706618, guid: db6b31bc464594747859f64bf445d7d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1620,6 +1616,10 @@ PrefabInstance:
     - target: {fileID: 4511468306164765849, guid: 5c469b1be33773745b2b436e9d00692a, type: 3}
       propertyPath: m_Name
       value: Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890263022991891060, guid: 5c469b1be33773745b2b436e9d00692a, type: 3}
+      propertyPath: currentWaveIndexGlobal
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9194641856451739411, guid: 5c469b1be33773745b2b436e9d00692a, type: 3}
       propertyPath: m_LocalPosition.x
