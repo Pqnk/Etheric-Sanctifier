@@ -72,7 +72,7 @@ public class Bullet : MonoBehaviour
             if (other.gameObject.tag == "Ghost")
             {
                 Vector3 contactPoint = other.ClosestPoint(transform.position);
-                SuperManager.instance.damageManager.SpawnHitCanvas(damageLight, transform.position);
+                SuperManager.instance.damageManager.SpawnHitCanvas(damageHeavy, transform.position);
 
                 Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, rangeHeavyImpact, LayerMask);
 
@@ -82,8 +82,7 @@ public class Bullet : MonoBehaviour
 
                     if (((1 << collider.gameObject.layer) & LayerMask) != 0)
                     {
-                        //ghostCollider.GetComponent<Ghost>().LowerHealth(damage);
-                        ghostCollider.GetComponent<Enemy>().Get_Hit(damageLight);
+                        ghostCollider.GetComponent<Enemy>().Get_Hit(damageHeavy);
                     }
                 }
 

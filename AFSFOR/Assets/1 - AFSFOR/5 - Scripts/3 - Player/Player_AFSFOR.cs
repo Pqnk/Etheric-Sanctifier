@@ -65,7 +65,12 @@ public class Player_AFSFOR : MonoBehaviour
     {
         _UIPlayer.SetHealth(_playerCurrentHealth);
         _UIPlayer.SetMana(_playerCurrentMana);
-        _UIPlayer.SetScore(_playerCurrentScore);
+
+        if(SuperManager.instance.levelManager.GetCurrentLevelType() == LevelType.Level01)
+        {
+            _playerCurrentScore = GameManager.instance.enemiesKilledThisWave;
+            _UIPlayer.SetScore(_playerCurrentScore);
+        }
     }
     #endregion
 
