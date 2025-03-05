@@ -1566,14 +1566,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3569169422873999399, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569169422873999399, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
+      propertyPath: levitationRange
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569169422873999399, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
+      propertyPath: levitationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858062908726569804, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.223
+      objectReference: {fileID: 0}
     - target: {fileID: 5966527872158931612, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
       propertyPath: m_Name
       value: --ENVIRONMENT HUB--
       objectReference: {fileID: 0}
-    - target: {fileID: 6630204561538480781, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: c4bf0449480875b47acd8ef6228420f2, type: 2}
+    - target: {fileID: 7373109738195725613, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
+      propertyPath: levitationRange
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373109738195725613, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
+      propertyPath: levitationSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8290089013199497937, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

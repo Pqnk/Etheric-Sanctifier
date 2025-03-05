@@ -10,12 +10,14 @@ public class UIPlayer : MonoBehaviour
     [SerializeField] private Slider _manaBar;
     [SerializeField] private Slider _scoreBar;
     [SerializeField] private GameObject _damageUI;
+    [SerializeField] private GameObject _diedText;
     [SerializeField] private float _damageUICoolDown = 1.0f;
     private Coroutine _coroutineDamageUI = null;
 
     private void Start()
     {
         _damageUI.SetActive(false);
+        _diedText.SetActive(false);
     }
 
     #region Health
@@ -78,4 +80,14 @@ public class UIPlayer : MonoBehaviour
     }
 
     #endregion
+
+    public void ToggleDeadText(bool activate)
+    {
+        _diedText.SetActive(activate);
+    }
+
+    public void ToggleUIDamage(bool activate)
+    {
+        _damageUI.SetActive(activate);
+    }
 }

@@ -522,6 +522,8 @@ MonoBehaviour:
   _soundVFXSwordImpact: {fileID: 8300000, guid: 7045b0e90d771204b8937196f120a28c, type: 3}
   _soundVFXBigShootReady: {fileID: 8300000, guid: f3b1b7513703e084cb3995cbc194acff, type: 3}
   _soundVFXSlap: {fileID: 8300000, guid: dcb236838f769bc468a7bdbeba527211, type: 3}
+  _soundVFXOuch: {fileID: 8300000, guid: 5d8b23f3255fa8845bbc6bf1809b926d, type: 3}
+  _soundVFXDeath: {fileID: 8300000, guid: 9564534ebc476df45ac94647870a99b0, type: 3}
 --- !u!114 &4925675943462278177
 MonoBehaviour:
   m_ObjectHideFlags: 0

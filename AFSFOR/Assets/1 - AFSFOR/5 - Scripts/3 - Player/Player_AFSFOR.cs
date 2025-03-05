@@ -97,12 +97,15 @@ public class Player_AFSFOR : MonoBehaviour
     public void DamagerPlayer(float damage)
     {
         _UIPlayer.StartUIDamage();
-
         _playerCurrentHealth -= (int)Mathf.Round(damage);
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Ouch, 0.5f, this.transform.position);
 
         if (_playerCurrentHealth <= 0)
         {
             _playerIsDead = true;
+            _UIPlayer.ToggleDeadText(true);
+            _UIPlayer.ToggleUIDamage(true);
+            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Death, 0.5f, this.transform.position);
             StartCoroutine(LoadingHUb());
         }
     }
@@ -124,6 +127,8 @@ public class Player_AFSFOR : MonoBehaviour
     IEnumerator LoadingHUb()
     {
         yield return new WaitForSecondsRealtime(5);
+        _UIPlayer.ToggleDeadText(false);
+        _UIPlayer.ToggleUIDamage(false);
         SuperManager.instance.levelManager.LoadLevel(LevelType.HUB);
     }
 }

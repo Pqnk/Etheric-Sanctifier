@@ -27,7 +27,9 @@ public enum SoundType
     ShootBigImpact,
     Sword,
     BigShootReady,
-    Slap
+    Slap,
+    Ouch,
+    Death
 }
 
 
@@ -62,6 +64,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _soundVFXSwordImpact;
     [SerializeField] private AudioClip _soundVFXBigShootReady;
     [SerializeField] private AudioClip _soundVFXSlap;
+    [SerializeField] private AudioClip _soundVFXOuch;
+    [SerializeField] private AudioClip _soundVFXDeath;
     #endregion
 
 
@@ -96,9 +100,18 @@ public class SoundManager : MonoBehaviour
 
         switch (soundtype)
         {
+            case SoundType.Death:
+                soundSource.clip = _soundVFXDeath;
+                break;
+
+            case SoundType.Ouch:
+                soundSource.clip = _soundVFXOuch;
+                break;
+
             case SoundType.Slap:
                 soundSource.clip = _soundVFXSlap;
                 break;
+
             case SoundType.Collision:
                 soundSource.clip = _soundVFXCollision;
                 break;
