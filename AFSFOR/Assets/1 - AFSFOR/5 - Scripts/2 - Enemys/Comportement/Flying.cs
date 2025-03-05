@@ -30,7 +30,7 @@ public class Flying : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         projectileLayer = LayerMask.GetMask("Bullet");
-        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeFlying, SuperManager.instance.damageManager.damageFlying, SuperManager.instance.damageManager.damageFlying);
+        enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeFlying, SuperManager.instance.damageManager.damageFlying, SuperManager.instance.damageManager.speedFlying);
     }
 
     private void FixedUpdate()
