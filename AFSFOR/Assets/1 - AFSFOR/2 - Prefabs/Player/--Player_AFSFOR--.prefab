@@ -2891,7 +2891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 759567029473719168, guid: 1dc26f7755362b048b0c8954bc2f98bf, type: 3}
       propertyPath: m_Intensity
-      value: 461.69232
+      value: 346.26926
       objectReference: {fileID: 0}
     - target: {fileID: 759567029473719168, guid: 1dc26f7755362b048b0c8954bc2f98bf, type: 3}
       propertyPath: m_SpotAngle
@@ -2911,7 +2911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1001617988099824495, guid: 1dc26f7755362b048b0c8954bc2f98bf, type: 3}
       propertyPath: m_Intensity
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1513809315793216168, guid: 1dc26f7755362b048b0c8954bc2f98bf, type: 3}
       propertyPath: m_AnchorMax.x
