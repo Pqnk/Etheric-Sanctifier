@@ -720,11 +720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7944098324100299132, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_Center.x
-      value: -0.1
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 7944098324100299132, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_Center.y
-      value: 1.83
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 7944098324100299132, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_Center.z
