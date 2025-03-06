@@ -1,5 +1,325 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &395194417719650930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8002337034284897769}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 01
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8002337034284897769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395194417719650930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.88, y: 0.82, z: -18.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &922955634331534361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6137439250498600321}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 10
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6137439250498600321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922955634331534361}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.92387956, z: -0, w: 0.38268343}
+  m_LocalPosition: {x: -13.53, y: 5.8199997, z: 6.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+--- !u!1 &924878655459027934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7954154294117178881}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 04
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7954154294117178881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924878655459027934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -13.36, y: 5.8199997, z: -6.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!1 &979377822762634001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056531166699027571}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 03
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2056531166699027571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979377822762634001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 8.22, y: 5.8199997, z: -11.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+--- !u!1 &1080850092485390995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2593084088956798876}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 02
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2593084088956798876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080850092485390995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.88, y: 5.8199997, z: -13.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1360183503111326934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2663338740833054842}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 07
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2663338740833054842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360183503111326934}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.92387956, z: -0, w: 0.38268343}
+  m_LocalPosition: {x: -17.53, y: 0.81999993, z: 8.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+--- !u!1 &2425332879693051901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783690945292538210}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 05
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783690945292538210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425332879693051901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -17.43, y: 0.81999993, z: -7.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!1 &2984064246859481110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5381724013906598694}
+  m_Layer: 0
+  m_Name: --GHOST SPAWN POINTS--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5381724013906598694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984064246859481110}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8002337034284897769}
+  - {fileID: 2593084088956798876}
+  - {fileID: 2056531166699027571}
+  - {fileID: 7954154294117178881}
+  - {fileID: 783690945292538210}
+  - {fileID: 9147741943328857347}
+  - {fileID: 2663338740833054842}
+  - {fileID: 6137439250498600321}
+  - {fileID: 5969989451241204212}
+  - {fileID: 1282950588229218010}
+  m_Father: {fileID: 1397963559543982249}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6121028081117305229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9147741943328857347}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 06
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9147741943328857347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6121028081117305229}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 12, y: 0.81999993, z: -15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+--- !u!1 &6183086532410082709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282950588229218010}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 12
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282950588229218010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183086532410082709}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -3.8, y: 0.81999993, z: 18.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7255692453635933225
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,130 +374,37 @@ MonoBehaviour:
   - {fileID: 783690945292538210}
   - {fileID: 9147741943328857347}
   - {fileID: 2663338740833054842}
-  - {fileID: 8546770368228304137}
-  - {fileID: 1321421698498601467}
   - {fileID: 6137439250498600321}
   - {fileID: 5969989451241204212}
   - {fileID: 1282950588229218010}
---- !u!1001 &2386006630105847233
-PrefabInstance:
+--- !u!1 &8810756989581569100
+GameObject:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5969989451241204212}
+  m_Layer: 0
+  m_Name: Ghost Spawn Point 11
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5969989451241204212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8810756989581569100}
   serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1397963559543982249}
-    m_Modifications:
-    - target: {fileID: 609475771814073815, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_Name
-      value: --GHOST SPAWN POINTS--
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
---- !u!4 &783690945292538210 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3169679405974127779, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1282950588229218010 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3517655045022186267, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1321421698498601467 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3695887853988820026, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2056531166699027571 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4437884361336089010, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2593084088956798876 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 207359500797301341, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2663338740833054842 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 426390721873601979, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5381724013906598694 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7760675334520311527, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5969989451241204212 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8342185648297360437, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6137439250498600321 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8372292967170156608, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7954154294117178881 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5728043622326012864, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8002337034284897769 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5625786763133747240, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8546770368228304137 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6305310226819756232, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9147741943328857347 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6912887679120132290, guid: dae0b3c5007eb8445971ad0bd440dbc3, type: 3}
-  m_PrefabInstance: {fileID: 2386006630105847233}
-  m_PrefabAsset: {fileID: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -5.13, y: 5.8199997, z: 13.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5381724013906598694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
