@@ -366,7 +366,7 @@ MonoBehaviour:
   lifeFlying: 100
   speedFlying: 5
   damageBOSS: 80
-  lifeBOSS: 1000
+  lifeBOSS: 500
   speedBOSS: 10
   hitcanvas: {fileID: 9197432632926656861, guid: 9df77bda79656924085b0b78c6444497, type: 3}
 --- !u!114 &1157268568273184427
