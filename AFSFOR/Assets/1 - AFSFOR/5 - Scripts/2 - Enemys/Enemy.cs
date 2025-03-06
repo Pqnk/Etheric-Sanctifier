@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator Die(bool allDead)
     {
         // Joue le son de la mort --------------------------------------------------------
-     
+
         sM.PlaySoundAtLocation(deathSoundType, 0.5f, this.transform.position);
 
         // Reduit la taille du mesh ------------------------------------------------------
@@ -142,7 +142,7 @@ public class Enemy : MonoBehaviour
             if (!allDead)
             {
                 gM.EnemyKilled();
-                Instantiate(_PrefabSoul,transform.position, Quaternion.identity);
+                Instantiate(_PrefabSoul, transform.position, Quaternion.identity);
             }
         }
 
@@ -187,9 +187,14 @@ public class Enemy : MonoBehaviour
     IEnumerator SlapEnemyAndRestoreRigidbody(float powerSlap)
     {
         rb.isKinematic = false;
-        rb.AddForce((-1*this.gameObject.transform.forward + Vector3.up) * powerSlap*10);
+        rb.AddForce((-1 * this.gameObject.transform.forward + Vector3.up) * powerSlap * 10);
         yield return new WaitForSeconds(2.0f);
         rb.isKinematic = true;
+
+        if (this.gameObject.TryGetComponent<Walker>(out Walker w))
+        {
+            rb.useGravity = true;
+        }
     }
 
     public void StartExpulsion(float powerslap)

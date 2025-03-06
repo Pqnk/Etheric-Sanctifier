@@ -16,6 +16,7 @@ public class HandNaked : Weapon
     {
         if (other.gameObject.tag == "Ghost")
         {
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             other.gameObject.GetComponent<Enemy>().StartExpulsion(1000);
             SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Slap, 0.5f, this.gameObject.transform.position);
         }

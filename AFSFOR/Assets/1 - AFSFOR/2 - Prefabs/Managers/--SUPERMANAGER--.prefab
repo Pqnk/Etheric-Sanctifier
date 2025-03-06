@@ -129,7 +129,7 @@ MonoBehaviour:
   damageFlying: 50
   lifeFlying: 70
   speedFlying: 5
-  damageBOSS: 80
+  damageBOSS: 150
   lifeBOSS: 500
   speedBOSS: 10
   rotationSpeedBOSS: 0.3
@@ -328,7 +328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6820478786128430880, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6820478786128430880, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_LocalRotation.w
