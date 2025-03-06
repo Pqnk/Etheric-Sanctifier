@@ -132,7 +132,7 @@ MonoBehaviour:
   damageBOSS: 150
   lifeBOSS: 1500
   speedBOSS: 10
-  rotationSpeedBOSS: 1.5
+  rotationSpeedBOSS: 1.2
   hitcanvas: {fileID: 9197432632926656861, guid: 9df77bda79656924085b0b78c6444497, type: 3}
 --- !u!114 &1157268568273184427
 MonoBehaviour:
