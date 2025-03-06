@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
             KillAllEnemies();
             yield return new WaitForSeconds(waveInterval);
             currentWaveIndexGlobal++;
+            Player.instance.gameObject.GetComponent<Player_AFSFOR>().alreadySetMaxScore = false;
         }
     }
 

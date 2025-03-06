@@ -28,6 +28,8 @@ public class Player_AFSFOR : MonoBehaviour
     public GameObject VRHead;
 
     private StatManager _damageManager;
+
+    public bool alreadySetMaxScore = false;
     #endregion
 
     #region Start and Update
@@ -67,12 +69,17 @@ public class Player_AFSFOR : MonoBehaviour
         _UIPlayer.SetHealth(_playerCurrentHealth);
         _UIPlayer.SetMana(_playerCurrentMana);
 
-        if(SuperManager.instance.levelManager.GetCurrentLevelType() == LevelType.Level01)
+        if (SuperManager.instance.levelManager.GetCurrentLevelType() == LevelType.Level01)
         {
             _playerCurrentScore = GameManager.instance.enemiesKilledThisWave;
             _UIPlayer.SetScore(_playerCurrentScore);
-            _playerMaxScore = GameManager.instance.enemiesToKillThisWave;
-            _UIPlayer.SetMaxScore(_playerMaxScore);
+
+            if (!alreadySetMaxScore)
+            {
+                _playerMaxScore = GameManager.instance.enemiesToKillThisWave;
+                _UIPlayer.SetMaxScore(_playerMaxScore);
+                alreadySetMaxScore = true;
+            }
         }
     }
     #endregion
@@ -136,7 +143,7 @@ public class Player_AFSFOR : MonoBehaviour
     {
         _headLight.SetActive(activate);
     }
-    
+
 
 
     IEnumerator LoadingHUb()
