@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class EnemyBullet : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            transform.Translate(-_oppositeDirection * (bulletSpeed*5 * Time.deltaTime), Space.World);
+            transform.Translate(-_oppositeDirection * (bulletSpeed * 5 * Time.deltaTime), Space.World);
         }
     }
 
@@ -73,7 +74,7 @@ public class EnemyBullet : MonoBehaviour
             SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Slap, 0.5f, this.gameObject.transform.position);
             _isDeflected = true;
         }
-        else if(other.gameObject.tag == "Ghost" && _isDeflected)
+        else if (other.gameObject.tag == "Ghost" && _isDeflected)
         {
             other.gameObject.GetComponent<Enemy>().Get_Hit(10000);
             SuperManager.instance.vfxManager.InstantiateVFX_vfxHeavyImpact(this.gameObject.transform);

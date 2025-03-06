@@ -36,6 +36,10 @@ public class UIPlayer : MonoBehaviour
     public void SetMaxScore(int maxScore)
     {
         _scoreBar.maxValue = maxScore;
+    }
+
+    public void ResetScore()
+    {
         _scoreBar.value = 0;
     }
 
