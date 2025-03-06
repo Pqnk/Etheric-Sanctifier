@@ -37,7 +37,7 @@ public class EnemyBullet : MonoBehaviour
         }
         else
         {
-            transform.Translate(-_oppositeDirection * (bulletSpeed * 5 * Time.deltaTime), Space.World);
+            transform.Translate(_oppositeDirection * (bulletSpeed * 5 * Time.deltaTime), Space.World);
         }
     }
 

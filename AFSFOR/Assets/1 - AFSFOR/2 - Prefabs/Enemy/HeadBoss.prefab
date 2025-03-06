@@ -246,9 +246,10 @@ MonoBehaviour:
   _emissiveMatDetection: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
   _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
   _PrefabSoul: {fileID: 2906502802082612186, guid: 8a045c0597de0644c8fd63a82639f15e, type: 3}
-  idDead: 0
+  isDead: 0
   rb: {fileID: 0}
   target: {fileID: 0}
+  targetProjectile: {fileID: 0}
   scriptPlayer: {fileID: 0}
   isDetected: 0
   sM: {fileID: 0}
@@ -284,7 +285,7 @@ MonoBehaviour:
   chargeDuration: 2
   repliDuration: 2
   vieRetirerAvantRepli: 30
-  timerBeforePatern: 5
+  timerBeforePatern: 3
   hoverAmplitude: 0.2
   hoverSpeed: 3
   randomDirectionChangeTime: 3
