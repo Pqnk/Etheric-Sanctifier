@@ -83,7 +83,7 @@ public class Tireur : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
+        projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.targetProjectile;
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)
         {

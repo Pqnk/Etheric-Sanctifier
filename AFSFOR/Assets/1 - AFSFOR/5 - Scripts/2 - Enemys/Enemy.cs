@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public bool idDead = false;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform target;
+    [HideInInspector] public Transform targetProjectile;
     [HideInInspector] public Player_AFSFOR scriptPlayer;
     [HideInInspector] public bool isDetected = false;
 

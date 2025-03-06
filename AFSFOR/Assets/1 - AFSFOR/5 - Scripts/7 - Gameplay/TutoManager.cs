@@ -27,6 +27,7 @@ public class TutoManager : MonoBehaviour
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            enemy.GetComponent<Enemy>().targetProjectile = Player.instance.GetComponent<Player_AFSFOR>().VRHead.transform;
             yield return new WaitForSeconds(5);
         }
     }

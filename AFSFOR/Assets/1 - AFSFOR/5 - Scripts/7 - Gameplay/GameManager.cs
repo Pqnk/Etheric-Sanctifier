@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
             GameObject enemyPrefab = wave.enemyPrefabs[Random.Range(0, wave.enemyPrefabs.Length)];
             GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
             enemy.GetComponent<Enemy>().gM = this;
+            enemy.GetComponent<Enemy>().targetProjectile = Player.instance.GetComponent<Player_AFSFOR>().VRHead.transform;
             yield return new WaitForSeconds(wave.spawnDelay);
         }
     }
@@ -104,6 +105,7 @@ public class GameManager : MonoBehaviour
         Transform spawnPoint = newWaypoints[UnityEngine.Random.Range(0, newWaypoints.Length)];
         GameObject boss = Instantiate(bossPrefab[idBoss], spawnPoint.position, Quaternion.identity);
         boss.GetComponent<Enemy>().gM = this;
+        boss.GetComponent<Enemy>().targetProjectile = Player.instance.GetComponent<Player_AFSFOR>().VRHead.transform;
 
         if (idBoss == 0)
         {

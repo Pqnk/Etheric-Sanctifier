@@ -280,14 +280,14 @@ public class HeadBoss : MonoBehaviour
         if (chance == 0)
         {
             GameObject projectile =  Instantiate(projectileHeavyPrefab, firePoint.position, firePoint.rotation);
-            projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
+            projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.targetProjectile;
         }
         else
         {
             foreach (Transform spawn in spawnPoints)
             {
                 GameObject projectile = Instantiate(projectilePrefab, spawn.position, spawn.rotation);
-                projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
+                projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.targetProjectile;
                 yield return new WaitForSeconds(.5f);
             }
         }
