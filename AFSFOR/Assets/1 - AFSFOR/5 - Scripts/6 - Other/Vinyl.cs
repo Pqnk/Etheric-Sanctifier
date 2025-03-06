@@ -11,10 +11,17 @@ public class Vinyl : MonoBehaviour
     [SerializeField] private bool _isVinylActive = false;
     [SerializeField] private TMP_Text _textUIVinyl;
 
+    [SerializeField] private GameObject _musicVFX;
+
+    [SerializeField] private Material _stop;
+    [SerializeField] private Material _play;
+    [SerializeField] private GameObject _buttonPlay;
+
     void Start()
     {
         _vinylSource = GetComponent<AudioSource>();
         _vinylSource.clip = _vinylMusics[currentIndex];
+        _musicVFX.SetActive(false);
         UpdateTextUIVinyl();
     }
 
@@ -24,11 +31,15 @@ public class Vinyl : MonoBehaviour
         {
             _vinylSource.Stop();
             _isVinylActive = false;
+            _musicVFX.SetActive(false);
+            _buttonPlay.GetComponent<MeshRenderer>().material = _stop;
         }
         else
         {
             _vinylSource.Play();
             _isVinylActive = true;
+            _musicVFX.SetActive(true);
+            _buttonPlay.GetComponent<MeshRenderer>().material = _play;
         }
     }
 
