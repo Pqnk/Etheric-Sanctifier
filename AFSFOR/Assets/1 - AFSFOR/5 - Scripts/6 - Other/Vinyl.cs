@@ -33,6 +33,7 @@ public class Vinyl : MonoBehaviour
             _isVinylActive = false;
             _musicVFX.SetActive(false);
             _buttonPlay.GetComponent<MeshRenderer>().material = _stop;
+            UpdateTextUIVinyl();
         }
         else
         {
@@ -40,6 +41,7 @@ public class Vinyl : MonoBehaviour
             _isVinylActive = true;
             _musicVFX.SetActive(true);
             _buttonPlay.GetComponent<MeshRenderer>().material = _play;
+            UpdateTextUIVinyl();
         }
     }
 
@@ -49,7 +51,7 @@ public class Vinyl : MonoBehaviour
 
         if (_isVinylActive)
         {
-            SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(this.transform.position);
+            SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(_buttonPlay.transform.position);
             _vinylSource.Stop();
             currentIndex = (currentIndex + 1) % _vinylMusics.Count;
             _vinylSource.clip = _vinylMusics[currentIndex];
