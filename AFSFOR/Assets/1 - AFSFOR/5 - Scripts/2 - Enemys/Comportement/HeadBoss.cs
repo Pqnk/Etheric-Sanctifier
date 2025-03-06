@@ -60,9 +60,14 @@ public class HeadBoss : MonoBehaviour
     {
         UIPoint.GetComponentInChildren<Slider>().value = enemy.currentLife;
 
-        if (enemy.target != null && canMove && !isAttacking && !enemy.idDead)
+        if (enemy.target != null && canMove && !isAttacking && !enemy.isDead)
         {
             Move();
+        }
+
+        if (enemy.isDead)
+        {
+            StopAllCoroutines();
         }
     }
 
@@ -79,7 +84,7 @@ public class HeadBoss : MonoBehaviour
 
     IEnumerator BossPatternRoutine()
     {
-        while (!enemy.idDead)
+        while (!enemy.isDead)
         {
             yield return new WaitForSeconds(timerBeforePatern);
 
@@ -279,15 +284,15 @@ public class HeadBoss : MonoBehaviour
 
         if (chance == 0)
         {
-            GameObject projectile =  Instantiate(projectileHeavyPrefab, firePoint.position, firePoint.rotation);
-            projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
+            GameObject projectile = Instantiate(projectileHeavyPrefab, firePoint.position, firePoint.rotation);
+            projectile.GetComponent<EnemyBullet>().targetEnemyBullet = this.transform;
         }
         else
         {
             foreach (Transform spawn in spawnPoints)
             {
                 GameObject projectile = Instantiate(projectilePrefab, spawn.position, spawn.rotation);
-                projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
+                projectile.GetComponent<EnemyBullet>().targetEnemyBullet = this.transform;
                 yield return new WaitForSeconds(.5f);
             }
         }

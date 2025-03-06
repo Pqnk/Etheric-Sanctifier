@@ -35,7 +35,7 @@ public class Flying : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!enemy.idDead)
+        if (!enemy.isDead)
         {
             if (isEsquive)
             {
@@ -64,6 +64,10 @@ public class Flying : MonoBehaviour
             {
                 Move();
             }
+        }
+        else
+        {
+            StopAllCoroutines();
         }
 
     }

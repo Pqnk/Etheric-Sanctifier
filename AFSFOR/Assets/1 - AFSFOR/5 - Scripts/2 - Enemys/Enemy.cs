@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Material _emissiveMatDamage;
     [SerializeField] private GameObject _PrefabSoul;
 
-    [HideInInspector] public bool idDead = false;
+    [HideInInspector] public bool isDead = false;
     [HideInInspector] public Rigidbody rb;
     [HideInInspector] public Transform target;
     [HideInInspector] public Transform targetProjectile;
@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
 
         if (currentLife <= 0)
         {
-            idDead = true;
+            isDead = true;
             currentLife = 0;
             StartCoroutine(Die(false));
         }
@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
 
     public void Get_HitAll()
     {
-        idDead = true;
+        isDead = true;
         currentLife = 0;
         StartCoroutine(Die(true));
     }

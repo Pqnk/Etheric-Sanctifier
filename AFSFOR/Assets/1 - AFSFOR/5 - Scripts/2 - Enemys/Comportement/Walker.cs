@@ -39,7 +39,7 @@ public class Walker : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!enemy.idDead)
+        if (!enemy.isDead)
         {
             if (isEsquive)
             {
@@ -69,7 +69,10 @@ public class Walker : MonoBehaviour
                 Move();
             }
         }
-
+        else
+        {
+            StopAllCoroutines();
+        }
     }
 
     void Move()
