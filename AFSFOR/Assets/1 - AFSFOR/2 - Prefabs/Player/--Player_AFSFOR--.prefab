@@ -3221,6 +3221,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7964642571797473429, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
+      propertyPath: m_Radius
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7976986804816834821, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
       propertyPath: m_Name
       value: HandNaked_Left
@@ -3885,6 +3889,10 @@ PrefabInstance:
     - target: {fileID: 2279253214730973553, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964642571797473429, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7976986804816834821, guid: 63506a94d3390ca449b66e9878d69b67, type: 3}
       propertyPath: m_Name

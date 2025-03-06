@@ -20,13 +20,15 @@ public class Vinyl : MonoBehaviour
 
     public void PlayOrStop()
     {
-        if(_isVinylActive)
+        if (_isVinylActive)
         {
             _vinylSource.Stop();
+            _isVinylActive = false;
         }
         else
         {
             _vinylSource.Play();
+            _isVinylActive = true;
         }
     }
 
@@ -34,25 +36,31 @@ public class Vinyl : MonoBehaviour
     {
         if (_vinylMusics.Count == 0) return;
 
+        if (_isVinylActive)
+        {
+            SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(this.transform.position);
+            _vinylSource.Stop();
+            currentIndex = (currentIndex + 1) % _vinylMusics.Count;
+            _vinylSource.clip = _vinylMusics[currentIndex];
+            _vinylSource.Play();
+            UpdateTextUIVinyl();
 
-        SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(this.transform.position);
-        _vinylSource.Stop();
-        currentIndex = (currentIndex + 1) % _vinylMusics.Count;
-        _vinylSource.clip = _vinylMusics[currentIndex];
-        _vinylSource.Play();
-        UpdateTextUIVinyl();
+        }
     }
 
     public void SwitchToPrevious()
     {
         if (_vinylMusics.Count == 0) return;
 
-        SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(this.transform.position);
-        _vinylSource.Stop();
-        currentIndex = (currentIndex - 1 + _vinylMusics.Count) % _vinylMusics.Count;
-        _vinylSource.clip = _vinylMusics[currentIndex];
-        _vinylSource.Play();
-        UpdateTextUIVinyl();
+        if (_isVinylActive)
+        {
+            SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(this.transform.position);
+            _vinylSource.Stop();
+            currentIndex = (currentIndex - 1 + _vinylMusics.Count) % _vinylMusics.Count;
+            _vinylSource.clip = _vinylMusics[currentIndex];
+            _vinylSource.Play();
+            UpdateTextUIVinyl();
+        }
     }
 
     public void UpdatePitchMusic(float newPitch)

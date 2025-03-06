@@ -290,10 +290,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5974166552497631642}
     m_Modifications:
+    - target: {fileID: 3835044649867854305, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
+    - target: {fileID: 3835044649867854305, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
     - target: {fileID: 4046520844163563002, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_Name
       value: --VINYL--
       objectReference: {fileID: 0}
+    - target: {fileID: 5575016681694393675, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
+    - target: {fileID: 5575016681694393675, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
+    - target: {fileID: 6090300582935907453, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
+    - target: {fileID: 6090300582935907453, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: c108b5248b359f24099d4729217c6ccf, type: 2}
     - target: {fileID: 6820478786128430880, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.42
@@ -333,6 +357,14 @@ PrefabInstance:
     - target: {fileID: 6820478786128430880, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973659659590870269, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6979362571681581317, guid: c872ab179f304cd4e8c3e560577732bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
