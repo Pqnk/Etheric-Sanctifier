@@ -42,7 +42,7 @@ public class Tireur : MonoBehaviour
 
     private void PointsLookAtPlayer()
     {
-        firePoint.GetComponent<LookAtPlayer>().target = enemy.target;
+        firePoint.GetComponent<LookAtPlayer>().target = enemy.targetProjectile;
     }
 
     void MoveTowardsTarget()
@@ -83,7 +83,7 @@ public class Tireur : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.targetProjectile;
+        projectile.GetComponent<EnemyBullet>().targetEnemyBullet = enemy.target;
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)
         {

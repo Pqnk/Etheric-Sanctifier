@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
 
         while (true)
         {
-            Player.instance.gameObject.GetComponent<Player_AFSFOR>().ResetScorePlayer();
             SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Horn, 0.8f, player.transform.position);
 
             if ((currentWaveIndexGlobal) % 3 == 0)
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour
         waveInProgress = true;
         enemiesKilledThisWave = 0;
         enemiesToKillThisWave = wave.enemyToKill;
+        Player.instance.gameObject.GetComponent<Player_AFSFOR>().ResetScorePlayer();
 
         while (enemiesKilledThisWave < enemiesToKillThisWave)
         {
@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
         enemiesKilledThisWave = 0;
         enemiesToKillThisWave = 1;
         bossWaveActive = true;
+        Player.instance.gameObject.GetComponent<Player_AFSFOR>().ResetScorePlayer();
 
         Transform[] newWaypoints = { spawnPoints[1], spawnPoints[2], spawnPoints[3], spawnPoints[8], spawnPoints[9], spawnPoints[10] };
         Transform spawnPoint = newWaypoints[UnityEngine.Random.Range(0, newWaypoints.Length)];
