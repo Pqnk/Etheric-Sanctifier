@@ -683,13 +683,9 @@ PrefabInstance:
       propertyPath: rightController
       value: 
       objectReference: {fileID: 4747292314306283541}
-    - target: {fileID: 4903602072503535912, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.061
-      objectReference: {fileID: 0}
-    - target: {fileID: 4903602072503535912, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.017
+    - target: {fileID: 3145255865099417449, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
+      propertyPath: m_Name
+      value: Button - Play and Stop
       objectReference: {fileID: 0}
     - target: {fileID: 5974166552497631642, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -730,22 +726,6 @@ PrefabInstance:
     - target: {fileID: 5974166552497631642, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6205373391749590672, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2613
-      objectReference: {fileID: 0}
-    - target: {fileID: 6205373391749590672, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2399
-      objectReference: {fileID: 0}
-    - target: {fileID: 6430839258700636726, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.206
-      objectReference: {fileID: 0}
-    - target: {fileID: 6430839258700636726, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.275
       objectReference: {fileID: 0}
     - target: {fileID: 6970777979904676757, guid: 31c47fa9de0398a4ca84d0c8670911d7, type: 3}
       propertyPath: m_Name

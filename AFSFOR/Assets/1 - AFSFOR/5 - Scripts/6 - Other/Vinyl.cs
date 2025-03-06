@@ -18,26 +18,19 @@ public class Vinyl : MonoBehaviour
         UpdateTextUIVinyl();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void PlayOrStop()
     {
-        if (other.CompareTag("HandNaked"))
+        if(_isVinylActive)
         {
-            if (_isVinylActive)
-            {
-                SwitchToNext();
-            }
-            else
-            {
-                _vinylSource?.Play();
-                _isVinylActive = true;
-                SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(other.transform.position);
-            }
+            _vinylSource.Stop();
         }
-
-        UpdateTextUIVinyl();
+        else
+        {
+            _vinylSource.Play();
+        }
     }
 
-    private void SwitchToNext()
+    public void SwitchToNext()
     {
         if (_vinylMusics.Count == 0) return;
 
@@ -47,6 +40,19 @@ public class Vinyl : MonoBehaviour
         currentIndex = (currentIndex + 1) % _vinylMusics.Count;
         _vinylSource.clip = _vinylMusics[currentIndex];
         _vinylSource.Play();
+        UpdateTextUIVinyl();
+    }
+
+    public void SwitchToPrevious()
+    {
+        if (_vinylMusics.Count == 0) return;
+
+        SuperManager.instance.vfxManager.InstantiateVFX_vfxSwordImpact(this.transform.position);
+        _vinylSource.Stop();
+        currentIndex = (currentIndex - 1 + _vinylMusics.Count) % _vinylMusics.Count;
+        _vinylSource.clip = _vinylMusics[currentIndex];
+        _vinylSource.Play();
+        UpdateTextUIVinyl();
     }
 
     public void UpdatePitchMusic(float newPitch)
