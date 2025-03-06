@@ -50,12 +50,21 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnWaves());
     }
 
+    private void Update()
+    {
+        if (waveInProgress)
+        {
+            Player.instance.gameObject.GetComponent<Player_AFSFOR>().UpdateScore();
+        }
+    }
+
     IEnumerator SpawnWaves()
     {
         yield return new WaitForSeconds(waveInterval);
 
         while (true)
         {
+            Player.instance.gameObject.GetComponent<Player_AFSFOR>().ResetScorePlayer();
             SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Horn, 0.8f, player.transform.position);
 
             if ((currentWaveIndexGlobal) % 3 == 0)
@@ -71,6 +80,7 @@ public class GameManager : MonoBehaviour
             }
 
             KillAllEnemies();
+            waveInProgress = false;
             yield return new WaitForSeconds(waveInterval);
             currentWaveIndexGlobal++;
             Player.instance.gameObject.GetComponent<Player_AFSFOR>().alreadySetMaxScore = false;

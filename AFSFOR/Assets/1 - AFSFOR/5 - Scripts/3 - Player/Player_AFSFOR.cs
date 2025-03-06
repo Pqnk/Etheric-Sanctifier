@@ -74,14 +74,14 @@ public class Player_AFSFOR : MonoBehaviour
     {
         _playerCurrentScore = GameManager.instance.enemiesKilledThisWave;
         _UIPlayer.SetScore(_playerCurrentScore);
-        _playerMaxScore = GameManager.instance.enemiesToKillThisWave;
-        _UIPlayer.SetMaxScore(_playerMaxScore);
 
     }
 
     public void ResetScorePlayer()
     {
         _UIPlayer.ResetScore();
+        _playerMaxScore = GameManager.instance.enemiesToKillThisWave;
+        _UIPlayer.SetMaxScore(_playerMaxScore);
     }
     #endregion
 
