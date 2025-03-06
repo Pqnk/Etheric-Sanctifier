@@ -364,6 +364,8 @@ GameObject:
   - component: {fileID: 6157116281228071899}
   - component: {fileID: 6312777622140020660}
   - component: {fileID: 5958128189032117561}
+  - component: {fileID: 6890959443793363138}
+  - component: {fileID: 888780556295801263}
   m_Layer: 7
   m_Name: Walker
   m_TagString: Ghost
@@ -424,9 +426,10 @@ MonoBehaviour:
   _emissiveMatDetection: {fileID: 2100000, guid: f3970d27e87210640ad44add5532641d, type: 2}
   _emissiveMatDamage: {fileID: 2100000, guid: a6ad849267d501c498e5879acfa540c9, type: 2}
   _PrefabSoul: {fileID: 2906502802082612186, guid: 8a045c0597de0644c8fd63a82639f15e, type: 3}
-  idDead: 0
+  isDead: 0
   rb: {fileID: 0}
   target: {fileID: 0}
+  targetProjectile: {fileID: 0}
   scriptPlayer: {fileID: 0}
   isDetected: 0
   sM: {fileID: 0}
@@ -500,6 +503,48 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!135 &6890959443793363138
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146182413988385762}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 1.07, z: 0.65}
+--- !u!135 &888780556295801263
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146182413988385762}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0.88, z: 0.36}
 --- !u!1 &8347199884055003575
 GameObject:
   m_ObjectHideFlags: 0
