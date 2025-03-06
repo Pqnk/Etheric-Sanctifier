@@ -254,8 +254,6 @@ Transform:
   - {fileID: 9147741943328857347}
   - {fileID: 2663338740833054842}
   - {fileID: 6137439250498600321}
-  - {fileID: 5969989451241204212}
-  - {fileID: 1282950588229218010}
   m_Father: {fileID: 1397963559543982249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6121028081117305229
@@ -289,37 +287,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5381724013906598694}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!1 &6183086532410082709
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1282950588229218010}
-  m_Layer: 0
-  m_Name: Ghost Spawn Point 12
-  m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1282950588229218010
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6183086532410082709}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -3.8, y: 0.81999993, z: 18.73}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5381724013906598694}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7255692453635933225
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,36 +342,3 @@ MonoBehaviour:
   - {fileID: 9147741943328857347}
   - {fileID: 2663338740833054842}
   - {fileID: 6137439250498600321}
-  - {fileID: 5969989451241204212}
-  - {fileID: 1282950588229218010}
---- !u!1 &8810756989581569100
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5969989451241204212}
-  m_Layer: 0
-  m_Name: Ghost Spawn Point 11
-  m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5969989451241204212
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8810756989581569100}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -5.13, y: 5.8199997, z: 13.36}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5381724013906598694}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

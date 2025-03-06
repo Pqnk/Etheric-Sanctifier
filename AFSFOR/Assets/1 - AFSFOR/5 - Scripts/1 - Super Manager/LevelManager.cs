@@ -115,7 +115,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnSceneChange(Scene arg0, Scene arg1)
     {
-        SuperManager.instance.gameManagerAFSFOR.LaunchGameplay(_currentLevel);
+        //SuperManager.instance.gameManagerAFSFOR.LaunchGameplay(_currentLevel);
     }
 
     public GameObject FindInScene(LevelType levelType, string gameObjectName)

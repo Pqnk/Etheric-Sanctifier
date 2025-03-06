@@ -1534,6 +1534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: --ENVIRONMENT HUB--
       objectReference: {fileID: 0}
+    - target: {fileID: 5966527872158931612, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8290089013199497937, guid: d48934b0cb9681c4ba24770190790c42, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

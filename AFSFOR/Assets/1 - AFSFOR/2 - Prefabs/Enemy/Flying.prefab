@@ -100,7 +100,7 @@ MonoBehaviour:
   esquiveDistance: 3
   esquiveDuration: 0.3
   esquiveDetectionRadius: 5
-  esquiveChance: 50
+  esquiveChance: 60
   hasAttacked: 0
 --- !u!54 &6535094521278592331
 Rigidbody:

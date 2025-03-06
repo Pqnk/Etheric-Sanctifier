@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class UIPlayer : MonoBehaviour
@@ -11,6 +12,7 @@ public class UIPlayer : MonoBehaviour
     [SerializeField] private Slider _scoreBar;
     [SerializeField] private GameObject _damageUI;
     [SerializeField] private GameObject _diedText;
+    [SerializeField] private GameObject _waveText;
     [SerializeField] private float _damageUICoolDown = 1.0f;
     private Coroutine _coroutineDamageUI = null;
 
@@ -59,7 +61,7 @@ public class UIPlayer : MonoBehaviour
         else
         {
             StopCoroutine(_coroutineDamageUI);
-           _coroutineDamageUI = StartCoroutine(UIDamageCoolDown());
+            _coroutineDamageUI = StartCoroutine(UIDamageCoolDown());
         }
     }
     IEnumerator UIDamageCoolDown()
@@ -93,5 +95,10 @@ public class UIPlayer : MonoBehaviour
     public void ToggleUIDamage(bool activate)
     {
         _damageUI.SetActive(activate);
+    }
+
+    public void UpdateNumberWaveSurvived(int currentWaveSurvived)
+    {
+        _waveText.GetComponent<TMP_Text>().text = currentWaveSurvived.ToString();
     }
 }

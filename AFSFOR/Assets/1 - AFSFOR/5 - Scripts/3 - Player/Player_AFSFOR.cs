@@ -77,6 +77,11 @@ public class Player_AFSFOR : MonoBehaviour
 
     }
 
+    public void UpdateCurrentWave(int waveSurvived)
+    {
+        _UIPlayer.UpdateNumberWaveSurvived(waveSurvived);
+    }
+
     public void ResetScorePlayer()
     {
         _UIPlayer.ResetScore();

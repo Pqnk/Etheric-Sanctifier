@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96336794775325291}
   - component: {fileID: 2593828539237421031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2643057648275582448}
   - component: {fileID: 4408195238805338095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SP (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -143,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189914442598455953}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 811053250533810184}
   - component: {fileID: 1205040722503811644}
   - component: {fileID: 4446372717995663545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HeadBoss
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -282,10 +282,10 @@ MonoBehaviour:
   - {fileID: 6146182413988385762, guid: 23f92630f6a3b0e478ac80dfb569eeef, type: 3}
   - {fileID: 381790209181045063, guid: feb4f55dec53ed5439ee7cb375a3d4f3, type: 3}
   - {fileID: 4504508502494390500, guid: 923b2d9c5b574c54aaace95ea4825f7f, type: 3}
-  chargeDuration: 2
-  repliDuration: 2
-  vieRetirerAvantRepli: 30
-  timerBeforePatern: 3
+  chargeDuration: 1
+  repliDuration: 1.5
+  vieRetirerAvantRepli: 60
+  timerBeforePatern: 2.5
   hoverAmplitude: 0.2
   hoverSpeed: 3
   randomDirectionChangeTime: 3
@@ -348,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5858974504214674223}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5127974254596940635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912638927942894547}
   - component: {fileID: 6945739032773484656}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SP (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 7160622662914126064}
   - component: {fileID: 1232429181383381184}
   - component: {fileID: 2653810330584544942}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 3312240221426896304}
   - component: {fileID: 8945319334123949076}
   - component: {fileID: 6197574200408696667}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010572674784686918}
   - component: {fileID: 931185707181201786}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SP (3)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -699,7 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5002499738457745600}
   - component: {fileID: 568485360778128464}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 5156089421321635939}
   - component: {fileID: 3410206215811068194}
   - component: {fileID: 1145625330382524452}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -819,7 +819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5534065041311855561}
   - component: {fileID: 5007204524960190131}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SP (4)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -864,7 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 529058224611393086}
   - component: {fileID: 2204946595945922207}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SP (5)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -963,9 +963,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6338378370410241065, guid: d38ed6df5fabcb74eb6197b1d5755df5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d38ed6df5fabcb74eb6197b1d5755df5, type: 3}
       propertyPath: m_Name
       value: SM_HeadGoat
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d38ed6df5fabcb74eb6197b1d5755df5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185562342123193875, guid: d38ed6df5fabcb74eb6197b1d5755df5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

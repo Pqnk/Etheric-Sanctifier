@@ -64,7 +64,9 @@ public class GameManager : MonoBehaviour
 
         while (true)
         {
-            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Horn, 0.8f, player.transform.position);
+            Player.instance.gameObject.GetComponent<Player_AFSFOR>().UpdateCurrentWave(currentWaveIndexGlobal);
+
+           SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Horn, 0.8f, player.transform.position);
 
             if ((currentWaveIndexGlobal) % 3 == 0)
             {
@@ -82,6 +84,7 @@ public class GameManager : MonoBehaviour
             waveInProgress = false;
             yield return new WaitForSeconds(waveInterval);
             currentWaveIndexGlobal++;
+
             Player.instance.gameObject.GetComponent<Player_AFSFOR>().alreadySetMaxScore = false;
         }
     }

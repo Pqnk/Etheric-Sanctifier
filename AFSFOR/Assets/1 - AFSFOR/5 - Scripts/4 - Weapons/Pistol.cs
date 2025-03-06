@@ -77,7 +77,7 @@ public class Pistol : Weapon
             if (chargingSound)
             {
                 chargingSound = false;
-                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BigShootReady, 0.5f, shootPoint.position);
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.BigShootReady, .8f, shootPoint.position);
             }
             transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().SetMaterials(fullOfMana_Mat);
         }
@@ -239,7 +239,7 @@ public class Pistol : Weapon
     //  ###########################################
     private void PlaySoundShoot()
     {
-        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Shoot, 0.5f, shootPoint.position);
+        SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Shoot, 0.2f, shootPoint.position);
     }
     private void PlaySoundBigShoot()
     {
