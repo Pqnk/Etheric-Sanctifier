@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Enemy))]
 public class HeadBoss : MonoBehaviour
@@ -13,6 +14,7 @@ public class HeadBoss : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] GameObject projectileHeavyPrefab;
     [SerializeField] Transform firePoint;
+    [SerializeField] Transform UIPoint;
     [SerializeField] Transform[] spawnPoints;
 
     [Header("Info Spawn Enemy")]
@@ -50,10 +52,14 @@ public class HeadBoss : MonoBehaviour
         StartCoroutine(BossPatternRoutine());
         PointsLookAtPlayer();
         enemy.InitStatEnemy(SuperManager.instance.damageManager.lifeBOSS, SuperManager.instance.damageManager.damageBOSS, SuperManager.instance.damageManager.speedBOSS);
+        enemy.rotationSpeed = SuperManager.instance.damageManager.rotationSpeedBOSS;
+        UIPoint.GetComponentInChildren<Slider>().maxValue = SuperManager.instance.damageManager.lifeBOSS;
     }
 
     void Update()
     {
+        UIPoint.GetComponentInChildren<Slider>().value = enemy.currentLife;
+
         if (enemy.target != null && canMove && !isAttacking && !enemy.idDead)
         {
             Move();
@@ -63,6 +69,7 @@ public class HeadBoss : MonoBehaviour
     private void PointsLookAtPlayer()
     {
         firePoint.GetComponent<LookAtPlayer>().target = enemy.target;
+        UIPoint.GetComponent<LookAtPlayer>().target = enemy.target;
 
         foreach (var item in spawnPoints)
         {

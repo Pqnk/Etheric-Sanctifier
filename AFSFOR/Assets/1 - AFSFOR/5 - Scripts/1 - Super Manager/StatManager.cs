@@ -33,6 +33,7 @@ public class StatManager : MonoBehaviour
     public int damageBOSS;
     public int lifeBOSS;
     public float speedBOSS;
+    public float rotationSpeedBOSS;
 
 
     [Header("UI")]
