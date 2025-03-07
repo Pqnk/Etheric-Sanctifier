@@ -190,10 +190,9 @@ public class Enemy : MonoBehaviour
         rb.AddForce((-1 * this.gameObject.transform.forward + Vector3.up) * powerSlap * 10);
         yield return new WaitForSeconds(2.0f);
         rb.isKinematic = true;
-
         if (this.gameObject.TryGetComponent<Walker>(out Walker w))
         {
-            rb.useGravity = true;
+            rb.isKinematic = false;
         }
     }
 

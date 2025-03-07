@@ -32,7 +32,7 @@ public class Vinyl : MonoBehaviour
             _vinylSource.Stop();
             _isVinylActive = false;
             _musicVFX.SetActive(false);
-            _buttonPlay.GetComponent<MeshRenderer>().material = _stop;
+            _buttonPlay.GetComponent<SkinnedMeshRenderer>().material = _stop;
             UpdateTextUIVinyl();
         }
         else
@@ -40,7 +40,7 @@ public class Vinyl : MonoBehaviour
             _vinylSource.Play();
             _isVinylActive = true;
             _musicVFX.SetActive(true);
-            _buttonPlay.GetComponent<MeshRenderer>().material = _play;
+            _buttonPlay.GetComponent<SkinnedMeshRenderer>().material = _play;
             UpdateTextUIVinyl();
         }
     }

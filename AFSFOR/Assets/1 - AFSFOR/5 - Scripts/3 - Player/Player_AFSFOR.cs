@@ -121,14 +121,17 @@ public class Player_AFSFOR : MonoBehaviour
         _playerCurrentHealth -= (int)Mathf.Round(damage);
         SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Ouch, 0.5f, this.transform.position);
 
-        if (_playerCurrentHealth <= 0 && !_playerIsDead)
+        if (_playerCurrentHealth <= 0)
         {
-            Weapon.areWeaponsActive = false;
-            _playerIsDead = true;
-            _UIPlayer.ToggleDeadText(true);
-            _UIPlayer.ToggleUIDamage(true);
-            SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Death, 0.5f, this.transform.position);
-            StartCoroutine(LoadingHUb());
+            if (!_playerIsDead)
+            {
+                Weapon.areWeaponsActive = false;
+                _UIPlayer.ToggleDeadText(true);
+                _UIPlayer.ToggleUIDamage(true);
+                SuperManager.instance.soundManager.PlaySoundAtLocation(SoundType.Death, 0.5f, this.transform.position);
+                _playerIsDead = true;
+                StartCoroutine(LoadingHUb());
+            }
         }
     }
 
@@ -136,6 +139,7 @@ public class Player_AFSFOR : MonoBehaviour
     {
         _playerCurrentHealth = _playerMaxHealth;
         _UIPlayer.SetHealth(_playerCurrentHealth);
+        _playerIsDead = false;
     }
 
     private void InitializePlayerFromDamageManager()
